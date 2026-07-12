@@ -322,6 +322,26 @@ Levantamento feito a partir das pastas de estudo do candidato (`01_Concurso_Cama
 
 ---
 
+## 10-C. ⚠️ PREVIEW do provável edital novo (baseado em edital recente da Câmara)
+
+Fonte: edital recente da Câmara dos Deputados (outro cargo — Analista Legislativo / Processo Legislativo e Gestão), seção **14.2.2 Conhecimentos Gerais**. Como o Cebraspe tende a padronizar os básicos entre cargos do mesmo período, há **alta probabilidade** de o edital novo de Eng. Civil repetir essa estrutura. **Confirmar quando o edital sair.**
+
+**Delta vs. o edital 2012 (o que provavelmente MUDA nos básicos):**
+
+| Disciplina | 2012 | Edital recente (Conhec. Gerais) | Ação |
+|---|:---:|:---:|---|
+| Língua Portuguesa | ✅ | ✅ (praticamente igual) | Manter (material OK) |
+| Língua Inglesa | ✅ | ✅ | Manter (material OK) |
+| **Raciocínio Lógico e Analítico** | ❌ | 🆕 **Incluído** | 🔴 NOVO — lógica proposicional, tabelas-verdade, equivalências, contagem/probabilidade, falácias, estatística |
+| Direito Administrativo | ✅ | ✅ ampliado | 🟠 Atualizar: **LGPD 13.709/18, LAI 12.527/11, Lei 9.784/99** |
+| **Administração Pública** | ❌ | 🆕 **Incluído** | 🔴 NOVO — governança, accountability, políticas públicas, reformas administrativas, OS/OSCIP/agências |
+| Direito Constitucional | ✅ (básico) | vira específico naquele cargo | Manter; confirmar posição no edital novo |
+| Informática → **TI e Dados** | ✅ (IE/Outlook/BrOffice) | 🔄 Modernizada | Aguardar edital. Escopo provável: Win 10/11, **M365 (Word/Excel/PPT/OneDrive/SharePoint/Teams)**, redes (Edge/Chrome/Firefox), nuvem, **segurança e governança digital (backup, vírus, phishing/pharming, antivírus/firewall)**, **IA e técnicas de prompts**, **Ciência de Dados**, ética digital |
+
+**Módulos novos a produzir (baixo risco de mudança — pode adiantar):** Raciocínio Lógico e Analítico; Administração Pública; atualização de Direito Adm. (LGPD/LAI/9.784). **Módulo a pré-montar e confirmar:** TI e Dados (Informática modernizada).
+
+---
+
 ## 11. Próximos passos imediatos
 
 1. **Suba seus materiais de estudo** (apostilas, PDFs, índices) nas pastas `/material/basicos` e `/material/especificos`. Assim eu **mapeio cada material ao bloco correspondente** do §4 e aponto lacunas.
