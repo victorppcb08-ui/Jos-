@@ -308,8 +308,9 @@ Levantamento feito a partir das pastas de estudo do candidato (`01_Concurso_Cama
 | Tema | Peso na prova | Status | Ação |
 |---|:---:|:---:|---|
 | **Manutenção predial (normativa: NBR 5674/15575/14037)** | parte dos ~14% | ✅ Coberto (aula Prof. Marcus Campiteli, 52 p.) | Estudar da aula |
-| 🔴 **Patologias das construções** | parte dos ~14% da P2 (+ discursiva) | ⚠️ A confirmar / provável lacuna | Gerar módulo se faltar |
-| 🔴 **Recuperação de estruturas de concreto** | parte dos ~14% da P2 (+ discursiva) | ⚠️ A confirmar / provável lacuna | Gerar módulo se faltar |
+| **Patologias das construções** | parte dos ~14% da P2 (+ discursiva) | ✅ Coberto (aula Patologias e Recuperação, 72 p.) | Estudar da aula |
+| **Recuperação de estruturas de concreto** | parte dos ~14% da P2 (+ discursiva) | ✅ Coberto (mesma aula) | Estudar da aula |
+| 🟡 **Ensaios de avaliação do concreto** (esclerometria, pacometria, testemunho) | subponto (discursiva EC3) | ⚠️ Não visto na aula | Complementar (módulo curto) |
 | 🔴 **Informática** | ~16% da P1 | ⚠️ Lacuna | Gerar módulo (resumo + questões) |
 | 🟡 **Segurança do trabalho / NR-18** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
 | 🟡 **Complementares (elevadores, AC/ventilação, combate a incêndio)** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
