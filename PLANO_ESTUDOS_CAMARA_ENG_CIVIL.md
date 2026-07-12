@@ -310,10 +310,13 @@ Levantamento feito a partir das pastas de estudo do candidato (`01_Concurso_Cama
 | **Manutenção predial (normativa: NBR 5674/15575/14037)** | parte dos ~14% | ✅ Coberto (aula Prof. Marcus Campiteli, 52 p.) | Estudar da aula |
 | **Patologias das construções** | parte dos ~14% da P2 (+ discursiva) | ✅ Coberto (aula Patologias e Recuperação, 72 p.) | Estudar da aula |
 | **Recuperação de estruturas de concreto** | parte dos ~14% da P2 (+ discursiva) | ✅ Coberto (mesma aula) | Estudar da aula |
-| 🟡 **Ensaios de avaliação do concreto** (esclerometria, pacometria, testemunho) | subponto (discursiva EC3) | ⚠️ Não visto na aula | Complementar (módulo curto) |
-| 🔴 **Informática** | ~16% da P1 | ⚠️ Lacuna | Gerar módulo (resumo + questões) |
-| 🟡 **Segurança do trabalho / NR-18** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
-| 🟡 **Complementares (elevadores, AC/ventilação, combate a incêndio)** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
+| **Segurança do trabalho / NR-18 + Canteiro** | ~4% da P2 | ✅ Coberto (aula Canteiro e NR-18, 50 p.) | Estudar da aula |
+| **Combate a incêndio** (NBR 13714, 9077) | parte de complementares | ✅ Coberto (aula Prevenção de Incêndios, 70 p.) | Estudar da aula |
+| **Desempenho (NBR 15575)** | transversal | ✅ Coberto (aula Desempenho, 16 p. + pasta) | Estudar |
+| **Construções sustentáveis** (PBQP-H, ISO 14000, LEED, AQUA) | bônus (provável no novo edital) | ✅ Coberto (aula, 26 p.) | Estudar |
+| 🔴 **Informática** | ~16% da P1 | ❌ **Lacuna** | **Gerar módulo (resumo + questões)** |
+| 🟡 **Complementares: elevadores + ar-condicionado/ventilação/exaustão** | subponto (~2-3%) | ⚠️ Lacuna pequena | Gerar módulo curto |
+| 🟡 **Ensaios de avaliação do concreto** (esclerometria, pacometria, testemunho) | subponto (discursiva EC3) | ⚠️ Não visto na aula | Gerar módulo curto |
 
 > As lacunas somam **> 30% dos pontos objetivos**. Preenchê-las é prioridade — serão produzidas como módulos próprios (resumo enxuto + números de norma + bateria de questões Cebraspe) e salvas em `/material_gerado`.
 
