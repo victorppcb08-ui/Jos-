@@ -286,6 +286,38 @@ Não elimina, mas **desempata a vaga**. Some pontos com: **pós-graduação** (e
 
 ---
 
+## 10-B. Diagnóstico do SEU material (pastas) e plano de lacunas
+
+Levantamento feito a partir das pastas de estudo do candidato (`01_Concurso_Camara_Dep_Engenharia`).
+
+**Conhecimentos Básicos — `01_Matérias_Conhec_Básicos`:**
+
+| Disciplina (edital) | Material do candidato | Peso 2012 | Status |
+|---|---|:---:|:---:|
+| Língua Portuguesa | `01 - Português` | 29 | ✅ Coberto |
+| Língua Inglesa | `02 - Inglês` | 15 | ✅ Coberto |
+| Direito Constitucional | `04 - Dir Constitucional` | 20 | ✅ Coberto |
+| Direito Administrativo | `05 - Dir Administrativo` | 20 | ✅ Coberto |
+| **Noções de Informática** | — | **16** | 🔴 **LACUNA** |
+| Banco de questões | `TEC_CONCURSOS` | — | ✅ (motor do método) |
+
+**Conhecimentos Específicos — `02_Conhec_Especificos`** (12 pastas): Sondagem, Fundação, Concreto, Planejamento e Controle, Orçamentação, Fiscalização, Hidráulica, Alvenaria/Piso/Pintura/Esquadria/Imperm., AUD Edificações, Desempenho/Ambiente/Canteiro, Elétrica, Estrutura Metálica. → cobre fundações, estruturas, orçamento, planejamento, fiscalização, hidráulica, elétrica, execução/vedações, canteiro e inspeção.
+
+**Lacunas confirmadas (candidato declarou não possuir):**
+
+| Tema | Peso na prova | Status | Ação |
+|---|:---:|:---:|---|
+| **Manutenção predial (normativa: NBR 5674/15575/14037)** | parte dos ~14% | ✅ Coberto (aula Prof. Marcus Campiteli, 52 p.) | Estudar da aula |
+| 🔴 **Patologias das construções** | parte dos ~14% da P2 (+ discursiva) | ⚠️ A confirmar / provável lacuna | Gerar módulo se faltar |
+| 🔴 **Recuperação de estruturas de concreto** | parte dos ~14% da P2 (+ discursiva) | ⚠️ A confirmar / provável lacuna | Gerar módulo se faltar |
+| 🔴 **Informática** | ~16% da P1 | ⚠️ Lacuna | Gerar módulo (resumo + questões) |
+| 🟡 **Segurança do trabalho / NR-18** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
+| 🟡 **Complementares (elevadores, AC/ventilação, combate a incêndio)** | ~4% da P2 | ⚠️ A confirmar | Gerar módulo se faltar |
+
+> As lacunas somam **> 30% dos pontos objetivos**. Preenchê-las é prioridade — serão produzidas como módulos próprios (resumo enxuto + números de norma + bateria de questões Cebraspe) e salvas em `/material_gerado`.
+
+---
+
 ## 11. Próximos passos imediatos
 
 1. **Suba seus materiais de estudo** (apostilas, PDFs, índices) nas pastas `/material/basicos` e `/material/especificos`. Assim eu **mapeio cada material ao bloco correspondente** do §4 e aponto lacunas.
