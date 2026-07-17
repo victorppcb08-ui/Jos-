@@ -109,6 +109,19 @@ Erros viram anotação no seu caderno de recorrências. Foque nos blocos de maio
   materiais cerâmicos, vidro etc.)
 - **6.4** Controle de execução de obras e serviços
 
+### BLOCO 7 — LEI Nº 14.133/2021 (LICITAÇÕES E CONTRATOS) ⭐ *provável no novo edital*
+> A nova Lei de Licitações e Contratos (**Lei nº 14.133/2021**, que revogou a **Lei nº 8.666/1993**)
+> rege contratação, fiscalização, execução, pagamentos e itens dos editais. **Não constava** do
+> edital técnico de 2012, mas é o assunto **mais cobrado** pelo Cebraspe em 2024–2025 e deve
+> integrar o próximo edital. Trate-o como bloco de primeira linha.
+- **7.1** Modalidades, critérios de julgamento, dispensa e inexigibilidade
+- **7.2** ETP, anteprojeto, projeto básico/executivo, edital
+- **7.3** Regimes de execução (empreitada por preço global/unitário, contratação integrada e semi-integrada)
+- **7.4** Contratos: alterações (25% / 50% reforma), garantias, matriz de riscos, extinção
+- **7.5** Fiscalização e gestão de contratos, recebimento, ART, medição
+- **7.6** Pagamentos, reajuste × repactuação, ordem cronológica, PNCP
+- **7.7** Serviços contínuos, prorrogação, cláusulas obrigatórias
+
 ---
 
 ## 4. Cronograma de 65 dias (da publicação do edital até a prova)
@@ -136,13 +149,14 @@ Cada bloco recebe dias proporcionais ao seu peso histórico na prova (ver Seçã
 | 35–37 | **Bloco 5.4 / 5.5 — Patologias e recuperação de estruturas** | idem |
 | 38–40 | **Bloco 6 — Fiscalização, medições, controle de materiais e execução** | idem |
 
-### Fase 2 — Discursiva + revisão (Dias 41 a 55)
+### Fase 2 — Lei 14.133 + Discursiva + revisão (Dias 41 a 55)
 | Dias | Foco |
 |------|------|
-| 41–43 | **Bloco 4.3 / 4.1 — Canteiro e programação de obras** + revisão erros Fase 1 |
-| 44–46 | **Bloco 5.1 / 4.14 / 6.1 — Manutenção predial e normas técnicas (ABNT/NRs)** |
-| 47–50 | **Treino da P3 (discursiva):** 3 estudos de caso por semana. Temas quentes: patologia + recuperação de concreto; laudo de mudança de uso/carregamento; análise de cronograma atrasado (ver casos reais de 2012 na Seção 7) |
-| 51–55 | **Revisão dos cadernos de erro** + refazer as questões que você errou |
+| 41–44 | **Bloco 7 — Lei 14.133/2021** ⭐ (modalidades, dispensa/inexigibilidade, regimes de execução, alterações 25%/50%, garantias, matriz de riscos) — resolver as questões do Bloco 7 no banco |
+| 45–46 | **Bloco 7 — Lei 14.133/2021 (cont.):** fiscalização/gestão de contratos, recebimento, ART, medição, pagamentos, reajuste × repactuação, PNCP |
+| 47–48 | **Bloco 4.3 / 5.1 / 6.1 — Canteiro, manutenção predial e normas técnicas (ABNT/NRs)** + revisão erros Fase 1 |
+| 49–52 | **Treino da P3 (discursiva):** temas quentes: patologia + recuperação de concreto; laudo de mudança de uso/carregamento; análise de cronograma atrasado (casos reais de 2012 na Seção 7) |
+| 53–55 | **Revisão dos cadernos de erro** + refazer as questões que você errou |
 
 ### Fase 3 — Reta final / simulados (Dias 56 a 65)
 | Dias | Foco |

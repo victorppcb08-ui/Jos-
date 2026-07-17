@@ -320,12 +320,124 @@ Formato de cada questão: **[FONTE-item]** `Gabarito` — enunciado condensado.
 
 ---
 
+# BLOCO 7 — LEGISLAÇÃO: LEI Nº 14.133/2021 (Licitações e Contratos) ⭐ ALTA PRIORIDADE
+
+> **Por que é núcleo de estudo (e não "fora do edital"):** a Lei nº 14.133/2021 substituiu a
+> antiga Lei nº 8.666/1993 e passou a reger **contratação, fiscalização, execução, pagamentos e
+> editais** de obras e serviços de engenharia. Ela **deve constar do próximo edital da Câmara** e é
+> o assunto **mais cobrado** nas provas Cebraspe de 2024–2025. Estude com o mesmo peso dos blocos
+> técnicos. *(Referência: sempre a 14.133 — a 8.666/1993 está revogada.)*
+
+## 7.1 — Modalidades, critérios de julgamento, dispensa e inexigibilidade
+- **[CODEVASF-67]** `E` — A adjudicação é facultativa no processo de licitação. *(É ato vinculado/obrigatório ao vencedor.)*
+- **[CODEVASF-68]** `C` — Homologação: autoridade competente confirma procedimentos e resultados.
+- **[CODEVASF-69]** `E` — O objeto deve ser definido de maneira genérica para ampliar a participação. *(Deve ser preciso.)*
+- **[MPGO-71]** `C` — Pregão de manutenção predial (serviço comum) sem quantitativo preciso: admite julgamento por maior desconto.
+- **[MPGO-75]** `C` — O objeto deve ser definido de forma concisa, clara e precisa; caracterização inadequada gera nulidade.
+- **[TCEAC-An-57]** `E` — Pregão pode ser usado para obras; obrigatório para bens/serviços comuns. *(Pregão NÃO se aplica a obras.)*
+- **[TCEAC-An-68]** `E` — (Definição de maior desconto.) *(Gabarito E.)*
+- **[TCEAC-An-69]** `E` — É vedado contratar obras de engenharia por sistema de registro de preços. *(Gabarito E — a 14.133 admite SRP para obras em hipóteses.)*
+- **[TCEAC-An-70]** `E` — A licitação é dispensável quando a competição é inviável. *(Competição inviável = INEXIGIBILIDADE, não dispensa.)*
+- **[TCEMG-31]** `(C)` — Modalidades para obras públicas: **concorrência e diálogo competitivo**. *(pregão/leilão/concurso não servem p/ obra.)*
+- **[TCEMG-33]** `(D)` — Encerradas julgamento/habilitação e recursos, a autoridade pode **revogar por conveniência** ou **anular por ilegalidade**. *(alt. correta.)*
+- **[TCEMG-34]** `(C)` — (Modalidades corretamente citadas.)
+
+## 7.2 — ETP, anteprojeto, projeto básico/executivo, edital
+- **[TCEAC-An-66]** `X` — Anulação de ofício por ilegalidade insanável (anulada).
+- **[MPGO-69]** `E` — O projeto básico deve apenas caracterizar aspectos gerais da obra. *(Deve ter detalhamento suficiente; confunde PB com anteprojeto.)*
+- **[MPGO-85]** `E` — Edital deve prever reajuste com data-base vinculada à **assinatura do contrato**. *(É a data do orçamento estimado.)*
+- **[CODEVASF-112]** `C` — O edital pode exigir percentual mínimo de mão de obra de egressos do sistema prisional.
+- **[CODEVASF-113]** `E` — Quando a avaliação prévia do local for imprescindível, a vistoria prévia será obrigatória. *(A 14.133 veda exigir vistoria obrigatória; admite declaração.)*
+- **[TCEMG-32]** `(D)` — Anteprojeto e ETP (itens sobre disputa por autor e certificação INMETRO). *(alt. correta.)*
+- **[STJ-97]** `E` — Obra com paralisação > 1 mês: contratado deve divulgar aviso público de obra paralisada. *(Gabarito E.)*
+
+## 7.3 — Regimes de execução (empreitada, contratação integrada e semi-integrada)
+- **[TCEAC-An-59]** `C` — Empreitada por preço global exige projeto com quantitativos de alta acurácia e detalhamento completo.
+- **[TCEAC-An-67]** `C` — Na semi-integrada, o contratado elabora e desenvolve o **projeto executivo**.
+- **[TCEAC-An-114]** `E` — Na semi-integrada, o contratado elabora **projeto básico e executivo**. *(O básico é da administração; só o executivo é do contratado.)*
+- **[TCEAC-An-117]** `C` — Na semi-integrada, em regra não se admitem aditivos por variação de quantitativos.
+- **[TCEAC-An-120]** `C` — Na semi-integrada, a medição é feita por etapas conforme o cronograma físico-financeiro.
+- **[STJ-60]** `C` — Semi-integrada: remuneração por preços unitários, medição por quantidades de itens.
+- **[TCEAC-An-91]** `E` — A empreitada por preço global foi substituída pela contratação por tarefa. *(Falso.)*
+- **[TCEAC-An-92]** `E` — Contratação integrada é obrigatória para empreendimentos acima de R$ 10 milhões. *(Falso.)*
+
+## 7.4 — Contratos: alterações, garantias, matriz de riscos, extinção
+- **[MPGO-60]** `C` — Alteração unilateral quali/quantitativa: limite de 25% (acréscimos/supressões) e **50% para reforma** (acréscimo).
+- **[TCEAC-An-55]** `E` — Contrato de reforma alterado uni/quanti/quali com limite de acréscimos e supressões de 50%. *(Supressão é 25%.)*
+- **[TCEAC-An-56]** `C` — Extinção contratual formalmente motivada, com contraditório e ampla defesa.
+- **[TCEAC-An-71]** `E` — Modificação do regime de execução por inaplicabilidade técnica → alteração unilateral. *(Gabarito E.)*
+- **[TCEAC-An-72]** `C` — Aditamento: preços unitários de itens novos fixados pela relação geral entre a proposta e o orçamento-base.
+- **[TCEAC-An-73]** `C` — É facultado que a seguradora assuma a execução/conclusão da obra (seguro-garantia previsto em edital).
+- **[TCEAC-An-106]** `C` — Atraso na liberação de área sujeita a desapropriação é motivo para extinção do contrato.
+- **[MPGO-70]** `E` — É obrigatória a exigência de garantia do licitante em obras de engenharia. *(É facultativa, salvo hipóteses.)*
+- **[MPGO-114]** `C` — Matriz de riscos: cláusula definidora de riscos e responsabilidades e do equilíbrio econômico-financeiro.
+- **[STJ-99]** `C` — Obras de grande vulto: edital deve prever programa de integridade em até 6 meses.
+- **[STJ-100]** `E` — Matriz de riscos é obrigatória em todas as obras públicas. *(Obrigatória em grande vulto/integrada/semi-integrada.)*
+- **[TCEAC-An-101]** `E` — Grande vulto: poderá ser exigida garantia de até 10% do valor inicial. *(Gabarito E — em grande vulto o limite chega a 30%.)*
+- **[CODEVASF-118]** `E` — Nos contratos continuados, não é permitida a substituição da apólice de seguro-garantia. *(É permitida.)*
+- **[MPGO-58]** `E` — Aditivo pode ser formalizado em até 90 dias após antecipar a execução de serviços. *(Gabarito E.)*
+- **[TCEAC-An-58]** `C` — Execução deve ter lastro contratual; aditivos antes da autorização/execução, ainda que sem pagamento antecipado.
+- **[TCEAC-An-60]** `C` — Ordem de paralisação/suspensão prorroga automaticamente o cronograma pelo tempo parado.
+
+## 7.5 — Fiscalização e gestão de contratos, recebimento, ART, medição
+- **[CODEVASF-114]** `C` — Medição de obras/serviços de engenharia será mensal, sempre que compatível.
+- **[TCEAC-An-100]** `C` — Medição mensal sempre que compatível com o regime de execução.
+- **[MPGO-65]** `E` — Para obras/serviços de engenharia, a medição será bimestral. *(É mensal.)*
+- **[TCEAC-An-102]** `E` — Recebimento do objeto: provisório, definitivo e "pendente de regularização". *(Só há provisório e definitivo.)*
+- **[TCEAC-An-103]** `C` — Quantitativo de contratos por agente e complexidade devem orientar a designação do fiscal.
+- **[TCEAC-An-104]** `E` — Fiscalização **técnica** acompanha obrigações previdenciárias, fiscais e trabalhistas. *(Isso é fiscalização administrativa.)*
+- **[TCEAC-An-105]** `C` — O gestor do contrato realiza o recebimento definitivo do objeto.
+- **[TCEAC-An-107]** `E` — Administração tem até 15 dias úteis para decidir sobre solicitações/reclamações. *(Prazo é de 1 mês.)*
+- **[TCEAC-An-112]** `C` — Recebimento provisório pelo fiscal, mediante termo detalhado (exigências técnicas cumpridas).
+- **[TCEAC-An-113]** `E` — Fiscal servidor, por ter ART de cargo, dispensa a ART de fiscalização. *(A ART de fiscalização é exigível.)*
+- **[TCEAC-An-115]** `C` — O fiscal pode ser auxiliado por assessoria jurídica e controle interno.
+- **[TCEAC-An-116]** `C` — Engenheiro do acervo apresentado deve ser mantido; troca só com aprovação da administração.
+- **[TCEAC-An-119]** `E` — Diante de defeitos de materiais, o fiscal providencia aditivos para comprar novos materiais. *(Ônus do contratado.)*
+- **[MPGO-111]** `E` — Registro do profissional no CREA dispensa a ART pela natureza da atividade. *(A ART é obrigatória.)*
+- **[MPGO-109]** `E` — Custos de correção de vícios de obra recém-concluída são absorvidos pelo ente público. *(Ônus do contratado.)*
+- **[MPGO-110]** `C` — O laudo deve conter diagnóstico da situação e indicação do proprietário do bem.
+- **[STJ-59]** `E` — Parcela incontroversa só liberada após o recebimento definitivo da obra. *(A incontroversa é liberada normalmente.)*
+- **[STJ-98]** `C` — Gerenciamento de obras/serviços = serviço técnico especializado de natureza intelectual.
+- **[CODEVASF-111]** `C` — Elaboração de parecer é serviço técnico especializado predominantemente intelectual.
+- **[TCESC-41]** `C` — Minutas de editais e contratos previamente examinadas/aprovadas pela assessoria jurídica.
+- **[TCESC-47]** `C` — Contratado deve manter, durante a execução, as condições de habilitação/qualificação.
+- **[TCESC-48]** `E` — Executado o contrato, o objeto será recebido definitivamente pelo responsável pela fiscalização. *(Recebimento definitivo cabe a comissão/gestor, conforme o valor.)*
+
+## 7.6 — Pagamentos, reajuste, repactuação, ordem cronológica
+- **[CODEVASF-115]** `E` — "Reajustamento" é o reequilíbrio de serviços contínuos com dedicação exclusiva de mão de obra. *(Esse é a REPACTUAÇÃO.)*
+- **[CODEVASF-119]** `C` — Serviços contínuos com dedicação exclusiva e interregno de 1 ano: reajuste por **repactuação**.
+- **[MPGO-113]** `C` — Remuneração variável vinculada a desempenho/metas/qualidade/sustentabilidade/prazos, prevista no edital.
+- **[MPGO-112]** `C` — Havendo controvérsia parcial, a parcela incontroversa é liberada no prazo do pagamento.
+- **[TCEAC-An-96]** `E` — Despesas de serviços sustentáveis podem ter a ordem cronológica de pagamento alterada. *(Gabarito E.)*
+- **[TCEAC-An-98]** `E` — Só contratos com duração > 1 ano devem ter cláusula de reajuste. *(Gabarito E.)*
+- **[TCEAC-An-99]** `C` — Divulgação no PNCP é condição indispensável para a eficácia do contrato e aditamentos.
+- **[TCEAC-An-108]** `C` — EPP com risco de descontinuidade: ordem cronológica de pagamento pode ser alterada, com justificativa.
+- **[TCEAC-An-109]** `C` — Pagamento efetuado após a regular liquidação e emissão da ordem de pagamento.
+- **[TCEAC-An-110]** `E` — Reajustes, mesmo os previstos em contrato, exigem alteração por termo aditivo. *(Reajuste previsto dispensa aditivo.)*
+- **[TCEAC-An-111]** `E` — Índice que não reflete a variação → cláusulas monetárias alteradas unilateralmente sem concordância. *(Gabarito E.)*
+- **[TJES-53]** `C` — Reajuste em contratos públicos é anual; vedada antecipação da data-base para prazo inferior ao legal.
+
+## 7.7 — Serviços contínuos, prorrogação, cláusulas obrigatórias
+- **[CODEVASF-116]** `C` — Serviços/fornecimentos contínuos podem ser prorrogados sucessivamente (vigência decenal), com vantajosidade atestada.
+- **[CODEVASF-117]** `C` — A administração pode celebrar contratos de serviços/fornecimentos contínuos.
+- **[CODEVASF-120]** `E` — "Serviços contínuos são os que impõem prestação em período predeterminado, prorrogável até concluir o objeto." *(Isso descreve contratação por escopo.)*
+- **[TCEAC-An-97]** `C` — O regime de execução é cláusula necessária em todo contrato de obra.
+- **[MPGO-73]** `C` — Técnica e preço (projeto básico R$ 500 mil): proporção de 70% de valoração da proposta técnica.
+- **[MPGO-74]** `E` — Qualificação técnico-profissional (CAT) pode ser provada por meios alternativos previstos no edital. *(Gabarito E.)*
+
+## 7.8 — Correlatas (leis próprias — confira se o edital cobra): PPP e concessões
+- **[TCEAC-An-93]** `C` — Concessão (Lei 8.987) delega o serviço, mas não transfere a titularidade.
+- **[TCEAC-An-94]** `E` — Permissão de serviço público é a título precário e **dispensa** licitação. *(Exige licitação.)*
+- **[TCEAC-An-95]** `E` — Concessão patrocinada (Lei 11.079): remuneração **exclusivamente** por tarifas. *(Há também contraprestação pública.)*
+- **[MPGO-72]** `C` — PPP: estacionamento de órgão público por concessão patrocinada (contraprestação pública + tarifas).
+
+---
+
 # APÊNDICE A — FORA DO EDITAL (baixa/nenhuma correlação técnica com a Câmara)
 
 > Não priorize no estudo para a Câmara. Listadas por prova para referência.
+> *(As questões de **Lei 14.133/2021** foram promovidas ao **BLOCO 7** — não estão mais aqui.)*
 
-- **Lei nº 14.133/2021 (licitações, modalidades, contratos, aditivos, dispensa/inexigibilidade), contratos administrativos, PPP (Lei 11.079), concessões (Lei 8.987), registro de preços:**
-  CODEVASF 67–69, 111–120 · STJ 97–100 · MPGO 58–60, 69–75, 85, 109–115 · TCEAC-An 55–61, 65–80, 91–120 (grande parte) · TCEAC-Au (parte administrativa) · TCEMG 31–34, 42–48, 52–56 · TCESC 41–55 · TJES 53–60, 66–67(borderline) · TCERS 63–100 (quase toda).
 - **Licenciamento ambiental (CONAMA 237/001), crimes ambientais (Lei 9.605):**
   MPGO 76–78 · TCEAC-An 83–90 · TCEMG 35–41 · TCESC 53–55 · TJES 55–56.
 - **Obras rodoviárias/ferroviárias, pavimentação, terraplenagem, SICRO/DNIT:**
