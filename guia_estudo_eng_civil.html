@@ -112,10 +112,12 @@ select.prova{background:var(--surface);border:1px solid var(--line);color:var(--
 .reveal{margin-left:auto;background:transparent;border:1px solid var(--primary);color:var(--primary);
  border-radius:7px;padding:5px 12px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:var(--sans)}
 .reveal:hover{background:var(--primary);color:#fff}
-.q.revealed .reveal{display:none}
+.q.revealed .reveal{border-color:var(--ink-soft);color:var(--ink-soft)}
+.q.revealed .reveal:hover{background:var(--ink-soft);color:var(--surface)}
 .stmt{margin:0;font-size:.96rem;color:var(--ink)}
-.ans{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);display:flex;gap:10px;
+.ans{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);display:none;gap:10px;
  align-items:flex-start;flex-wrap:wrap}
+.q.revealed .ans{display:flex}
 .gab{font-family:var(--mono);font-weight:800;font-size:.78rem;letter-spacing:.04em;padding:4px 10px;
  border-radius:6px;color:#fff;white-space:nowrap;flex:none}
 .gab.g-c{background:var(--ok)}.gab.g-e{background:var(--no)}
@@ -354,9 +356,11 @@ function render(){
  bindCards();
 }
 function reveal(card){ const a=card.querySelector(".ans"); if(!a)return;
- a.hidden=false; card.classList.add("revealed"); const b=card.querySelector(".reveal"); if(b)b.setAttribute("aria-expanded","true"); }
+ a.hidden=false; card.classList.add("revealed"); const b=card.querySelector(".reveal");
+ if(b){b.setAttribute("aria-expanded","true"); b.textContent="Ocultar gabarito";} }
 function hide(card){ const a=card.querySelector(".ans"); if(!a)return;
- a.hidden=true; card.classList.remove("revealed"); const b=card.querySelector(".reveal"); if(b)b.setAttribute("aria-expanded","false"); }
+ a.hidden=true; card.classList.remove("revealed"); const b=card.querySelector(".reveal");
+ if(b){b.setAttribute("aria-expanded","false"); b.textContent="Revelar gabarito";} }
 function bindCards(){
  el("questions").querySelectorAll(".q").forEach(card=>{
    const b=card.querySelector(".reveal"); if(!b)return;
