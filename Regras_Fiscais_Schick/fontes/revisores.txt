@@ -1,0 +1,108 @@
+TITLE: PARECERES DE REVISÃO DO INSIGHT
+SUB: Dois revisores independentes — (I) coerência e coesão textual; (II) concatenação com o texto-base
+NOTE: Revisão crítica do insight "Regras que fortalecem, não substituem: o paradoxo da eficácia e a armadilha pró-cíclica das regras fiscais". Cada parecer aplica critérios explícitos, aponta pontos fortes e ressalvas e emite veredito fundamentado. As recomendações classificadas como "opcionais" são refinamentos; as "necessárias", se houvesse, condicionariam a aprovação.
+
+# PARECER I — Revisor de coerência e coesão textual
+
+## 1. Escopo e critérios
+
+Este parecer avalia a organização interna do texto, independentemente do texto-base. Critérios: (a) presença e ordem dos elementos obrigatórios (Título, Exposição do ponto, Desenvolvimento, Conclusão); (b) coerência global — existência de uma tese autoral única e progressão argumentativa sem contradição; (c) coesão — encadeamento entre parágrafos e seções, uso de conectivos e referência anafórica; (d) consistência terminológica; (e) adequação ao gênero (insight, e não resumo); (f) conformidade formal (margens, fonte, espaçamento, recuo, justificação, extensão de 4 a 5 páginas).
+
+## 2. Análise por critério
+
+### (a) Estrutura obrigatória
+
+Os quatro elementos estão presentes, nomeados e na ordem prescrita. A "Exposição do ponto" cumpre a função de apresentação direta da provocação, enunciando o paradoxo e a chave de leitura (efeito/eficácia) em um único parágrafo denso, sem antecipar o desenvolvimento. A "Conclusão" encerra com síntese e, atendendo à diretriz, com um questionamento final que amplia o debate. Conforme.
+
+### (b) Coerência global
+
+Há tese autoral identificável e sustentada do início ao fim: "regras fortalecem, não substituem" a vontade política; a eficácia é contingente, mas o efeito subsiste; logo, o desenho deve ser contracíclico. Os quatro movimentos do desenvolvimento não se contradizem e progridem por encaixe: diagnóstico conceitual (1) → fundamento teórico e caso brasileiro (2) → corolário de desenho e caso do teto (3) → dinâmica temporal das regras (4). A progressão é cumulativa, e não meramente justaposta. Conforme.
+
+### (c) Coesão
+
+O encadeamento interseccional é explícito e bem marcado: o movimento 3 abre retomando o resultado do movimento 1 ("Se o efeito da regra é certo e sua eficácia é contingente, a pergunta relevante... deixa de ser..."), o que assegura amarração lógica. Os conectivos contra-argumentativos ("contra a intuição corrente", "ora", "daí", "convém, ainda") conduzem o leitor sem rupturas. A metáfora da "fortificação" versus "muralha" funciona como fio coesivo recorrente, retomado na conclusão — recurso estilístico legítimo e controlado (aparece três vezes, sem saturação).
+
+### (d) Consistência terminológica
+
+O par conceitual efeito/eficácia é mantido com rigor e sempre grafado do mesmo modo. A expressão "despesas obrigatórias" é usada de forma consistente e alinhada à tradução-base (que registra "direitos assegurados em lei — entitlements"); recomenda-se, por precisão, que a primeira ocorrência no insight explicite a equivalência "despesas obrigatórias (entitlements)", como faz a tradução — recomendação opcional.
+
+### (e) Adequação ao gênero
+
+O texto é analítico, não expositivo: não resume Schick, mas o reinterpreta (dissolução do paradoxo) e o projeta sobre material novo (normas e casos brasileiros). O valor agregado é nítido no movimento 3, que extrai do texto uma prescrição de desenho que o autor apenas sugere. Conforme.
+
+### (f) Conformidade formal
+
+Margens de 2,5 cm, fonte Arial 12, espaçamento 1,5 sem espaçamento antes/depois no corpo, recuo de primeira linha de 1,25 cm e alinhamento justificado — todos verificados no arquivo gerado. A extensão situa-se na faixa de 4 a 5 páginas exigida. Conforme.
+
+## 3. Pontos fortes
+
+* Tese única, forte e sustentada, com abertura (paradoxo) e fechamento (questionamento) simétricos.
+* Transições lógicas explícitas entre movimentos, raras em textos curtos de alta densidade.
+* Registro acadêmico uniforme; períodos complexos, porém controlados.
+
+## 4. Ressalvas (todas opcionais)
+
+* Período final longo: a pergunta que encerra a conclusão estende-se por muitas linhas. Cumpre a diretriz de "questionamento que amplia o debate", mas, para leitura em voz alta, poderia ser segmentada em duas orações. Opcional.
+* Densidade da "Exposição do ponto": o parágrafo é rico; se o público for menos especializado, um período de arejamento ajudaria. Opcional.
+
+## 5. Veredito
+
+Aprovado. Coerência e coesão plenamente atendidas; conformidade formal integral; ressalvas de natureza puramente estilística e facultativa.
+
+PAGEBREAK
+
+# PARECER II — Revisor de concatenação com o texto-base
+
+## 1. Escopo e critérios
+
+Este parecer avalia a fidelidade do insight ao texto de referência (Schick, 2003) e a correção das pontes construídas entre o argumento-base e o material brasileiro. Critérios: (a) exatidão das passagens citadas; (b) fidelidade interpretativa (ausência de distorção do argumento de Schick); (c) correção da atribuição (distinguir o que é de Schick do que é aplicação do analista); (d) pertinência e verificabilidade dos exemplos e dados acrescentados; (e) ancoragem — cada afirmação de peso remete a uma passagem identificável do texto-base.
+
+## 2. Conferência das passagens citadas
+
+Cotejadas as citações do insight com a tradução do texto-base, confirma-se a correspondência de todas as seguintes:
+
+* "se houver apoio político, as regras são desnecessárias; se não houver, as regras não funcionarão" — Introdução. Fiel.
+* "as regras fiscais têm efeito, ainda quando não são eficazes" — Seção 4. Fiel.
+* "fortalecem os políticos que querem ser fiscalmente prudentes" / não "se interpõem no caminho" — Seção 4. Fiel.
+* "compromissos são regras orçamentárias que restringem o gasto ou os déficits..." (raciocínio tautológico) — Seção 4. Fiel.
+* "quando as restrições rígidas são mais necessárias, podem ser as menos viáveis..." — Seção 2.1. Fiel.
+* "prestidigitação orçamentária" (budgetary legerdemain) — Seção 2.2. Fiel.
+* "as sementes da maioria dos colapsos fiscais são semeadas em tempos bons" — Seção 4.2. Fiel.
+* "as regras fiscais deveriam ter a maior parte de sua mordida quando a economia está forte..." — Seção 4.2. Fiel.
+* "vida útil limitada e precisam ser revigoradas ou substituídas" — Introdução. Fiel.
+* "as regras fiscais valem apenas o quanto vale sua coerção" e "a coerção que se apoia na intervenção após a violação..." — Seção 3. Fiel.
+* "processo de alocação de aumentos, não de realocação de dinheiro..." — Seção 1.2. Fiel.
+* "compromisso crível" — Seção 2.2. Fiel.
+
+Não se identificou citação inexistente, truncada ou descontextualizada.
+
+## 3. Fidelidade interpretativa
+
+A leitura central do insight — a distinção efeito/eficácia como chave de dissolução do paradoxo — é a própria tese conclusiva de Schick, e não uma projeção do analista; está textualmente ancorada ("têm efeito, ainda quando não são eficazes"). A caracterização da regra como "assimétrica" (fortifica o disciplinado, não detém o determinado a descumprir) reproduz com fidelidade o parágrafo em que Schick contrapõe as duas hipóteses. A prescrição contracíclica é apresentada como do autor, o que é correto. Não há sobre-interpretação.
+
+## 4. Correção da atribuição
+
+Ponto sensível em textos que aplicam um autor estrangeiro a um caso nacional é a atribuição indevida — fazer o autor "dizer" o que é do intérprete. O insight evita o erro de modo consistente: a LRF, o teto, as pedaladas, os precatórios e o arcabouço são expressamente introduzidos como aplicação ("a experiência brasileira ilumina", "na taxonomia de Schick", "sob a mesma lente", "para o desenho brasileiro"), ao passo que o arcabouço conceitual permanece atribuído a Schick. A fronteira entre texto-base e análise autoral é respeitada. Conforme.
+
+## 5. Pertinência e verificabilidade do material acrescido
+
+* LRF (LC 101/2000): Anexo de Metas Fiscais, limites de pessoal, vedação de despesa obrigatória sem custeio — corretos e verificáveis.
+* Pedaladas fiscais (2014) e parecer prévio do TCU pela rejeição das contas — evento verificável; a formulação cautelosa ("pela primeira vez em décadas") evita imprecisão histórica. Adequado.
+* EC 95/2016 (teto): natureza permanente, horizonte de vinte exercícios, indexação à inflação passada — corretos.
+* EC 113 e 114/2021 (limite de precatórios) e posterior questionamento no STF — descritos com cautela ("posteriormente questionado"), sem afirmar desfecho específico não detalhado. Adequado.
+* LC 200/2023 (Regime Fiscal Sustentável): banda de crescimento real da despesa de 0,6% a 2,5% atrelada a 70% da variação real da receita — correto.
+* Fundamentos teóricos (Kydland-Prescott 1977; Buchanan-Wagner 1977; Wildavsky 1964; von Hagen; Poterba e von Hagen 1999): referências reais e pertinentes; von Hagen e Poterba, inclusive, são citados pelo próprio Schick, o que reforça a concatenação.
+
+Observação (opcional): o insight afirma que o arcabouço "aproxima-se mais do ideal schickiano", ressalvando a crítica de viés pró-cíclico residual. A ressalva é prudente; recomenda-se apenas manter o tom hipotético já adotado, dada a recsenticidade da norma e a ausência de série histórica de avaliação.
+
+## 6. Ancoragem
+
+Cada movimento remete a passagem identificável do texto-base (mapeada no item 7 do Plano Estruturado). A densidade de ancoragem é alta e equilibrada, sem sobrecarregar o texto com citações.
+
+## 7. Veredito
+
+Aprovado. Citações exatas, interpretação fiel, atribuição correta e material acrescido pertinente e verificável. A concatenação entre o insight e o texto de Schick é sólida e explícita. Recomendações de caráter opcional, sem condicionar a aprovação.
+
+# Síntese dos dois pareceres
+
+Ambos os revisores aprovam o insight sem ressalvas necessárias. As três recomendações registradas são opcionais e de natureza estilística ou de cautela: (i) explicitar, na primeira ocorrência, a equivalência "despesas obrigatórias (entitlements)"; (ii) considerar segmentar o período interrogativo final; e (iii) preservar o tom hipotético na avaliação do arcabouço de 2023. O texto atende à estrutura obrigatória, às diretrizes de delimitação temática e extensão, e à formatação exigida, mantendo fidelidade rigorosa ao texto-base.
