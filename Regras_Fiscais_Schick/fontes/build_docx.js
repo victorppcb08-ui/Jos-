@@ -102,6 +102,26 @@ for (let i = 0; i < lines.length; i++) {
     }));
     continue;
   }
+  if (t.startsWith("COVH:")) {
+    // Cabeçalho do bloco de cobertura do módulo (pequeno, com borda superior)
+    children.push(new Paragraph({
+      alignment: AlignmentType.LEFT,
+      spacing: { line: 240, lineRule: "auto", before: 120, after: 30 },
+      border: { top: { color: "AAAAAA", space: 4, style: BorderStyle.SINGLE, size: 4 } },
+      children: [new TextRun({ text: t.slice(5).trim(), bold: true, font: FONT, size: 19 })],
+    }));
+    continue;
+  }
+  if (t.startsWith("COV:")) {
+    // Linha de cobertura (pequena, recuada, com rótulo em negrito via **)
+    children.push(new Paragraph({
+      alignment: AlignmentType.JUSTIFIED,
+      spacing: { line: 240, lineRule: "auto", before: 0, after: 30 },
+      indent: { left: 340 },
+      children: runs(t.slice(4).trim(), { size: 19 }),
+    }));
+    continue;
+  }
   if (t.startsWith("### ")) {
     children.push(new Paragraph({
       heading: HeadingLevel.HEADING_3,

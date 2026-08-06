@@ -1,0 +1,182 @@
+TITLE: ORÇAMENTAÇÃO DE OBRAS PÚBLICAS
+SUB: Conteúdo Programático — legislação federal e municipal e jurisprudência de controle
+NOTE: O curso é ancorado em três camadas normativas: (i) legislação federal (Lei nº 14.133/2021 e Decreto nº 7.983/2013); (ii) legislação municipal de São Paulo, com destaque para o Decreto Municipal nº 62.100/2022, que regulamenta as licitações e os contratos administrativos da Prefeitura; e (iii) jurisprudência de controle externo (TCU, CGU e TCM/SP — Tribunal de Contas do Município de São Paulo, órgão que fiscaliza a Prefeitura).
+NOTE: Para não sobrecarregar os subtópicos, a correspondência com a legislação municipal e com a jurisprudência do TCM/SP é indicada, de forma sintética, no bloco "Base legal e de controle" ao final de cada módulo. O detalhamento consta dos Apêndices A (Decreto nº 62.100/2022) e B (ementário do TCM/SP).
+
+# CONTEÚDO PROGRAMÁTICO
+
+## Módulo 1 — Fundamentos, Estrutura do Orçamento e Encargos Sociais
+
+* A orçamentação de obras no marco da Lei nº 14.133/2021 (art. 23): valor estimado e compatibilidade com os preços de mercado.
+* Fontes e parâmetros de preços; bancos de dados públicos; ordem de prioridade dos parâmetros (art. 23, § 2º).
+* Estrutura do valor estimado: Custo Direto + BDI + Encargos Sociais; sigilo do orçamento (art. 24).
+* Economia de escala e peculiaridades do local de execução do objeto.
+* Encargos sociais sobre a mão de obra horista e mensalista; composição e demonstrativo analítico.
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** art. 27 (pesquisa de preços); art. 28, "caput" e § 1º (obras e serviços de engenharia: valor estimado + BDI + Encargos Sociais; Tabela de Custos SIURB e ordem de parâmetros); arts. 29, 31 a 33 (pesquisa excepcional, repetição, sigilo e diretrizes de valores de referência).
+COV: **Jurisprudência do TCM/SP:** TC 12.754/2023 (Bol. 55); TC 12.324/2023 (Bol. 67); TC 466/2016 (Bol. 68); TC 1.757/2026 (Bol. 81); TC 6.148/2026 (Bol. 83); encargos e planilha: TC 10.920/2020 (Bol. 60) e TC 12.532/2025 (Bol. 81); economia de escala: TC 11.232/2022 (Bol. 60), TC 11.131/2022 (Bol. 69) e TC 6.872/2026 (Bol. 83).
+
+## Módulo 2 — Custos Indiretos e BDI (Bonificação e Despesas Indiretas)
+
+* Conceito de custos indiretos nos sistemas SINAPI e SICRO (Acórdão 2.622/2013-TCU-Plenário).
+* Administração Local: definição, faixas referenciais e pagamento proporcional à execução física (Acórdãos 2.622/2013, 1.247/2016 e 845/2021; arts. 62 e 63 da Lei nº 4.320/1964).
+* Instalação e manutenção do canteiro de obras (NBR nº 12.284/1991; cadernos técnicos do DNIT e do SINAPI).
+* Mobilização e desmobilização como custo direto (Manual do SICRO).
+* Conceito e composição do BDI; despesas indiretas e bonificação; fórmula Preço = (1 + BDI) × Custo.
+* Taxas referenciais de BDI por tipo de obra; BDI reduzido/diferenciado e Súmula nº 253/TCU (Decreto nº 7.983/2013; Acórdão 2.340/2024).
+* Composição analítica do BDI: Administração Central, Despesas Financeiras (SELIC), Seguros e Garantias, Riscos, Lucro e Tributos (PIS, COFINS e ISSQN).
+* Desoneração da folha e CPRB; escolha do menor valor global (Leis nos 12.844/2013, 13.043/2014, 13.161/2015 e 14.973/2024).
+* IRPJ e CSLL no BDI: natureza direta e personalística (Súmula nº 254/2010; Acórdão 648/2016).
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** art. 28, "caput" (composição de custos unitários; BDI de referência e Encargos Sociais no valor estimado de obras e serviços de engenharia).
+COV: **Jurisprudência do TCM/SP:** TC 5.323/2021 (Bol. 75 — Adm. Local e Transportes fora do BDI, como custos diretos); TC 5.468/2022 (Bol. 80 — BDI diferenciado obrigatório); TC 16.909/2019 (Bol. 76) e TC 16.943/2019 (Bol. 80 — vedação à "administração contratada").
+
+## Módulo 3 — Tipos de Orçamento e Composições de Custos Unitários (CPU)
+
+* Orçamento sintético: conceito, anteprojeto e regime de contratação integrada.
+* Metodologias de estimativa de custos: paramétrica e expedita.
+* Orçamento detalhado (analítico): composições de custos unitários e pesquisa de preços (IBRAOP OT — IBR 004/2012).
+* Documentos que acompanham o orçamento detalhado: cronograma físico-financeiro, curvas ABC e Curva S, composições e memórias de cálculo.
+* Margem de precisão do orçamento e sua distinção dos limites de aditamento (art. 125).
+* Composições SICRO e SINAPI; Tabela de Custos Unitários; ficha técnica de insumo; atualizações a partir de 2025.
+* Escolha entre composições do SICRO e do SINAPI conforme as peculiaridades locais.
+* Cotação local e economia de escala (art. 23; art. 8º do Decreto nº 7.983/2013).
+* Exercícios práticos integrando orçamento, cronograma e CPU; uso de inteligência artificial em cadernos técnicos.
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** art. 28, §§ 3º e 4º (contratação integrada e semi-integrada; orçamento sintético; metodologia expedita/paramétrica; anteprojeto; nível de detalhamento exigido nas propostas).
+COV: **Jurisprudência do TCM/SP:** TC 15.372/2024 (Bol. 60 — tabela de custos unitários atualizada); TC 10.049/2023 (Bol. 83 — projeto básico); TC 16.943/2019 (Bol. 80 — remuneração por composições de preços unitários).
+
+## Módulo 4 — Planejamento e Controle da Execução
+
+* Planejamento da contratação: Estudo Técnico Preliminar (ETP) e projeto básico como base do orçamento.
+* Cronograma físico-financeiro: elaboração e análise crítica da distribuição dos percentuais.
+* Curva de Valor Agregado (Curva S): benefícios, cálculo de atrasos e Índice de Desempenho de Prazo (IDP); multa de mora (art. 162).
+* Reflexos dos atrasos nos contratos de supervisão e gerenciamento; matriz de risco (Acórdão 266/2024).
+* Curva ABC de serviços e de insumos como instrumentos de gestão, fiscalização e auditoria.
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** arts. 5º e 6º (Plano de Contratações Anual — planejamento); arts. 117 e 118 (gestão de contratos; controle do cronograma físico-financeiro e dos recursos orçamentários); arts. 119 e 120 (fiscalização; conformidade de obras e quantidades).
+COV: **Jurisprudência do TCM/SP:** TC 12.010/2019 (Bol. 57 — ETP); TC 9.789/2025 (Bol. 76 — memória de cálculo da demanda); TC 19.116/2019 (Bol. 82 — falha de planejamento); TC 19.711/2019 (Bol. 54 — ART/fiscalização); TC 12.845/2018 (Bol. 69 — fiscalização instrumental).
+
+## Módulo 5 — Sobrepreço e Superfaturamento
+
+* Sobrepreço: conceito legal (art. 6º, LVI) e objetivo do processo licitatório (art. 11, III).
+* Tolerância e "expressividade" do sobrepreço (Acórdãos TCU 1.254/2020 e 1.742/2025); margem de tolerância × margem de precisão.
+* Governança e responsabilidade da alta administração (art. 11, parágrafo único); boas práticas de prevenção.
+* Jogo de planilha e jogo de cronograma (Súmula nº 259/2010; Acórdãos 2.307/2017 e 1.695/2018).
+* Métodos de apuração: MPLU (Limitação dos Preços Unitários) e MPLG (Limitação do Preço Global).
+* Superfaturamento: conceito legal (art. 6º, LVII) e modalidades (Casos 1 a 4).
+* Responsabilização dos agentes: projetista/orçamentista, fiscalização e contratado.
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** art. 7º (governança das contratações — art. 11, § único, da Lei nº 14.133/2021); arts. 34 a 36 (programa de integridade em obras de grande vulto; gestão de riscos); art. 119 (fiscalização — conformidade das quantidades executadas).
+COV: **Jurisprudência do TCM/SP:** TC 5.947/2018 (Bol. 77 — medição a maior); TC 5.323/2021 (Bol. 75 — duplicidade); TC 5.468/2022 (Bol. 80 — superavaliação); TC 12.532/2025 (Bol. 81) e TC 14.163/2025 (Bol. 82 — inexequibilidade); TC 10.132/2023 (Bol. 82 — jogo de planilha/conluio).
+
+## Módulo 6 — Alterações Contratuais e Equilíbrio Econômico-Financeiro
+
+* Aditivos: hipóteses de alteração (art. 124) — unilaterais (qualitativa e quantitativa) e por acordo.
+* Limites das alterações e tratamento isolado de acréscimos e supressões (Acórdãos 1.271/2025 e 1.981/2009).
+* Métodos de aditamento: método do balanço e método do desconto (arts. 128 e 15).
+* Aplicações práticas: aditivos com novos serviços e com alteração de quantidades.
+* Reequilíbrio econômico-financeiro e teoria da imprevisão (art. 124, II, "d"); cláusula rebus sic stantibus.
+* Engenharia de custos: equidade global, expurgo do reajuste, onerosidade excessiva e expurgo do lucro (Acórdãos 1.466/2013 e 4.072/2020); OT — IBRAOP 009/2024.
+COVH: Base legal e de controle contemplada no módulo:
+COV: **Legislação municipal — Decreto nº 62.100/2022:** art. 127 (alterações contratuais e limites); arts. 128 a 137 (reajuste e repactuação; planilha de custos); arts. 138 e 139 (reequilíbrio econômico-financeiro; alocação de riscos; termo aditivo).
+COV: **Jurisprudência do TCM/SP:** TC 4.602/2021 (Bol. 81 — limites de acréscimo e alteração qualitativa). Reequilíbrio: sem ementa específica nos Boletins 54–83 analisados.
+
+# OBJETIVOS DO CURSO
+
+* **Objetivo 1.** Capacitar os participantes a elaborar e analisar criticamente orçamentos de obras públicas, dominando as referências legais federais (Lei nº 14.133/2021 e Decreto nº 7.983/2013) e municipais (Decreto nº 62.100/2022), bem como os sistemas oficiais de custos (SINAPI e SICRO), com a correta composição do custo direto, dos custos indiretos, dos encargos sociais e do BDI.
+* **Objetivo 2.** Habilitar à identificação, mensuração e prevenção de irregularidades orçamentárias — sobrepreço e superfaturamento —, mediante a aplicação dos métodos de apuração (MPLU e MPLG) e da jurisprudência consolidada do TCU, da CGU e do TCM/SP (órgão de controle externo da Prefeitura de São Paulo).
+* **Objetivo 3.** Desenvolver competências de planejamento e controle da execução contratual por meio do cronograma físico-financeiro, das curvas ABC e da Curva S, permitindo o monitoramento de desempenho, a antecipação de atrasos e a adequada fiscalização das obras.
+* **Objetivo 4.** Instrumentalizar a gestão de alterações contratuais — aditivos e reequilíbrio econômico-financeiro —, com fundamento na teoria da imprevisão, no método do desconto e nas diretrizes técnicas (IBRAOP) e jurisprudenciais aplicáveis.
+
+PAGEBREAK
+
+# APÊNDICE A — Correspondência com o Decreto Municipal nº 62.100/2022
+
+NOTE: O Decreto nº 62.100/2022 (com as alterações do Decreto nº 64.863/2025) regulamenta as licitações e os contratos administrativos da Administração direta, autárquica e fundacional do Município de São Paulo. Abaixo, os dispositivos contemplados pelo curso, por módulo.
+
+## Módulo 1 — Fundamentos, estrutura do orçamento e encargos
+
+* Art. 27 — pesquisa de preços para bens e serviços em geral (critérios combinados; PNCP; mídia especializada; contratos similares; consulta a fornecedores).
+* Art. 28, "caput" e § 1º — obras e serviços de engenharia: valor estimado acrescido de BDI de referência e Encargos Sociais, por composição de custos unitários ≤ mediana da Tabela de Custos Unitários da SIURB; ordem de parâmetros na ausência da tabela.
+* Art. 28, § 2º — contratações com recursos da União (formação do preço de referência).
+* Art. 29 — pesquisa excepcional com menos de três preços/fornecedores.
+* Art. 31 — repetição da pesquisa de preços (tempo decorrido, sazonalidade).
+* Art. 32 — sigilo do orçamento até a fase recursal (art. 24 da Lei nº 14.133/2021).
+* Art. 33 — diretrizes da Secretaria Municipal de Gestão para a formação dos valores de referência.
+
+## Módulo 2 — Custos indiretos e BDI
+
+* Art. 28, "caput" — composição de custos unitários; BDI de referência e Encargos Sociais como componentes do valor estimado de obras e serviços de engenharia.
+
+## Módulo 3 — Tipos de orçamento e composições de custos unitários
+
+* Art. 28, § 3º — contratação integrada e semi-integrada: valor estimado com parcela de remuneração do risco; orçamento sintético balizado em sistema de custos; metodologia expedita/paramétrica reservada às frações não detalhadas do anteprojeto.
+* Art. 28, § 4º — exigência do mesmo nível de detalhamento do orçamento sintético nas propostas dos licitantes.
+
+## Módulo 4 — Planejamento e controle da execução
+
+* Arts. 5º e 6º — Plano de Contratações Anual (descrição do objeto, estimativa preliminar do valor, prioridade, calendário; divulgação).
+* Art. 7º — governança das contratações; segregação de funções na fase preparatória (pesquisa de preços, reserva de recursos, termo de referência, orçamento, análise de riscos).
+* Arts. 117 e 118 — gestão dos contratos: conhecimento do cronograma físico-financeiro e controle dos recursos orçamentários.
+* Arts. 119 e 120 — fiscalização dos contratos: conformidade das obras, serviços e quantidades executadas com o objeto contratado.
+
+## Módulo 5 — Sobrepreço e superfaturamento
+
+* Art. 7º — governança e controles internos das contratações (art. 11, parágrafo único, da Lei nº 14.133/2021).
+* Arts. 34 a 36 — programa de integridade em obras e serviços de grande vulto; gestão de riscos e controles internos.
+* Art. 119 — fiscalização: verificação de quantidades e qualidade, prevenindo medição e pagamento por quantidade superior à executada.
+
+## Módulo 6 — Alterações contratuais e equilíbrio econômico-financeiro
+
+* Art. 127 — alterações contratuais nos limites da Lei nº 14.133/2021.
+* Arts. 128 a 137 — reajuste e repactuação; demonstração analítica da variação de custos por planilha de custos e formação de preços.
+* Arts. 138 e 139 — reequilíbrio econômico-financeiro: instrução com subsídios, observância da alocação de riscos e formalização por termo aditivo.
+
+PAGEBREAK
+
+# APÊNDICE B — Ementário do TCM/SP correlacionado
+
+NOTE: Síntese das teses do TCM/SP que dão suporte aos módulos. Cada entrada indica o processo (TC), o boletim (Bol.) e, quando existente, a decisão correlata do TCU registrada no próprio boletim. Base: Boletins de Jurisprudência nos 54 a 83 (novembro/2023 a junho/2026).
+
+## Módulo 1 — Estimativa de preços, valores de referência e encargos
+
+* **TC 12.754/2023 (Bol. 55)** — valor estimado compatível com o mercado, com a documentação e as propostas comerciais da pesquisa juntadas aos autos (art. 23, Lei nº 14.133/2021; art. 58, Lei Municipal nº 17.273/2020).
+* **TC 12.324/2023 (Bol. 67)** — preço estimado alinhado ao mercado, admitidas fontes alternativas (Manuais SEGES/COBES e STJ). Correlato: TCU Ac. 2.816/2014.
+* **TC 466/2016 (Bol. 68)** — obrigatória a ampliação da base da pesquisa (contratos similares de outros entes). Correlato: TCU Ac. 1.445/2015 e 2.816/2014.
+* **TC 1.757/2026 (Bol. 81)** — pesquisa com pluralidade de fornecedores; orçamento sigiloso exige demonstração das razões. Correlato: TCU Ac. 1.875/2021.
+* **TC 6.148/2026 (Bol. 83)** — cotações de fornecedores têm caráter subsidiário; priorizar parâmetros públicos e vedar escolha arbitrária. Correlato: TCU Ac. 2.401/2022 e 2.637/2015.
+* **TC 10.920/2020 (Bol. 60)** — planilha de custos com todas as funções e remuneração compatível com o piso da categoria. Correlato: TCU Ac. 662/2011.
+* **TC 12.532/2025 (Bol. 81)** — custos horários de mão de obra ≥ pisos da CCT; compatibilidade dos encargos sociais na planilha. Correlato: TCU Ac. 981/2023.
+* **TC 11.232/2022 (Bol. 60), TC 11.131/2022 (Bol. 69) e TC 6.872/2026 (Bol. 83)** — parcelamento é regra; unificação exige justificativa (economia de escala). Correlato: Súmulas nos 8/TCMSP e 247/TCU.
+
+## Módulo 2 — Custos indiretos e BDI
+
+* **TC 5.323/2021 (Bol. 75)** — Administração Local e Transportes Internos não podem compor o BDI; são custos diretos individualizados na planilha, sob pena de duplicidade de pagamento. Correlato: TCU Ac. 740/2017 e 1.678/2011.
+* **TC 5.468/2022 (Bol. 80)** — obrigatório BDI diferenciado e reduzido para serviços especializados (ex.: elevadores). Correlato: TCU Ac. 624/2010.
+* **TC 16.909/2019 (Bol. 76) e TC 16.943/2019 (Bol. 80)** — vedação à "administração contratada" (insumos + taxa de BDI); a remuneração deve basear-se em composições de preços unitários.
+
+## Módulo 3 — Tipos de orçamento e composições de custos unitários
+
+* **TC 15.372/2024 (Bol. 60)** — orçamento de referência em tabela de custos unitários atualizada, refletindo o valor de mercado à época do certame.
+* **TC 10.049/2023 (Bol. 83)** — projeto básico deve caracterizar o objeto e permitir as propostas, sem se confundir com o executivo. Correlato: Súmulas nos 261 e 177 do TCU.
+
+## Módulo 4 — Planejamento e controle da execução
+
+* **TC 12.010/2019 (Bol. 57)** — o ETP deve seguir o rito legal do planejamento da contratação (art. 6º, XX, e art. 18, V).
+* **TC 9.789/2025 (Bol. 76)** — estimativa da demanda com memória de cálculo idônea, assegurando planejamento, controle e gestão (art. 40). Correlato: TCU Ac. 2.155/2012.
+* **TC 19.116/2019 (Bol. 82)** — sobreposição de objetos é falha de planejamento (economicidade; risco de duplicidade). Correlato: TCU Ac. 2.080/2005.
+* **TC 19.711/2019 (Bol. 54)** — ART obrigatória em obras e serviços de engenharia, consignada no processo de contratação.
+* **TC 12.845/2018 (Bol. 69)** — legítima a fiscalização instrumental (auditoria) sobre a execução contratual.
+
+## Módulo 5 — Sobrepreço e superfaturamento
+
+* **TC 5.947/2018 (Bol. 77)** — medição e pagamento por quantidade superior à executada: irregularidade grave e prejuízo ao erário (art. 63, Lei nº 4.320/1964).
+* **TC 5.323/2021 (Bol. 75)** — duplicidade de pagamento pela alocação da Adm. Local no BDI e na planilha.
+* **TC 5.468/2022 (Bol. 80)** — ausência de BDI diferenciado gera superavaliação do orçamento.
+* **TC 12.532/2025 (Bol. 81) e TC 14.163/2025 (Bol. 82)** — proposta < 75% do orçamento é presunção relativa de inexequibilidade (art. 59, § 4º); exige diligência e composição analítica de custos. Correlato: Súmula TCU nº 262; Ac. 2.378/2024.
+* **TC 10.132/2023 (Bol. 82)** — a mera similaridade de descontos na planilha não caracteriza conluio sem outros indícios.
+
+## Módulo 6 — Alterações contratuais
+
+* **TC 4.602/2021 (Bol. 81)** — a extrapolação dos limites de acréscimo só se admite em alteração consensual qualitativa excepcionalíssima, com requisitos cumulativos; jamais por falha de planejamento, deficiência de projeto básico ou alteração meramente quantitativa. Correlato: TCU Ac. 215/1999 e 749/2010.
