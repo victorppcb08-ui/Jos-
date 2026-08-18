@@ -1,0 +1,568 @@
+<title>Orações & Períodos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ============ TOKENS — LIGHT ============ */
+:root{
+  --paper:#F4F2EA; --surface:#FBFAF4; --surface-2:#EFECE1;
+  --ink:#1E212B; --ink-soft:#585D6A; --ink-faint:#8A8E99;
+  --line:#DED9CB; --line-strong:#C7C1AE;
+  --accent:#33406E; --accent-bright:#455AA6; --accent-wash:#E7E9F1;
+  --gold:#9A6E17; --gold-wash:#F1E7CE;
+  --certo:#2C7A4B; --certo-wash:#E3F0E6;
+  --errado:#AF3040; --errado-wash:#F6E3E2;
+  --shadow:0 1px 2px rgba(30,33,43,.05),0 8px 24px -12px rgba(30,33,43,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161C; --surface:#1C1F28; --surface-2:#23262F;
+    --ink:#ECEAE1; --ink-soft:#A2A7B3; --ink-faint:#767B87;
+    --line:#2D313B; --line-strong:#3B404C;
+    --accent:#93A2DC; --accent-bright:#AAB8EC; --accent-wash:#232838;
+    --gold:#D6A64F; --gold-wash:#332B18;
+    --certo:#5EB980; --certo-wash:#182B20;
+    --errado:#E27A85; --errado-wash:#301B1E;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161C; --surface:#1C1F28; --surface-2:#23262F;
+  --ink:#ECEAE1; --ink-soft:#A2A7B3; --ink-faint:#767B87;
+  --line:#2D313B; --line-strong:#3B404C;
+  --accent:#93A2DC; --accent-bright:#AAB8EC; --accent-wash:#232838;
+  --gold:#D6A64F; --gold-wash:#332B18;
+  --certo:#5EB980; --certo-wash:#182B20;
+  --errado:#E27A85; --errado-wash:#301B1E;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:824px;margin:0 auto;padding:0 22px}
+
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.14;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.55rem,3.6vw,2.1rem);letter-spacing:-.01em}
+h3{font-size:1.28rem;letter-spacing:-.005em}
+h4{font-size:1.05rem;font-weight:600}
+p{margin:.7em 0}
+a{color:var(--accent-bright);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:700;color:var(--ink)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+.masthead{background:radial-gradient(120% 140% at 92% -20%, color-mix(in srgb,var(--accent) 22%, transparent) 0%, transparent 55%),var(--surface);border-bottom:1px solid var(--line)}
+.masthead .wrap{padding-top:46px;padding-bottom:40px}
+.crest{display:inline-flex;align-items:center;gap:9px;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.crest .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(2.1rem,6.2vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:.35em 0 .28em}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-size:1.12rem;color:var(--ink-soft);max-width:60ch;margin:0}
+.metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.02em;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink-soft);white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+.warnstrip{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-radius:12px;background:var(--errado-wash);border:1px solid color-mix(in srgb,var(--errado) 35%,transparent)}
+.warnstrip .ic{flex:0 0 auto;font-weight:700;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.warnstrip p{margin:0;font-size:.95rem;color:var(--ink)}
+
+.toggle{position:fixed;top:14px;right:14px;z-index:20;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.toggle button{border:0;background:transparent;color:var(--ink-faint);font:inherit;font-size:.82rem;cursor:pointer;padding:4px 10px;border-radius:999px;line-height:1}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .toggle button[aria-pressed="true"]{color:#14161C}
+
+.toc{margin:38px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.toc h4{padding:15px 20px;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.toc ol{list-style:none;margin:0;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.toc a{display:flex;gap:12px;align-items:baseline;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--ink)}
+.toc a:hover{background:var(--accent-wash)}
+.toc a .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--gold);font-weight:600;flex:0 0 auto}
+.toc a .t{font-size:.95rem;line-height:1.3}
+@media(max-width:560px){.toc ol{grid-template-columns:1fr}}
+
+section{padding:52px 0 8px;scroll-margin-top:16px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sechead .num{font-family:"IBM Plex Mono",monospace;font-size:.9rem;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.lead{font-size:1.06rem;color:var(--ink-soft);max-width:64ch;margin-top:6px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0;box-shadow:var(--shadow)}
+.grip{border-left:3px solid var(--accent);padding-left:16px;margin:18px 0}
+ul.clean,ol.clean{margin:.6em 0;padding-left:1.25em}
+ul.clean li,ol.clean li{margin:.34em 0}
+ul.tick{list-style:none;padding-left:0;margin:.6em 0}
+ul.tick li{position:relative;padding-left:1.7em;margin:.4em 0}
+ul.tick li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:"IBM Plex Mono",monospace}
+
+.callout{border-radius:14px;padding:16px 18px;margin:18px 0;border:1px solid var(--line)}
+.callout .tag{display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.callout p:first-of-type{margin-top:2px}
+.callout p:last-child{margin-bottom:0}
+.armadilha{background:var(--errado-wash);border-color:color-mix(in srgb,var(--errado) 34%,transparent)}
+.armadilha .tag{color:var(--errado)}
+.bizu{background:var(--gold-wash);border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
+.bizu .tag{color:var(--gold)}
+.regra{background:var(--accent-wash);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.regra .tag{color:var(--accent)}
+
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+td strong{color:var(--accent)}
+.cell-lead{font-weight:600;color:var(--ink);white-space:nowrap}
+
+.ce{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.74rem;letter-spacing:.04em;padding:3px 9px;border-radius:6px;text-transform:uppercase}
+.ce.c{background:var(--certo-wash);color:var(--certo);border:1px solid color-mix(in srgb,var(--certo) 40%,transparent)}
+.ce.e{background:var(--errado-wash);color:var(--errado);border:1px solid color-mix(in srgb,var(--errado) 40%,transparent)}
+
+.examinador-band{background:var(--accent);color:#EDEFF7;border-radius:20px;padding:30px 26px;margin:26px 0}
+:root[data-theme="dark"] .examinador-band{background:#20263a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .examinador-band{background:#20263a}}
+.examinador-band .eyebrow{color:var(--gold)}
+.examinador-band h3{color:#fff;margin:.3em 0 .4em;font-size:1.5rem}
+.examinador-band p{color:#D9DCEA}
+.examinador-band strong{color:#fff}
+.examinador-band ol.clean li{margin:.5em 0}
+.examinador-band .mono{color:#fff}
+
+.texto-base{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:.98rem}
+.texto-base .lbl{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:6px}
+.item{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:var(--surface);overflow:hidden}
+.item summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;gap:13px;align-items:flex-start}
+.item summary::-webkit-details-marker{display:none}
+.item summary:focus-visible{outline:2px solid var(--accent-bright);outline-offset:-2px}
+.item .qn{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;color:var(--gold);flex:0 0 auto;padding-top:1px}
+.item .qtext{flex:1;font-size:.99rem}
+.item .peek{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-faint);letter-spacing:.1em;flex:0 0 auto;padding-top:3px}
+.item[open] .peek{display:none}
+.answer{padding:2px 18px 18px 50px;border-top:1px dashed var(--line);margin-top:2px}
+.answer .verdict{margin:14px 0 8px;display:flex;align-items:center;gap:10px}
+.answer .why{font-size:.94rem;color:var(--ink-soft)}
+.answer .why b{color:var(--ink)}
+.answer .trap{margin-top:10px;font-size:.88rem;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.answer .trap b{color:var(--errado)}
+@media(max-width:560px){.answer{padding-left:18px}.item summary{flex-wrap:wrap}}
+
+.phase{display:grid;grid-template-columns:auto 1fr;gap:0 20px;margin:14px 0}
+.phase .band{grid-row:1/3;width:4px;border-radius:4px;background:var(--accent)}
+.phase h4{margin-bottom:2px}
+.phase .meta{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+
+footer{margin:56px 0 40px;padding-top:26px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:.86rem}
+footer .big{font-family:"Fraunces",serif;font-style:italic;font-size:1.28rem;color:var(--ink);line-height:1.4;margin-bottom:14px;text-wrap:balance}
+
+@media (prefers-reduced-motion:no-preference){
+  details.item[open] .answer{animation:fade .28s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1}}
+}
+</style>
+
+<div class="toggle" role="group" aria-label="Tema">
+  <button id="tl" aria-pressed="false">Claro</button>
+  <button id="td" aria-pressed="false">Escuro</button>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="crest"><span class="dot"></span>Guia do Examinador · Cebraspe · nº 2</div>
+    <h1>Orações &amp; <em>Períodos</em></h1>
+    <p class="dek">Análise sintática do período — coordenação e subordinação — do conceito à armadilha, na perspectiva de quem <strong>elabora</strong> a prova. Analista Legislativo · Câmara dos Deputados.</p>
+    <div class="metarow">
+      <span class="chip">Banca: <b>Cebraspe</b></span>
+      <span class="chip">Formato: <b>Certo / Errado</b></span>
+      <span class="chip"><b>1 errada anula 1 certa</b></span>
+      <span class="chip">Foco: <b>função, não a conjunção</b></span>
+    </div>
+    <div class="warnstrip">
+      <span class="ic mono">!</span>
+      <p>Em sintaxe, a banca raramente pergunta “o que é oração subordinada?”. Ela pega <strong>uma oração do texto</strong> e afirma a classificação — trocando um rótulo por outro parecido. Quem decora a conjunção, mas não entende a <strong>função</strong>, cai.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="toc" aria-label="Índice">
+    <h4>Índice do programa</h4>
+    <ol>
+      <li><a href="#m0"><span class="n">00</span><span class="t">A mecânica da banca (C/E)</span></a></li>
+      <li><a href="#m1"><span class="n">01</span><span class="t">O mapa: simples × composto</span></a></li>
+      <li><a href="#m2"><span class="n">02</span><span class="t">Coordenadas (as 5 sindéticas)</span></a></li>
+      <li><a href="#m3"><span class="n">03</span><span class="t">Subordinadas substantivas</span></a></li>
+      <li><a href="#m4"><span class="n">04</span><span class="t">Subordinadas adjetivas</span></a></li>
+      <li><a href="#m5"><span class="n">05</span><span class="t">Subordinadas adverbiais</span></a></li>
+      <li><a href="#m6"><span class="n">06</span><span class="t">Catálogo de armadilhas</span></a></li>
+      <li><a href="#m7"><span class="n">07</span><span class="t">Bizus e mnemônicos</span></a></li>
+      <li><a href="#m8"><span class="n">08</span><span class="t">Na cadeira do examinador + simulado</span></a></li>
+      <li><a href="#m9"><span class="n">09</span><span class="t">Plano de estudo objetivo</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- 00 -->
+  <section id="m0">
+    <div class="sechead"><span class="num">00</span><h2>A mecânica da banca</h2></div>
+    <p class="lead">A regra do jogo é a mesma: você julga <span class="mono">C</span>/<span class="mono">E</span> e uma errada anula uma certa. Em sintaxe do período, o erro quase sempre nasce de <strong>classificar pela palavra, não pela função</strong>.</p>
+
+    <div class="callout regra"><span class="tag">A matemática do risco</span>
+      <p>Cada item: <strong>+1 acerto, −1 erro</strong>. Como as conjunções são <strong>polivalentes</strong> (a mesma palavra muda de classificação conforme o contexto), o chute “pela conjunção” é justamente onde a banca te espera. <strong>Só marque o que você justifica pela função sintática.</strong></p>
+    </div>
+
+    <h3>Os 6 movimentos que transformam uma verdade em item ERRADO</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Manobra</th><th>Como aparece</th><th>Antídoto</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">1. Rótulo pela palavra</td><td>“<em>porque</em> é sempre causal”, “<em>que</em> é pronome relativo”.</td><td>Classifique pela <strong>função</strong> no período, não pela conjunção.</td></tr>
+          <tr><td class="cell-lead">2. Absolutização</td><td>“<em>se</em> introduz <em>sempre</em> condicional”; “<em>como</em> é <em>sempre</em> comparativo”.</td><td>Conjunção é polivalente. “Sempre” → alerta.</td></tr>
+          <tr><td class="cell-lead">3. Troca de classe</td><td>Coordenada dita subordinada; restritiva dita explicativa.</td><td>Independente (coord.) × exerce função de termo (subord.).</td></tr>
+          <tr><td class="cell-lead">4. Vírgula “inofensiva”</td><td>“Isolar/retirar a vírgula não altera o sentido.”</td><td>Na adjetiva, a vírgula <strong>muda o sentido</strong> (restr.↔explic.).</td></tr>
+          <tr><td class="cell-lead">5. Contagem errada</td><td>Diz que o período tem 2 orações quando tem 3.</td><td><strong>Conte os verbos</strong> (locução = 1).</td></tr>
+          <tr><td class="cell-lead">6. Conjunção camaleão</td><td><em>como / pois / que / se / conforme</em> trocando de valor.</td><td>Teste o sentido e a substituição (isso / o qual / porque…).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout bizu"><span class="tag">Bizu de leitura do item</span>
+      <p>Ao ver o item, <strong>ache o verbo</strong> de cada oração e pergunte “que função esta oração exerce na outra?”. Só então confira se o rótulo do item bate. Ignore a conjunção até ter a função.</p></div>
+  </section>
+
+  <!-- 01 -->
+  <section id="m1">
+    <div class="sechead"><span class="num">01</span><h2>O mapa: simples × composto</h2></div>
+    <p class="lead">Tudo começa em contar orações e decidir o tipo de ligação.</p>
+
+    <div class="grip">
+      <p><strong>Oração</strong> = enunciado organizado em torno de <strong>um verbo</strong> (ou locução verbal). Logo: <strong>quantos verbos, tantas orações</strong> — sendo a <em>locução verbal</em> (ex.: “vai analisar”, “tinha estudado”) contada como <strong>uma só</strong>.</p>
+      <p><strong>Período simples</strong> = uma única oração → a <strong>oração absoluta</strong> (“O candidato analisou a questão com atenção”). <strong>Período composto</strong> = duas ou mais orações, ligadas por <strong>coordenação</strong>, <strong>subordinação</strong> ou os dois (misto).</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Ligação</th><th>Relação entre as orações</th><th>Teste rápido</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Coordenação</td><td>Orações <strong>independentes</strong>: nenhuma é termo da outra.</td><td>Cada oração “anda sozinha”, faz sentido isolada.</td></tr>
+          <tr><td class="cell-lead">Subordinação</td><td>Uma oração <strong>exerce função sintática</strong> dentro da outra (sujeito, objeto, adjunto, adjetivo…).</td><td>A subordinada é um <strong>termo</strong> da principal — não sobrevive sozinha.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout bizu"><span class="tag">Bizu-mestre da subordinação</span>
+      <p>Toda subordinada faz o papel de um dos três: <strong>substantivo</strong> (→ substantiva, cabe “isso”), <strong>adjetivo</strong> (→ adjetiva, cabe “o qual”), ou <strong>advérbio</strong> (→ adverbial, exprime circunstância). Descubra qual e você tem o grupo.</p></div>
+  </section>
+
+  <!-- 02 -->
+  <section id="m2">
+    <div class="sechead"><span class="num">02</span><h2>Coordenadas: as 5 sindéticas</h2></div>
+    <p class="lead">Orações independentes. <strong>Assindéticas</strong> não têm conjunção (“Chegou, leu a prova, respondeu o gabarito”). <strong>Sindéticas</strong> têm — e são cinco.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>Ideia</th><th>Conjunções típicas</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Aditiva</td><td>Soma / acréscimo</td><td>e, nem, não só… mas também</td><td>Estudou <strong>e</strong> revisou.</td></tr>
+          <tr><td class="cell-lead">Adversativa</td><td>Oposição / contraste</td><td>mas, porém, contudo, todavia, entretanto, no entanto</td><td>Leu tudo, <strong>mas</strong> errou a questão.</td></tr>
+          <tr><td class="cell-lead">Alternativa</td><td>Alternância / escolha</td><td>ou… ou, ora… ora, quer… quer, seja… seja</td><td><strong>Ou</strong> revisa, <strong>ou</strong> arrisca.</td></tr>
+          <tr><td class="cell-lead">Conclusiva</td><td>Conclusão / dedução</td><td>logo, portanto, por conseguinte, por isso, <em>pois</em> (após o verbo)</td><td>Estudou; <strong>portanto</strong>, passou.</td></tr>
+          <tr><td class="cell-lead">Explicativa</td><td>Justificativa / motivo do que se diz</td><td>porque, que, <em>pois</em> (antes do verbo)</td><td>Não se atrase, <strong>pois</strong> a prova começa cedo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout armadilha"><span class="tag">O “pois” de dois rostos</span>
+      <p><strong>Antes</strong> do verbo → <strong>explicativa</strong> (“Corra, <u>pois</u> está atrasado”). <strong>Depois</strong> do verbo (deslocado) → <strong>conclusiva</strong> (“Estava atrasado; correu, <u>pois</u>”). Mnemônico: <span class="mono">POIS antes = exPlicativa · POIS depois = cOnclusiva</span>.</p></div>
+  </section>
+
+  <!-- 03 -->
+  <section id="m3">
+    <div class="sechead"><span class="num">03</span><h2>Subordinadas substantivas</h2></div>
+    <p class="lead">Exercem função de <strong>substantivo</strong>. Teste-régua: cabem no lugar do pronome <strong>“isso”</strong>. Vêm por conjunção integrante (<span class="mono">que, se</span>).</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>Função</th><th>Como reconhecer</th><th>Exemplo (a oração em negrito)</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Subjetiva</td><td>Sujeito</td><td>Principal com <em>ser+adjetivo</em>, VTD na passiva ou “convém/consta/importa”</td><td>É necessário <strong>que você revise o conteúdo</strong>.</td></tr>
+          <tr><td class="cell-lead">Objetiva direta</td><td>Objeto direto</td><td>Completa VTD, sem preposição</td><td>Espero <strong>que todos passem</strong>.</td></tr>
+          <tr><td class="cell-lead">Objetiva indireta</td><td>Objeto indireto</td><td>Completa <strong>verbo</strong> que pede preposição</td><td>Gosto <strong>de que respeitem o tempo</strong>.</td></tr>
+          <tr><td class="cell-lead">Completiva nominal</td><td>Complemento nominal</td><td>Completa um <strong>nome</strong> (substantivo/adjetivo)</td><td>Tenho certeza <strong>de que a vitória virá</strong>.</td></tr>
+          <tr><td class="cell-lead">Predicativa</td><td>Predicativo do sujeito</td><td>Vem <strong>após verbo de ligação</strong></td><td>A meta é <strong>que alcancemos a nomeação</strong>.</td></tr>
+          <tr><td class="cell-lead">Apositiva</td><td>Aposto</td><td>Explica um termo; costuma vir após <strong>dois-pontos</strong> ou vírgula</td><td>Só desejo uma coisa: <strong>que faça uma boa prova</strong>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout armadilha"><span class="tag">Objetiva indireta × completiva nominal</span>
+      <p>Ambas têm preposição — o teste é <strong>o que vem antes</strong>: se a oração completa um <strong>verbo</strong> → objetiva indireta (“<u>Necessito</u> de que…”); se completa um <strong>nome</strong> → completiva nominal (“Tenho <u>certeza</u> de que…”). A banca troca uma pela outra o tempo todo.</p></div>
+
+    <div class="callout bizu"><span class="tag">Reduzidas continuam substantivas</span>
+      <p>“É preciso <u>estudar</u>” = subjetiva <strong>reduzida de infinitivo</strong>. Não ter conjunção não muda o grupo — classifica-se pela função (e pela versão desenvolvida: “É preciso que se estude”).</p></div>
+  </section>
+
+  <!-- 04 -->
+  <section id="m4">
+    <div class="sechead"><span class="num">04</span><h2>Subordinadas adjetivas</h2></div>
+    <p class="lead">Exercem função de <strong>adjetivo</strong> (caracterizam um antecedente) e são introduzidas por <strong>pronome relativo</strong> (que, quem, cujo, o qual, onde, quanto). Duas espécies — e a vírgula decide.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Espécie</th><th>Vírgula</th><th>Efeito de sentido</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Restritiva</td><td><strong>Sem</strong> vírgula</td><td><strong>Limita/especifica</strong>: só uma parte do antecedente</td><td>Os candidatos <strong>que estudaram</strong> garantiram a aprovação. <span style="color:var(--ink-faint)">(só os que estudaram)</span></td></tr>
+          <tr><td class="cell-lead">Explicativa</td><td><strong>Entre</strong> vírgulas</td><td><strong>Generaliza/detalha</strong>: vale para todo o antecedente</td><td>O Cebraspe, <strong>que é banca tradicional</strong>, exige atenção. <span style="color:var(--ink-faint)">(acréscimo dispensável)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout armadilha"><span class="tag">A vírgula que muda o mundo</span>
+      <p>“Os candidatos <u>que estudaram</u> passaram” (restritiva: só alguns) ≠ “Os candidatos, <u>que estudaram</u>, passaram” (explicativa: <strong>todos</strong> estudaram e todos passaram). A Cebraspe adora afirmar que inserir/remover a vírgula “não altera o sentido”. <strong>Altera.</strong></p></div>
+
+    <div class="callout bizu"><span class="tag">Radar do relativo</span>
+      <p>“que” é <strong>pronome relativo</strong> (→ adjetiva) quando <strong>tem antecedente</strong> e pode ser trocado por <strong>“o qual”</strong>. Se não tem antecedente e cabe “isso”, é <strong>conjunção integrante</strong> (→ substantiva). Este é o divisor de águas do “que”.</p></div>
+  </section>
+
+  <!-- 05 -->
+  <section id="m5">
+    <div class="sechead"><span class="num">05</span><h2>Subordinadas adverbiais</h2></div>
+    <p class="lead">Exercem função de <strong>adjunto adverbial</strong>: indicam a circunstância da oração principal. São nove — reconheça pela <strong>pergunta</strong> que respondem.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Circunstância</th><th>Pergunta-teste</th><th>Conjunções típicas</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Causal</td><td>Por quê? (motivo)</td><td>porque, visto que, já que, como (inicial)</td></tr>
+          <tr><td class="cell-lead">Consecutiva</td><td>Com que consequência?</td><td>(tão/tanto/tal…) que, de modo que</td></tr>
+          <tr><td class="cell-lead">Comparativa</td><td>Comparado a quê?</td><td>como, (tal) qual, (mais/menos) do que</td></tr>
+          <tr><td class="cell-lead">Concessiva</td><td>Apesar de quê?</td><td>embora, ainda que, mesmo que, conquanto</td></tr>
+          <tr><td class="cell-lead">Condicional</td><td>Com que condição?</td><td>se, caso, contanto que, a menos que, salvo se</td></tr>
+          <tr><td class="cell-lead">Conformativa</td><td>Conforme o quê?</td><td>conforme, segundo, consoante, como (=conforme)</td></tr>
+          <tr><td class="cell-lead">Final</td><td>Para quê?</td><td>para que, a fim de que, que (=para que)</td></tr>
+          <tr><td class="cell-lead">Proporcional</td><td>À medida de quê?</td><td>à medida que, à proporção que, quanto mais</td></tr>
+          <tr><td class="cell-lead">Temporal</td><td>Quando?</td><td>quando, enquanto, logo que, assim que, mal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout armadilha"><span class="tag">Causa (adverbial) × explicação (coordenada)</span>
+      <p>A pior pegadinha do assunto. <strong>Causal</strong> = causa <em>real</em> do fato: “O chão está molhado <u>porque choveu</u>” (chuva causou o molhado). <strong>Explicativa</strong> (coordenada) = justifica o <em>ato de dizer</em>, tipicamente após ordem/opinião: “Não saia, <u>porque está chovendo</u>” (justifica o conselho). Regra prática: <strong>depois de imperativo, é explicativa</strong>.</p></div>
+  </section>
+
+  <!-- 06 -->
+  <section id="m6">
+    <div class="sechead"><span class="num">06</span><h2>Catálogo de armadilhas</h2></div>
+    <p class="lead">As conjunções-camaleão e as trocas de rótulo prediletas da banca.</p>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 01 · o “que” polivalente</span>
+      <p>Pode ser: <strong>pronome relativo</strong> (adjetiva, tem antecedente = “o qual”), <strong>conjunção integrante</strong> (substantiva = “isso”), <strong>consecutiva</strong> (após tão/tanto/tal), <strong>causal/explicativa</strong> ou <strong>final</strong> (=para que). <b>→</b> Sempre pela função, nunca pela palavra.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 02 · o “se”</span>
+      <p><strong>Condicional</strong> (“<u>Se</u> estudar, passa”) × <strong>conjunção integrante</strong> introduzindo <strong>substantiva objetiva direta</strong> (“Não sei <u>se</u> ele vem” = não sei <em>isso</em>). <b>→</b> “se” nem sempre é condição.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 03 · o “como”</span>
+      <p><strong>Causal</strong> quando inicia e equivale a <em>porque</em> (“<u>Como</u> chovia, ficamos”); <strong>comparativa</strong> (“forte <u>como</u> um touro”); <strong>conformativa</strong> (“<u>como</u> manda o regimento”). <b>→</b> Três valores possíveis.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 04 · pois antes/depois do verbo</span>
+      <p>Explicativa (antes) × conclusiva (depois). <b>→</b> Ver Módulo 02. Cai muito.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 05 · restritiva ⇄ explicativa pela vírgula</span>
+      <p>Afirmar que pôr/tirar vírgula na adjetiva “não muda o sentido”. <b>→</b> Muda: restringe vs generaliza.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 06 · subjetiva vendida como objetiva direta</span>
+      <p>Com <em>ser + adjetivo</em> (“É certo que…”) a oração é <strong>sujeito</strong> (subjetiva), não objeto. <b>→</b> Verbo de ligação não tem objeto direto.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 07 · objetiva indireta ⇄ completiva nominal</span>
+      <p>As duas com preposição. <b>→</b> Completa <strong>verbo</strong>? OI. Completa <strong>nome</strong>? CN.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 08 · concessiva vendida como adversativa</span>
+      <p>“Embora” dito equivalente a “mas”. <b>→</b> <em>Embora</em> = concessão (subordinada); <em>mas</em> = adversidade (coordenada). Não são a mesma classe.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 09 · contar orações</span>
+      <p>Errar o número de orações. <b>→</b> Conte <strong>verbos</strong>; locução verbal = 1 oração.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 10 · reduzida “deixa de ser” subordinada</span>
+      <p>Alegar que oração sem conjunção não é subordinada. <b>→</b> Reduzidas (infinitivo/gerúndio/particípio) continuam subordinadas.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 11 · “onde” para não-lugar</span>
+      <p>“Onde” é relativo só de <strong>lugar</strong>. Para o resto, “em que”. <b>→</b> “A lei <u>onde</u> se prevê…” (fora do padrão) vs “A lei <u>em que</u> se prevê…”.</p></div>
+  </section>
+
+  <!-- 07 -->
+  <section id="m7">
+    <div class="sechead"><span class="num">07</span><h2>Bizus e mnemônicos</h2></div>
+    <p class="lead">Os atalhos que resolvem na hora.</p>
+
+    <div class="callout bizu"><span class="tag">Bizu 1 · conta verbos</span>
+      <p><strong>Quantos verbos, tantas orações</strong> (locução = 1). Primeira coisa a fazer em qualquer período.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 2 · os três testes de grupo</span>
+      <p>Cabe <strong>“isso”</strong> → <span class="mono">substantiva</span>. Cabe <strong>“o qual”</strong> e caracteriza um nome → <span class="mono">adjetiva</span>. Responde <strong>circunstância</strong> (quando/por quê/para quê/se…) → <span class="mono">adverbial</span>.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 3 · vírgula da adjetiva</span>
+      <p><strong>Com</strong> vírgula = eXplicativa (X de “eXtra”, dá pra tirar). <strong>Sem</strong> vírgula = Restritiva (Restringe, é essencial).</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 4 · preposição + que</span>
+      <p>Preposição encostada num <strong>nome</strong> → completiva nominal. Encostada num <strong>verbo</strong> → objetiva indireta.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 5 · pois</span>
+      <p><span class="mono">POIS antes do verbo = exPlicativa · POIS depois = cOnclusiva.</span></p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 6 · depois de imperativo</span>
+      <p>“Faça X, porque/pois Y” — a oração de Y quase sempre é <strong>coordenada explicativa</strong>, não adverbial causal.</p></div>
+  </section>
+
+  <!-- 08 -->
+  <section id="m8">
+    <div class="sechead"><span class="num">08</span><h2>Na cadeira do examinador</h2></div>
+    <p class="lead">Se eu montasse a prova, não pediria definições — usaria um <strong>texto-base</strong> e apontaria orações específicas para você classificar, sempre com o rótulo “vizinho” à mão.</p>
+
+    <div class="examinador-band">
+      <div class="eyebrow">Estratégia de elaboração</div>
+      <h3>Como eu derrubaria o candidato em sintaxe</h3>
+      <ol class="clean">
+        <li><strong>Conjunção-camaleão no centro.</strong> Escolho um <span class="mono">que</span>, <span class="mono">como</span>, <span class="mono">se</span> ou <span class="mono">pois</span> e afirmo o valor <em>mais óbvio</em> — que é o errado no contexto.</li>
+        <li><strong>Vírgula silenciosa.</strong> Afirmo que isolar a adjetiva por vírgulas “mantém o sentido”. Testa se você enxerga restritiva × explicativa.</li>
+        <li><strong>Coordenada disfarçada de subordinada.</strong> Chamo uma adversativa/explicativa de “subordinada”, ou uma concessiva de “adversativa”.</li>
+        <li><strong>Verbo de ligação armado.</strong> Ponho “é evidente que…” e chamo a oração de objeto direto — quando é sujeito.</li>
+        <li><strong>Contagem.</strong> Afirmo número de orações errado por um, contando com a locução verbal como dois verbos.</li>
+      </ol>
+    </div>
+
+    <div class="texto-base">
+      <span class="lbl">Texto-base do simulado (Texto II)</span>
+      <p>Como o prazo era exíguo, a comissão acelerou os trabalhos. Os deputados que integravam o colegiado analisaram as emendas, mas não concluíram a votação. O relator afirmou que apresentaria o parecer na sessão seguinte, embora soubesse que haveria resistência. É evidente que a matéria dividiria o plenário; por isso, a presidência pediu que todos mantivessem a serenidade.</p>
+    </div>
+
+    <p style="font-size:.9rem;color:var(--ink-soft)">Julgue em <span class="mono">C</span>/<span class="mono">E</span> antes de abrir. Clique para o gabarito comentado.</p>
+
+    <details class="item"><summary><span class="qn">01</span><span class="qtext">Em “Como o prazo era exíguo, a comissão acelerou os trabalhos”, a primeira oração é subordinada adverbial <strong>causal</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“Como” inicia o período e equivale a <b>porque</b> — exprime a causa de a comissão ter acelerado. Adverbial causal.</p></div></details>
+
+    <details class="item"><summary><span class="qn">02</span><span class="qtext">Nessa mesma passagem, “como” introduz oração subordinada adverbial <strong>comparativa</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">É <b>causal</b>. Não há comparação; há motivo.</p>
+        <p class="trap"><b>Armadilha:</b> “como” camaleão (Armadilha 03) — vendem o valor comparativo, o mais “famoso” do como.</p></div></details>
+
+    <details class="item"><summary><span class="qn">03</span><span class="qtext">“que integravam o colegiado” é subordinada <strong>adjetiva restritiva</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“que” = pronome relativo com antecedente “deputados” (= <b>os quais</b>); sem vírgulas, <b>restringe</b> quais deputados.</p></div></details>
+
+    <details class="item"><summary><span class="qn">04</span><span class="qtext">Isolar “que integravam o colegiado” entre vírgulas a tornaria explicativa, mas <strong>manteria</strong> a informação de que apenas parte dos deputados integrava o colegiado.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Vira explicativa e passa a indicar que <b>todos</b> os deputados integravam o colegiado — o sentido <b>muda</b>. A parte final do item é falsa.</p>
+        <p class="trap"><b>Armadilha:</b> vírgula “inofensiva” (Manobra 4 / Armadilha 05).</p></div></details>
+
+    <details class="item"><summary><span class="qn">05</span><span class="qtext">“mas não concluíram a votação” é oração coordenada sindética <strong>adversativa</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“mas” liga orações independentes por oposição. Coordenada adversativa.</p></div></details>
+
+    <details class="item"><summary><span class="qn">06</span><span class="qtext">Em “O relator afirmou que apresentaria o parecer…”, a oração iniciada por “que” é <strong>adjetiva</strong>, pois “que” é pronome relativo.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Não há antecedente; “que” é <b>conjunção integrante</b> (= isso). A oração é <b>substantiva objetiva direta</b> de “afirmou”.</p>
+        <p class="trap"><b>Armadilha:</b> o “que” polivalente (Armadilha 01).</p></div></details>
+
+    <details class="item"><summary><span class="qn">07</span><span class="qtext">“que apresentaria o parecer na sessão seguinte” funciona como objeto direto e admite substituição por “isso”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“O relator afirmou <b>isso</b>” — substantiva objetiva direta. Teste do “isso” confirma.</p></div></details>
+
+    <details class="item"><summary><span class="qn">08</span><span class="qtext">“embora soubesse que haveria resistência” é oração <strong>coordenada</strong>, pois exprime oposição, equivalendo a “mas”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“embora” = <b>concessão</b> → subordinada adverbial <b>concessiva</b>, dependente da principal. Concessão ≠ adversidade coordenada.</p>
+        <p class="trap"><b>Armadilha:</b> concessiva vendida como adversativa (Armadilha 08).</p></div></details>
+
+    <details class="item"><summary><span class="qn">09</span><span class="qtext">Em “É evidente que a matéria dividiria o plenário”, a oração “que a matéria dividiria o plenário” é subordinada substantiva <strong>subjetiva</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Estrutura <b>ser + adjetivo</b> (“é evidente”): a oração é o <b>sujeito</b> (o que é evidente?). Subjetiva.</p></div></details>
+
+    <details class="item"><summary><span class="qn">10</span><span class="qtext">Ainda nessa passagem, a oração exerce a função de <strong>objeto direto</strong> de “é evidente”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“ser evidente” é verbo de ligação + predicativo — não tem objeto direto. A oração é <b>sujeito</b>, não objeto.</p>
+        <p class="trap"><b>Armadilha:</b> subjetiva vendida como objetiva direta (Armadilha 06).</p></div></details>
+
+    <details class="item"><summary><span class="qn">11</span><span class="qtext">“que todos mantivessem a serenidade” completa “pediu” e é subordinada substantiva <strong>objetiva direta</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“a presidência pediu <b>isso</b>” — objeto direto do verbo pedir. Substantiva objetiva direta.</p></div></details>
+
+    <details class="item"><summary><span class="qn">12</span><span class="qtext">O período “Os deputados que integravam o colegiado analisaram as emendas, mas não concluíram a votação” é composto por <strong>duas</strong> orações.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">São <b>três</b> verbos → três orações: <i>integravam</i>, <i>analisaram</i>, <i>concluíram</i>.</p>
+        <p class="trap"><b>Armadilha:</b> contagem de orações (Armadilha 09).</p></div></details>
+
+    <details class="item"><summary><span class="qn">13</span><span class="qtext">(Item isolado) Em “Mantenham a serenidade, pois a matéria é polêmica”, a oração iniciada por “pois” é subordinada adverbial <strong>causal</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Após <b>imperativo</b>, “pois” (antes do verbo) justifica o <b>conselho</b> → coordenada sindética <b>explicativa</b>, não subordinada causal.</p>
+        <p class="trap"><b>Armadilha:</b> causa × explicação (Armadilha da causal/explicativa) + “pois” (Armadilha 04).</p></div></details>
+
+    <details class="item"><summary><span class="qn">14</span><span class="qtext">(Item isolado) Em “Não sei se o relator comparecerá”, a oração “se o relator comparecerá” é substantiva objetiva direta, e “se” é conjunção integrante.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“Não sei <b>isso</b>” — objeto direto de “saber”; “se” aqui é integrante, <b>não</b> condicional.</p></div></details>
+
+    <details class="item"><summary><span class="qn">15</span><span class="qtext">Uma oração subordinada reduzida, por não ser introduzida por conjunção ou pronome relativo, <strong>deixa de ser</strong> classificada como subordinada.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Reduzidas (de infinitivo, gerúndio, particípio) <b>continuam subordinadas</b>; classificam-se pela função e pela oração desenvolvida correspondente.</p>
+        <p class="trap"><b>Armadilha:</b> reduzida “não é subordinada” (Armadilha 10).</p></div></details>
+
+    <div class="callout regra" style="margin-top:22px"><span class="tag">Gabarito &amp; diagnóstico</span>
+      <p>Gabarito: <span class="mono">C E C E C E C E C E C E E C E</span>. Errou <span class="mono">02, 06, 13, 14</span>? Fraqueza em <strong>conjunções-camaleão</strong> (Módulos 05–06). Errou <span class="mono">04</span>? <strong>Vírgula da adjetiva</strong> (Módulo 04). Errou <span class="mono">10, 12</span>? <strong>Função sintática e contagem</strong> (Módulos 01, 03).</p></div>
+  </section>
+
+  <!-- 09 -->
+  <section id="m9">
+    <div class="sechead"><span class="num">09</span><h2>Plano de estudo objetivo</h2></div>
+    <p class="lead">Três fases, ciclo de ~5 dias, com revisão espaçada. O ganho vem de <strong>classificar orações reais</strong>, não de reler a lista de conjunções.</p>
+
+    <div class="phase"><div class="band"></div><div>
+      <div class="meta">Fase 1 · Dias 1–2 · Estrutura</div>
+      <h4>Contar orações e separar coordenação de subordinação</h4>
+      <p>Módulos 01 e 02. Pegue 10 períodos quaisquer (use as provas da sua pasta) e, para cada um, conte os verbos e marque coordenada × subordinada. Só avance quando acertar a contagem em todos.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--gold)"></div><div>
+      <div class="meta">Fase 2 · Dias 3–4 · Classificação fina</div>
+      <h4>Os três grupos e as conjunções-camaleão</h4>
+      <p>Módulos 03–06. Treine os três testes (isso / o qual / circunstância) e monte uma tabelinha pessoal de “que, se, como, pois, conforme” com os valores possíveis. Meta: dar a função antes de olhar a conjunção.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--certo)"></div><div>
+      <div class="meta">Fase 3 · Dia 5 + revisões · Prova real</div>
+      <h4>Simulado + questões Cebraspe anteriores</h4>
+      <p>Refaça o Módulo 08 cobrindo o gabarito; nomeie a manobra de cada item. Depois, questões de provas anteriores da banca. Cada erro vai para a “lista de não-erro”, revista em D+1, D+3, D+7.</p>
+    </div></div>
+
+    <div class="callout bizu"><span class="tag">Checklist antes de marcar C/E</span>
+      <ul class="tick" style="margin:.3em 0">
+        <li>Contei os verbos? O número de orações do item confere?</li>
+        <li>É coordenada (independente) ou subordinada (é termo da outra)?</li>
+        <li>Qual dos três: cabe “isso” / “o qual” / é circunstância?</li>
+        <li>A conjunção é camaleão (que, se, como, pois, conforme)? Testei o valor real?</li>
+        <li>Se o item mexe em vírgula, o sentido muda? (adjetiva!)</li>
+        <li>Consigo justificar pela função? Se não, é candidato a branco.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p class="big">“Classifique pela função, não pela conjunção. Conte os verbos, respeite a vírgula, e marque só o que você prova.”</p>
+    <p>Guia de estudo — Orações &amp; Períodos (análise sintática) · perspectiva da banca examinadora (Cebraspe) · Analista Legislativo / Câmara dos Deputados. Peça nº 2 da série. Confira sempre o edital e as provas oficiais da banca.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, tl=document.getElementById('tl'), td=document.getElementById('td');
+  function sync(){
+    var t=root.getAttribute('data-theme');
+    var darkOS=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var isDark = t==='dark' || (t===null && darkOS);
+    tl.setAttribute('aria-pressed', String(!isDark));
+    td.setAttribute('aria-pressed', String(isDark));
+  }
+  tl.addEventListener('click',function(){root.setAttribute('data-theme','light');sync();});
+  td.addEventListener('click',function(){root.setAttribute('data-theme','dark');sync();});
+  if(window.matchMedia){try{window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',sync);}catch(e){}}
+  sync();
+})();
+</script>
