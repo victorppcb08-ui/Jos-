@@ -1,0 +1,658 @@
+<title>Tipologia & Gênero Textual</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ============ TOKENS — LIGHT (bare :root = complete light palette) ============ */
+:root{
+  --paper:#F4F2EA;          /* warm ivory ground */
+  --surface:#FBFAF4;        /* lifted card */
+  --surface-2:#EFECE1;      /* recessed / table stripe */
+  --ink:#1E212B;            /* near-black warm slate */
+  --ink-soft:#585D6A;       /* secondary text */
+  --ink-faint:#8A8E99;      /* captions */
+  --line:#DED9CB;           /* warm hairline */
+  --line-strong:#C7C1AE;
+  --accent:#33406E;         /* azul-tinta / official ink — the brand accent */
+  --accent-bright:#455AA6;  /* interactive */
+  --accent-wash:#E7E9F1;    /* accent tint bg */
+  --gold:#9A6E17;           /* brass / grifo — secondary highlight */
+  --gold-wash:#F1E7CE;
+  --certo:#2C7A4B;          /* semantic: CERTO */
+  --certo-wash:#E3F0E6;
+  --errado:#AF3040;         /* semantic: ERRADO */
+  --errado-wash:#F6E3E2;
+  --shadow:0 1px 2px rgba(30,33,43,.05),0 8px 24px -12px rgba(30,33,43,.18);
+}
+/* system-dark (no explicit choice) — redefine ONLY tokens */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161C;
+    --surface:#1C1F28;
+    --surface-2:#23262F;
+    --ink:#ECEAE1;
+    --ink-soft:#A2A7B3;
+    --ink-faint:#767B87;
+    --line:#2D313B;
+    --line-strong:#3B404C;
+    --accent:#93A2DC;
+    --accent-bright:#AAB8EC;
+    --accent-wash:#232838;
+    --gold:#D6A64F;
+    --gold-wash:#332B18;
+    --certo:#5EB980;
+    --certo-wash:#182B20;
+    --errado:#E27A85;
+    --errado-wash:#301B1E;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+  }
+}
+/* explicit dark toggle wins in the other direction */
+:root[data-theme="dark"]{
+  --paper:#14161C; --surface:#1C1F28; --surface-2:#23262F;
+  --ink:#ECEAE1; --ink-soft:#A2A7B3; --ink-faint:#767B87;
+  --line:#2D313B; --line-strong:#3B404C;
+  --accent:#93A2DC; --accent-bright:#AAB8EC; --accent-wash:#232838;
+  --gold:#D6A64F; --gold-wash:#332B18;
+  --certo:#5EB980; --certo-wash:#182B20;
+  --errado:#E27A85; --errado-wash:#301B1E;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.wrap{max-width:824px;margin:0 auto;padding:0 22px}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.14;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.55rem,3.6vw,2.1rem);letter-spacing:-.01em}
+h3{font-size:1.28rem;letter-spacing:-.005em;margin:0}
+h4{font-size:1.05rem;font-weight:600}
+p{margin:.7em 0}
+a{color:var(--accent-bright);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:700;color:var(--ink)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  background:
+    radial-gradient(120% 140% at 92% -20%, color-mix(in srgb,var(--accent) 22%, transparent) 0%, transparent 55%),
+    var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.masthead .wrap{padding-top:46px;padding-bottom:40px}
+.crest{display:inline-flex;align-items:center;gap:9px;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.crest .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(2.1rem,6.2vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:.35em 0 .28em}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-size:1.12rem;color:var(--ink-soft);max-width:60ch;margin:0}
+.metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.02em;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink-soft);white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+.warnstrip{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-radius:12px;background:var(--errado-wash);border:1px solid color-mix(in srgb,var(--errado) 35%,transparent)}
+.warnstrip .ic{flex:0 0 auto;font-weight:700;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.warnstrip p{margin:0;font-size:.95rem;color:var(--ink)}
+
+/* ---------- theme toggle ---------- */
+.toggle{position:fixed;top:14px;right:14px;z-index:20;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.toggle button{border:0;background:transparent;color:var(--ink-faint);font:inherit;font-size:.82rem;cursor:pointer;padding:4px 10px;border-radius:999px;line-height:1}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .toggle button[aria-pressed="true"]{color:#14161C}
+
+/* ---------- index ---------- */
+.toc{margin:38px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.toc h4{padding:15px 20px;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.toc ol{list-style:none;margin:0;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.toc a{display:flex;gap:12px;align-items:baseline;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--ink)}
+.toc a:hover{background:var(--accent-wash)}
+.toc a .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--gold);font-weight:600;flex:0 0 auto}
+.toc a .t{font-size:.95rem;line-height:1.3}
+@media(max-width:560px){.toc ol{grid-template-columns:1fr}}
+
+/* ---------- sections ---------- */
+section{padding:52px 0 8px;scroll-margin-top:16px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sechead .num{font-family:"IBM Plex Mono",monospace;font-size:.9rem;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.lead{font-size:1.06rem;color:var(--ink-soft);max-width:64ch;margin-top:6px}
+.rule{height:1px;background:var(--line);border:0;margin:30px 0}
+
+/* ---------- prose blocks ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0;box-shadow:var(--shadow)}
+.grip{border-left:3px solid var(--accent);padding-left:16px;margin:18px 0}
+ul.clean,ol.clean{margin:.6em 0;padding-left:1.25em}
+ul.clean li,ol.clean li{margin:.34em 0}
+ul.tick{list-style:none;padding-left:0;margin:.6em 0}
+ul.tick li{position:relative;padding-left:1.7em;margin:.4em 0}
+ul.tick li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:"IBM Plex Mono",monospace}
+
+/* ---------- callouts ---------- */
+.callout{border-radius:14px;padding:16px 18px 16px 18px;margin:18px 0;border:1px solid var(--line);position:relative}
+.callout .tag{display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.callout p:first-of-type{margin-top:2px}
+.callout p:last-child{margin-bottom:0}
+.armadilha{background:var(--errado-wash);border-color:color-mix(in srgb,var(--errado) 34%,transparent)}
+.armadilha .tag{color:var(--errado)}
+.bizu{background:var(--gold-wash);border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
+.bizu .tag{color:var(--gold)}
+.regra{background:var(--accent-wash);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.regra .tag{color:var(--accent)}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+td strong{color:var(--accent)}
+.cell-lead{font-weight:600;color:var(--ink);white-space:nowrap}
+
+/* ---------- CE chips ---------- */
+.ce{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.74rem;letter-spacing:.04em;padding:3px 9px;border-radius:6px;text-transform:uppercase}
+.ce.c{background:var(--certo-wash);color:var(--certo);border:1px solid color-mix(in srgb,var(--certo) 40%,transparent)}
+.ce.e{background:var(--errado-wash);color:var(--errado);border:1px solid color-mix(in srgb,var(--errado) 40%,transparent)}
+
+/* ---------- examiner band ---------- */
+.examinador-band{background:var(--accent);color:#EDEFF7;border-radius:20px;padding:30px 26px;margin:26px 0}
+:root[data-theme="dark"] .examinador-band{background:#20263a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .examinador-band{background:#20263a}}
+.examinador-band .eyebrow{color:var(--gold)}
+.examinador-band h3{color:#fff;margin:.3em 0 .4em;font-size:1.5rem}
+.examinador-band p{color:#D9DCEA}
+.examinador-band strong{color:#fff}
+.examinador-band ol.clean li{margin:.5em 0}
+.examinador-band .mono{color:#fff}
+
+/* ---------- simulado ---------- */
+.texto-base{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:.98rem}
+.texto-base .lbl{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:6px}
+.item{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:var(--surface);overflow:hidden}
+.item summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;gap:13px;align-items:flex-start}
+.item summary::-webkit-details-marker{display:none}
+.item summary:focus-visible{outline:2px solid var(--accent-bright);outline-offset:-2px}
+.item .qn{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;color:var(--gold);flex:0 0 auto;padding-top:1px}
+.item .qtext{flex:1;font-size:.99rem}
+.item .peek{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-faint);letter-spacing:.1em;flex:0 0 auto;padding-top:3px}
+.item[open] .peek{display:none}
+.answer{padding:2px 18px 18px 50px;border-top:1px dashed var(--line);margin-top:2px}
+.answer .verdict{margin:14px 0 8px;display:flex;align-items:center;gap:10px}
+.answer .why{font-size:.94rem;color:var(--ink-soft)}
+.answer .why b{color:var(--ink)}
+.answer .trap{margin-top:10px;font-size:.88rem;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.answer .trap b{color:var(--errado)}
+@media(max-width:560px){.answer{padding-left:18px}.item summary{flex-wrap:wrap}}
+
+/* ---------- plan ---------- */
+.phase{display:grid;grid-template-columns:auto 1fr;gap:0 20px;margin:14px 0}
+.phase .band{grid-row:1/3;width:4px;border-radius:4px;background:var(--accent)}
+.phase h4{margin-bottom:2px}
+.phase .meta{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- footer ---------- */
+footer{margin:56px 0 40px;padding-top:26px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:.86rem}
+footer .big{font-family:"Fraunces",serif;font-style:italic;font-size:1.28rem;color:var(--ink);line-height:1.4;margin-bottom:14px;text-wrap:balance}
+
+@media (prefers-reduced-motion:no-preference){
+  details.item[open] .answer{animation:fade .28s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1}}
+}
+</style>
+
+<div class="toggle" role="group" aria-label="Tema">
+  <button id="tl" aria-pressed="false">Claro</button>
+  <button id="td" aria-pressed="false">Escuro</button>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="crest"><span class="dot"></span>Guia do Examinador · Cebraspe</div>
+    <h1>Tipologia &amp; <em>Gênero</em> Textual</h1>
+    <p class="dek">Programa de estudo objetivo e estruturado — do conceito à armadilha — feito na perspectiva de quem <strong>elabora</strong> a prova. Analista Legislativo · Câmara dos Deputados.</p>
+    <div class="metarow">
+      <span class="chip">Banca: <b>Cebraspe</b></span>
+      <span class="chip">Formato: <b>Certo / Errado</b></span>
+      <span class="chip"><b>1 errada anula 1 certa</b></span>
+      <span class="chip">Foco: <b>discriminar tipo × gênero</b></span>
+    </div>
+    <div class="warnstrip">
+      <span class="ic mono">!</span>
+      <p>Como uma errada <b>anula</b> uma certa, o inimigo número 1 aqui não é a falta de conhecimento — é o <strong>chute confiante</strong> nas pegadinhas. Este guia foi montado para blindar exatamente esses pontos.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="toc" aria-label="Índice">
+    <h4>Índice do programa</h4>
+    <ol>
+      <li><a href="#m0"><span class="n">00</span><span class="t">A mecânica da banca (C/E)</span></a></li>
+      <li><a href="#m1"><span class="n">01</span><span class="t">Tipo ≠ Gênero: a distinção-mãe</span></a></li>
+      <li><a href="#m2"><span class="n">02</span><span class="t">As tipologias, uma a uma</span></a></li>
+      <li><a href="#m3"><span class="n">03</span><span class="t">Gêneros e o domínio legislativo</span></a></li>
+      <li><a href="#m4"><span class="n">04</span><span class="t">Heterogeneidade tipológica</span></a></li>
+      <li><a href="#m5"><span class="n">05</span><span class="t">Catálogo de armadilhas</span></a></li>
+      <li><a href="#m6"><span class="n">06</span><span class="t">Bizus e mnemônicos</span></a></li>
+      <li><a href="#m7"><span class="n">07</span><span class="t">Na cadeira do examinador + simulado</span></a></li>
+      <li><a href="#m8"><span class="n">08</span><span class="t">Plano de estudo objetivo</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 00 ============ -->
+  <section id="m0">
+    <div class="sechead"><span class="num">00</span><h2>A mecânica da banca</h2></div>
+    <p class="lead">Antes do conteúdo, entenda o jogo. O Cebraspe não pergunta “o que é narração?”. Ele afirma algo e você julga <span class="mono">C</span> ou <span class="mono">E</span>. O erro mora nos detalhes da <strong>redação do item</strong>.</p>
+
+    <div class="callout regra">
+      <span class="tag">A matemática do risco</span>
+      <p>Cada item vale, na prática, <strong>+1 se acertar e −1 se errar</strong>. Chutar 10 itens ao acaso tende a te deixar em zero — e um chute “quase certo” numa pegadinha costuma render −1. <strong>Só marque o que você consegue justificar.</strong> Em dúvida real entre C e E sem base, o esperado é deixar em branco (quando a prova permite) ou reservar para reanálise.</p>
+    </div>
+
+    <h3>Os 6 movimentos que a banca usa para transformar uma verdade em item ERRADO</h3>
+    <p>Grave estes seis. <strong>Quase todo item errado deste assunto</strong> é uma destas manobras:</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Manobra</th><th>Como aparece no item</th><th>Antídoto mental</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">1. Troca de rótulo</td><td>Chama <em>tipo</em> de gênero (ou vice-versa): “o gênero narração…”.</td><td>Narração é <strong>tipo</strong>; carta é <strong>gênero</strong>. Sempre.</td></tr>
+          <tr><td class="cell-lead">2. Absolutização</td><td>“<em>puramente</em> descritivo”, “<em>somente</em>”, “<em>integralmente</em>”, “<em>exclusivamente</em>”.</td><td>Texto real é <strong>heterogêneo</strong>. Absoluto → acenda o alerta.</td></tr>
+          <tr><td class="cell-lead">3. Inversão de propriedade</td><td>“tipos são <em>infinitos</em>”, “gêneros são <em>fixos e imutáveis</em>”.</td><td>Tipos = finitos; gêneros = infinitos e históricos.</td></tr>
+          <tr><td class="cell-lead">4. Parte pelo todo</td><td>Um verbo no imperativo → “<em>logo</em>, o texto é injuntivo”.</td><td>Um elemento não define o <strong>predomínio</strong>.</td></tr>
+          <tr><td class="cell-lead">5. Extrapolação / atribuição</td><td>Diz que o autor é “neutro” quando ele <em>defende</em> tese.</td><td>Confira no texto: o que ele <strong>faz</strong>, não o que soaria bem.</td></tr>
+          <tr><td class="cell-lead">6. Falsa causa</td><td>Premissa verdadeira + “<em>porque</em>” + conclusão falsa.</td><td>Julgue o <strong>nexo</strong>, não só as partes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout bizu">
+      <span class="tag">Bizu de leitura do item</span>
+      <p>Leia o item <strong>duas vezes</strong>: a primeira pelo sentido geral; a segunda <strong>caçando o adjetivo/advérbio/conectivo</strong> que a banca plantou (<span class="mono">apenas, sempre, porque, logo, exclusivamente, ao contrário</span>). É ali que o gabarito vira.</p>
+    </div>
+  </section>
+
+  <!-- ============ 01 ============ -->
+  <section id="m1">
+    <div class="sechead"><span class="num">01</span><h2>Tipo ≠ Gênero</h2></div>
+    <p class="lead">Se você domina <strong>só uma coisa</strong> deste assunto, que seja esta distinção. É a fonte de ~70% dos itens.</p>
+
+    <div class="grip">
+      <p><strong>Tipologia textual</strong> é uma categoria <em>linguística</em>. Define-se pela <strong>estrutura interna</strong> do texto — tempos verbais, classes de palavras, tipo de relação lógica. É um conjunto <strong>FINITO</strong> (as clássicas 5). Você não “inventa” um tipo novo.</p>
+      <p><strong>Gênero textual</strong> é uma categoria <em>sociocomunicativa</em>. Define-se pela <strong>função social</strong>, pelo contexto e pela esfera de circulação. É um conjunto <strong>ABERTO e infinito</strong>, histórico e mutável (surgem gêneros novos — e-mail, post, tweet). Bakhtin: “tipos <em>relativamente estáveis</em> de enunciados”.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Critério</th><th>Tipo textual</th><th>Gênero textual</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Natureza</td><td>Linguística / estrutural</td><td>Social / comunicativa</td></tr>
+          <tr><td class="cell-lead">Quantidade</td><td><strong>Finita</strong> (≈ 5)</td><td><strong>Infinita</strong> / aberta</td></tr>
+          <tr><td class="cell-lead">Define-se por</td><td>Traços internos (verbos, léxico, sintaxe)</td><td>Função, propósito, contexto de uso</td></tr>
+          <tr><td class="cell-lead">Estabilidade</td><td>Estável (categorias teóricas fixas)</td><td>Histórico, muda com a sociedade</td></tr>
+          <tr><td class="cell-lead">Nomes</td><td>Narração, descrição, exposição, argumentação, injunção</td><td>Notícia, edital, parecer, receita, ofício, romance…</td></tr>
+          <tr><td class="cell-lead">Relação</td><td colspan="2">Um <strong>gênero</strong> abriga <strong>vários tipos</strong>. O tipo é o tijolo; o gênero é a construção pronta com função social.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout regra">
+      <span class="tag">Não confunda com o “suporte”</span>
+      <p>O <strong>suporte</strong> é o lugar físico/virtual onde o gênero circula (o jornal, o mural, o portal da Câmara, o livro). <strong>Suporte não é gênero.</strong> O jornal (suporte) carrega notícia, editorial, charge (gêneros). E o <strong>domínio discursivo</strong> (jornalístico, jurídico, legislativo) é a esfera de atividade — também não é gênero nem tipo.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section id="m2">
+    <div class="sechead"><span class="num">02</span><h2>As tipologias, uma a uma</h2></div>
+    <p class="lead">As cinco sequências que a banca cobra. Para cada uma: o que ela <strong>faz</strong>, as marcas linguísticas que a denunciam e a armadilha que costuma vir junto. Modelo teórico de referência: as <em>sequências textuais</em> (Adam) e os tipos de Marcuschi.</p>
+
+    <div class="card">
+      <h3>1 · Narração</h3>
+      <p><strong>Faz:</strong> conta fatos que se sucedem <strong>no tempo</strong>. Há ação, transformação, enredo.</p>
+      <ul class="tick">
+        <li><b>Marcas:</b> pretérito perfeito (“chegou”, “aprovou”), verbos de <strong>ação</strong>, marcadores temporais (então, depois, logo, à noite), personagens, narrador.</li>
+        <li><b>Pergunta que responde:</b> “O que aconteceu (e depois)?”</li>
+        <li><b>Gêneros típicos:</b> notícia, conto, romance, relato, ata (parte factual).</li>
+      </ul>
+      <p><em>Chave:</em> há <strong>progressão temporal</strong> — os fatos avançam.</p>
+    </div>
+
+    <div class="card">
+      <h3>2 · Descrição</h3>
+      <p><strong>Faz:</strong> caracteriza seres, objetos, ambientes, sensações. É um <strong>retrato verbal</strong> — <strong>estático</strong>.</p>
+      <ul class="tick">
+        <li><b>Marcas:</b> verbos de <strong>estado/ligação</strong> (ser, estar, permanecer, parecer), presente ou pretérito <strong>imperfeito</strong>, adjetivos e locuções adjetivas, advérbios de lugar, enumeração de qualidades.</li>
+        <li><b>Pergunta que responde:</b> “Como é?”</li>
+        <li><b>Subtipos:</b> <strong>objetiva</strong> (denotativa/técnica: laudo, ficha) × <strong>subjetiva</strong> (conotativa/impressionista: literária).</li>
+        <li><b>Gêneros típicos:</b> laudo, cardápio, verbete, trechos de reportagem.</li>
+      </ul>
+      <p><em>Chave:</em> <strong>simultaneidade</strong>, não sucessão — o tempo “congela”.</p>
+    </div>
+
+    <div class="card">
+      <h3>3 · Exposição (dissertação expositiva)</h3>
+      <p><strong>Faz:</strong> apresenta, informa e <strong>explica</strong> conceitos e fatos — <strong>sem defender uma tese</strong>.</p>
+      <ul class="tick">
+        <li><b>Marcas:</b> presente atemporal, linguagem objetiva/impessoal (3ª pessoa), definições, exemplos, dados, relações de causa/consequência neutras.</li>
+        <li><b>Pergunta que responde:</b> “O que é / como funciona?”</li>
+        <li><b>Gêneros típicos:</b> verbete de enciclopédia, resumo, aula, relatório técnico, seminário.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4 · Argumentação (dissertação argumentativa)</h3>
+      <p><strong>Faz:</strong> <strong>defende um ponto de vista</strong> para convencer/persuadir.</p>
+      <ul class="tick">
+        <li><b>Marcas:</b> <strong>tese</strong> + argumentos + conclusão; conectivos lógico-argumentativos (portanto, logo, contudo, porque, uma vez que); <strong>modalizadores</strong> (é evidente, deve-se, certamente); operadores de oposição e conclusão.</li>
+        <li><b>Pergunta que responde:</b> “Por que se deve pensar/agir assim?”</li>
+        <li><b>Gêneros típicos:</b> artigo de opinião, editorial, <strong>parecer</strong>, requerimento justificado, sentença, carta argumentativa.</li>
+      </ul>
+      <p><em>Fronteira crítica:</em> expor ≠ argumentar. Se há <strong>defesa de posição</strong>, é argumentação — mesmo que “disfarçada” de informação.</p>
+    </div>
+
+    <div class="card">
+      <h3>5 · Injunção (instrução)</h3>
+      <p><strong>Faz:</strong> <strong>orienta o comportamento</strong> do interlocutor — instrui, ordena, prescreve.</p>
+      <ul class="tick">
+        <li><b>Marcas:</b> verbos no <strong>imperativo</strong> (“misture”), no <strong>infinitivo</strong> (“misturar”) e no <strong>futuro do presente com valor de norma</strong> (“o candidato <strong>deverá</strong>”, “a unidade regulamentará”); sequência de passos, prazos, condições.</li>
+        <li><b>Pergunta que responde:</b> “Como fazer / o que se deve fazer?”</li>
+        <li><b>Gêneros típicos:</b> receita, manual, bula, <strong>edital, lei (parte dispositiva), regimento, ofício com determinação</strong>.</li>
+      </ul>
+      <p><em>Relevância p/ o cargo:</em> o texto <strong>normativo</strong> (leis, resoluções, regimento interno) tem forte carga <strong>injuntiva</strong>. Esperе isso na prova da Câmara.</p>
+    </div>
+
+    <p style="margin-top:26px"><strong>Quadro-síntese</strong> — decore a coluna “marca decisiva”:</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>Finalidade</th><th>Pergunta</th><th>Tempo/forma verbal</th><th>Marca decisiva</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Narração</td><td>Contar fatos</td><td>O que aconteceu?</td><td>Pret. perfeito</td><td><strong>Progressão no tempo</strong></td></tr>
+          <tr><td class="cell-lead">Descrição</td><td>Caracterizar</td><td>Como é?</td><td>Presente / imperfeito, v. de ligação</td><td><strong>Estático, simultâneo</strong></td></tr>
+          <tr><td class="cell-lead">Exposição</td><td>Informar/explicar</td><td>O que é?</td><td>Presente atemporal</td><td><strong>Sem tese</strong></td></tr>
+          <tr><td class="cell-lead">Argumentação</td><td>Convencer</td><td>Por quê?</td><td>Presente + conectivos lógicos</td><td><strong>Defende ponto de vista</strong></td></tr>
+          <tr><td class="cell-lead">Injunção</td><td>Orientar ação</td><td>Como fazer?</td><td>Imperativo / infinitivo / futuro normativo</td><td><strong>Dirige o comportamento</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.9rem;color:var(--ink-faint)">Obs.: alguns autores acrescentam a sequência <strong>dialogal/conversacional</strong> (turnos de fala) e tratam exposição + argumentação sob o guarda-chuva “dissertação”. A Cebraspe transita por essas nomenclaturas; o importante é reconhecer a <em>função</em>, não brigar com o rótulo.</p>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section id="m3">
+    <div class="sechead"><span class="num">03</span><h2>Gêneros e o domínio legislativo</h2></div>
+    <p class="lead">O gênero se define pela tríade de Bakhtin: <strong>conteúdo temático</strong> + <strong>estilo</strong> (recursos de linguagem) + <strong>construção composicional</strong> (a “forma” estabilizada). Para <em>este</em> concurso, os gêneros oficiais/legislativos são terreno provável do texto-base.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Gênero (domínio oficial/legislativo)</th><th>Função social</th><th>Tipologia que costuma predominar</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Projeto de lei</td><td>Propor norma jurídica</td><td>Injuntiva (dispositivo) + argumentativa (justificação)</td></tr>
+          <tr><td class="cell-lead">Parecer</td><td>Opinar tecnicamente e recomendar</td><td><strong>Argumentativa</strong> + expositiva</td></tr>
+          <tr><td class="cell-lead">Requerimento</td><td>Solicitar providência</td><td>Injuntiva/expositiva + argumentativa (justificativa)</td></tr>
+          <tr><td class="cell-lead">Ata</td><td>Registrar o ocorrido em sessão</td><td><strong>Narrativa</strong> + expositiva</td></tr>
+          <tr><td class="cell-lead">Ofício</td><td>Comunicar oficialmente</td><td>Expositiva (e injuntiva, se determina)</td></tr>
+          <tr><td class="cell-lead">Ementa</td><td>Resumir o objeto da norma</td><td>Expositiva (condensada)</td></tr>
+          <tr><td class="cell-lead">Relatório</td><td>Prestar contas de atividade</td><td>Expositiva + narrativa</td></tr>
+          <tr><td class="cell-lead">Notícia institucional</td><td>Informar fato ao público</td><td>Narrativa + expositiva + descritiva</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout bizu">
+      <span class="tag">Bizu do domínio oficial</span>
+      <p>Um <strong>mesmo gênero</strong> quase sempre mistura tipos. O <strong>parecer</strong> expõe o caso (exposição), relata o trâmite (narração) e recomenda (argumentação). Por isso a banca adora perguntar “predomina a sequência X no trecho tal” — e não “o texto é do tipo X”. <strong>Leia o trecho apontado, não o texto inteiro.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section id="m4">
+    <div class="sechead"><span class="num">04</span><h2>Heterogeneidade tipológica</h2></div>
+    <p class="lead">O conceito que a banca mais explora — e que mais derruba. <strong>Nenhum texto empírico é “puro”.</strong> Ele combina sequências; uma <strong>predomina</strong>, mas as outras estão lá.</p>
+
+    <ul class="clean">
+      <li><strong>Predominância ≠ exclusividade.</strong> Dizer “predomina a narração” pode ser certo; dizer “é <em>puramente</em> narrativo” quase sempre é errado.</li>
+      <li><strong>A predominância classifica o texto quanto ao TIPO — não define o gênero.</strong> Um texto predominantemente narrativo pode ser do gênero notícia, conto ou ata.</li>
+      <li><strong>Intercalação:</strong> as sequências se alternam ao longo do texto (um parágrafo narra, o seguinte descreve, o outro argumenta).</li>
+    </ul>
+
+    <div class="texto-base">
+      <span class="lbl">Trecho anotado — as cores mostram a mistura</span>
+      <p><span style="border-bottom:2px solid var(--accent)">A Câmara aprovou, na quarta-feira, o projeto do teletrabalho.</span> <span style="border-bottom:2px solid var(--gold)">O plenário estava tenso: bancadas divididas, galerias lotadas.</span> <span style="border-bottom:2px solid var(--certo)">O relator sustentou que a medida moderniza a gestão, razão pela qual deveria ser aprovada.</span> <span style="border-bottom:2px solid var(--errado)">Cada unidade deverá regulamentar os critérios em até 90 dias.</span></p>
+      <p style="font-size:.82rem;color:var(--ink-soft);margin-top:8px">
+        <span class="mono" style="color:var(--accent)">▬ narração</span> &nbsp;
+        <span class="mono" style="color:var(--gold)">▬ descrição</span> &nbsp;
+        <span class="mono" style="color:var(--certo)">▬ argumentação</span> &nbsp;
+        <span class="mono" style="color:var(--errado)">▬ injunção</span>
+      </p>
+    </div>
+    <p>Quatro sequências, um só parágrafo. Se a banca perguntar “o trecho é injuntivo”, a resposta depende de <strong>qual pedaço</strong> ela citou. Guarde este texto — ele volta no simulado.</p>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section id="m5">
+    <div class="sechead"><span class="num">05</span><h2>Catálogo de armadilhas</h2></div>
+    <p class="lead">As pegadinhas recorrentes, com o “gabarito mental” de cada uma. Se você reconhecer a manobra, o item se resolve sozinho.</p>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 01 · Rótulo trocado</span>
+      <p>“O <strong>gênero</strong> narração / descrição / dissertação…”. <b>→</b> Esses são <strong>tipos</strong>. Gênero seria notícia, carta, edital. Inverso também cai: “o <strong>tipo textual</strong> carta/ofício”.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 02 · Pureza</span>
+      <p>“Texto <em>puramente</em>/<em>exclusivamente</em>/<em>integralmente</em> descritivo.” <b>→</b> Heterogeneidade: quase sempre <strong>errado</strong>. Textos misturam sequências.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 03 · Predomínio virou exclusividade</span>
+      <p>Troca sutil de “predomina X” por “o texto é X (todo)”. <b>→</b> Confira se o item admite outras sequências ou finge que não existem.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 04 · Descrição × narração</span>
+      <p>Um verbo qualquer é apresentado como “prova” de narração. <b>→</b> Narração exige <strong>progressão temporal</strong>; descrição é <strong>estática</strong>. Ter verbo não basta — descrição também tem verbos (de estado).</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 05 · Exposição × argumentação</span>
+      <p>“O autor <em>apenas informa</em>, de modo neutro” — quando ele defende posição. Ou o contrário. <b>→</b> Procure a <strong>tese</strong> e os conectivos conclusivos. Se defende, é argumentação.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 06 · Injunção = só imperativo</span>
+      <p>“Como não há imperativo, não é injuntivo.” <b>→</b> Injunção também usa <strong>infinitivo</strong> e <strong>futuro normativo</strong> (“deverá”, “é vedado”, “fica proibido”). Típico de lei/edital.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 07 · Suporte como gênero</span>
+      <p>“O gênero é o jornal / o portal / o livro.” <b>→</b> Isso é <strong>suporte</strong>, não gênero.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 08 · Contagem invertida</span>
+      <p>“Tipos são inúmeros; gêneros são poucos e fixos.” <b>→</b> É o oposto: <strong>tipos finitos, gêneros infinitos</strong>.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 09 · Gênero imutável</span>
+      <p>“Gêneros são estruturas fixas e imutáveis.” <b>→</b> São <strong>relativamente</strong> estáveis, históricos e mutáveis.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 10 · Parte pelo todo</span>
+      <p>Uma única forma verbal “classifica” o texto inteiro. <b>→</b> Classificação exige <strong>predomínio</strong>, não uma ocorrência isolada.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 11 · Confusão de categorias</span>
+      <p>Mistura tipologia com <strong>função da linguagem</strong> (referencial, conativa…) ou com <strong>tipo de discurso</strong>. São grades diferentes. <b>→</b> Não deixe “conativa” virar sinônimo de “injuntiva” no automático (são grades distintas, ainda que dialoguem).</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 12 · Extrapolação</span>
+      <p>Atribui ao texto intenção/informação que ele <strong>não</strong> traz (“o autor conclui que…”, “o texto critica…”). <b>→</b> Se não está no texto, é <strong>errado</strong>.</p></div>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section id="m6">
+    <div class="sechead"><span class="num">06</span><h2>Bizus e mnemônicos</h2></div>
+    <p class="lead">Atalhos para a hora da prova. Poucos, mas que resolvem.</p>
+
+    <div class="callout bizu"><span class="tag">Bizu 1 · A frase-mãe</span>
+      <p><strong>“Tipo é FINITO; gênero é INFINITO.”</strong> Repita até virar reflexo. Resolve toda armadilha de contagem e de rótulo.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 2 · A pergunta que revela o tipo</span>
+      <p>Pergunte <strong>“o que o texto FAZ aqui?”</strong> → conta história = <span class="mono">narra</span> · pinta um quadro = <span class="mono">descreve</span> · explica sem defender = <span class="mono">expõe</span> · defende tese = <span class="mono">argumenta</span> · manda fazer = <span class="mono">injunge</span>.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 3 · Verbo como radar</span>
+      <p>Pret. perfeito → narração · presente/imperfeito + adjetivo + verbo de ligação → descrição · imperativo/infinitivo/“deverá” → injunção · presente atemporal + “portanto/porque” → dissertação.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 4 · Teste do contraexemplo</span>
+      <p>Diante de um item categórico (“sempre”, “todo”, “nunca”), pergunte: <strong>“consigo imaginar um caso que quebre isso?”</strong> Se sim → provavelmente <span class="mono">E</span>. (Sem transformar isso em dogma: às vezes o absoluto é verdadeiro — ex.: “tipo textual define-se por traços linguísticos”.)</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 5 · O trecho, não o texto</span>
+      <p>Quando o item cita “no trecho / no período / na linha X”, <strong>volte e leia só aquele pedaço</strong>. A banca separa um fragmento de tipologia diferente do resto de propósito.</p></div>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section id="m7">
+    <div class="sechead"><span class="num">07</span><h2>Na cadeira do examinador</h2></div>
+    <p class="lead">Você pediu: “se fosse você, o que cobraria e como derrubaria o candidato?”. Aqui vai — sem cerimônia. Primeiro a estratégia; depois um simulado com <strong>gabarito comentado</strong> construído com essas armas.</p>
+
+    <div class="examinador-band">
+      <div class="eyebrow">Estratégia de elaboração</div>
+      <h3>Como eu montaria os itens para reprovar você</h3>
+      <p>Eu não perguntaria definições — perguntaria <strong>aplicação sobre um texto-base</strong>, de preferência um gênero oficial (parecer, notícia da Casa). Minhas cinco jogadas:</p>
+      <ol class="clean">
+        <li><strong>Fragmento cirúrgico.</strong> Cito um trecho cuja tipologia diverge do texto como um todo, e afirmo a tipologia do <em>texto</em>. Quem não relê o trecho, erra.</li>
+        <li><strong>Verdade + palavra veneno.</strong> Escrevo uma afirmação correta e insiro <span class="mono">“apenas”, “puramente”, “neutro”, “integralmente”</span>. A frase soa certa; a palavra a torna errada.</li>
+        <li><strong>Rótulo trocado com naturalidade.</strong> “O gênero narrativo predominante…”. Soa fluente; está errado (narração é tipo).</li>
+        <li><strong>Inversão de propriedade elegante.</strong> “Por serem sócio-históricos, os gêneros constituem repertório fixo.” Metade certa, conclusão invertida.</li>
+        <li><strong>Neutralidade falsa.</strong> Pego um autor que argumenta e digo que ele “se limita a expor, sem tomar posição”. Testa se você percebe a <em>tese</em>.</li>
+      </ol>
+    </div>
+
+    <div class="texto-base">
+      <span class="lbl">Texto-base do simulado (Texto I)</span>
+      <p>A Câmara dos Deputados aprovou, na noite desta quarta-feira, o projeto que reformula o regime de teletrabalho no serviço público. Antes da votação, o relator descreveu o ambiente do plenário: bancadas divididas, líderes em conciliábulos e galerias lotadas. Em seu parecer, sustentou que a medida moderniza a administração e reduz custos, razão pela qual deveria ser aprovada. Ao final, o texto aprovado orienta os órgãos: cada unidade <strong>deverá</strong> regulamentar, em até noventa dias, os critérios de adesão ao regime.</p>
+    </div>
+
+    <p style="font-size:.9rem;color:var(--ink-soft)">Julgue os itens em <span class="mono">C</span>/<span class="mono">E</span> antes de abrir. Clique para ver gabarito + comentário do examinador.</p>
+
+    <details class="item"><summary><span class="qn">01</span><span class="qtext">No primeiro período, predomina a sequência <strong>narrativa</strong>, marcada pela progressão de fatos no tempo.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“aprovou… na noite de quarta” — <b>pretérito perfeito</b> e ancoragem temporal, fatos que avançam. É narração-padrão.</p></div></details>
+
+    <details class="item"><summary><span class="qn">02</span><span class="qtext">O segmento “bancadas divididas, líderes em conciliábulos e galerias lotadas” é <strong>narrativo</strong>, pois emprega verbos de ação.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Ali há <b>descrição</b>: um quadro <b>estático</b>, caracterização simultânea do ambiente. Nem sequer há verbos de ação no segmento citado.</p>
+        <p class="trap"><b>Armadilha:</b> o verbo “descreveu” antes do segmento induz ao erro — mas o objeto descrito é estático. (Manobra 4: parte/rótulo.)</p></div></details>
+
+    <details class="item"><summary><span class="qn">03</span><span class="qtext">O trecho “moderniza a administração e reduz custos, razão pela qual deveria ser aprovada” configura sequência <strong>argumentativa</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Há <b>defesa de ponto de vista</b> (aprovação) sustentada por razões, com operador conclusivo (“razão pela qual”). Argumentação.</p></div></details>
+
+    <details class="item"><summary><span class="qn">04</span><span class="qtext">O <strong>gênero textual</strong> predominante no Texto I é a <strong>narração</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Narração é <b>tipo</b>, não gênero. O gênero aqui é a <b>notícia</b> (institucional). Confundir as duas grades é o erro clássico.</p>
+        <p class="trap"><b>Armadilha:</b> rótulo trocado (Manobra 1). A frase é fluente e por isso perigosa.</p></div></details>
+
+    <details class="item"><summary><span class="qn">05</span><span class="qtext">Embora reúna diferentes sequências tipológicas, o Texto I pode ser classificado, quanto ao <strong>gênero</strong>, como <strong>notícia</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">A multiplicidade de tipos <b>não impede</b> a classificação única quanto ao gênero. Função de informar um fato recente ao público = notícia.</p></div></details>
+
+    <details class="item"><summary><span class="qn">06</span><span class="qtext">“Cada unidade deverá regulamentar, em até noventa dias, os critérios de adesão” é sequência <strong>descritiva</strong>, pois detalha o procedimento.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">É <b>injunção</b>: orienta comportamento, com futuro normativo (“deverá”) e prazo. Detalhar não é descrever.</p>
+        <p class="trap"><b>Armadilha:</b> “detalha” induz a “descrição” (Manobra 5). Injunção também traz detalhes.</p></div></details>
+
+    <details class="item"><summary><span class="qn">07</span><span class="qtext">Os <strong>tipos</strong> textuais formam um conjunto <strong>aberto e ilimitado</strong>, enquanto os <strong>gêneros</strong> são poucos e bem delimitados.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Invertido. <b>Tipos = finitos</b> (≈5); <b>gêneros = infinitos</b> e históricos.</p>
+        <p class="trap"><b>Armadilha:</b> inversão de propriedade (Manobra 3).</p></div></details>
+
+    <details class="item"><summary><span class="qn">08</span><span class="qtext">A predominância de uma sequência tipológica <strong>não exclui</strong> a presença de outras no mesmo texto.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Definição de <b>heterogeneidade tipológica</b>. O Texto I prova: narra, descreve, argumenta e injunge.</p></div></details>
+
+    <details class="item"><summary><span class="qn">09</span><span class="qtext">Por conter a forma verbal “deverá”, o Texto I classifica-se <strong>integralmente</strong> como texto injuntivo.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Uma forma verbal não define o todo, e o texto predomina como notícia (narrativo/informativo). “Integralmente” fecha a porta a outras sequências.</p>
+        <p class="trap"><b>Armadilha dupla:</b> parte pelo todo (Manobra 4) + absolutização (Manobra 2).</p></div></details>
+
+    <details class="item"><summary><span class="qn">10</span><span class="qtext">A sequência injuntiva <strong>não</strong> se manifesta apenas pelo imperativo, podendo valer-se do infinitivo e de formas de futuro com valor de obrigatoriedade.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Exato — “deverá”, “é vedado”, “regulamentará” são injuntivos. Item verdadeiro que <b>parece</b> pegadinha só pelo “não…apenas”.</p></div></details>
+
+    <details class="item"><summary><span class="qn">11</span><span class="qtext">Descrição e narração distinguem-se porque <strong>somente</strong> a narração emprega verbos, ausentes na descrição.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Descrição usa verbos — de <b>estado/ligação</b> (ser, estar, permanecer). A distinção real é <b>progressão temporal × estatismo</b>.</p>
+        <p class="trap"><b>Armadilha:</b> “somente” (Manobra 2) + critério falso.</p></div></details>
+
+    <details class="item"><summary><span class="qn">12</span><span class="qtext">No parecer, o relator <strong>limita-se a expor</strong>, de modo neutro, os efeitos da medida, sem tomar posição quanto à aprovação.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Ele <b>argumenta</b> e <b>toma posição</b>: “razão pela qual deveria ser aprovada”. Não é neutro nem meramente expositivo.</p>
+        <p class="trap"><b>Armadilha:</b> neutralidade falsa (Manobra 5) — a mais sofisticada. Testa se você localiza a tese.</p></div></details>
+
+    <details class="item"><summary><span class="qn">13</span><span class="qtext">O portal de notícias da Câmara, onde o texto circula, constitui o <strong>gênero</strong> do Texto I.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">O portal é <b>suporte</b>, não gênero. O gênero é a notícia; o suporte é onde ela é veiculada.</p>
+        <p class="trap"><b>Armadilha:</b> suporte × gênero (Manobra 1, variante).</p></div></details>
+
+    <details class="item"><summary><span class="qn">14</span><span class="qtext">Gêneros textuais são estruturas <strong>fixas e imutáveis</strong>, o que lhes garante estabilidade ao longo do tempo.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">São <b>relativamente</b> estáveis (Bakhtin), <b>históricos e mutáveis</b>. “Fixas e imutáveis” é o veneno.</p>
+        <p class="trap"><b>Armadilha:</b> absolutização + inversão da natureza histórica (Manobras 2 e 3).</p></div></details>
+
+    <details class="item"><summary><span class="qn">15</span><span class="qtext">A sequência <strong>expositiva</strong> apresenta ou explica informações sem necessariamente defender tese, o que a distingue da <strong>argumentativa</strong>.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Distinção correta e essencial: expor = informar; argumentar = defender ponto de vista. Item “fácil” que serve de âncora — não superpense.</p></div></details>
+
+    <div class="callout regra" style="margin-top:22px"><span class="tag">Leitura do seu desempenho</span>
+      <p>Errou os itens <span class="mono">02, 06, 12</span>? Seu ponto fraco é <strong>descrição × narração × argumentação</strong> aplicadas ao trecho — revise o Módulo 02. Errou <span class="mono">04, 07, 13, 14</span>? É <strong>tipo × gênero × suporte</strong> — Módulos 01 e 05. Gabarito: <span class="mono">C E C E C E E C E C E E E E C</span>.</p></div>
+  </section>
+
+  <!-- ============ 08 ============ -->
+  <section id="m8">
+    <div class="sechead"><span class="num">08</span><h2>Plano de estudo objetivo</h2></div>
+    <p class="lead">Três fases, ciclo de ~5 dias, com revisão espaçada. O assunto é curto — o ganho está na <strong>repetição do julgamento de itens</strong>, não em ler teoria de novo.</p>
+
+    <div class="phase"><div class="band"></div><div>
+      <div class="meta">Fase 1 · Dias 1–2 · Fundamentos</div>
+      <h4>Fixar a distinção-mãe e as 5 tipologias</h4>
+      <p>Estude Módulos 01 e 02. Ao final, sem consultar, escreva de memória: (a) tabela tipo × gênero; (b) a marca decisiva de cada tipologia. Só avance quando acertar as duas.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--gold)"></div><div>
+      <div class="meta">Fase 2 · Dias 3–4 · Aplicação e armadilhas</div>
+      <h4>Treinar o olho para a pegadinha</h4>
+      <p>Módulos 03, 04 e 05. Refaça o simulado do Módulo 07 <strong>cobrindo o gabarito</strong>. Para cada item, antes de julgar, diga em voz alta <strong>qual das 6 manobras</strong> a banca usou. Meta: identificar a manobra em &lt;10s.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--certo)"></div><div>
+      <div class="meta">Fase 3 · Dia 5 + revisões · Consolidação</div>
+      <h4>Provas reais Cebraspe + revisão espaçada</h4>
+      <p>Resolva questões de provas anteriores da banca (você tem as provas da Câmara na sua pasta). Marque cada erro numa “lista de não-erro”. Revise essa lista em D+1, D+3 e D+7. Reveja os Bizus (Módulo 06) na véspera.</p>
+    </div></div>
+
+    <div class="callout bizu"><span class="tag">Checklist antes de marcar C/E</span>
+      <ul class="tick" style="margin:.3em 0">
+        <li>É tipo ou gênero? O item respeitou a grade certa?</li>
+        <li>Há palavra-veneno? (apenas / sempre / puramente / integralmente / neutro / fixo)</li>
+        <li>O item fala do <strong>trecho</strong> ou do texto todo? Reli o trecho citado?</li>
+        <li>Se afirma tese/intenção, ela <strong>está</strong> no texto ou é extrapolação?</li>
+        <li>Consigo <strong>justificar</strong> minha marcação em uma frase? Se não, é candidato a branco.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p class="big">“Tipo é finito, gênero é infinito; texto real nunca é puro. Marque só o que você prova.”</p>
+    <p>Guia de estudo — Tipologia &amp; Gênero Textual · perspectiva da banca examinadora (Cebraspe) · Analista Legislativo / Câmara dos Deputados. Material de preparação; confira sempre o edital e as provas oficiais da banca.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, tl=document.getElementById('tl'), td=document.getElementById('td');
+  function sync(){
+    var t=root.getAttribute('data-theme');
+    var darkOS=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var isDark = t==='dark' || (t===null && darkOS);
+    tl.setAttribute('aria-pressed', String(!isDark));
+    td.setAttribute('aria-pressed', String(isDark));
+  }
+  tl.addEventListener('click',function(){root.setAttribute('data-theme','light');sync();});
+  td.addEventListener('click',function(){root.setAttribute('data-theme','dark');sync();});
+  if(window.matchMedia){try{window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',sync);}catch(e){}}
+  sync();
+})();
+</script>
