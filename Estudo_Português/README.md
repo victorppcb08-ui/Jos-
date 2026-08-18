@@ -12,6 +12,7 @@ Cada guia segue a mesma lógica: **mecânica da banca → conceitos → tabelas 
 |---|------|---------|-----------------|
 | 01 | Tipologia & Gênero Textual | [`Tipologia_e_Genero_Textual_Cebraspe.html`](./Tipologia_e_Genero_Textual_Cebraspe.html) | [Abrir página ↗](https://claude.ai/code/artifact/6000ac43-b600-4c55-85d0-1488dc09b01f) |
 | 02 | Orações & Períodos (análise sintática) | [`Oracoes_Analise_do_Periodo_Cebraspe.html`](./Oracoes_Analise_do_Periodo_Cebraspe.html) | [Abrir página ↗](https://claude.ai/code/artifact/1a950d8e-bae1-4e9e-8788-6936d54e6239) |
+| 03 | Concordância Verbal & Nominal | [`Concordancia_Verbal_e_Nominal_Cebraspe.html`](./Concordancia_Verbal_e_Nominal_Cebraspe.html) | [Abrir página ↗](https://claude.ai/code/artifact/e97327ac-1d92-4787-97a2-49417c41af2e) |
 
 > **Como visualizar:** o GitHub mostra os arquivos `.html` como código-fonte. Para ver o guia **formatado**, use o link **"Abrir página ↗"** (páginas privadas da sua conta). Os arquivos `.html` são a versão versionada e podem ser baixados e abertos no navegador offline.
 
@@ -23,7 +24,7 @@ Vou adicionando aqui conforme avançamos nos estudos. Sugestão de trilha (marqu
 
 - [x] 01 · Tipologia e gênero textual
 - [x] 02 · Orações — análise do período (coordenação e subordinação)
-- [ ] 03 · Concordância verbal e nominal
+- [x] 03 · Concordância verbal e nominal
 - [ ] 04 · Regência verbal e nominal
 - [ ] 05 · Crase
 - [ ] 06 · Pontuação

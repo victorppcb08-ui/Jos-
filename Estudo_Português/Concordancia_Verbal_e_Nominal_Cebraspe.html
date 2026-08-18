@@ -1,0 +1,580 @@
+<title>Concordância Verbal & Nominal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ============ TOKENS — LIGHT ============ */
+:root{
+  --paper:#F4F2EA; --surface:#FBFAF4; --surface-2:#EFECE1;
+  --ink:#1E212B; --ink-soft:#585D6A; --ink-faint:#8A8E99;
+  --line:#DED9CB; --line-strong:#C7C1AE;
+  --accent:#33406E; --accent-bright:#455AA6; --accent-wash:#E7E9F1;
+  --gold:#9A6E17; --gold-wash:#F1E7CE;
+  --certo:#2C7A4B; --certo-wash:#E3F0E6;
+  --errado:#AF3040; --errado-wash:#F6E3E2;
+  --shadow:0 1px 2px rgba(30,33,43,.05),0 8px 24px -12px rgba(30,33,43,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161C; --surface:#1C1F28; --surface-2:#23262F;
+    --ink:#ECEAE1; --ink-soft:#A2A7B3; --ink-faint:#767B87;
+    --line:#2D313B; --line-strong:#3B404C;
+    --accent:#93A2DC; --accent-bright:#AAB8EC; --accent-wash:#232838;
+    --gold:#D6A64F; --gold-wash:#332B18;
+    --certo:#5EB980; --certo-wash:#182B20;
+    --errado:#E27A85; --errado-wash:#301B1E;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161C; --surface:#1C1F28; --surface-2:#23262F;
+  --ink:#ECEAE1; --ink-soft:#A2A7B3; --ink-faint:#767B87;
+  --line:#2D313B; --line-strong:#3B404C;
+  --accent:#93A2DC; --accent-bright:#AAB8EC; --accent-wash:#232838;
+  --gold:#D6A64F; --gold-wash:#332B18;
+  --certo:#5EB980; --certo-wash:#182B20;
+  --errado:#E27A85; --errado-wash:#301B1E;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:824px;margin:0 auto;padding:0 22px}
+
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.14;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.55rem,3.6vw,2.1rem);letter-spacing:-.01em}
+h3{font-size:1.28rem;letter-spacing:-.005em}
+h4{font-size:1.05rem;font-weight:600}
+p{margin:.7em 0}
+a{color:var(--accent-bright);text-decoration-thickness:1px;text-underline-offset:2px}
+strong{font-weight:700;color:var(--ink)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+.masthead{background:radial-gradient(120% 140% at 92% -20%, color-mix(in srgb,var(--accent) 22%, transparent) 0%, transparent 55%),var(--surface);border-bottom:1px solid var(--line)}
+.masthead .wrap{padding-top:46px;padding-bottom:40px}
+.crest{display:inline-flex;align-items:center;gap:9px;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.crest .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(2.1rem,6.2vw,3.4rem);line-height:1.05;letter-spacing:-.02em;margin:.35em 0 .28em}
+h1 em{font-style:italic;color:var(--accent)}
+.dek{font-size:1.12rem;color:var(--ink-soft);max-width:60ch;margin:0}
+.metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.02em;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink-soft);white-space:nowrap}
+.chip b{color:var(--ink);font-weight:600}
+.warnstrip{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-radius:12px;background:var(--errado-wash);border:1px solid color-mix(in srgb,var(--errado) 35%,transparent)}
+.warnstrip .ic{flex:0 0 auto;font-weight:700;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.warnstrip p{margin:0;font-size:.95rem;color:var(--ink)}
+
+.toggle{position:fixed;top:14px;right:14px;z-index:20;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.toggle button{border:0;background:transparent;color:var(--ink-faint);font:inherit;font-size:.82rem;cursor:pointer;padding:4px 10px;border-radius:999px;line-height:1}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .toggle button[aria-pressed="true"]{color:#14161C}
+
+.toc{margin:38px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.toc h4{padding:15px 20px;border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.toc ol{list-style:none;margin:0;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.toc a{display:flex;gap:12px;align-items:baseline;padding:10px 13px;border-radius:10px;text-decoration:none;color:var(--ink)}
+.toc a:hover{background:var(--accent-wash)}
+.toc a .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--gold);font-weight:600;flex:0 0 auto}
+.toc a .t{font-size:.95rem;line-height:1.3}
+@media(max-width:560px){.toc ol{grid-template-columns:1fr}}
+
+section{padding:52px 0 8px;scroll-margin-top:16px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sechead .num{font-family:"IBM Plex Mono",monospace;font-size:.9rem;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.lead{font-size:1.06rem;color:var(--ink-soft);max-width:64ch;margin-top:6px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0;box-shadow:var(--shadow)}
+.grip{border-left:3px solid var(--accent);padding-left:16px;margin:18px 0}
+ul.clean,ol.clean{margin:.6em 0;padding-left:1.25em}
+ul.clean li,ol.clean li{margin:.34em 0}
+ul.tick{list-style:none;padding-left:0;margin:.6em 0}
+ul.tick li{position:relative;padding-left:1.7em;margin:.4em 0}
+ul.tick li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:"IBM Plex Mono",monospace}
+
+.callout{border-radius:14px;padding:16px 18px;margin:18px 0;border:1px solid var(--line)}
+.callout .tag{display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.callout p:first-of-type{margin-top:2px}
+.callout p:last-child{margin-bottom:0}
+.armadilha{background:var(--errado-wash);border-color:color-mix(in srgb,var(--errado) 34%,transparent)}
+.armadilha .tag{color:var(--errado)}
+.bizu{background:var(--gold-wash);border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
+.bizu .tag{color:var(--gold)}
+.regra{background:var(--accent-wash);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.regra .tag{color:var(--accent)}
+
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--surface-2) 45%,transparent)}
+td strong{color:var(--accent)}
+.cell-lead{font-weight:600;color:var(--ink);white-space:nowrap}
+.ok{color:var(--certo);font-weight:600}
+.no{color:var(--errado);font-weight:600}
+
+.ce{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.74rem;letter-spacing:.04em;padding:3px 9px;border-radius:6px;text-transform:uppercase}
+.ce.c{background:var(--certo-wash);color:var(--certo);border:1px solid color-mix(in srgb,var(--certo) 40%,transparent)}
+.ce.e{background:var(--errado-wash);color:var(--errado);border:1px solid color-mix(in srgb,var(--errado) 40%,transparent)}
+
+.examinador-band{background:var(--accent);color:#EDEFF7;border-radius:20px;padding:30px 26px;margin:26px 0}
+:root[data-theme="dark"] .examinador-band{background:#20263a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .examinador-band{background:#20263a}}
+.examinador-band .eyebrow{color:var(--gold)}
+.examinador-band h3{color:#fff;margin:.3em 0 .4em;font-size:1.5rem}
+.examinador-band p{color:#D9DCEA}
+.examinador-band strong{color:#fff}
+.examinador-band ol.clean li{margin:.5em 0}
+.examinador-band .mono{color:#fff}
+
+.texto-base{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:.98rem}
+.texto-base .lbl{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:6px}
+.item{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:var(--surface);overflow:hidden}
+.item summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;gap:13px;align-items:flex-start}
+.item summary::-webkit-details-marker{display:none}
+.item summary:focus-visible{outline:2px solid var(--accent-bright);outline-offset:-2px}
+.item .qn{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;color:var(--gold);flex:0 0 auto;padding-top:1px}
+.item .qtext{flex:1;font-size:.99rem}
+.item .peek{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-faint);letter-spacing:.1em;flex:0 0 auto;padding-top:3px}
+.item[open] .peek{display:none}
+.answer{padding:2px 18px 18px 50px;border-top:1px dashed var(--line);margin-top:2px}
+.answer .verdict{margin:14px 0 8px;display:flex;align-items:center;gap:10px}
+.answer .why{font-size:.94rem;color:var(--ink-soft)}
+.answer .why b{color:var(--ink)}
+.answer .trap{margin-top:10px;font-size:.88rem;color:var(--errado);font-family:"IBM Plex Mono",monospace}
+.answer .trap b{color:var(--errado)}
+@media(max-width:560px){.answer{padding-left:18px}.item summary{flex-wrap:wrap}}
+
+.phase{display:grid;grid-template-columns:auto 1fr;gap:0 20px;margin:14px 0}
+.phase .band{grid-row:1/3;width:4px;border-radius:4px;background:var(--accent)}
+.phase h4{margin-bottom:2px}
+.phase .meta{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+
+footer{margin:56px 0 40px;padding-top:26px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:.86rem}
+footer .big{font-family:"Fraunces",serif;font-style:italic;font-size:1.28rem;color:var(--ink);line-height:1.4;margin-bottom:14px;text-wrap:balance}
+
+@media (prefers-reduced-motion:no-preference){
+  details.item[open] .answer{animation:fade .28s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1}}
+}
+</style>
+
+<div class="toggle" role="group" aria-label="Tema">
+  <button id="tl" aria-pressed="false">Claro</button>
+  <button id="td" aria-pressed="false">Escuro</button>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="crest"><span class="dot"></span>Guia do Examinador · Cebraspe · nº 3</div>
+    <h1>Concordância <em>Verbal &amp; Nominal</em></h1>
+    <p class="dek">Quem manda em quem: o verbo obedece ao sujeito; o nome ao substantivo. Do básico aos casos que a banca usa para derrubar — na perspectiva de quem <strong>elabora</strong> a prova. Analista Legislativo · Câmara dos Deputados.</p>
+    <div class="metarow">
+      <span class="chip">Banca: <b>Cebraspe</b></span>
+      <span class="chip">Formato: <b>Certo / Errado</b></span>
+      <span class="chip"><b>1 errada anula 1 certa</b></span>
+      <span class="chip">Foco: <b>achar o sujeito</b></span>
+    </div>
+    <div class="warnstrip">
+      <span class="ic mono">!</span>
+      <p>90% dos erros de concordância começam <strong>antes da concordância</strong>: no sujeito mal identificado. A banca afasta o núcleo do verbo, joga um plural no meio e espera a <strong>atração</strong>. Ache o núcleo primeiro; concorde depois.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="toc" aria-label="Índice">
+    <h4>Índice do programa</h4>
+    <ol>
+      <li><a href="#m0"><span class="n">00</span><span class="t">A mecânica da banca (C/E)</span></a></li>
+      <li><a href="#m1"><span class="n">01</span><span class="t">O 1º passo: achar o sujeito</span></a></li>
+      <li><a href="#m2"><span class="n">02</span><span class="t">Verbal: regra geral e sujeito distante</span></a></li>
+      <li><a href="#m3"><span class="n">03</span><span class="t">Verbal: sujeito composto</span></a></li>
+      <li><a href="#m4"><span class="n">04</span><span class="t">Verbal: casos especiais + silepse</span></a></li>
+      <li><a href="#m5"><span class="n">05</span><span class="t">Nominal: regra geral</span></a></li>
+      <li><a href="#m6"><span class="n">06</span><span class="t">Nominal: palavras camaleão</span></a></li>
+      <li><a href="#m7"><span class="n">07</span><span class="t">Catálogo de armadilhas</span></a></li>
+      <li><a href="#m8"><span class="n">08</span><span class="t">Bizus e mnemônicos</span></a></li>
+      <li><a href="#m9"><span class="n">09</span><span class="t">Na cadeira do examinador + simulado</span></a></li>
+      <li><a href="#m10"><span class="n">10</span><span class="t">Plano de estudo objetivo</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- 00 -->
+  <section id="m0">
+    <div class="sechead"><span class="num">00</span><h2>A mecânica da banca</h2></div>
+    <p class="lead">Regra do jogo de sempre: julga-se <span class="mono">C</span>/<span class="mono">E</span> e uma errada anula uma certa. Em concordância, o veneno favorito é a <strong>atração</strong> — fazer o verbo/adjetivo concordar com a palavra errada.</p>
+
+    <div class="callout regra"><span class="tag">A matemática do risco</span>
+      <p><strong>+1 acerto, −1 erro.</strong> Concordância cai muito em itens de <strong>reescritura</strong> (“seria igualmente correto…”, “a substituição mantém a correção…”). Nesses, só marque <span class="mono">C</span> quando conseguir <strong>identificar o sujeito e a regra</strong>. Na dúvida entre duas formas “que soam bem”, reserve.</p>
+    </div>
+
+    <h3>Os 6 movimentos que transformam uma verdade em item ERRADO</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Manobra</th><th>Como aparece</th><th>Antídoto</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">1. Atração</td><td>Verbo concorda com o plural mais próximo, não com o núcleo.</td><td>Ache o <strong>núcleo</strong> do sujeito e ignore os adjuntos.</td></tr>
+          <tr><td class="cell-lead">2. Sujeito escondido</td><td>Sujeito posposto ou longe do verbo.</td><td>Pergunte “quem/o quê?” — o verbo obedece a ele mesmo invertido.</td></tr>
+          <tr><td class="cell-lead">3. Verbo impessoal</td><td>“Houveram/faziam anos/existe problemas”.</td><td><em>Haver</em>(existir) e <em>fazer</em>(tempo) = <strong>singular</strong>, sem sujeito.</td></tr>
+          <tr><td class="cell-lead">4. Partícula <em>se</em></td><td>Confunde apassivadora (concorda) com índice de indeterminação (invariável).</td><td>VTD+se → concorda; VTI/VI/VL+se → 3ª sing.</td></tr>
+          <tr><td class="cell-lead">5. Reescritura</td><td>“Seria igualmente correto…” trocando a forma.</td><td>Refaça a regra do zero; não confie no “soa bem”.</td></tr>
+          <tr><td class="cell-lead">6. Palavra camaleão</td><td><em>anexo, meio, bastante, menos, é proibido…</em></td><td>Decida se é <strong>adjetivo</strong> (varia) ou <strong>advérbio</strong> (invariável).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section id="m1">
+    <div class="sechead"><span class="num">01</span><h2>O 1º passo: achar o sujeito</h2></div>
+    <p class="lead">A concordância verbal é só a <strong>consequência</strong>. A causa dos erros é o sujeito. Domine isto e metade do assunto está resolvida.</p>
+
+    <div class="grip">
+      <p><strong>Concordância verbal:</strong> o verbo concorda em <strong>número e pessoa</strong> com o <strong>núcleo do sujeito</strong>.</p>
+      <p><strong>Concordância nominal:</strong> artigo, adjetivo, pronome e numeral concordam em <strong>gênero e número</strong> com o <strong>substantivo</strong> a que se referem.</p>
+    </div>
+
+    <div class="callout bizu"><span class="tag">Rotina anti-atração</span>
+      <ul class="tick" style="margin:.3em 0">
+        <li>Ache o <strong>verbo</strong>. Pergunte “quem?/o quê?” → aparece o sujeito.</li>
+        <li>Isole o <strong>núcleo</strong>: o “<span class="mono">de + substantivo</span>” costuma ser <strong>adjunto</strong>, não núcleo. Em “A <u>caixa</u> de documentos”, o núcleo é <em>caixa</em> → verbo no singular.</li>
+        <li>Cuidado com termos entre vírgulas: são intercalações, não o sujeito.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section id="m2">
+    <div class="sechead"><span class="num">02</span><h2>Verbal: regra geral e sujeito distante</h2></div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Situação</th><th>Regra</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Sujeito posposto</td><td>Concorda mesmo invertido</td><td><span class="ok">Chegaram</span> os documentos. / <span class="ok">Faltam</span> duas provas.</td></tr>
+          <tr><td class="cell-lead">Núcleo + adjunto no plural</td><td>Concorda com o <strong>núcleo</strong></td><td>A caixa de documentos <span class="ok">chegou</span>. <span class="no">(não “chegaram”)</span></td></tr>
+          <tr><td class="cell-lead">Coletivo (núcleo singular)</td><td>Verbo no singular</td><td>A multidão <span class="ok">gritou</span>.</td></tr>
+          <tr><td class="cell-lead">Relativo “que”</td><td>Concorda com o <strong>antecedente</strong></td><td>Sou eu que <span class="ok">pago</span>. / Fui eu que <span class="ok">paguei</span>.</td></tr>
+          <tr><td class="cell-lead">“um dos que”</td><td>Em geral <strong>plural</strong></td><td>Ele é um dos que <span class="ok">mais estudam</span>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="m3">
+    <div class="sechead"><span class="num">03</span><h2>Verbal: sujeito composto</h2></div>
+    <p class="lead">Dois ou mais núcleos. A posição em relação ao verbo muda tudo.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Caso</th><th>Regra</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Antes do verbo</td><td>Plural</td><td>O relator e o presidente <span class="ok">assinaram</span>.</td></tr>
+          <tr><td class="cell-lead">Depois do verbo</td><td>Plural <em>ou</em> com o mais próximo</td><td><span class="ok">Assinaram</span>/<span class="ok">Assinou</span> o relator e o presidente.</td></tr>
+          <tr><td class="cell-lead">Pessoas diferentes</td><td>Prevalece a de menor nº (1ª&gt;2ª&gt;3ª)</td><td>Eu e ele <span class="ok">resolvemos</span> (nós).</td></tr>
+          <tr><td class="cell-lead">Ligado por “ou”/“nem”</td><td>Plural (ou singular se exclusão/um só)</td><td>Nem a chuva nem o frio os <span class="ok">detiveram</span>.</td></tr>
+          <tr><td class="cell-lead">Núcleos em gradação/sinônimos</td><td>Pode ficar no singular</td><td>O desânimo, a apatia <span class="ok">tomou</span> conta dele.</td></tr>
+          <tr><td class="cell-lead">“um e outro”</td><td>Singular (ou plural)</td><td>Um e outro <span class="ok">compareceu</span>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="m4">
+    <div class="sechead"><span class="num">04</span><h2>Verbal: casos especiais</h2></div>
+    <p class="lead">A verdadeira mina de ouro da banca. Decore esta tabela — é daqui que sai a maioria dos itens.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Gatilho</th><th>Regra</th><th>Certo</th><th>Erro típico</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">HAVER = existir/ocorrer/tempo</td><td>Impessoal → <strong>3ª singular</strong>, sem sujeito</td><td>Havia muitos problemas.</td><td><span class="no">Haviam</span> muitos problemas.</td></tr>
+          <tr><td class="cell-lead">EXISTIR</td><td>Tem sujeito → <strong>concorda</strong></td><td>Existiam muitos problemas.</td><td><span class="no">Existia</span> muitos problemas.</td></tr>
+          <tr><td class="cell-lead">FAZER = tempo/clima</td><td>Impessoal → <strong>singular</strong></td><td>Faz dois anos. / Fazia meses.</td><td><span class="no">Fazem</span> dois anos.</td></tr>
+          <tr><td class="cell-lead">Locução (deve/vai + haver/fazer)</td><td>Transmite a impessoalidade → singular</td><td>Deve haver falhas. Vai fazer anos.</td><td><span class="no">Devem</span> haver falhas.</td></tr>
+          <tr><td class="cell-lead">SER (horas, datas, quantia)</td><td>Concorda com o <strong>predicativo</strong></td><td>São dez horas. Eram 20 de agosto.</td><td><span class="no">É</span> dez horas.</td></tr>
+          <tr><td class="cell-lead">SE apassivadora (VTD + se)</td><td>Concorda com o sujeito paciente</td><td>Aprovaram-se as emendas. Vendem-se casas.</td><td><span class="no">Aprovou-se</span> as emendas.</td></tr>
+          <tr><td class="cell-lead">SE índice de indeterminação (VTI/VI/VL + se)</td><td><strong>3ª singular</strong> invariável</td><td>Trata-se de emendas. Precisa-se de fiscais.</td><td><span class="no">Tratam-se</span> de emendas.</td></tr>
+          <tr><td class="cell-lead">Porcentagem / fração</td><td>Concorda com o número (ou o especificador)</td><td>1% votou. 30% votaram. 30% do povo aprovou/aprovaram.</td><td><span class="no">1% votaram</span></td></tr>
+          <tr><td class="cell-lead">Coletivo partitivo (a maioria de…)</td><td>Singular <em>ou</em> plural</td><td>A maioria dos deputados votou/votaram.</td><td>—</td></tr>
+          <tr><td class="cell-lead">“mais de um”</td><td>Singular</td><td>Mais de um deputado se manifestou.</td><td><span class="no">se manifestaram</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout bizu"><span class="tag">O teste da partícula SE</span>
+      <p>Troque para a voz passiva analítica: “Aprovaram-se as emendas” → “<strong>as emendas foram aprovadas</strong>” (funcionou → <span class="mono">se</span> apassivadora, concorda). Já “Trata-se de emendas” → “de emendas <s>é tratado</s>” (não funciona → índice de indeterminação, verbo fica no singular).</p></div>
+
+    <div class="callout armadilha"><span class="tag">Silepse (concordância com a ideia, não com a palavra)</span>
+      <p><strong>De número:</strong> “O pessoal saiu; no corredor, <u>conversavam</u> baixinho.” <strong>De gênero:</strong> “Vossa Excelência está <u>preocupado</u>.” <strong>De pessoa:</strong> “Os brasileiros <u>somos</u> otimistas.” A banca apresenta como “erro” — mas é figura aceita. Só marque errado se romper o padrão sem intenção estilística.</p></div>
+  </section>
+
+  <!-- 05 -->
+  <section id="m5">
+    <div class="sechead"><span class="num">05</span><h2>Nominal: regra geral</h2></div>
+    <p class="lead">O adjetivo (e artigo, numeral, pronome) concorda com o substantivo. O problema aparece quando <strong>um adjetivo</strong> se refere a <strong>vários substantivos</strong> — ou vice-versa.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Situação</th><th>Regra</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">Adjetivo <strong>posposto</strong> a vários substantivos</td><td>Concorda com o mais próximo <em>ou</em> vai ao plural (masc. se houver misto)</td><td>Estudo e dedicação <span class="ok">absoluta</span>. / <span class="ok">absolutos</span>.</td></tr>
+          <tr><td class="cell-lead">Adjetivo <strong>anteposto</strong> a vários substantivos</td><td>Concorda com o mais próximo</td><td><span class="ok">Belas</span> praças e jardins.</td></tr>
+          <tr><td class="cell-lead">Adjetivo como <strong>predicativo</strong></td><td>Vai ao plural (masc. se misto)</td><td>A rua e o beco estavam <span class="ok">desertos</span>.</td></tr>
+          <tr><td class="cell-lead">Um substantivo + vários adjetivos</td><td>Artigo repetido no plural ou adjetivos no singular</td><td>A literatura brasileira e a portuguesa. / As literaturas brasileira e portuguesa.</td></tr>
+          <tr><td class="cell-lead">Numeral em enumeração</td><td>“Capítulos primeiro e segundo” = “primeiro e segundo capítulos”</td><td>Artigos <span class="ok">1º e 2º</span>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section id="m6">
+    <div class="sechead"><span class="num">06</span><h2>Nominal: palavras camaleão</h2></div>
+    <p class="lead">Cada uma muda de comportamento conforme a função. A pergunta é sempre a mesma: <strong>é adjetivo (varia) ou advérbio (não varia)?</strong></p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Palavra</th><th>Varia (adjetivo/pronome/numeral)</th><th>Não varia (advérbio/locução)</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-lead">anexo</td><td>Segue <span class="ok">anexa</span> a nota. As notas <span class="ok">anexas</span>.</td><td><strong>em anexo</strong> (sempre invariável)</td></tr>
+          <tr><td class="cell-lead">meio</td><td><span class="ok">meia</span> garrafa (= metade)</td><td>Ela está <span class="ok">meio</span> nervosa (= um pouco)</td></tr>
+          <tr><td class="cell-lead">bastante</td><td><span class="ok">bastantes</span> razões (= muitas)</td><td>Estão <span class="ok">bastante</span> cansados (= muito)</td></tr>
+          <tr><td class="cell-lead">menos</td><td>—</td><td><strong>SEMPRE</strong> invariável: <span class="ok">menos</span> pessoas <span class="no">(nunca “menas”)</span></td></tr>
+          <tr><td class="cell-lead">obrigado / mesmo / próprio</td><td>Muito <span class="ok">obrigada</span> (mulher). Elas <span class="ok">mesmas</span>.</td><td>—</td></tr>
+          <tr><td class="cell-lead">só</td><td><span class="ok">sós</span> (= sozinhos): Ficaram sós.</td><td><span class="ok">só</span> (= somente): Só faltam dois.</td></tr>
+          <tr><td class="cell-lead">é proibido / necessário / bom</td><td>Com determinante: É <span class="ok">proibida</span> a entrada.</td><td>Sem determinante: É <span class="ok">proibido</span> entrada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout bizu"><span class="tag">Bizu do “meio”</span>
+      <p>Se dá para trocar por <strong>“um pouco”</strong> → é advérbio → <strong>invariável</strong> (“meio nervosa”). Se dá para trocar por <strong>“metade”</strong> → é numeral → <strong>varia</strong> (“meia laranja”).</p></div>
+  </section>
+
+  <!-- 07 -->
+  <section id="m7">
+    <div class="sechead"><span class="num">07</span><h2>Catálogo de armadilhas</h2></div>
+    <p class="lead">As pegadinhas recorrentes com o gabarito mental de cada uma.</p>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 01 · “houveram”</span>
+      <p>“<u>Houveram</u> muitas discussões.” <b>→</b> ERRADO. <em>Haver</em> = existir é impessoal: <strong>Houve</strong> muitas discussões. (Mas “<em>existiram</em>” concorda.)</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 02 · atração pelo adjunto</span>
+      <p>“O pacote de emendas <u>foram</u> rejeitados.” <b>→</b> ERRADO. Núcleo = <em>pacote</em> → <strong>foi rejeitado</strong>. “de emendas” é adjunto.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 03 · “tratam-se de”</span>
+      <p>“<u>Tratam-se</u> de questões legais.” <b>→</b> ERRADO. <em>Tratar de</em> é VTI → <span class="mono">se</span> de indeterminação → <strong>Trata-se</strong> de questões.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 04 · apassivadora não concordada</span>
+      <p>“<u>Vende-se</u> apartamentos.” <b>→</b> ERRADO (norma culta). Sujeito = apartamentos → <strong>Vendem-se</strong> apartamentos.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 05 · “fazem anos”</span>
+      <p>“<u>Fazem</u> cinco anos que…” <b>→</b> ERRADO. <em>Fazer</em> de tempo é impessoal → <strong>Faz</strong> cinco anos.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 06 · ser + horas</span>
+      <p>“<u>É</u> uma hora e trinta.” certo (uma). Mas “<u>É</u> duas horas” <b>→</b> ERRADO → <strong>São</strong> duas horas.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 07 · “menas”</span>
+      <p>“<u>Menas</u> gente.” <b>→</b> ERRADO. <em>Menos</em> é invariável, sempre.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 08 · “meia cansada / meio-dia e meio”</span>
+      <p>“Estou <u>meia</u> cansada.” <b>→</b> ERRADO → <strong>meio</strong> cansada (advérbio). Já “meio-dia e <u>meia</u>” está certo (= meia hora).</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 09 · “é proibido a entrada”</span>
+      <p>Com artigo, o predicativo concorda: “É <strong>proibida</strong> a entrada”; sem artigo, invariável: “É proibido entrada”. A banca troca um pelo outro.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 10 · “obrigado” dito por mulher</span>
+      <p>Mulher agradece “muito <strong>obrigada</strong>” (adjetivo concorda com quem fala). “Obrigado” invariável é erro nesse caso.</p></div>
+
+    <div class="callout armadilha"><span class="tag">Armadilha 11 · “mais de um se…”</span>
+      <p>“Mais de um deputado <u>se cumprimentaram</u>.” Com ação recíproca vai ao <strong>plural</strong>; sem reciprocidade, singular (“Mais de um deputado faltou”). A banca inverte.</p></div>
+  </section>
+
+  <!-- 08 -->
+  <section id="m8">
+    <div class="sechead"><span class="num">08</span><h2>Bizus e mnemônicos</h2></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 1 · sempre o sujeito primeiro</span>
+      <p>Antes de julgar qualquer verbo, <strong>ache o núcleo do sujeito</strong> e risque mentalmente os “de + substantivo”. A atração morre aí.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 2 · HÁ / FAZ = 1 só</span>
+      <p><em>Haver</em> (existir) e <em>fazer</em> (tempo) são <strong>solteiros</strong>: ficam no singular e não têm sujeito. Se der para trocar por <em>existir</em> e o verbo pluralizar, era existir (concorda), não haver.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 3 · teste da voz passiva (SE)</span>
+      <p>Deu para dizer “foi/foram + particípio”? → <span class="mono">se</span> apassivadora, <strong>concorda</strong>. Não deu? → índice de indeterminação, <strong>3ª singular</strong>.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 4 · adjetivo ou advérbio?</span>
+      <p>Refere-se a um <strong>substantivo</strong>? Varia. Modifica <strong>verbo/adjetivo</strong> (cabe “de modo…”)? Invariável. Vale para meio, bastante, muito, pouco, caro, longe.</p></div>
+
+    <div class="callout bizu"><span class="tag">Bizu 5 · anexo × em anexo</span>
+      <p><strong>anexo</strong> (sem “em”) é adjetivo → concorda (“seguem anexas”). <strong>em anexo</strong> é locução → não muda nunca.</p></div>
+  </section>
+
+  <!-- 09 -->
+  <section id="m9">
+    <div class="sechead"><span class="num">09</span><h2>Na cadeira do examinador</h2></div>
+    <p class="lead">Se eu montasse a prova, exploraria concordância no <strong>estilo reescritura</strong>: dou uma frase correta e proponho uma alternativa “que soa igual”, mas quebra uma regra.</p>
+
+    <div class="examinador-band">
+      <div class="eyebrow">Estratégia de elaboração</div>
+      <h3>Como eu derrubaria o candidato</h3>
+      <ol class="clean">
+        <li><strong>Afasto o núcleo do verbo</strong> com um “de + plural” no meio e espero a atração.</li>
+        <li><strong>Ofereço a troca haver↔existir</strong> sem ajustar a concordância (“Houve falhas” → “Existiu falhas”).</li>
+        <li><strong>Misturo as duas partículas <span class="mono">se</span></strong>: uma apassivadora e uma de indeterminação no mesmo texto.</li>
+        <li><strong>Tiro/ponho o artigo</strong> antes do sujeito de “é proibido/necessário” e vejo se você flexiona.</li>
+        <li><strong>Uso “meio/bastante/menos”</strong> em posição que parece pedir flexão.</li>
+      </ol>
+    </div>
+
+    <div class="texto-base">
+      <span class="lbl">Texto-base do simulado (Texto III)</span>
+      <p>Houve, na última sessão, vários debates sobre a proposta. Fazia meses que o tema aguardava votação. A maioria dos deputados apoiou o texto, embora existissem ressalvas. Discutiram-se, então, as emendas, e aprovaram-se duas delas. Segue anexa à ata a lista de presentes. Era necessário paciência, pois já eram quase dez horas quando terminou a reunião.</p>
+    </div>
+
+    <p style="font-size:.9rem;color:var(--ink-soft)">Julgue em <span class="mono">C</span>/<span class="mono">E</span> antes de abrir.</p>
+
+    <details class="item"><summary><span class="qn">01</span><span class="qtext">Em “Houve... vários debates”, o verbo está corretamente no singular, por ser “haver” impessoal no sentido de “existir”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“Haver” = existir é impessoal: 3ª pessoa do singular, sem sujeito. “vários debates” é <b>objeto direto</b>, não sujeito.</p></div></details>
+
+    <details class="item"><summary><span class="qn">02</span><span class="qtext">Substituindo “houve” por “existir”, a forma correta seria “Existiu vários debates”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“Existir” <b>tem sujeito</b> (vários debates) e concorda: <b>Existiram</b> vários debates.</p>
+        <p class="trap"><b>Armadilha:</b> haver × existir (Armadilha 01). O que é singular em “haver” pluraliza em “existir”.</p></div></details>
+
+    <details class="item"><summary><span class="qn">03</span><span class="qtext">Em “Fazia meses que o tema aguardava votação”, “fazia” está corretamente no singular.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“Fazer” indicando tempo decorrido é impessoal → singular invariável.</p></div></details>
+
+    <details class="item"><summary><span class="qn">04</span><span class="qtext">Seria igualmente correta a forma “Faziam meses que o tema aguardava votação”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“Fazer” de tempo não vai ao plural. Correto só “Fazia meses”.</p>
+        <p class="trap"><b>Armadilha:</b> “fazem anos” (Armadilha 05).</p></div></details>
+
+    <details class="item"><summary><span class="qn">05</span><span class="qtext">Em “A maioria dos deputados apoiou o texto”, também seria correta a concordância “A maioria dos deputados apoiaram o texto”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Coletivo partitivo (“a maioria de” + plural) admite as <b>duas</b> concordâncias: com o coletivo (singular) ou por silepse com o especificador (plural).</p></div></details>
+
+    <details class="item"><summary><span class="qn">06</span><span class="qtext">Em “embora existissem ressalvas”, o correto seria o singular “existisse”, concordando com a ideia geral da oração.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“Existir” concorda com seu sujeito, “ressalvas” (plural) → <b>existissem</b>. Está certo no texto.</p>
+        <p class="trap"><b>Armadilha:</b> tratar “existir” como impessoal igual a “haver”.</p></div></details>
+
+    <details class="item"><summary><span class="qn">07</span><span class="qtext">Em “Discutiram-se... as emendas” e “aprovaram-se duas delas”, o “se” é apassivador e os verbos concordam com os sujeitos pacientes.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">VTD + se → voz passiva sintética: “as emendas foram discutidas”, “duas foram aprovadas”. Concordância obrigatória.</p></div></details>
+
+    <details class="item"><summary><span class="qn">08</span><span class="qtext">Seria correto reescrever “Discutiram-se as emendas” como “Discutiu-se as emendas”, sem prejuízo gramatical.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Com <span class="mono">se</span> apassivador, o verbo concorda com o sujeito paciente (as emendas) → <b>Discutiram-se</b>. O singular quebra a concordância na norma culta.</p>
+        <p class="trap"><b>Armadilha:</b> apassivadora não concordada (Armadilha 04).</p></div></details>
+
+    <details class="item"><summary><span class="qn">09</span><span class="qtext">(Item isolado) Em “Tratam-se de questões orçamentárias no parecer”, a concordância está correta.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">“Tratar de” é VTI → <span class="mono">se</span> é índice de indeterminação do sujeito → verbo fica na <b>3ª do singular</b>: <b>Trata-se</b> de questões.</p>
+        <p class="trap"><b>Armadilha:</b> “tratam-se de” (Armadilha 03) — clássico dos clássicos.</p></div></details>
+
+    <details class="item"><summary><span class="qn">10</span><span class="qtext">Em “Segue anexa à ata a lista de presentes”, “anexa” concorda em gênero e número com “lista”.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“anexo” é adjetivo → concorda com o substantivo a que se refere, “a lista” (fem. sing.) → <b>anexa</b>.</p></div></details>
+
+    <details class="item"><summary><span class="qn">11</span><span class="qtext">A frase poderia ser reescrita como “Segue em anexa à ata a lista...”, mantendo-se a correção.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">A locução é <b>em anexo</b>, invariável — não existe “em anexa”. (Correto: “em anexo”.)</p>
+        <p class="trap"><b>Armadilha:</b> anexo × em anexo (Armadilha... veja Módulo 06).</p></div></details>
+
+    <details class="item"><summary><span class="qn">12</span><span class="qtext">Em “Era necessário paciência”, “necessário” fica invariável porque o sujeito não está determinado por artigo.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“É/era necessário/proibido/bom” + sujeito <b>sem</b> determinante → expressão invariável.</p></div></details>
+
+    <details class="item"><summary><span class="qn">13</span><span class="qtext">Se o sujeito passasse a “a paciência”, a forma “Era necessário a paciência” permaneceria correta.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Com o artigo, o predicativo concorda: “Era <b>necessária</b> a paciência”.</p>
+        <p class="trap"><b>Armadilha:</b> é proibido/necessário (Armadilha 09).</p></div></details>
+
+    <details class="item"><summary><span class="qn">14</span><span class="qtext">Em “já eram quase dez horas”, o verbo “ser” concorda corretamente com a expressão de horas.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">Nas horas, “ser” concorda com o numeral → <b>eram</b> dez horas.</p></div></details>
+
+    <details class="item"><summary><span class="qn">15</span><span class="qtext">(Item isolado) Em “A candidata ficou meia nervosa com o resultado”, “meia” está corretamente flexionada.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce e">Errado</span></div>
+        <p class="why">Aqui “meio” = “um pouco” → <b>advérbio, invariável</b>: “meio nervosa”.</p>
+        <p class="trap"><b>Armadilha:</b> meia cansada (Armadilha 08).</p></div></details>
+
+    <details class="item"><summary><span class="qn">16</span><span class="qtext">(Item isolado) Em “Compareceram menos deputados do que se esperava”, a concordância está correta.</span><span class="peek">ver ▾</span></summary>
+      <div class="answer"><div class="verdict"><span class="ce c">Certo</span></div>
+        <p class="why">“menos” é invariável (correto) e “compareceram” concorda com o sujeito “menos deputados” (plural). Tudo certo — item verdadeiro para você não achar que “toda menção a menos é pegadinha”.</p></div></details>
+
+    <div class="callout regra" style="margin-top:22px"><span class="tag">Gabarito &amp; diagnóstico</span>
+      <p>Gabarito: <span class="mono">C E C E C E C E E C E C E C E C</span>. Errou <span class="mono">02, 06</span>? Revise <strong>haver × existir</strong> (Módulo 04). Errou <span class="mono">08, 09</span>? <strong>Partícula “se”</strong> (Módulo 04 + Bizu 3). Errou <span class="mono">11, 13, 15</span>? <strong>Palavras camaleão</strong> (Módulo 06).</p></div>
+  </section>
+
+  <!-- 10 -->
+  <section id="m10">
+    <div class="sechead"><span class="num">10</span><h2>Plano de estudo objetivo</h2></div>
+    <p class="lead">Três fases, ciclo de ~5 dias, com revisão espaçada. Concordância se ganha na repetição de casos, não na releitura de regras.</p>
+
+    <div class="phase"><div class="band"></div><div>
+      <div class="meta">Fase 1 · Dias 1–2 · Sujeito e regra geral</div>
+      <h4>Achar o núcleo, matar a atração</h4>
+      <p>Módulos 01–03. Pegue 10 períodos (use as provas da sua pasta), sublinhe o núcleo do sujeito e confira o verbo. Só avance quando não cair mais em “de + plural”.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--gold)"></div><div>
+      <div class="meta">Fase 2 · Dias 3–4 · Casos especiais</div>
+      <h4>Haver, fazer, ser, a partícula “se” e as camaleão</h4>
+      <p>Módulos 04–06. Decore as duas tabelas (verbos especiais e palavras camaleão) e treine o teste da voz passiva para o “se”. Meta: reconhecer o gatilho em &lt;5s.</p>
+    </div></div>
+
+    <div class="phase"><div class="band" style="background:var(--certo)"></div><div>
+      <div class="meta">Fase 3 · Dia 5 + revisões · Reescritura</div>
+      <h4>Simulado + itens de reescritura Cebraspe</h4>
+      <p>Refaça o Módulo 09 cobrindo o gabarito; nomeie a manobra de cada erro. Depois, questões anteriores da banca, priorizando as de “seria igualmente correto…”. Erros vão para a lista de não-erro (revisão em D+1, D+3, D+7).</p>
+    </div></div>
+
+    <div class="callout bizu"><span class="tag">Checklist antes de marcar C/E</span>
+      <ul class="tick" style="margin:.3em 0">
+        <li>Qual é o <strong>núcleo</strong> do sujeito? Risquei os adjuntos “de + …”?</li>
+        <li>Tem <strong>haver/fazer</strong> (impessoais → singular) ou <strong>existir</strong> (concorda)?</li>
+        <li>Tem <strong>“se”</strong>? Passei pelo teste da voz passiva?</li>
+        <li>É <strong>ser</strong> com hora/data/quantia? (concorda com o predicativo)</li>
+        <li>Palavra camaleão: é <strong>adjetivo</strong> (varia) ou <strong>advérbio</strong> (não varia)?</li>
+        <li>Consigo justificar pela regra? Se não, é candidato a branco.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p class="big">“Ache o núcleo do sujeito, desconfie do plural mais próximo, e lembre: haver e fazer andam sozinhos.”</p>
+    <p>Guia de estudo — Concordância Verbal &amp; Nominal · perspectiva da banca examinadora (Cebraspe) · Analista Legislativo / Câmara dos Deputados. Peça nº 3 da série. Confira sempre o edital e as provas oficiais da banca.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, tl=document.getElementById('tl'), td=document.getElementById('td');
+  function sync(){
+    var t=root.getAttribute('data-theme');
+    var darkOS=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var isDark = t==='dark' || (t===null && darkOS);
+    tl.setAttribute('aria-pressed', String(!isDark));
+    td.setAttribute('aria-pressed', String(isDark));
+  }
+  tl.addEventListener('click',function(){root.setAttribute('data-theme','light');sync();});
+  td.addEventListener('click',function(){root.setAttribute('data-theme','dark');sync();});
+  if(window.matchMedia){try{window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',sync);}catch(e){}}
+  sync();
+})();
+</script>
