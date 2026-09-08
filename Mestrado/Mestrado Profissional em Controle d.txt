@@ -1,0 +1,227 @@
+Mestrado Profissional em Controle da Administração Pública 
+Processo Seletivo 1/2026 
+Sugestão de Linha de Atuação 
+(  ) Linha 1 – Controle Governamental e Políticas Públicas 
+(X) Linha 2 – Tecnologias para Inovação do Controle e da Gestão Pública 
+Framework de Auditoria Preventiva Baseado em Inteligência Artificial para Detecção 
+de Assimetria de Informação em Anteprojetos de Grandes Obras Públicas: 
+Especificação e Validação no Contexto das Contratações Integradas. 
+José de Castro Barreto Junior 
+Controladoria-Geral da União – CGU 
+e-mail: jose.barreto@cgu.gov.br 
+Resumo  
+A pesquisa propõe a especificação e validação de um framework de auditoria preventiva, baseado em 
+Inteligência Artificial, para identificação precoce de assimetrias de informação em anteprojetos de 
+engenharia de grandes obras públicas contratadas sob o regime de contratação integrada. O problema 
+central reside na estrutura das contratações integradas: ao transferir ao setor privado a elaboração dos 
+projetos básico e executivo, o Estado publica anteprojetos com lacunas técnicas que geram 
+desequilíbrio informacional e risco sistêmico de pleitos de reequilíbrio econômico-financeiro. A 
+proposta fundamenta-se em jurisprudência do TCU: o Acórdão nº 686/2026-Plenário (rel. Min. Bruno 
+Dantas) consignou, em seu Voto, que a ausência de sondagens e estudos técnicos nas fontes de 
+materiais indicadas em anteprojetos "gera assimetria de informações entre os licitantes, 
+comprometendo os princípios da igualdade, da competitividade e do julgamento objetivo" — e optou 
+por não suspender o certame já adjudicado, configurando o periculum in mora reverso o que torna o 
+controle preventivo pré-licitatório o momento eficaz de intervenção; o Acórdão nº 2.429/2024
+Plenário (rel. Min. Benjamin Zymler) consolidou que erros substanciais nas condições de contorno do 
+anteprojeto podem redundar em proposta de reequilíbrio. Metodologicamente, adota-se o Design 
+Science Research em quatro fases: revisão sistemática da jurisprudência; modelagem dos parâmetros 
+de verificação e especificação da arquitetura em três camadas funcionais; desenvolvimento 
+demonstrativo do painel de alertas com cruzamento SINAPI/SICRO; e validação por estudo de casos 
+com triangulação retrospectiva e entrevistas com especialistas. 
+Palavras-chave: Assimetria de Informação; Inteligência Artificial; Controle Preventivo de Obras 
+Públicas. 
+1. Problema e Objetivos 
+O regime de contratação integrada, constantes das Leis nº 13.303/2016 e 14.133/2021, 
+opera sob um prisma que pode gerar assimetria informacional estrutural: o poder público 
+define objetivos por meio de anteprojeto de engenharia, enquanto o vencedor do certame — 
+detentor de conhecimento técnico especializado — elabora os projetos básico e executivo. 
+Essa estrutura pode expor o Estado à vulnerabilidade informacional crítica na fase pré
+licitatória: lacunas técnicas não detectadas antes da licitação podem tornar o contrato 
+desequilibrado desde sua celebração, abrindo um espaço para comportamento oportunista em 
+pleitos de reequilíbrio. 
+A jurisprudência do TCU evidencia a gravidade sistêmica do problema com precisão 
+conceitual. O Acórdão nº 686/2026-Plenário que cuidou da fiscalização da obra do Lote 5FC 
+da FIOL II — contratação integrada de R$ 506,5 milhões — identificou anteprojeto deficiente 
+pela indicação de fontes de materiais (areais e pedreiras) sem sondagens e estudos técnicos 
+que comprovem viabilidade qualitativa e quantitativa, em violação ao art. 42, VII, da Lei 
+13.303/2016. Em seu Voto, o Ministro Relator consignou expressamente que "a ausência 
+desses dados gera assimetria de informações entre os licitantes, comprometendo os princípios 
+da igualdade, da competitividade e do julgamento objetivo, além de elevar o risco de futuros 
+pleitos de reequilíbrio econômico-financeiro por alteração de distâncias de transporte". O 
+TCU optou por não suspender o certame — já homologado e adjudicado quando da 
+deliberação —, configurando o periculum in mora reverso: a intervenção corretiva, mesmo 
+diante de irregularidade constatada, tornou-se inviável para o caso concreto. Esse episódio 
+demonstra que o controle preventivo pré-licitatório é o oportuno momento em que a correção 
+produz efeito sem gerar dano superior à irregularidade que pretende sanar. 
+O Acórdão nº 2.429/2024-Plenário (rel. Min. Benjamin Zymler) consolidou que, no 
+regime de contratação integrada, erros substanciais nas condições de contorno do anteprojeto 
+que ensejem onerosidade excessiva podem redundar em aditivo de reequilíbrio, sendo 
+recomendável que o contratante inclua, na matriz de riscos, o alcance daquela expressão. O 
+Decreto nº 12.304/2024 reforça esse quadro ao tornar obrigatória a implementação de 
+programas de integridade em contratações de grande vulto, reconhecendo que essas obras 
+constituem o principal vetor de risco ao erário. 
+Questão orientadora: como um framework baseado em Inteligência Artificial pode 
+identificar e mitigar sistematicamente as assimetrias de informação em anteprojetos de 
+grandes obras públicas, contribuindo para a prevenção de desequilíbrios contratuais nas 
+contratações integradas? 
+Objetivo Geral: Projetar e especificar um framework de auditoria preventiva baseado 
+em Inteligência Artificial para análise de conformidade técnica e econômica de anteprojetos 
+de engenharia de obras de grande vulto, gerando especificação técnica e protótipo 
+demonstrativo diretamente aplicáveis pelos órgãos de controle interno e externo da 
+Administração Pública brasileira. 
+Objetivos Específicos: 
+a) Mapear e sistematizar os indutores de assimetria de informação em anteprojetos 
+identificados pela jurisprudência do TCU e pelos relatórios de auditoria da CGU, com 
+codificação temática em quatro categorias: (i) lacunas em projetos (ex. de geotecnia e de 
+sondagem); (ii) falhas de dimensionamento de insumos; (iii) inadequação de especificações 
+técnicas e metodologias construtivas; e (iv) inconformidade com tabelas referenciais 
+SINAPI/SICRO; 
+b) Operacionalizar os parâmetros técnicos de verificação por tipologia construtiva — 
+definindo critérios de conformidade por categoria de serviço, requisitos mínimos de 
+caracterização de fontes de materiais e limiares de alerta para desvios em relação às tabelas 
+referenciais de preços; 
+c) Projetar a arquitetura lógica do framework em três camadas funcionais: especificação dos 
+requisitos de ingestão e normalização documental; modelagem do motor de conformidade 
+baseado em PLN com cruzamento SINAPI/SICRO; e desenvolvimento demonstrativo do 
+painel de alertas e relatório de riscos; 
+d) Validar o framework especificado mediante estudo de casos aplicado a três editais reais de 
+obras de grande vulto, com triangulação retrospectiva dos achados de auditoria, e entrevistas 
+semiestruturadas com especialistas em auditoria de obras, engenharia e controle 
+governamental. 
+2. Relevância e Atualidade do Tema 
+Do ponto de vista fiscal, as obras públicas de grande porte concentram o maior volume 
+de irregularidades identificadas em auditorias do TCU e da CGU, com destaque para pleitos 
+de reequilíbrio frequentemente fundamentados em lacunas nos anteprojetos. A assimetria não 
+detectada na fase pré-licitatória converte-se em aditivos que comprometem a economicidade 
+e afetam o cidadão como destinatário final das políticas de infraestrutura. A utilidade do 
+artefato proposto é, portanto, percebida pelo cliente externo — o auditor governamental — 
+como diretamente transformadora de sua capacidade analítica e de sua eficiência operacional. 
+Do ponto de vista normativo, as Lei nº 13.303/2016 e 14.133/2021 consolidaram o 
+regime de contratação integrada e o Decreto nº 12.304/2024 ampliou as exigências de 
+integridade para contratos de grande vulto. A jurisprudência do TCU — a exemplo dos 
+Acórdãos nº 686/2026, 2.429/2024 — documenta padrão crescente de reconhecimento da 
+assimetria informacional como falha sistêmica dos anteprojetos. O Acórdão nº 686/2026 é 
+particularmente revelador: ao identificar a assimetria, mas não poder corrigi-la sem prejudicar 
+a obra já adjudicada, o TCU demonstrou que o controle reativo pode chegar tarde. Do ponto 
+de vista tecnológico, os avanços em PLN e aprendizado de máquina tornam viável a 
+automação da análise de documentos técnicos complexos.  
+Na dimensão tecnológica e atualidade, os avanços em PLN e aprendizado de máquina 
+tornam viável a automação da análise de documentos técnicos complexos. O Plano Estratégico 
+do TCU 2023-2028 (PET-TCU) reforça a prioridade institucional da inovação tecnológica no 
+controle governamental. No mesmo sentido, por meio da Recommendation of the Council on 
+Artificial Intelligence, 2019, a OCDE documentou princípios para gestão responsável no 
+potencial uso da IA — a) crescimento inclusivo, desenvolvimento sustentável e bem-estar; b) 
+respeito ao Estado de Direito, aos direitos humanos e aos valores democráticos, incluindo 
+equidade e privacidade; c) Transparência e explicabilidade; e d) robustez, segurança e 
+proteção. Dessa forma, a pesquisa insere-se nesse momento de convergência e demanda 
+institucional consolidada associada ao seu uso inclusivo, seguro e responsável. 
+3. Aderência à Linha de Atuação do Programa 
+A proposta enquadra-se integralmente na Linha 2 – Tecnologias para Inovação do 
+Controle e da Gestão Pública. A aderência manifesta-se em três dimensões: (i) tecnológica — 
+aplicação de IA, PLN e algoritmos de reconhecimento de padrões a problema concreto de alta 
+relevância; (ii) aplicativa — o artefato resultante é concebido para uso imediato por auditores 
+da CGU e do TCU; e (iii) científica — a pesquisa gerará produto técnico, artigo científico e 
+dissertação com potencial de replicação em outros órgãos de controle. A transformação de 
+critérios qualitativos de engenharia em parâmetros algorítmicos verificáveis — precisamente 
+os critérios que o Acórdão 686/2026 identificou como ausentes no anteprojeto da Ferrovia de 
+Integração Oeste-Leste — representa a inovação diretamente aplicável que a Linha 2 busca 
+fomentar. 
+4. Referencial Teórico 
+4.1 Teoria da Assimetria de Informação e Economia dos Contratos 
+A pesquisa ancora-se na economia da informação de Akerlof (1970), cuja 
+demonstração de que mercados com assimetria informacional tendem à seleção adversa 
+aplica-se diretamente às contratações integradas — o que o próprio TCU reconheceu no Voto 
+do Acórdão 686/2026 ao nominar o fenômeno como "assimetria de informações entre os 
+licitantes".  
+Arrow (1963) aprofundou o risco moral em relações assimétricas – de um modo geral, 
+o contratado, detentor de informação privilegiada, pode estrategicamente explorar lacunas do 
+anteprojeto para viabilizar pleitos futuros. Stiglitz (2002) fundamentou a intervenção estatal 
+como mecanismo corretivo às falhas de mercado.  
+A teoria dos custos de transação (WILLIAMSON, 1985) pode explicar por que 
+contratos de grandes obras são intrinsecamente incompletos, tornando a qualidade dos estudos 
+preliminares o principal determinante da estabilidade contratual (GRIMSEY; LEWIS, 2004). 
+4.2 Inteligência Artificial, PLN e Auditoria Governamental 
+A literatura documenta crescente aplicação de PLN em funções de fiscalização 
+governamental (WIRTZ et al., 2019). No contexto específico de obras públicas, a automação 
+da análise de documentos técnicos por PLN — aplicado a memoriais descritivos, planilhas 
+orçamentárias e especificações técnicas — representa salto qualitativo na capacidade analítica 
+dos órgãos de controle, permitindo detecção precoce de lacunas que, não identificadas na fase 
+pré-licitatória, convertem-se em vetores de desequilíbrio contratual.  
+4.3 Design Science Research 
+A pesquisa fundamenta-se no Design Science Research — DSR (HEVNER et al., 
+2004), arcabouço que orienta a produção de conhecimento mediante criação e avaliação de 
+artefatos para resolver problemas organizacionais concretos, reconhecido como a abordagem 
+mais adequada para pesquisas de mestrado profissional orientadas à geração de soluções 
+práticas. 
+5. Metodologia 
+A pesquisa adotará abordagem qualitativa de natureza aplicada, estruturada segundo 
+os preceitos do DSR (HEVNER et al., 2004), organizada em quatro fases sequenciais. 
+Fase 1 (M1–6) — Revisão sistemática da jurisprudência do TCU 
+(pesquisa.apps.tcu.gov.br) e dos relatórios de auditoria da CGU (Sistema e-Aud) sobre obras 
+de grande vulto (2017 – 2026). Revisão bibliográfica em Scopus, Web of Science e Google 
+Scholar, via Portal de Periódicos CAPES. 
+Fase 2 (M7–12) — Modelagem das regras algorítmicas e especificação da arquitetura 
+em três camadas funcionais: (i) especificação dos requisitos de ingestão e normalização 
+documental — definição dos formatos de entrada, metadados obrigatórios e fluxo de pré
+processamento, com base em revisão de soluções técnicas disponíveis; (ii) modelagem do 
+motor de conformidade — operacionalização dos indutores de assimetria como regras de 
+verificação estruturadas, com definição dos parâmetros de cruzamento referencial 
+SINAPI/SICRO e especificação dos critérios de alerta, em consulta com especialistas em TI; 
+(iii) desenvolvimento demonstrativo do painel de alertas via Power BI (licença Microsoft 365 
+disponível na CGU), com visualização dos indicadores de risco e relatório exportável para o 
+auditor. 
+Fase 3 (M13–18) — Aplicação analítica a três editais reais de contratação integrada 
+(tipologias: edificação, rodovia, ferrovia; valor ≥ R$ 200 milhões), com triangulação 
+retrospectiva dos achados reais das auditorias. Entrevistas semiestruturadas com especialistas 
+(auditores da CGU e TCU, engenheiros, gestores de integridade), com análise de conteúdo. 
+Fase 4 (M19–24) — Redação da dissertação em formato de dois artigos científicos 
+com vínculo temático, elaboração do produto técnico-tecnológico na modalidade 
+especificação técnica e protótipo funcional do framework de auditoria, compreendendo: 
+arquitetura lógica documentada, regras de negócio algorítmicas, fluxos de verificação por 
+PLN, parâmetros de cruzamento SINAPI/SICRO e painel de alertas demonstrativo, validado 
+com especialistas e aplicado a casos reais. Por fim, submissão de artigo a periódico Qualis 
+Capes, conforme item 1.9 edital. 
+6. Impactos e Resultados Esperados 
+Quesito Inovação: pela primeira vez no contexto do controle governamental brasileiro, 
+critérios qualitativos de engenharia — requisitos de engenharia, viabilidade volumétrica de 
+jazidas e areais, produtividade de insumos — são sistematizados e operacionalizados como 
+parâmetros de verificação estruturados, passíveis de implementação computacional 
+automatizada. A contribuição científica está na conversão de conhecimento tácito de domínio 
+de engenharia em especificação verificável e replicável — precisamente o tipo de informação 
+cuja ausência o Acórdão 686/2026-Plenário identificou como geradora de assimetria entre os 
+licitantes. Essa sistematização rompe com o paradigma de auditoria predominantemente 
+reativa, amostral e dependente da expertise individual do auditor. 
+Quesito Complexidade: o projeto exige integração de conhecimentos de múltiplas 
+disciplinas — engenharia civil, direito administrativo, economia dos contratos e ciência da 
+computação — e articulação entre múltiplos atores institucionais: CGU e TCU como órgãos 
+de controle e usuários finais do artefato; especialistas em engenharia de grandes obras como 
+detentores do conhecimento técnico a ser sistematizado; equipes de TI como parceiros de 
+implementação; gestores de programas de integridade como usuários do painel de alertas; e 
+órgãos normativos (Caixa/SINAPI e DNIT/SICRO) como fontes de dados referenciais. A 
+integração dessas perspectivas em torno de um artefato único e operacional qualifica a 
+pesquisa como de alta complexidade. 
+Quesito impacto potencial: i) institucional — o framework fornece instrumento 
+concreto para auditoria preventiva pré-licitatória, atuando no único momento em que a 
+correção é viável sem configurar o periculum in mora reverso documentado no Acórdão 
+686/2026; (ii) operacional — a estruturação dos critérios de verificação em parâmetros 
+objetivos reduz a dependência de expertise individual e amplia a capacidade analítica das 
+equipes de auditoria; (iii) fiscal — a identificação precoce de assimetrias antes da adjudicação 
+permite correção dos anteprojetos ou adoção de cautelas contratuais que previnam pleitos de 
+reequilíbrio, com impacto direto sobre a economicidade do gasto público. 
+Quesito aplicabilidade: o framework é especificado com base em tecnologias open 
+source e bases de dados públicas de acesso gratuito (SINAPI/Caixa e SICRO/DNIT), não 
+requerendo investimento adicional em licenças de software por parte dos órgãos de controle. 
+O painel de alertas é projetado para integração ao Power BI. A arquitetura é documentada de 
+forma a permitir implementação e replicação por equipes de TI de qualquer órgão de controle, 
+independentemente de porte ou esfera federativa, sem custo de licenciamento.  
+Resultados esperados: (i) especificação técnica completa e protótipo demonstrativo 
+do framework de auditoria — produto técnico-tecnológico na modalidade 
+processo/tecnologia, conforme item 1.9 "a" do edital; (ii) artigo científico inédito submetido 
+a periódico Qualis Capes ≥ A4, em coautoria com o(a) orientador(a), conforme item 1.9 "b"; 
+(iii) dissertação em formato de dois artigos com vínculo temático, conforme item 1.11 "b"; 
+(iv) catálogo sistemático e codificado dos indutores de assimetria de informação em 
+anteprojetos de obras de grande vulto — contribuição original replicável por qualquer órgão 
+de controle; e (v) protocolo metodológico de auditoria pré-licitatória baseado em IA, com 
+potencial de incorporação ao Manual de Auditoria de Obras Públicas da CGU e do TCU. 
+
+
