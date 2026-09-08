@@ -1,0 +1,52 @@
+# Utilize suas skills para elaborar um artigo científico.
+# Realização de um artigo científico
+# Usar como base a Lei 14.133/21 a Lei 13.303/16. Buscando como tema específico o regime de contratação integrada, grandes obras;
+# Use para a pesquisa a evolução do Fiscobras do TCU (planejamento que que possui 30 anos);
+# Use a Lindb art. 28 sobre erro grosseiro;
+# Quando se cuida de grandes obras, há a questão do programa de integridade, art. 25, § 4º;
+# use também a teoria do agente e principal - buscando a assimetria de informação. Pois na contratação integrada a licitante desenvolverá o projeto básico e executivo. Já a administração, licita a obra com o anteprojeto que possui uma estimativa da ordem de 20%, OT nº 04/2012 IBRAOP.
+# Utilize a IA como uma solução para ajudar o controle (GCU e TCU) e também para o gestor que (ao receber um anteprojeto incompleto/falho) pode realizar uma avaliação preliminar e com isso detectar as inconsistências e consequentemente impedir a licitação ou contratação com base em um documento deficiente e que poderia provocar problemas no futuro - aditivos e ou modificações indevidas;
+# Há também relatórios de auditoria da CGU - Relatório de auditoria OS 201505075 - e acórdão do TCU Ac. 2429/2024 Plenário, Acórdão 686/2026 Plenário, acórdão 3646/2026 primeira câmara, Acórdão 1873/2024-Plenário;
+# Use como referência a OT_IBRAOP_n° 009/2024 e nº 04/2012;
+# Utilizar como histórico o levantamento de obras inacabadas realizado pelo Senado Federal em 1995 - https://www12.senado.leg.br/noticias/materias/1995/08/30/senado-inicia-investigacao-de-obras-publicas-inacabadas;
+# Pode utilizar como referência também um estudo de https://bdm.unb.br/handle/10483/13864 - COMPARATIVO ENTRE O REGIME DIFERENCIADO DE CONTRATAÇÕES – RDC E A LEI Nº 8.666/1993. ESTUDO DE CASO: CONTRATAÇÕES DE OBRAS DE ENGENHARIA PELO DNIT E INFRAERO.
+# Utilize também - BUROCRACIAS DO CONTROLE, CONTROLE DA BUROCRACIA E ACCOUNTABILITY NO BRASIL - Fernando Filgueiras; A ATUAÇÃO DOS CONTROLES INTERNO E EXTERNO AO EXECUTIVO COMO CONDICIONANTE DA EXECUÇÃO DE INVESTIMENTO EM INFRAESTRUTURA NO BRASIL, de Cecília Olivieri - Rio de Janeiro, nov/2016, textos para discussão, revista IPEA,2252;
+# utilize a seleção adversa e o risco moral - https://irbcontas.org.br/artigos/o-seguro-garantia-na-nova-lei-de-licitacao-e-os-problemas-de-selecao-adversa-e-moral-hazard/
+# utilizar meu tema de dissertação de mestrado - Framework de Auditoria Preventiva Baseado em Inteligência Artificial para Detecção de Assimetria de Informação em Anteprojetos de Grandes Obras Públicas: Especificação e Validação no Contexto das Contratações Integradas. 
+#1 Diretrizes gerais
+#1.1 Tema: compatível com o escopo da disciplina, envolvendo uma questão ou problema profissional ou uma questão acadêmica de interesse profissional.
+#1.2 Abordagem: redação clara, objetiva e técnico-profissional.
+#1.3 Extensão: entre 3.000 e 5.000 palavras (entre 10 e 15 páginas, aproximadamente) – não considerados o resumo, a bibliografia e as notas de fim
+#2 Estrutura obrigatória
+#2.1 Capa
+#2.2 Resumo (entre 150 e 250 palavras) – formatação específica.
+#2.3 Introdução – contextualização do tema, evidenciação da relevância da questão/problema e objetivos do paper.
+#2.4 Desenvolvimento – aprofundamento da questão/problema, análises, discussões, abordagem da literatura, estudos e jurisprudência.
+#2.5 Considerações finais – síntese, conclusões, expectativas e proposições.
+#2.6 Referências – pertinentes e relevantes (mínimo de dois autores, conforme ABNT).
+#3 Regras de formatação
+#3.1 Margens: superior, inferior, esquerda e direita = 2,5 cm.
+#3.2 Fonte: Arial ou Times New Roman, tamanho 12.
+#3.3 Espaçamento entre linhas: 1,5 – sem espaçamento antes e depois entre parágrafos.
+#3.4 Recuo da primeira linha: 1,25 cm.
+#3.5 Alinhamento: justificado.
+#3.6 Títulos de seção: iniciais maiúsculas, tamanho 12, negrito; espaçamento antes = 18pt e depois = 12pt.
+#3.7 Resumo: entre 150 e 250 palavras, fonte tamanho 10, espaçamento simples.
+#3.8 Notas de fim: fonte tamanho 10, espaçamento simples, espaçamento entre notas (antes e depois) = 6pt.
+#3.9 Numeração de páginas: inferior, à direita.
+#4 Regras de citação e referência
+#4.1 Citações diretas com até 4 linhas: no próprio corpo do texto, entre aspas, com a mesma fonte e espaçamento.
+#4.2 Citações diretas com mais de 4 linhas: somente em notas de fim.
+#4.3 Citações de dispositivos normativos (leis, decretos etc.): somente em notas de fim.
+#4.4 Citação de autores: em nota de rodapé, de forma simplificada: nome do autor, título da obra, ano, páginas.
+#4.5 Transcrição obrigatória: em nota de fim, deve constar o texto original parafraseado ou o texto do qual se extraiu a asserção atribuída ao autor.
+#4.6 Referências finais: no mínimo dois autores, com indicação da obra consultada nos termos da ABNT.
+#5 Critérios de avaliação – Paper (70 pontos)
+# Cada critério é avaliado em escala: 0,5 – 0,75 – 1,0, e multiplicado pelo respectivo peso.
+# Relevância do paper (pertinência, originalidade, dificuldade e potencial) – Peso 2
+# Qualidade analítica (desenvolvimento, fundamentos, argumentos, referências) – Peso 7
+# Aspectos formais (qualidade do texto, observância dos padrões de formatação e apresentação) – Peso 1
+
+
+
+
