@@ -1,0 +1,560 @@
+<title>Discursivas Câmara 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: mesma prancheta do Plano Câmara 2027 (papel quadriculado, coluna única de leitura), com folha pautada de 30 linhas para a resposta-modelo */
+  :root{
+    --paper:#F7F6F1; --paper-raised:#FFFFFF; --ink:#1E2530; --ink-soft:#465160;
+    --line-blue:#2B5B84; --line-blue-soft:#E4ECF3; --steel:#6B7686;
+    --rule:rgba(30,37,48,0.13); --grid:rgba(43,91,132,0.07);
+    --mark:#FFF3C4; --focus:#2B5B84;
+    --warn:#9A3B1E; --warn-soft:#F8E7DF; --ok:#2E6B47; --ok-soft:#E2F0E7;
+    --sheet-line:rgba(43,91,132,0.22); --sheet-margin:rgba(154,59,30,0.35);
+    --f-display:"Newsreader", Georgia, serif;
+    --f-body:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12161C; --paper-raised:#181D25; --ink:#E8EAED; --ink-soft:#B3BCC9;
+      --line-blue:#7FB0DB; --line-blue-soft:#1D2C3A; --steel:#8B96A8;
+      --rule:rgba(232,234,237,0.15); --grid:rgba(127,176,219,0.08);
+      --mark:#3A3212; --focus:#7FB0DB;
+      --warn:#E89A7C; --warn-soft:#3A2119; --ok:#86C9A0; --ok-soft:#18301F;
+      --sheet-line:rgba(127,176,219,0.22); --sheet-margin:rgba(232,154,124,0.4);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12161C; --paper-raised:#181D25; --ink:#E8EAED; --ink-soft:#B3BCC9;
+    --line-blue:#7FB0DB; --line-blue-soft:#1D2C3A; --steel:#8B96A8;
+    --rule:rgba(232,234,237,0.15); --grid:rgba(127,176,219,0.08);
+    --mark:#3A3212; --focus:#7FB0DB;
+    --warn:#E89A7C; --warn-soft:#3A2119; --ok:#86C9A0; --ok-soft:#18301F;
+    --sheet-line:rgba(127,176,219,0.22); --sheet-margin:rgba(232,154,124,0.4);
+    color-scheme:dark;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--paper);
+    background-image:linear-gradient(var(--grid) 1px, transparent 1px),linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:28px 28px;
+    color:var(--ink); font-family:var(--f-body); font-size:15px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:920px; margin:0 auto; padding-inline:20px; padding-block:36px 80px; }
+  h1,h2{ font-family:var(--f-display); text-wrap:balance; margin:0; }
+  header.hero{ padding-bottom:24px; border-bottom:2px solid var(--line-blue); }
+  .eyebrow{ font-family:var(--f-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--line-blue); margin-bottom:10px; }
+  h1{ font-size:clamp(1.9rem, 5vw, 2.6rem); font-weight:600; line-height:1.12; }
+  h1 em{ color:var(--line-blue); font-style:italic; }
+  .dek{ margin:10px 0 0; color:var(--ink-soft); font-size:1rem; max-width:62ch; }
+
+  nav.toc{ position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; flex-wrap:wrap; gap:6px; padding-block:10px; margin-bottom:8px; background:var(--paper); border-bottom:1px solid var(--rule); }
+  nav.toc a{ font-family:var(--f-mono); font-size:0.74rem; color:var(--line-blue); text-decoration:none; background:var(--line-blue-soft); padding:5px 10px; border-radius:999px; }
+  nav.toc a:hover, nav.toc a:focus-visible{ background:var(--line-blue); color:var(--paper-raised); }
+  nav.toc a:focus-visible{ outline:2px solid var(--focus); outline-offset:2px; }
+
+  section.doc{ padding-top:36px; scroll-margin-top:60px; }
+  section.doc > h2{ font-size:1.7rem; font-weight:600; line-height:1.2; padding-bottom:10px; border-bottom:2px solid var(--line-blue); margin-bottom:14px; }
+  section.doc h3{ font-size:1.12rem; font-weight:600; margin:30px 0 8px; color:var(--ink); text-wrap:balance; }
+  section.doc h4{ font-family:var(--f-mono); font-size:0.8rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--line-blue); margin:22px 0 6px; }
+  section.doc p, section.doc li{ color:var(--ink-soft); max-width:74ch; }
+  section.doc p{ margin:0 0 12px; }
+  section.doc ul, section.doc ol{ margin:0 0 14px; padding-left:1.2em; display:flex; flex-direction:column; gap:6px; }
+  section.doc strong{ color:var(--ink); font-weight:600; }
+  section.doc a{ color:var(--line-blue); text-underline-offset:2px; }
+  code{ font-family:var(--f-mono); font-size:0.86em; background:var(--line-blue-soft); padding:1px 5px; border-radius:3px; overflow-wrap:anywhere; }
+
+  .tw{ overflow-x:auto; margin:6px 0 18px; background:var(--paper-raised); border:1px solid var(--rule); border-radius:4px; }
+  table{ width:100%; border-collapse:collapse; font-size:0.86rem; line-height:1.5; }
+  th{ font-family:var(--f-mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--steel); text-align:left; padding:9px 10px; border-bottom:2px solid var(--line-blue); white-space:nowrap; }
+  td{ padding:9px 10px; border-bottom:1px solid var(--rule); color:var(--ink-soft); vertical-align:top; font-variant-numeric:tabular-nums; }
+  tr:last-child td{ border-bottom:none; }
+  td:first-child{ color:var(--ink); font-weight:500; }
+  .tw.wide table{ min-width:780px; }
+  .tw.xwide table{ min-width:1040px; }
+  tr.now td{ background:var(--mark); }
+
+  /* Dispositivo legal citado: o texto da lei, com a referência em mono */
+  .lei{ margin:8px 0 16px; padding:12px 14px; background:var(--paper-raised); border:1px solid var(--rule); border-left:3px solid var(--line-blue); border-radius:0 4px 4px 0; }
+  .lei p{ margin:0 0 6px; color:var(--ink); font-family:var(--f-display); font-size:1.02rem; line-height:1.5; }
+  .lei p:last-child{ margin-bottom:0; }
+  .lei .ref{ display:block; font-family:var(--f-mono); font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--line-blue); margin-bottom:4px; }
+  /* Armadilha da banca */
+  .trap{ margin:8px 0 16px; padding:10px 14px; background:var(--warn-soft); border-radius:4px; }
+  .trap p, .trap li{ color:var(--ink); }
+  .trap .tag{ font-family:var(--f-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--warn); font-weight:600; display:block; margin-bottom:4px; }
+  .trap ul{ margin:0; }
+  .keep{ background:var(--ok-soft); }
+  .keep .tag{ color:var(--ok); }
+
+  /* Fluxo do fiscal: a ordem é a informação */
+  ol.fluxo{ list-style:none; padding-left:0 !important; counter-reset:passo; gap:0 !important; }
+  ol.fluxo > li{ counter-increment:passo; position:relative; padding:10px 0 12px 46px; border-left:2px solid var(--line-blue-soft); margin-left:14px; max-width:none; }
+  ol.fluxo > li::before{ content:counter(passo); position:absolute; left:-15px; top:8px; width:28px; height:28px; border-radius:50%; background:var(--line-blue); color:var(--paper-raised); font-family:var(--f-mono); font-size:0.8rem; font-weight:600; display:grid; place-items:center; }
+  ol.fluxo > li:last-child{ border-left-color:transparent; }
+  ol.fluxo strong{ display:block; }
+
+  /* Enunciado no formato Cebraspe */
+  .enunciado{ background:var(--paper-raised); border:1px solid var(--rule); border-radius:4px; padding:16px 18px; margin:8px 0 18px; }
+  .enunciado p, .enunciado li{ color:var(--ink); }
+  .enunciado ol{ padding-left:1.4em; }
+  .pts{ font-family:var(--f-mono); font-size:0.78rem; color:var(--steel); white-space:nowrap; }
+
+  /* Folha de texto definitivo: 30 linhas numeradas */
+  .sheet-wrap{ overflow-x:auto; margin:8px 0 8px; }
+  ol.folha{ list-style:none; counter-reset:linha; margin:0 !important; padding:10px 0 !important; gap:0 !important; background:var(--paper-raised); border:1px solid var(--rule); border-radius:4px; min-width:640px; max-width:none; }
+  ol.folha li{ counter-increment:linha; position:relative; padding:0 14px 0 58px; height:30px; line-height:30px; border-bottom:1px solid var(--sheet-line); white-space:pre; font-family:var(--f-display); font-size:1.02rem; color:var(--ink); max-width:none; }
+  ol.folha li::before{ content:counter(linha); position:absolute; left:0; width:40px; text-align:right; font-family:var(--f-mono); font-size:0.7rem; color:var(--steel); }
+  ol.folha li::after{ content:""; position:absolute; left:48px; top:0; bottom:-1px; border-left:1px solid var(--sheet-margin); }
+  .sheet-note{ font-size:0.82rem; color:var(--steel); margin:0 0 18px; }
+
+  .grid2{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin:8px 0 18px; }
+  .card{ background:var(--paper-raised); border:1px solid var(--rule); border-radius:4px; padding:12px 14px; min-width:0; }
+  .card h5{ margin:0 0 6px; font-family:var(--f-mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--line-blue); }
+  .card p, .card li{ font-size:0.9rem; }
+  .card ul{ margin:0; }
+
+  footer{ margin-top:48px; padding-top:18px; border-top:1px solid var(--rule); color:var(--steel); font-size:0.8rem; max-width:74ch; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Câmara dos Deputados · Cargo 6 · P3 discursiva · complemento do Plano Câmara 2027</div>
+    <h1>Discursivas <em>Câmara 2027</em></h1>
+    <p class="dek">Fiscalização e gestão de obra pela Lei nº 14.133/2021, empreitada por preço global e por preço unitário, patologia de concreto encontrada pelo fiscal, e o plano para as três questões de 17/1/2027, montado do ponto de vista de quem elabora a prova.</p>
+  </header>
+
+  <nav class="toc" aria-label="Seções">
+    <a href="#banca">Cadeira da banca</a><a href="#lei">Lei 14.133</a><a href="#regimes">Global × unitário</a><a href="#patologia">Patologia</a><a href="#questao1">Questão 1</a><a href="#trio">Questões 2 e 3</a><a href="#treino">Plano de treino</a>
+  </nav>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="banca">
+    <h2>1. Na cadeira de quem elabora a prova</h2>
+    <p>O elaborador recebe do Cebraspe o conteúdo do Cargo 6 e a descrição das atribuições, e precisa escrever três questões de 20 pontos que separem 14 candidatos fortes. Para isso, ele tem de escrever um padrão de resposta que dois examinadores consigam aplicar sem divergir mais de 25% (edital, 9.8.4.1). Essa exigência define o formato.</p>
+
+    <h3>O que ele precisa entregar</h3>
+    <ul>
+      <li><strong>Situação hipotética no contexto do órgão.</strong> Um edifício da Câmara, um contrato de reforma ou ampliação, um achado de vistoria. O cargo é "acompanhar a fiscalização de obras e serviços contratados" e "elaborar laudo e parecer técnico" (edital, 2.5).</li>
+      <li><strong>Três ou quatro quesitos numerados</strong>, cada um com nota própria. Verbos típicos: "discorra", "explique", "apresente duas", "indique as providências".</li>
+      <li><strong>Mistura de técnica e lei na mesma questão.</strong> O bloco 6 do edital é o único que diz "normas técnicas <strong>e legais</strong>" (6.4), e a P1 traz gestão e fiscalização do contrato e o papel do fiscalizador (10.4 a 10.6). Uma questão de fiscalização que não cobre a Lei nº 14.133 desperdiçaria o próprio edital.</li>
+      <li><strong>Padrão de resposta com palavras-chave verificáveis.</strong> O examinador procura termos: "registro próprio", "preposto", "etapas do cronograma físico-financeiro", "vedada a medição por quantidades", "às suas expensas", "segregação", "cisalhamento", "testemunhos". Cada quesito costuma ser graduado em conceitos (do conceito 0, que não aborda, ao conceito máximo, que aborda tudo com correção).</li>
+    </ul>
+
+    <h3>Por que fiscalização com patologia é uma questão quase pronta</h3>
+    <p>A sua hipótese reúne num só caso quatro tópicos do edital: 6.1 (medições e fatura), 6.3 (controle de execução), 5.4 e 5.5 (patologia e recuperação) e 4.5 (execução de concreto), além da Lei nº 14.133 da P1. Para a banca, o caso tem três vantagens: obriga a usar lei e técnica juntas, gera quesitos independentes (cada um pontuável sozinho) e tem resposta objetiva para o regime de medição, o que facilita a correção. É a questão que eu escreveria.</p>
+
+    <h3>O que separa o 20 do 14</h3>
+    <div class="tw wide"><table>
+      <thead><tr><th>Candidato de nota 14</th><th>Candidato de nota 20</th></tr></thead>
+      <tbody>
+        <tr><td>Fala de fiscalização em geral</td><td>Diz o que o fiscal faz <strong>naquele</strong> caso, na ordem certa: segurança, registro, notificação, comunicação ao gestor</td></tr>
+        <tr><td>"No preço global paga-se o total, no unitário paga-se por item"</td><td>Define os dois regimes pela lei, explica a medição de cada um, diz com quem fica o risco de quantitativo e aplica ao boletim do enunciado</td></tr>
+        <tr><td>"A patologia pode ter várias causas"</td><td>Nomeia o fenômeno (segregação, cisalhamento), dá as causas prováveis daquela manifestação, os ensaios e a terapia</td></tr>
+        <tr><td>"A empresa é responsável"</td><td>Cita reparação às próprias expensas, responsabilidade não reduzida pela fiscalização, ensaios por conta do contratado e garantia mínima de cinco anos após o recebimento definitivo</td></tr>
+        <tr><td>Escreve 22 linhas</td><td>Escreve 28 a 30 linhas, um parágrafo por quesito, na ordem do comando</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="lei">
+    <h2>2. Lei nº 14.133/2021: fiscalização e gestão da obra</h2>
+    <p>Organizei os dispositivos pela ordem em que aparecem no trabalho do fiscal, do planejamento ao fim da garantia. Onde a redação está entre aspas, é o texto da lei; o resto é paráfrase. Antes da prova, confira tudo na lei seca, inclusive se houve alteração até 2/10/2026, porque o edital cobra a legislação vigente nessa data (13.33).</p>
+
+    <h3>2.1 O planejamento já define como a obra será fiscalizada</h3>
+    <ul>
+      <li><strong>Projeto básico (art. 6º, XXV).</strong> A alínea "e" exige "subsídios para montagem do plano de licitação e gestão da obra, compreendidos a sua programação, a estratégia de suprimentos, as normas de fiscalização e outros dados necessários em cada caso". A alínea "f" exige orçamento detalhado, obrigatório nos regimes dos incisos I, II, III, IV e VII do art. 46 (preço unitário, preço global, integral, tarefa e fornecimento com serviço associado).</li>
+      <li><strong>Projeto executivo (art. 46, § 1º).</strong> É vedado realizar obras e serviços de engenharia sem projeto executivo, ressalvada a hipótese do art. 18, § 3º (serviços e obras comuns de engenharia em que a especificação no termo de referência ou no projeto básico basta).</li>
+      <li><strong>Etapas (art. 46, § 6º).</strong> A execução de cada etapa é precedida da conclusão e da aprovação, pela autoridade competente, dos trabalhos das etapas anteriores.</li>
+      <li><strong>Cláusulas necessárias (art. 92).</strong> O contrato traz, entre outras, o preço e as condições de pagamento, os critérios e a periodicidade da medição, os prazos de início, conclusão, entrega, observação e recebimento definitivo, e o modelo de gestão do contrato.</li>
+      <li><strong>Matriz de riscos (arts. 6º, XXVII, 22 e 103).</strong> Obrigatória em obras de grande vulto e nas contratações integrada e semi-integrada. Define quem arca com cada evento e, portanto, o que o fiscal pode aceitar como pleito de reequilíbrio.</li>
+      <li><strong>Cuidados próprios de obras (art. 45).</strong> Resíduos sólidos, condicionantes ambientais, eficiência energética, impacto de vizinhança, proteção do patrimônio histórico e cultural, acessibilidade. Num complexo como o da Câmara, o patrimônio é argumento a citar.</li>
+      <li><strong>BIM (art. 19, § 3º).</strong> Adoção preferencial da modelagem da informação da construção nas licitações de obras e serviços de engenharia e arquitetura, sempre que adequada ao objeto.</li>
+    </ul>
+
+    <h3>2.2 Quem gere e quem fiscaliza</h3>
+    <ul>
+      <li><strong>Designação (art. 7º).</strong> A autoridade máxima promove a gestão por competências e designa agentes preferencialmente efetivos, com atribuições ou formação compatíveis e sem vínculo com licitantes ou contratados. <strong>Segregação de funções (§ 1º):</strong> é vedado designar o mesmo agente para funções simultâneas mais suscetíveis a riscos, para reduzir a possibilidade de ocultação de erros e de fraudes. Quem elaborou o projeto ou o orçamento não deveria ser o fiscal que mede.</li>
+      <li><strong>Regulamento (art. 8º, § 3º).</strong> As regras de atuação de fiscais e gestores de contratos são fixadas em regulamento, com previsão de apoio dos órgãos de assessoramento jurídico e de controle interno. No Executivo federal, o Decreto nº 11.246/2022 distingue o <strong>gestor do contrato</strong> (coordena a gestão: instrução de aditivos, prorrogações, sanções, encaminhamento do pagamento) dos <strong>fiscais técnico, administrativo e setorial</strong>. A Câmara tem regulamentação própria; vale localizar o ato da Mesa vigente.</li>
+      <li><strong>Prerrogativa (art. 104, III).</strong> Fiscalizar a execução é prerrogativa da Administração, ao lado de alterar e extinguir unilateralmente, aplicar sanções e ocupar provisoriamente bens e pessoal em casos específicos.</li>
+      <li><strong>Linhas de defesa (art. 169).</strong> O fiscal integra a primeira linha; assessoria jurídica e controle interno do órgão, a segunda; o órgão central de controle interno e o tribunal de contas, a terceira.</li>
+    </ul>
+
+    <h3>2.3 O núcleo: arts. 117 a 123</h3>
+    <div class="lei"><span class="ref">Art. 117, caput</span><p>"A execução do contrato deverá ser acompanhada e fiscalizada por 1 (um) ou mais fiscais do contrato, representantes da Administração especialmente designados conforme requisitos estabelecidos no art. 7º desta Lei, ou pelos respectivos substitutos, permitida a contratação de terceiros para assisti-los e subsidiá-los com informações pertinentes a essa atribuição."</p></div>
+    <div class="lei"><span class="ref">Art. 117, §§ 1º e 2º</span><p>"O fiscal do contrato anotará em registro próprio todas as ocorrências relacionadas à execução do contrato, determinando o que for necessário para a regularização das faltas ou dos defeitos observados."</p><p>"O fiscal do contrato informará a seus superiores, em tempo hábil para a adoção das medidas convenientes, a situação que demandar decisão ou providência que ultrapasse sua competência."</p></div>
+    <ul>
+      <li><strong>§ 3º.</strong> O fiscal é auxiliado pela assessoria jurídica e pelo controle interno, que dirimem dúvidas e o subsidiam para prevenir riscos.</li>
+      <li><strong>§ 4º (terceiro contratado para apoiar a fiscalização).</strong> O terceiro responde objetivamente pela veracidade e precisão das informações, assina termo de confidencialidade e não pode exercer atribuição própria e exclusiva de fiscal. Sua contratação não exime o fiscal, nos limites das informações recebidas.</li>
+      <li><strong>Art. 118.</strong> O contratado mantém <strong>preposto</strong> aceito pela Administração no local da obra, para representá-lo. É a ele que se dirigem notificações e determinações.</li>
+      <li><strong>Art. 119.</strong> "O contratado será obrigado a reparar, corrigir, remover, reconstruir ou substituir, a suas expensas, no total ou em parte, o objeto do contrato em que se verificarem vícios, defeitos ou incorreções resultantes de sua execução ou de materiais nela empregados."</li>
+      <li><strong>Art. 120.</strong> O contratado responde pelos danos causados diretamente à Administração ou a terceiros, e "não excluirá nem reduzirá essa responsabilidade a fiscalização ou o acompanhamento pelo contratante".</li>
+      <li><strong>Art. 121.</strong> Encargos trabalhistas, previdenciários, fiscais e comerciais são do contratado; a inadimplência dele não se transfere à Administração. A responsabilidade solidária e subsidiária do § 2º vale só para serviços contínuos com dedicação exclusiva de mão de obra, não para obras.</li>
+      <li><strong>Art. 122.</strong> Subcontratação só de partes e até o limite autorizado pela Administração, sem prejuízo das responsabilidades do contratado. O fiscal confere se quem está executando é quem foi autorizado.</li>
+      <li><strong>Art. 123.</strong> A Administração deve decidir expressamente sobre solicitações e reclamações da execução; concluída a instrução, tem 1 mês, prorrogável por igual período, salvo prazo específico.</li>
+    </ul>
+
+    <h3>2.4 Medição, liquidação e pagamento</h3>
+    <ul>
+      <li><strong>Regime define a medição (art. 46, § 9º).</strong> Ver a seção 3. No preço global e nos demais regimes dos incisos II a VI, a medição é por etapas do cronograma físico-financeiro vinculadas a metas de resultado.</li>
+      <li><strong>Ordem da despesa.</strong> Medição aprovada pelo fiscal, autorização para emitir a nota fiscal ou fatura, atesto, liquidação (Lei nº 4.320/1964, art. 63: verificação do direito adquirido pelo credor com base nos comprovantes da prestação efetiva) e pagamento, que só ocorre após a regular liquidação (art. 62 da mesma lei). É a cadeia do tópico 6.1 do edital.</li>
+      <li><strong>Ordem cronológica (art. 141).</strong> Pagamentos seguem a ordem cronológica por fonte de recursos, com categoria própria para obras.</li>
+      <li><strong>Parcela incontroversa (art. 143).</strong> Havendo controvérsia sobre dimensão, qualidade e quantidade, a parcela incontroversa é liberada no prazo previsto para pagamento. A patologia num elemento não trava o pagamento do que está correto.</li>
+      <li><strong>Remuneração variável (art. 144).</strong> Admitida, vinculada ao desempenho, com metas e padrões de qualidade definidos no edital e no contrato.</li>
+      <li><strong>Pagamento antecipado (art. 145).</strong> Vedado, salvo sensível economia de recursos ou condição indispensável, com previsão no edital e garantia adicional se exigida. Medir etapa inacabada como concluída é pagamento antecipado disfarçado.</li>
+      <li><strong>Superfaturamento (art. 6º, LVII).</strong> Inclui medição de quantidades superiores às executadas e "deficiência na execução de obras e de serviços de engenharia que resulte em diminuição da sua qualidade, vida útil ou segurança". Pagar por um pilar com ninhos sem correção é superfaturamento qualitativo.</li>
+    </ul>
+
+    <h3>2.5 Alterações do contrato</h3>
+    <ul>
+      <li><strong>Hipóteses (art. 124).</strong> Unilaterais: modificação do projeto ou das especificações para melhor adequação técnica; acréscimo ou diminuição quantitativa. Por acordo: substituição da garantia, mudança do regime de execução por inaplicabilidade técnica dos termos originais, forma de pagamento, reequilíbrio econômico-financeiro.</li>
+      <li><strong>Falha de projeto (art. 124, § 1º).</strong> Alteração decorrente de falha de projeto obriga a apurar a responsabilidade do responsável técnico e a buscar o ressarcimento dos danos.</li>
+      <li><strong>Limites (art. 125).</strong> 25% do valor inicial atualizado para acréscimos e supressões; 50% para acréscimos em reforma de edifício ou de equipamento. O TCU computa acréscimos e supressões separadamente, sem compensação entre eles.</li>
+      <li><strong>Objeto (art. 126).</strong> Alteração unilateral não pode transfigurar o objeto.</li>
+      <li><strong>Preço novo (art. 127).</strong> Serviço sem preço unitário no contrato é precificado aplicando a relação entre proposta e orçamento-base sobre o preço de referência da data do aditamento, observado o art. 23.</li>
+      <li><strong>Desconto preservado (art. 128).</strong> Em obras, o aditivo que muda a planilha não pode reduzir em favor do contratado a diferença percentual entre o valor do contrato e o preço global de referência. É a regra contra o jogo de planilha.</li>
+      <li><strong>Termo aditivo antes da execução (art. 132).</strong> A formalização do aditivo é condição para executar o que foi determinado; se houver justificada necessidade de antecipar os efeitos, formaliza-se em até 1 mês.</li>
+      <li><strong>Contratação integrada e semi-integrada (art. 133).</strong> Aditivo só nas hipóteses restritas da lei: caso fortuito ou força maior, alteração a pedido da Administração que não decorra de erro do contratado, inovação aprovada na semi-integrada, evento alocado à Administração na matriz de riscos.</li>
+      <li><strong>Apostila (art. 136).</strong> Reajuste e repactuação, atualizações e compensações financeiras, mudança de razão social, empenho. Mudança de quantitativo não é apostila.</li>
+      <li><strong>Paralisação (art. 115, §§ 5º e 6º).</strong> Impedimento, ordem de paralisação ou suspensão prorroga o cronograma automaticamente, por apostila. Obra parada por mais de 1 mês exige aviso público em sítio oficial e placa no local, com o motivo, o responsável e a data prevista de reinício.</li>
+    </ul>
+
+    <h3>2.6 Recebimento e responsabilidade depois da entrega</h3>
+    <ul>
+      <li><strong>Recebimento de obras (art. 140, I).</strong> <strong>Provisório</strong>, pelo responsável pelo acompanhamento e fiscalização, mediante termo detalhado, quando verificado o cumprimento das exigências de caráter técnico. <strong>Definitivo</strong>, por servidor ou comissão designada pela autoridade competente, mediante termo detalhado que comprove o atendimento das exigências contratuais.</li>
+      <li><strong>Rejeição (§ 1º).</strong> O objeto pode ser rejeitado, no todo ou em parte, se estiver em desacordo com o contrato.</li>
+      <li><strong>Responsabilidade que sobrevive (§ 2º).</strong> O recebimento não exclui a responsabilidade civil pela solidez e segurança nem a ético-profissional pela perfeita execução.</li>
+      <li><strong>Ensaios (§ 4º).</strong> Salvo disposição em contrário no edital ou em ato normativo, ensaios, testes e demais provas exigidos por normas técnicas oficiais correm por conta do contratado.</li>
+      <li><strong>Projetista (§ 5º).</strong> O recebimento definitivo não exime o projetista ou consultor da responsabilidade objetiva por todos os danos causados por falha de projeto.</li>
+      <li><strong>Construtor (§ 6º).</strong> Após o recebimento definitivo, o contratado responde objetivamente, pelo prazo mínimo de 5 anos (o edital e o contrato podem fixar prazo maior), pela solidez e segurança dos materiais e serviços e pela funcionalidade da obra, e fica obrigado a reparar, corrigir, reconstruir ou substituir o que tiver vício. Combina com o art. 618 do Código Civil, cujo parágrafo único dá ao dono da obra 180 dias, contados do aparecimento do vício, para propor a ação.</li>
+    </ul>
+
+    <h3>2.7 Sanções e medidas</h3>
+    <ul>
+      <li><strong>Infrações (art. 155)</strong>, entre elas dar causa à inexecução parcial, à inexecução parcial com grave dano e à inexecução total, e o atraso injustificado.</li>
+      <li><strong>Sanções (art. 156):</strong> advertência, multa (de 0,5% a 30% do valor do contrato), impedimento de licitar e contratar e declaração de inidoneidade. Multa de mora por atraso injustificado (art. 162).</li>
+      <li><strong>Devido processo.</strong> Defesa em 15 dias úteis para multa (art. 157); comissão de dois ou mais servidores estáveis para impedimento e inidoneidade (art. 158). O fiscal não aplica sanção: ele registra, instrui e comunica.</li>
+      <li><strong>Medidas da extinção unilateral (art. 139)</strong>, entre elas execução da garantia para ressarcir prejuízos e cobrar multas, e retenção de créditos até o limite dos prejuízos e das multas.</li>
+      <li><strong>Responsabilidade do próprio fiscal.</strong> Responde pessoalmente por decisões e opiniões técnicas em caso de dolo ou erro grosseiro (LINDB, art. 28). Atestar medição de serviço com vício visível é o exemplo clássico de erro grosseiro. Liga-se ao tópico da P1 "Parecer: responsabilidade do emissor".</li>
+    </ul>
+
+    <div class="trap"><span class="tag">Armadilhas que a banca planta</span>
+      <ul>
+        <li>"A fiscalização da Administração atenua a responsabilidade do contratado." Errado (art. 120).</li>
+        <li>"O recebimento definitivo extingue a responsabilidade do construtor." Errado (art. 140, §§ 2º e 6º).</li>
+        <li>"O fiscal pode autorizar o acréscimo de serviços e formalizá-lo depois." Errado: o fiscal leva ao superior (art. 117, § 2º), e o aditivo precede a execução, salvo antecipação justificada com formalização em 1 mês (art. 132).</li>
+        <li>"O terceiro contratado pode assumir a fiscalização." Errado: ele assiste e subsidia, sem atribuição própria e exclusiva de fiscal (art. 117, § 4º).</li>
+        <li>"Na reforma de edifício, supressões chegam a 50%." Errado: os 50% valem para acréscimos (art. 125).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="regimes">
+    <h2>3. Empreitada por preço global × por preço unitário</h2>
+    <div class="lei"><span class="ref">Art. 6º, XXVIII e XXIX</span><p>Empreitada por preço unitário: "contratação da execução da obra ou do serviço por preço certo de unidades determinadas".</p><p>Empreitada por preço global: "contratação da execução da obra ou do serviço por preço certo e total".</p></div>
+    <div class="lei"><span class="ref">Art. 46, § 9º</span><p>"Os regimes de execução a que se referem os incisos II, III, IV, V e VI do caput deste artigo serão licitados por preço global e adotarão sistemática de medição e pagamento associada à execução de etapas do cronograma físico-financeiro vinculadas ao cumprimento de metas de resultado, vedada a adoção de sistemática de remuneração orientada por preços unitários ou referenciada pela execução de quantidades de itens unitários."</p></div>
+    <p>Repare no que o § 9º deixa de fora: só o inciso I (preço unitário) e o VII (fornecimento com serviço associado) escapam da medição por etapas.</p>
+
+    <h3>3.1 Lado a lado</h3>
+    <div class="tw xwide"><table>
+      <thead><tr><th>Aspecto</th><th>Preço unitário (EPU), art. 46, I</th><th>Preço global (EPG), art. 46, II</th></tr></thead>
+      <tbody>
+        <tr><td>O que se contrata</td><td>Preço certo por unidade de serviço (m³ de concreto, kg de aço, m² de fôrma)</td><td>Preço certo e total pelo objeto</td></tr>
+        <tr><td>Quando usar</td><td>Quantidades que não podem ser definidas com precisão antes da obra: reformas, recuperação estrutural, movimento de terra, fundações em solo incerto (TCU, Acórdão 1.977/2013-Plenário)</td><td>Quantidades definíveis com precisão a partir de projeto bem detalhado: edificação nova com projeto completo</td></tr>
+        <tr><td>Projeto exigido</td><td>Projeto básico com orçamento detalhado (art. 6º, XXV, "f") e projeto executivo (art. 46, § 1º)</td><td>Os mesmos, com grau de detalhamento ainda mais alto, porque o licitante assume o quantitativo</td></tr>
+        <tr><td>Risco de quantitativo</td><td>Da Administração: paga-se o que for executado, para mais ou para menos</td><td>Do contratado, como regra: pequenas diferenças de quantidade estão no preço. Erros relevantes ou omissões de projeto podem gerar aditivo, com apuração de responsabilidade do projetista (art. 124, § 1º)</td></tr>
+        <tr><td>Unidade de medição</td><td>Quantidade efetivamente executada de cada item, conforme os critérios de medição do edital</td><td>Etapa ou evento concluído do cronograma físico-financeiro, vinculado a metas de resultado</td></tr>
+        <tr><td>Como se paga</td><td>Quantidade medida × preço unitário contratado, item a item</td><td>Percentual do preço global atribuído à etapa no cronograma, pago quando a etapa é concluída</td></tr>
+        <tr><td>Documento do fiscal</td><td>Memória de cálculo com quantidades levantadas em campo, por item, conferidas com projeto, croquis e "as built"</td><td>Verificação de que a etapa foi concluída e aceita (inclusive controle tecnológico aprovado), registrada no diário de obra</td></tr>
+        <tr><td>Papel da planilha</td><td>É a base do pagamento</td><td>É referência para composição do preço, para aditivos e para controle, não para pagar</td></tr>
+        <tr><td>Esforço de fiscalização</td><td>Alto e contínuo: medir tudo, com precisão</td><td>Menor na medição; o foco passa a ser a qualidade e a conclusão das etapas</td></tr>
+        <tr><td>Alteração de quantidade</td><td>Termo aditivo (art. 124, I, "b"), nos limites do art. 125</td><td>Em regra, não; só nas hipóteses de alteração do projeto ou de erro relevante, por aditivo</td></tr>
+        <tr><td>Risco típico para o erário</td><td>Medir mais do que foi executado; jogo de planilha (art. 128)</td><td>Pagar etapa inacabada (antecipação); cronograma com etapas de peso desproporcional no início</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.2 Como é a medição em cada um, passo a passo</h3>
+    <div class="grid2">
+      <div class="card"><h5>Preço unitário</h5>
+        <ol>
+          <li>Contratada apresenta o boletim com quantidades por item e memória de cálculo.</li>
+          <li>Fiscal confere em campo cada quantidade pelo critério de medição do edital (ex.: concreto pelo volume geométrico da peça, não pelo volume da nota fiscal).</li>
+          <li>Glosa o que não foi executado ou foi executado fora da especificação.</li>
+          <li>Aprova quantidade × preço unitário; registra no diário.</li>
+          <li>Acumulado de cada item é comparado ao contratado: se vai estourar, o fiscal avisa o gestor antes, porque a diferença exige aditivo.</li>
+        </ol>
+      </div>
+      <div class="card"><h5>Preço global</h5>
+        <ol>
+          <li>O cronograma físico-financeiro (eventograma) define etapas, critérios de aceitação e o peso de cada uma no preço.</li>
+          <li>Contratada informa a conclusão da etapa.</li>
+          <li>Fiscal verifica se a etapa está integralmente concluída e conforme o projeto e as normas, inclusive ensaios.</li>
+          <li>Paga-se o percentual da etapa. Etapa incompleta ou com vício não é paga, nem parcialmente.</li>
+          <li>Quantidades não são medidas para pagamento; são conferidas só para controle e eventuais aditivos.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3>3.3 Onde os dois convergem</h3>
+    <p>Nos dois regimes, mede-se só o que foi executado conforme o projeto e as especificações; vício de execução se corrige às expensas do contratado (art. 119); a medição se vincula ao cronograma físico-financeiro; o desconto da licitação se preserva nos aditivos (art. 128); e o atesto do fiscal é pressuposto da liquidação.</p>
+
+    <div class="trap"><span class="tag">Armadilhas sobre regimes</span>
+      <ul>
+        <li>"Na empreitada por preço global é vedado qualquer aditivo." Errado: há alteração de projeto e reequilíbrio; o que se veda é remunerar por quantidades.</li>
+        <li>"Na empreitada por preço global o fiscal pode pagar 60% de uma etapa 60% executada." Errado: viola o § 9º do art. 46 e configura antecipação.</li>
+        <li>"Reforma de edifício deve ser contratada por preço global, por ser mais simples de fiscalizar." Normalmente errado: a imprecisão inerente dos quantitativos aponta para o preço unitário.</li>
+        <li>"Empreitada integral é medida por preços unitários." Errado: está no inciso III, alcançado pelo § 9º.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="patologia">
+    <h2>4. O caso: o fiscal encontra patologia numa peça de concreto</h2>
+    <p>A primeira pergunta é de onde vem a estrutura. Se a peça está sendo executada pelo contratado, a manifestação é provavelmente <strong>vício de execução</strong>, e o regime jurídico é o dos arts. 117 a 120 e 140. Se a peça é de um edifício existente da Câmara, é <strong>patologia de uso ou envelhecimento</strong>, e o caso vira vistoria, parecer e contratação de recuperação (edital, 5.4 a 5.6). A banca pode misturar os dois, por exemplo quando a reforma expõe uma viga antiga corroída.</p>
+
+    <h3>4.1 Roteiro do fiscal, na ordem</h3>
+    <ol class="fluxo">
+      <li><strong>Segurança primeiro.</strong> Avaliar se há risco à estabilidade. Manifestação de ruptura frágil (fissura de cisalhamento em viga, fissura vertical de esmagamento em pilar, fissuras em torno de pilar em laje lisa) pede escoramento imediato, isolamento da área, retirada de cargas de obra e suspensão dos serviços que carregam o elemento.</li>
+      <li><strong>Registro.</strong> Anotar no diário de obra, em registro próprio (art. 117, § 1º): local, elemento, data, fotos, croqui com a posição, a direção e a abertura das fissuras.</li>
+      <li><strong>Notificação.</strong> Determinar ao preposto (art. 118) a correção, por escrito, com prazo, e exigir a apresentação de diagnóstico.</li>
+      <li><strong>Comunicação.</strong> Levar ao gestor e aos superiores o que excede a competência do fiscal (art. 117, § 2º): suspensão parcial, eventual aditivo se a causa for de projeto, abertura de processo sancionatório.</li>
+      <li><strong>Diagnóstico.</strong> Exigir do contratado laudo de profissional habilitado, com ART, e os ensaios necessários, que correm por conta dele (art. 140, § 4º). Rever o histórico: projeto, diário, notas fiscais e relatórios do concreto, resultados dos corpos de prova, datas de desforma e retirada do escoramento.</li>
+      <li><strong>Atribuição da causa.</strong> Execução ou material: contratado (art. 119). Projeto: projetista (art. 140, § 5º), com aditivo e apuração de responsabilidade (art. 124, § 1º). Uso, sobrecarga de terceiros ou evento externo: análise conforme a matriz de riscos.</li>
+      <li><strong>Terapia aprovada.</strong> A solução de recuperação ou reforço é proposta pelo contratado, verificada pelo projetista estrutural e aprovada pela fiscalização antes de executar. Reexecução, quando necessária, sem custo e sem acréscimo de prazo para a Administração.</li>
+      <li><strong>Medição.</strong> Não medir o elemento ou a etapa até a correção. Glosar o que já tiver sido pago indevidamente. Liberar a parcela incontroversa (art. 143).</li>
+      <li><strong>Sanção, se cabível.</strong> Atraso ou inexecução parcial instruem processo com defesa (arts. 155 a 158 e 162). Garantia e retenção de créditos cobrem prejuízos e multas.</li>
+      <li><strong>Recebimento.</strong> Não receber provisoriamente com o vício pendente; recusar no todo ou em parte (art. 140, § 1º). Depois do definitivo, garantia mínima de 5 anos (art. 140, § 6º).</li>
+    </ol>
+
+    <h3>4.2 Peça por peça</h3>
+    <p>As causas abaixo são as mais prováveis para cada manifestação; o diagnóstico de um caso real depende da investigação. Os limites de abertura de fissura da NBR 6118 para concreto armado são 0,4 mm na classe de agressividade I, 0,3 mm nas classes II e III e 0,2 mm na IV.</p>
+    <div class="tw xwide"><table>
+      <thead><tr><th>Peça</th><th>O que o fiscal vê</th><th>Causas prováveis</th><th>Gravidade e providência imediata</th><th>Investigação</th><th>Correção</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Viga</td>
+          <td>Fissuras verticais no meio do vão, a partir da face inferior (flexão). Fissuras inclinadas a cerca de 45° junto aos apoios (cisalhamento). Flecha visível. Ninhos na face inferior</td>
+          <td>Estribos insuficientes ou mal espaçados; armadura longitudinal deslocada; concreto abaixo do fck; desforma ou retirada do escoramento antes da hora; estoque de material sobre a laje; erro de projeto</td>
+          <td>Cisalhamento é ruptura frágil: escorar e descarregar já. Flexão com abertura dentro do limite da norma tende a ser só de durabilidade</td>
+          <td>Mapa de fissuras com fissurômetro; monitoramento para saber se a fissura é ativa; pacometria dos estribos; esclerometria e ultrassom; testemunhos; verificação do cálculo pelo projetista; prova de carga se houver dúvida</td>
+          <td>Fissura passiva: injeção de epóxi. Fissura ativa: selagem flexível. Falta de resistência: reforço por aumento de seção, chapas coladas ou fibra de carbono, ou demolição e reexecução</td>
+        </tr>
+        <tr>
+          <td>Pilar</td>
+          <td>Ninhos de concretagem ("bicheiras") na base ou junto às emendas, com armadura exposta. Desaprumo. Fissuras verticais (esmagamento). Em edifício antigo, desplacamento no pé do pilar por corrosão</td>
+          <td>Lançamento de grande altura sem funil ou janela na fôrma; vibração deficiente; fôrma sem estanqueidade (fuga de nata); armadura congestionada; abatimento inadequado. Fissura vertical: compressão excessiva</td>
+          <td>Ninho superficial: reparo localizado. Ninho profundo que atinge o núcleo: seção resistente reduzida, escorar. Fissura vertical: risco de colapso, escorar e evacuar</td>
+          <td>Percussão para achar som cavo; remoção do concreto solto até o são; ultrassom para extensão; testemunhos; verificação do pilar com a seção reduzida</td>
+          <td>Remover o concreto segregado, limpar a armadura, aplicar ponte de aderência e preencher com graute em fôrma tipo cachimbo. Casos extensos: transferir carga por escoramento, demolir e reconcretar, ou encamisar</td>
+        </tr>
+        <tr>
+          <td>Laje</td>
+          <td>Fissuras em mapa logo após a concretagem (retração plástica). Flecha excessiva. Fissuras a 45° nos cantos. Fissuras paralelas às barras. Em laje lisa, fissuras radiais ou circulares em torno do pilar (punção). Infiltração e eflorescência</td>
+          <td>Cura deficiente com sol e vento; retirada do escoramento fora do plano; armadura negativa pisoteada, que perde altura útil; sobrecarga de construção; falta de armadura de canto; cobrimento insuficiente</td>
+          <td>Punção é ruptura frágil: escorar imediatamente. Retração plástica superficial: baixa gravidade, tratar para durabilidade</td>
+          <td>Nivelamento para medir a flecha e comparar com o limite visual da NBR 6118 (vão/250); pacometria da armadura negativa; diário de obra (datas de desforma); resistência dos corpos de prova na idade da desforma</td>
+          <td>Selagem ou injeção; reforço com fibra de carbono ou aumento de seção; para punção, armadura de punção pós-instalada ou capitel; reexecução se a resistência não for atingida</td>
+        </tr>
+        <tr>
+          <td>Bloco de coroamento</td>
+          <td>Fissuras em mapa com manchas ou gel esbranquiçado; fissuras de origem térmica em bloco volumoso; fissuras de fendilhamento sob o pilar</td>
+          <td>Reação álcali-agregado (agregado reativo, álcalis e umidade); calor de hidratação em peça massiva; armadura insuficiente para bielas e tirantes; recalque diferencial de estacas</td>
+          <td>Reação álcali-agregado é evolutiva e lenta; fendilhamento é grave. Monitorar e, se houver recalque, escorar a estrutura apoiada</td>
+          <td>Ensaios de reatividade e petrografia dos agregados (NBR 15577); testemunhos; monitoramento de fissuras, umidade e recalques</td>
+          <td>Reduzir o acesso de água, injetar fissuras, cintar ou reforçar o bloco. Prevenção: agregado não reativo, cimento com adição pozolânica, plano de concretagem com controle de temperatura</td>
+        </tr>
+        <tr>
+          <td>Estaca</td>
+          <td>Hélice contínua com perfil de concretagem irregular no relatório de monitoramento; concreto contaminado por solo ou seccionado ao arrasar; armadura que não desceu até a cota; desvio de locação ou de prumo acima da tolerância. Pré-moldada com cabeça quebrada ou nega não atingida</td>
+          <td>Subida rápida do trado sem pressão positiva de concreto; interrupção da concretagem; lençol freático e solo instável; abatimento inadequado; cravação excessiva</td>
+          <td>Estaca sem integridade não pode receber carga. Suspender o bloco correspondente até a decisão do projetista de fundações</td>
+          <td>Relatório eletrônico da hélice; ensaio de integridade; ensaio de carregamento dinâmico (NBR 13208); prova de carga estática (NBR 16903); escavação para inspeção</td>
+          <td>Arrasar até o concreto são e recompor; estaca adicional com reprojeto do bloco; redução da carga admissível. Tudo por conta do contratado se a causa for executiva</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <h3>4.3 Se o problema é o concreto, e não a peça</h3>
+    <p>Quando os corpos de prova dão resistência estimada abaixo do fck de projeto (controle pela NBR 12655), a sequência que a banca espera é: o lote é não conforme; o projetista verifica a segurança com a resistência obtida; se não for suficiente, extraem-se testemunhos (NBR 7680-1) e refaz-se a verificação; persistindo a dúvida, prova de carga; e, por fim, a decisão entre aceitar com restrição de uso, reforçar ou demolir. A NBR 6118 trata disso na parte sobre aceitação da estrutura e não conformidades. Contratualmente, o custo de toda a sequência é do contratado se o concreto foi fornecido ou executado por ele.</p>
+
+    <h3>4.4 Vocabulário que o padrão de resposta procura</h3>
+    <p>Segregação; exsudação; ninho de concretagem; cobrimento; fissura ativa e passiva; abertura de fissura; flecha; cisalhamento; punção; ruptura frágil; carbonatação; despassivação; cloretos; reação álcali-agregado; esclerometria; ultrassom; pacometria; testemunhos; prova de carga; escoramento e reescoramento; graute; ponte de aderência; injeção de epóxi; encamisamento; fibra de carbono; diagnóstico, prognóstico e terapia.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="questao1">
+    <h2>5. Questão 1 simulada: fiscalização, medição e patologia</h2>
+    <p>Escrita como a banca escreveria. A distribuição de pontos é minha hipótese; o Cebraspe divulga a dele no padrão de resposta.</p>
+
+    <div class="enunciado">
+      <p>A Câmara dos Deputados contratou, sob o regime de empreitada por preço global, a ampliação de um de seus edifícios anexos, com estrutura em concreto armado moldado no local. Em visita de rotina, o fiscal técnico do contrato constatou, em pilares do segundo pavimento recém-desformados, falhas de concretagem com armaduras expostas e, em uma viga do mesmo pavimento, fissuras inclinadas próximas aos apoios. No mesmo dia, a contratada apresentou boletim de medição em que declarava concluída a etapa "estrutura do segundo pavimento" do cronograma físico-financeiro.</p>
+      <p>Considerando essa situação hipotética, redija um texto dissertativo acerca da atuação da fiscalização nesse contrato. Em seu texto, aborde:</p>
+      <ol>
+        <li>as atribuições do fiscal do contrato e as providências imediatas cabíveis no caso; <span class="pts">[4,50 pontos]</span></li>
+        <li>a sistemática de medição e pagamento do regime adotado, comparando-a com a da empreitada por preço unitário, e o tratamento a ser dado ao boletim apresentado; <span class="pts">[4,50 pontos]</span></li>
+        <li>as causas prováveis das manifestações patológicas descritas e os procedimentos de investigação e correção; <span class="pts">[4,50 pontos]</span></li>
+        <li>a responsabilidade da contratada pelos vícios constatados, inclusive após o recebimento do objeto. <span class="pts">[4,50 pontos]</span></li>
+      </ol>
+      <p class="pts">Apresentação e estrutura textual: 2,00 pontos (hipótese)</p>
+    </div>
+
+    <h3>Padrão de resposta, como o examinador o teria</h3>
+    <div class="tw wide"><table>
+      <thead><tr><th>Quesito</th><th>Para o conceito máximo, o texto precisa conter</th><th>O que derruba o conceito</th></tr></thead>
+      <tbody>
+        <tr><td>1 Fiscal</td><td>Acompanhamento por fiscal designado; registro das ocorrências em registro próprio; determinação de regularização; comunicação aos superiores do que exceder a competência; no caso: registro, notificação do preposto, escoramento, suspensão dos serviços dependentes, comunicação ao gestor</td><td>Dizer que o fiscal aplica multa ou aprova aditivo; omitir a medida de segurança</td></tr>
+        <tr><td>2 Medição</td><td>Preço global: preço certo e total, medição e pagamento por etapas concluídas do cronograma físico-financeiro, vedada remuneração por quantidades. Preço unitário: preço por unidade, pagamento pela quantidade executada, risco de quantitativo da Administração. Boletim não aprovado: etapa não concluída por conter vício</td><td>Propor pagar parte da etapa; confundir os riscos de quantitativo</td></tr>
+        <tr><td>3 Patologia</td><td>Falhas nos pilares: segregação por lançamento, adensamento ou fôrma. Fissuras na viga: cisalhamento, com causas como armadura transversal, desforma precoce ou sobrecarga. Investigação com ensaios nomeados. Correção com recuperação e, se preciso, reforço, aprovada pela fiscalização</td><td>Tratar fissura de cisalhamento como retração; não nomear ensaio</td></tr>
+        <tr><td>4 Responsabilidade</td><td>Reparação às expensas do contratado; fiscalização não exclui nem reduz a responsabilidade; ensaios por conta do contratado; responsabilidade pela solidez e segurança por no mínimo 5 anos após o recebimento definitivo</td><td>Afirmar que o recebimento encerra a responsabilidade</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Resposta-modelo em 30 linhas</h3>
+    <p>Um parágrafo por quesito, na ordem do comando, cada um abrindo com o termo do quesito. Cerca de 290 palavras.</p>
+    <div class="sheet-wrap">
+<ol class="folha">
+<li>  O fiscal do contrato, designado pela Administração, acompanha a</li>
+<li>execução, anota em registro próprio as ocorrências, determina a</li>
+<li>regularização das faltas e defeitos e informa aos superiores o que</li>
+<li>exceder sua competência (art. 117 da Lei nº 14.133/2021). No caso,</li>
+<li>deve registrar as falhas no diário de obra, com fotos e croquis,</li>
+<li>notificar o preposto, exigir o escoramento da viga, suspender os</li>
+<li>serviços dependentes e comunicar o gestor do contrato.</li>
+<li>  Na empreitada por preço global, a obra é contratada por preço</li>
+<li>certo e total, e a medição e o pagamento se vinculam à conclusão de</li>
+<li>etapas do cronograma físico-financeiro, vedada a remuneração por</li>
+<li>quantidades de itens (art. 46, § 9º). Na empreitada por preço</li>
+<li>unitário, o preço é certo por unidade, e paga-se a quantidade</li>
+<li>efetivamente executada de cada serviço, apurada pelos critérios de</li>
+<li>medição; o risco de variação de quantitativos é da Administração.</li>
+<li>Assim, o boletim deve ser recusado, pois a etapa só está concluída</li>
+<li>quando executada conforme o projeto.</li>
+<li>  Os ninhos indicam segregação por lançamento de grande altura,</li>
+<li>vibração deficiente ou fôrma sem estanqueidade. As fissuras</li>
+<li>inclinadas junto aos apoios sugerem cisalhamento, por estribos</li>
+<li>insuficientes, desforma precoce ou sobrecarga de obra. A</li>
+<li>investigação inclui revisar o controle tecnológico do concreto,</li>
+<li>mapear as fissuras, fazer pacometria, ultrassom e extração de</li>
+<li>testemunhos, com verificação pelo projetista. A correção, aprovada</li>
+<li>pela fiscalização, remove o concreto falho, recompõe a seção com</li>
+<li>graute e, se preciso, reforça a viga.</li>
+<li>  Por fim, o contratado deve reparar ou reconstruir, às suas</li>
+<li>expensas, o que tiver vícios (art. 119), e a fiscalização não reduz</li>
+<li>sua responsabilidade (art. 120). Os ensaios correm por sua conta, e,</li>
+<li>após o recebimento definitivo, ele responde por no mínimo cinco anos</li>
+<li>pela solidez e segurança da obra (art. 140).</li>
+</ol>
+    </div>
+    <p class="sheet-note">Quebra de linha calculada para cerca de 68 caracteres por linha. Meça a sua letra numa folha de 30 linhas: se couber menos, corte nos exemplos, nunca nas palavras-chave.</p>
+
+    <div class="trap keep"><span class="tag">Frases para decorar</span>
+      <ul>
+        <li>"O fiscal anota em registro próprio as ocorrências e determina a regularização das faltas e defeitos observados."</li>
+        <li>"Na empreitada por preço global, a medição e o pagamento se vinculam à conclusão de etapas do cronograma físico-financeiro, vedada a remuneração por quantidades de itens unitários."</li>
+        <li>"Na empreitada por preço unitário, paga-se a quantidade efetivamente executada, e o risco de variação de quantitativos é da Administração."</li>
+        <li>"A fiscalização não exclui nem reduz a responsabilidade do contratado."</li>
+        <li>"Após o recebimento definitivo, o contratado responde por no mínimo cinco anos pela solidez e segurança da obra."</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="trio">
+    <h2>6. As outras duas questões</h2>
+    <p>Se a questão 1 for a de fiscalização com patologia, a banca dificilmente repetirá patologia de obra nova nas outras duas. A lógica do elaborador é cobrir famílias diferentes do edital. O quadro abaixo mostra o que eu esperaria em cada vaga, com a primeira, a segunda e a terceira opção.</p>
+    <div class="tw wide"><table>
+      <thead><tr><th>Vaga</th><th>1ª opção</th><th>2ª opção</th><th>3ª opção</th></tr></thead>
+      <tbody>
+        <tr><td>Questão 1: contrato</td><td>Fiscalização, medição e patologia (seção 5)</td><td>Orçamento: BDI, composições, cronograma físico-financeiro</td><td>Planejamento: ETP, projeto básico, escolha do regime</td></tr>
+        <tr><td>Questão 2: edifício existente</td><td>Corrosão de armaduras e recuperação, em formato de vistoria e parecer</td><td>Impermeabilização e infiltrações</td><td>Inspeção predial e programa de manutenção</td></tr>
+        <tr><td>Questão 3: projeto e execução</td><td>Fôrmas, escoramentos e controle tecnológico do concreto</td><td>Fundações e contenções junto a edificação existente</td><td>BIM em obras públicas</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Questão 2 simulada: vistoria e parecer</h3>
+    <div class="enunciado">
+      <p>Em vistoria a um edifício da Câmara dos Deputados construído há cerca de cinquenta anos, engenheiro do órgão constatou, na laje de cobertura e nas vigas que a sustentam, manchas de umidade, desplacamento do concreto de cobrimento e armaduras expostas com produtos de corrosão. A impermeabilização da cobertura é a original.</p>
+      <p>Considerando essa situação hipotética, redija um texto dissertativo que aborde: 1 o mecanismo de corrosão das armaduras e sua relação com o quadro descrito; 2 os ensaios e as verificações para o diagnóstico; 3 o procedimento de recuperação dos elementos e da cobertura; 4 o conteúdo e a responsabilidade do parecer técnico a ser emitido.</p>
+    </div>
+    <ul>
+      <li><strong>1.</strong> Película passivadora em meio alcalino; despassivação por carbonatação (queda do pH) ou cloretos; corrosão exige umidade e oxigênio, aqui fornecidos pela impermeabilização vencida; produtos expansivos fissuram e destacam o cobrimento, com perda de seção e de aderência.</li>
+      <li><strong>2.</strong> Inspeção e mapeamento; pacometria (cobrimento); fenolftaleína (frente de carbonatação); teor de cloretos; potencial de corrosão e resistividade; esclerometria, ultrassom e testemunhos; medição da perda de seção das barras; verificação estrutural.</li>
+      <li><strong>3.</strong> Escorar se necessário; remover o concreto contaminado atrás das barras; limpar as armaduras, complementar barras com perda relevante de seção; ponte de aderência e argamassa polimérica ou graute; cura; proteção superficial. Refazer a impermeabilização (NBR 9575 e NBR 9574) com teste de estanqueidade antes da proteção mecânica. A intervenção é reforma: plano com responsável técnico (NBR 16280). Contratação preferencialmente por preço unitário, pela incerteza de quantitativos.</li>
+      <li><strong>4.</strong> Parecer com identificação, metodologia, constatações, diagnóstico, classificação da gravidade e da prioridade (NBR 16747), recomendações e prazos, com ART. O emissor responde pelo conteúdo técnico; a responsabilidade pessoal exige dolo ou erro grosseiro (LINDB, art. 28).</li>
+    </ul>
+
+    <h3>Questão 3 simulada: execução de estrutura de concreto</h3>
+    <div class="enunciado">
+      <p>Na reforma de um plenário da Câmara dos Deputados, será executada nova laje em concreto armado moldado no local sobre área que permanecerá ocupada no pavimento inferior. Redija um texto dissertativo que aborde: 1 os requisitos de projeto e de execução de fôrmas e escoramentos; 2 os cuidados de lançamento, adensamento e cura; 3 o controle tecnológico do concreto usinado e a conduta diante de resistência abaixo da especificada; 4 os critérios para retirada de fôrmas e escoramentos.</p>
+    </div>
+    <ul>
+      <li><strong>1.</strong> Resistência e rigidez para peso próprio, cargas de construção e pressão do concreto fresco; estanqueidade; geometria e contraflecha; travamento e contraventamento; apoio em base capaz (no caso, cargas descarregadas sobre laje inferior, com verificação e reescoramento dos pavimentos abaixo); proteção da área ocupada; projeto de fôrmas e escoramento (NBR 15696).</li>
+      <li><strong>2.</strong> Conferência de armaduras, cobrimento e espaçadores antes da liberação; recebimento com verificação do abatimento por caminhão; lançamento sem segregação (altura limitada, funil ou tremonha); vibração em camadas; juntas de concretagem planejadas; cura iniciada logo após o acabamento e mantida (NBR 14931).</li>
+      <li><strong>3.</strong> Moldagem de corpos de prova, formação de lotes, amostragem e aceitação pela resistência estimada comparada ao fck (NBR 12655); se não conforme, verificação pelo projetista, testemunhos (NBR 7680-1), prova de carga e decisão entre aceitar, reforçar ou demolir, com custo do contratado.</li>
+      <li><strong>4.</strong> Retirada só quando o concreto atingir resistência e módulo de elasticidade indicados pelo projetista, segundo plano que não introduza esforços não previstos; vãos do centro para os apoios; balanços da extremidade para o engaste; reescoramento quando previsto (NBR 14931).</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="doc" id="treino">
+    <h2>7. Plano para as três discursivas</h2>
+    <p>Mantém os números do plano principal (28 textos, 1 por semana nas semanas 1 a 4, 2 nas semanas 5 a 10, 3 nas semanas 11 a 14) e dá a cada texto uma proposta concreta. Hoje, 8/10, estamos na semana 1: o primeiro texto é a questão 1 desta página, no sábado 10/10.</p>
+
+    <h3>7.1 Como cada texto é feito</h3>
+    <ol class="fluxo">
+      <li><strong>Estudo dirigido (domingo anterior ou durante a semana).</strong> Ler a seção desta página ou do plano sobre o tema e montar uma ficha de uma página: definições, dispositivos, causas, ensaios, terapias, frases para decorar.</li>
+      <li><strong>Prova (sábado, 60 minutos).</strong> À mão, caneta preta, folha de 30 linhas: 5 minutos de leitura, 10 de roteiro, 20 de rascunho, 20 de transcrição, 5 de revisão.</li>
+      <li><strong>Correção (sábado ou domingo).</strong> Comparar com o padrão do tema; marcar onde cada quesito foi respondido; contar erros de português; calcular NQ = NC − 4 × NE ÷ TL. Se quiser, cole o texto aqui e eu corrijo com padrão de resposta e nota por quesito.</li>
+      <li><strong>Reescrita (uma semana depois).</strong> Refazer só os parágrafos que perderam ponto.</li>
+    </ol>
+
+    <h3>7.2 As 28 propostas</h3>
+    <div class="tw xwide"><table>
+      <thead><tr><th>Sem.</th><th>Período</th><th>#</th><th>Proposta</th><th>Quesitos</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>5 a 11/10</td><td>1</td><td>Questão 1 desta página: fiscalização, preço global, patologia em pilar e viga</td><td>Fiscal; medição dos regimes; causas e ensaios; responsabilidade</td></tr>
+        <tr><td>2</td><td>12 a 18/10</td><td>2</td><td>Questão 2 desta página: corrosão na cobertura de edifício antigo</td><td>Mecanismo; diagnóstico; recuperação; parecer</td></tr>
+        <tr><td>3</td><td>19 a 25/10</td><td>3</td><td>Questão 3 desta página: laje nova sobre área ocupada</td><td>Fôrmas e escoramentos; concretagem e cura; controle; desforma</td></tr>
+        <tr><td>4</td><td>26/10 a 1/11</td><td>4</td><td>Orçamento de reforma de gabinetes</td><td>Custo direto e indireto; BDI e o que fica fora dele; curva ABC; cronograma físico-financeiro</td></tr>
+        <tr><td>5</td><td>2 a 8/11</td><td>5</td><td>Escolha do regime para reforma de edifício ocupado</td><td>ETP; projeto básico e executivo; preço unitário × global; justificativa</td></tr>
+        <tr><td>5</td><td>2 a 8/11</td><td>6</td><td>Estacas hélice contínua com falhas na cabeça ao arrasar</td><td>Causas executivas; ensaios de integridade e de carga; solução; efeito no contrato</td></tr>
+        <tr><td>6</td><td>9 a 15/11</td><td>7</td><td>Aditivo em reforma por preço unitário: serviços novos e acréscimo de 40%</td><td>Limites de 25% e 50%; preço novo (art. 127); desconto (art. 128); formalização (art. 132)</td></tr>
+        <tr><td>6</td><td>9 a 15/11</td><td>8</td><td>Concreto usinado com resistência estimada abaixo do fck</td><td>Controle e lotes; não conformidade; testemunhos e prova de carga; medição e custo</td></tr>
+        <tr><td>7</td><td>16 a 22/11</td><td>9</td><td>Medição em preço unitário com quantidades divergentes</td><td>Critérios de medição; memória de cálculo; glosa; fatura, liquidação e parcela incontroversa</td></tr>
+        <tr><td>7</td><td>16 a 22/11</td><td>10</td><td>Contratação integrada para novo anexo</td><td>Anteprojeto; matriz de riscos; medição por etapas; aditivos restritos (art. 133)</td></tr>
+        <tr><td>8</td><td>23 a 29/11</td><td>11</td><td>Bloco de fundação com fissuras em mapa</td><td>Reação álcali-agregado; ensaios; terapia; prevenção</td></tr>
+        <tr><td>8</td><td>23 a 29/11</td><td>12</td><td>Inspeção predial de um anexo e plano de manutenção</td><td>Tipos de manutenção; anomalias e falhas; prioridades; reforma (NBR 16280)</td></tr>
+        <tr><td>9</td><td>30/11 a 6/12</td><td>13</td><td>Infiltração em laje de cobertura</td><td>Causas; escolha do sistema; execução; teste de estanqueidade</td></tr>
+        <tr><td>9</td><td>30/11 a 6/12</td><td>14</td><td>Vazamentos e baixa pressão na rede de água fria de um anexo</td><td>Sistemas direto e indireto; causas; ensaios; manutenção</td></tr>
+        <tr><td>10</td><td>7 a 13/12</td><td>15</td><td>Abertura de vão em laje existente para nova escada</td><td>Escoramento; verificação estrutural; reforço; plano de reforma</td></tr>
+        <tr><td>10</td><td>7 a 13/12</td><td>16</td><td>Segurança em reforma de fachada com trabalho em altura</td><td>NR-18; NR-35; responsabilidade do contratado; atuação do fiscal</td></tr>
+        <tr><td>11</td><td>14 a 20/12</td><td>17</td><td>BIM em contratação de reforma</td><td>Conceito; interoperabilidade e IFC; usos 4D e 5D; base legal</td></tr>
+        <tr><td>11</td><td>14 a 20/12</td><td>18</td><td>Laje lisa com fissuras em torno de pilar</td><td>Punção; providência imediata; investigação; reforço</td></tr>
+        <tr><td>11</td><td>14 a 20/12</td><td>19</td><td>Atraso de obra e caminho crítico</td><td>PERT-CPM; folgas; prorrogação × multa de mora; obra paralisada (art. 115)</td></tr>
+        <tr><td>12</td><td>21 a 27/12</td><td>20 a 22</td><td>Simulado 1, sábado 26/12, 3 horas: recebimento provisório e definitivo com pendências; corrosão em marquise; BDI</td><td>Sorteie a ordem e não consulte nada</td></tr>
+        <tr><td>13</td><td>28/12 a 3/1</td><td>23 a 25</td><td>Simulado 2, sábado 2/1: contenção junto a edifício vizinho; acréscimo de 50% em reforma; descolamento de revestimento cerâmico de fachada</td><td>Idem</td></tr>
+        <tr><td>14</td><td>4 a 10/1</td><td>26 a 28</td><td>Simulado 3, sábado 9/1: fiscalização com patologia em laje (variação da questão 1); vistoria e parecer; execução e controle do concreto</td><td>Idem; depois, reescrever de memória as fichas dos 12 temas</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>7.3 Critério de pronto</h3>
+    <ul>
+      <li>Nota estimada de conteúdo de 17 ou mais em pelo menos dois textos seguidos de cada família.</li>
+      <li>No máximo três erros de português por texto.</li>
+      <li>Todos os textos dos simulados com 28 a 30 linhas.</li>
+      <li>Frases para decorar das seções 2, 3 e 5 escritas de memória, sem erro de artigo, na semana 14.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Complemento do Plano Câmara 2027, montado em 8/10/2026 a partir do Edital nº 1, de 2/10/2026, e do conteúdo programático do Cargo 6. Os dispositivos da Lei nº 14.133/2021 foram escritos a partir do texto da lei e conferidos com a ementa do curso de Planejamento e Gestão de Obras Públicas do repositório; o sítio do Planalto não estava acessível nesta sessão, então confira a redação literal na lei seca. Enunciados, distribuições de pontos e padrões de resposta são simulações, não material da banca.
+  </footer>
+</div>
