@@ -5,6 +5,7 @@
 **Objeto exclusivo:** art. 2º, inciso II, da Portaria CGU nº 1.214, de 8 de junho de 2020
 **Data-base da análise:** 16 de outubro de 2026
 **Natureza do documento:** minuta técnica para revisão institucional. Não substitui a manifestação da unidade competente nem o parecer da Consultoria Jurídica (art. 6º da Portaria CGU nº 1.214/2020).
+**Versão:** 2 — revisada após auditoria jurídica independente (relatório em `Revisao_NT_DECAL_art2_II.md`). Alterações principais: quadro de conferência normativa (VI-A); contraste das duas interpretações sobre o § 1º do art. 2º (6.3); distinção entre "prejuízo apontado" e "prejuízo exigível" (5.2-A e 9.4); reformulação dos cenários (11.4); natureza do confisco (8.6); diligências D3-A (MPF) e D8 (vista ao interessado); correção da referência ao RMS 33.526.
 
 > **Convenções de rastreabilidade.** Os documentos examinados são citados pelo código **[Dxx]** do inventário (Anexo A). Cada afirmação relevante é classificada como **[FATO]** (consta de documento examinado), **[ALEGAÇÃO]** (afirmada pela DECAL e não confirmada de forma independente), **[INFERÊNCIA]** (dedução da análise a partir de fatos) ou **[DILIGÊNCIA]** (hipótese que depende de informação ainda não obtida).
 
@@ -48,13 +49,13 @@
 
 **6. Conclusão proposta: ALTERNATIVA C — instrução ainda insuficiente para conclusão definitiva.** Recomenda-se:
 - (a) examinar internamente o Relatório Final e os pareceres da CONJUR (art. 37 da Lei nº 9.784/1999);
-- (b) circularizar Petrobras, AGU, TCU, SFC/CGU e o juízo criminal;
-- (c) solicitar complementação documental à DECAL (art. 4º, § 1º).
+- (b) circularizar Petrobras, AGU, MPF, TCU, SFC/CGU e o juízo criminal;
+- (c) solicitar complementação documental à DECAL (art. 4º, § 1º);
+- (d) dar vista à DECAL dos elementos novos antes da conclusão (art. 44 da Lei nº 9.784/1999).
 
 Prognóstico condicionado:
-- Se as respostas não revelarem prejuízo apontado em decisão definitiva e ainda exigível, o requisito deverá ser considerado atendido, por inexistir prejuízo a ressarcir, na linha da NT nº 676/2026/SIPRI e com as mesmas ressalvas de não quitação.
-- Se a Decisão nº 9 tiver adotado formalmente o dano de USD 868.450,00 como prejuízo apontado, a CONJUR deverá se manifestar sobre sua subsistência diante do acórdão do TRF4. Mantido o apontamento, o requisito não estará atendido enquanto não houver pagamento, descontado o que se comprovar já recuperado pela Petrobras.
-
+- Se as respostas não revelarem prejuízo identificado e quantificado em decisão definitiva, com nexo causal, o requisito deverá ser considerado atendido (ou superado), por inexistir prejuízo exigível a ressarcir, na linha da NT nº 676/2026/SIPRI e com as mesmas ressalvas de não quitação.
+- Se a Decisão nº 9 tiver adotado o dano de USD 868.450,00, a CONJUR deverá responder a duas questões: (i) se esse apontamento, feito em PAR sancionador, constitui prejuízo definitivamente quantificado e com nexo causal, considerando o art. 13 da Lei nº 12.846/2013; (ii) se ele subsiste diante do acórdão do TRF4. Só com resposta afirmativa a ambas o requisito não estará atendido até o pagamento. O eventual abatimento do confisco penal depende de juízo jurídico próprio.
 ---
 
 # PRODUTO 2 — MATRIZ DE EVIDÊNCIAS
@@ -115,13 +116,13 @@ Essas divergências devem ser resolvidas com base no cálculo SEI 1569432 antes 
 
 2.1. Constituição Federal, art. 5º, incisos XXXVI, LIV, LV e LXXVIII.
 2.2. Lei nº 8.666, de 21 de junho de 1993, art. 6º, XI; art. 87, IV e § 3º; art. 88, III.
-2.3. Lei nº 12.846, de 1º de agosto de 2013, art. 6º, I, II e § 3º; art. 13; art. 16, § 3º; art. 21, parágrafo único.
-2.4. Lei nº 9.784, de 29 de janeiro de 1999, art. 2º, parágrafo único, VIII e XIII; arts. 29, 36, 37, 38, 50 (inclusive inciso VII) e 53.
+2.3. Lei nº 12.846, de 1º de agosto de 2013, art. 6º, I, II e § 3º; art. 13; art. 16, § 3º; arts. 19 e 21, parágrafo único.
+2.4. Lei nº 9.784, de 29 de janeiro de 1999, art. 2º, caput e parágrafo único, VIII e XIII; arts. 3º, III, 29, 36, 37, 38, 44, 49, 50 (inclusive inciso VII) e 53.
 2.5. Decreto-Lei nº 4.657, de 4 de setembro de 1942 (LINDB), arts. 6º, 20 e 30, com redação da Lei nº 13.655/2018.
 2.6. Código Civil, art. 935. Código de Processo Penal, arts. 63, parágrafo único, 66, 67 e 387, IV. Código de Processo Civil, art. 506. Código Penal, art. 91, II, "b".
 2.7. Decreto nº 8.420, de 18 de março de 2015 (fundamento da Decisão nº 9), e Decreto nº 11.129, de 11 de julho de 2022, arts. 26 e 37, § 2º (fundamento da Decisão nº 347).
 2.8. Portaria CGU nº 1.214, de 8 de junho de 2020 (DOU de 09/06/2020) [D18].
-2.9. Portaria Normativa CGU nº 54, de 14 de fevereiro de 2023 (alterações parciais da Portaria nº 1.214/2020, transcritas em D15).
+2.9. Portaria Normativa CGU nº 54, de 14 de fevereiro de 2023 (alterações parciais da Portaria nº 1.214/2020; arts. 3º a 6º transcritos em D15; demais alterações conhecidas apenas por fonte secundária — Seção VI-A).
 2.10. Instrução Normativa CGU/AGU nº 2, de 16 de maio de 2018 (revogada).
 2.11. Portaria Normativa Interministerial CGU/AGU nº 1, de 19 de dezembro de 2025 (DOU de 23/12/2025), arts. 4º, VI e VII, 33, 34, 59, 60 e 61 [D19].
 2.12. Portaria Normativa SE/CGU nº 226, de 9 de setembro de 2025 (texto oficial não acessado; ver Anexo C).
@@ -136,6 +137,7 @@ Essas divergências devem ser resolvidas com base no cálculo SEI 1569432 antes 
 2.18. Acórdão do TRF5 no AI nº 0809667-58.2024.4.05.0000 [D9]; Parecer de Força Executória nº 00011/2025/CGJ/NAE/PRU5R/PGU/AGU [D10].
 2.19. Demonstrações financeiras auditadas da DECAL de 2025 (Doc. 8) [D17].
 2.20. Nota Técnica nº 676/2026/SIPRI (SEI 3980745), Processo nº 00190.110692/2025-70 [D15], como precedente administrativo.
+2.21. STF, AgR no RMS nº 33.526/DF, 2ª Turma, Rel. Min. Gilmar Mendes, sessão virtual de 22 a 28/09/2017, DJe de 09/10/2017 (inteiro teor não conferido; ver Anexo C).
 
 ## III — SUMÁRIO EXECUTIVO
 
@@ -173,12 +175,14 @@ Essas divergências devem ser resolvidas com base no cálculo SEI 1569432 antes 
   - (ii) fixou, com base no art. 387, IV, do CPP, indenização mínima no mesmo valor em favor da Petrobras (§§ 224-225);
   - (iii) dispôs que "o confisco compensará o valor da indenização" (§ 226).
 - O MPF/PRR4 opinou pelo afastamento da indenização mínima, por "não houve mínima demonstração da transmissão deste custo à PETROBRAS", e pela manutenção do confisco "em favor da União" [D7, item II.2.1.4].
-- A 8ª Turma do TRF4, em 10/04/2019, adotou esse parecer como razão de decidir. Afastou a indenização mínima e manteve o confisco (ementa, item 13: "Não comprovado a transferência de custo à Petrobras, impõe-se o afastamento da fixação de valor mínimo indenizatório") [D8]. A divergência parcial do Des. Victor Laus restringiu-se à lavagem de dinheiro e não alcançou a reparação [D8, voto-vista, item 3.3].
+- A 8ª Turma do TRF4, em 10/04/2019, adotou esse parecer como razão de decidir. Afastou a indenização mínima e manteve o confisco (ementa, item 13: "Não comprovado a transferência de custo à Petrobras, impõe-se o afastamento da fixação de valor mínimo indenizatório") [D8].
+- O Revisor acompanhou o Relator "inclusive no que toca à reparação de danos" [D8, voto do Des. Leandro Paulsen, item 7]. O voto-vista do Des. Victor Laus, parcialmente vencido, divergiu quanto à lavagem de dinheiro e à extensão do provimento dos apelos. Não contém manifestação sobre a reparação de danos [D8, voto-vista, itens 3.3 a 5].
+- A Petrobras figurou como apelante, no polo ativo ("AUTOR"), e ratificou as razões do MPF, que versavam sobre a dosimetria [D8, cabeçalho e relatório]. Não consta que tenha impugnado especificamente o afastamento da indenização mínima. Sua condição de assistente de acusação é inferida, não documentada [INFERÊNCIA].
 - O trânsito em julgado em 17/02/2020 é afirmado pela DECAL e reproduzido no acórdão do TRF5 [D9; D13]. Não consta certidão.
 
 4.3. **PAR e sanção.**
-- O PAR nº 00190.105349/2020-07 foi instaurado em 2020 [D9; D13].
-- Pela Decisão nº 9, assinada em 09/02/2023 e publicada em 10/02/2023, o Ministro de Estado da CGU adotou "em parte" o Relatório Final da CPAR e o Parecer nº 00199/2021/CONJUR-CGU/CGU/AGU, aprovado pelos Despachos nº 00651/2022 e 00890/2022 [D2]. Com fundamento no art. 87, IV, da Lei nº 8.666/1993 e no art. 6º, I e II, da Lei nº 12.846/2013, c/c arts. 15, 17 e 18 do Decreto nº 8.420/2015, aplicou:
+- O PAR nº 00190.105349/2020-07 foi instaurado em 2020 [D9; D13]. Segundo a narrativa da DECAL reproduzida no acórdão do TRF5, o procedimento teria sido deflagrado pela Petrobras e avocado pela CGU no mesmo ano [D9] [ALEGAÇÃO]. A narrativa invoca o art. 41 do Decreto nº 11.129/2022, norma posterior aos fatos que relata. Se confirmada a instauração originária pela Petrobras, os autos do procedimento na estatal podem conter apuração de dano (D2).
+- Pela Decisão nº 9, assinada em 09/02/2023 [D2] e publicada em 10/02/2023 [D11, § 1 — dado da requerente, não conferido no DOU], o Ministro de Estado da CGU adotou "em parte" o Relatório Final da CPAR e o Parecer nº 00199/2021/CONJUR-CGU/CGU/AGU, aprovado pelos Despachos nº 00651/2022 e 00890/2022 [D2]. Com fundamento no art. 87, IV, da Lei nº 8.666/1993 e no art. 6º, I e II, da Lei nº 12.846/2013, c/c arts. 15, 17 e 18 do Decreto nº 8.420/2015, aplicou:
   - (a) declaração de inidoneidade;
   - (b) multa de R$ 3.905.734,97;
   - (c) publicação extraordinária.
@@ -216,9 +220,15 @@ Esta Nota examina **apenas o inciso II**. As teses da DECAL sobre a contagem do 
 - (d) **em decorrência dos atos que justificaram a inidoneidade**, o que exige nexo causal com o ato lesivo sancionado (art. 88, III, da Lei nº 8.666/1993 — pagamento de vantagem indevida para obter a renovação contratual);
 - (e) **ressarcimento integral**, isto é, satisfação ou extinção válida da totalidade do prejuízo apontado.
 
+5.2-A. **Prejuízo "apontado" e prejuízo exigível.** Convém distinguir duas camadas de exame, que a versão anterior desta Nota não separava com clareza:
+- (i) **Camada literal (art. 2º, II).** Houve indicação de prejuízo por órgão ou agente da Administração Pública? A CPAR integra a Administração, de modo que seu Relatório Final pode, em tese, conter tal indicação.
+- (ii) **Camada metodológica (art. 2º, § 1º, conforme interpretado pela CGU).** O prejuízo indicado está quantificado e decorre de admissão da pessoa jurídica ou de decisão administrativa ou judicial definitiva, com nexo causal com o ato sancionado? Esse é o conceito de dano incontroverso do art. 37, § 2º, do Decreto nº 11.129/2022 e do art. 33 da PNI nº 1/2025, adotado no precedente [D15, itens 4.14, 4.17 e 4.48].
+
+O relatório de comissão processante é peça opinativa. A indicação nele contida só satisfaz a segunda camada se incorporada pela autoridade julgadora e se identificar e quantificar o dano com nexo causal. A expressão "no mínimo, o montante pago a título de vantagem indevida" é estimativa por *proxy*. Ainda que adotada, pode não preencher esse padrão (Seções 8.4 e 9.4).
+
 5.3. **Categorias que não se confundem com o objeto:**
 - (a) **multa da Lei nº 12.846/2013**: sanção de natureza punitiva. O art. 6º, § 3º, dispõe que "a aplicação das sanções previstas neste artigo não exclui, em qualquer hipótese, a obrigação da reparação integral do dano causado", e o art. 13 prevê processo específico de reparação. A multa não mede o dano e seu pagamento não o ressarce;
-- (b) **acordos ou instrumentos consensuais**: não há nos autos acordo de leniência, termo de compromisso ou ajuste envolvendo a DECAL;
+- (b) **acordos ou instrumentos consensuais**: não há nos autos acordo de leniência, termo de compromisso ou ajuste envolvendo a DECAL. Mesmo que houvesse, o acordo não exime da obrigação de reparar integralmente o dano (art. 16, § 3º, da Lei nº 12.846/2013);
 - (c) **perdimento da vantagem auferida** (art. 26 do Decreto nº 11.129/2022): rubrica distinta do dano, que só se confunde com ele havendo identidade (art. 33, § 1º, da PNI CGU/AGU nº 1/2025);
 - (d) **confisco penal** (art. 91, II, "b", do CP) imposto a pessoa física: efeito da condenação, que não constitui obrigação da DECAL, mas pode ser relevante para afastar duplicidade;
 - (e) **depósito judicial**: garantia que suspende a exigibilidade, não pagamento;
@@ -226,20 +236,28 @@ Esta Nota examina **apenas o inciso II**. As teses da DECAL sobre a contagem do 
 
 ## VI — MARCO NORMATIVO E ANÁLISE INTERTEMPORAL
 
-6.1. **Base legal do requisito.** O ressarcimento é exigência da **própria lei**. O art. 87, IV, da Lei nº 8.666/1993 dispõe que a reabilitação "será concedida sempre que o contratado ressarcir a Administração pelos prejuízos resultantes e após decorrido o prazo da sanção aplicada com base no inciso anterior". O § 3º acrescenta que "a reabilitação [pode] ser requerida após 2 (dois) anos de sua aplicação". Essa redação vigorava na data dos fatos (2011-2014), da sanção (2023) e do pedido (2026). Embora a Lei nº 8.666/1993 tenha sido revogada pela Lei nº 14.133/2021 (art. 193), a sanção aplicada com base nela e seus efeitos, inclusive a reabilitação, continuam regidos pelo regime sob o qual foi imposta. Esse é o entendimento adotado pela CGU no precedente [D15, item 4.1] e postulado pela própria DECAL [D11, §§ 20-21].
+6.1. **Base legal do requisito.** O ressarcimento é exigência da **própria lei**. O art. 87, IV, da Lei nº 8.666/1993 dispõe que a reabilitação "será concedida sempre que o contratado ressarcir a Administração pelos prejuízos resultantes e após decorrido o prazo da sanção aplicada com base no inciso anterior". O § 3º acrescenta que "a reabilitação [pode] ser requerida após 2 (dois) anos de sua aplicação". Essa redação, inalterada desde 1993, vigorava na data dos fatos (2011-2014) e na da sanção (fevereiro e outubro de 2023). Na data do pedido (2026), a Lei nº 8.666/1993 já estava revogada pela Lei nº 14.133/2021 (art. 193, II; revogação efetivada ao final de 2023). A sanção aplicada com base nela e seus efeitos, inclusive a reabilitação, continuam regidos pelo regime sob o qual foi imposta (ultratividade). Esse é o entendimento adotado pela CGU no precedente [D15, item 4.1] e postulado pela própria DECAL [D11, §§ 20-21].
 
 6.2. **Portaria CGU nº 1.214/2020.**
 - Vigente desde sete dias após a publicação no DOU de 09/06/2020 (art. 8º) [D18], portanto antes da sanção e do pedido.
 - O inciso II **não amplia** a exigência legal; restringe-a, ao exigir que os prejuízos sejam "apontados pela Administração Pública" e decorram dos atos sancionados.
 - A tese de irretroatividade da norma mais gravosa [D11, §§ 25 e 35] não alcança o inciso II: não há gravame novo em relação ao art. 87, IV, vigente desde 1993.
-- A Portaria Normativa CGU nº 54/2023 alterou os arts. 1º e 3º a 6º, transferindo o processamento à SIPRI/DPI, e manteve a redação do inciso II e do § 2º do art. 4º, que autoriza a DPI a "solicitar informações aos entes lesados e órgãos públicos competentes para a aferição do ressarcimento integral dos prejuízos" [D15, itens 4.2-4.3]. Essas normas procedimentais aplicam-se ao pedido em curso (*tempus regit actum*).
+- A Portaria Normativa CGU nº 54/2023 alterou os arts. 3º a 6º, transferindo o processamento da CRG/DIREP para a SIPRI/DPI. O § 2º do art. 4º passou a atribuir à DPI a faculdade de "solicitar informações aos entes lesados e órgãos públicos competentes para a aferição do ressarcimento integral dos prejuízos" [D15, item 4.3 — transcrição oficial]. Segundo fontes secundárias, a PN nº 54/2023 também alterou o art. 1º e a remissão do inciso III do art. 2º (que passou ao Decreto nº 11.129/2022). Nenhuma fonte consultada indica alteração do inciso II ou do § 1º do art. 2º, e a transcrição do art. 2º, II, na NT nº 676/2026 é idêntica à redação original [D15, item 4.2; D18]. A redação consolidada oficial não pôde ser conferida (Seção VI-A).
+- As normas procedimentais aplicam-se ao pedido em curso (*tempus regit actum*).
 
 6.3. **Metodologia do § 1º do art. 2º.**
 - O § 1º remete às "definições e [à] metodologia" da IN CGU/AGU nº 2/2018. Essa IN considerava rubrica de ressarcimento, entre outras, o "somatório de todas as propinas pagas" [D15, item 4.12].
 - A IN foi revogada pelo art. 60, I, da PNI CGU/AGU nº 1/2025, em vigor desde a publicação em 23/12/2025 (art. 61) [D19], antes do pedido (21/09/2026) e desta análise.
 - No precedente, a CGU passou a adotar como referência o conceito de **parcela incontroversa do dano**: art. 37, § 2º, do Decreto nº 11.129/2022 ("valores dos danos admitidos pela pessoa jurídica ou àqueles decorrentes de decisão definitiva no âmbito do devido processo administrativo ou judicial") e art. 33 da PNI nº 1/2025 [D15, itens 4.13-4.17; D19, art. 33].
-- **Solução intertemporal proposta.** A remissão do § 1º é de natureza instrumental (definições e método de aferição). A revogação da norma remetida e sua substituição por disciplina com o mesmo objeto justificam adotar, na data da análise, os conceitos vigentes, como fez o precedente. Isso não altera o requisito legal, preserva a isonomia entre interessados em situação equivalente (LINDB, art. 30) e evita aplicar retroativamente uma nova interpretação ao caso (Lei nº 9.784/1999, art. 2º, parágrafo único, XIII).
-- Mesmo pela IN nº 2/2018, a inclusão automática da propina valia como metodologia de negociação de acordos de leniência, em que há admissão de responsabilidade. Para fins de reabilitação, o próprio precedente condiciona o uso da propina como *proxy* de dano a que "o tipo específico de ilícito praticado assim indicar" [D15, item 4.17].
+- **Duas interpretações plausíveis sobre a norma aplicável ao § 1º:**
+  - **Interpretação 1 — ultratividade da IN nº 2/2018.** A IN vigorava quando os fatos foram apurados, quando o Relatório Final foi elaborado e quando a sanção foi aplicada. Sendo a norma expressamente eleita pelo § 1º para a "comprovação" do inciso II, o ressarcimento abrangeria o somatório das propinas pagas, aproximadamente USD 868.450,00. A empresa não teria demonstrado o pagamento, e a conclusão tenderia à Alternativa B.
+  - **Interpretação 2 — remissão instrumental e dinâmica.** O § 1º remete a definições e método de aferição, e não ao conteúdo da obrigação, que é legal (art. 87, IV). Revogada a norma remetida antes do pedido (21/09/2026) e da análise, aplicam-se os conceitos da disciplina que a sucedeu no mesmo objeto (PNI nº 1/2025, art. 33; Decreto nº 11.129/2022, art. 37, § 2º).
+- **Interpretação que deve prevalecer: a 2.** Por quatro razões:
+  - (a) é a adotada pela CGU em caso equivalente de sanção da Lei nº 8.666/1993 decidido em 2026 [D15, itens 4.13-4.17]. Afastá-la exigiria motivação específica (Lei nº 9.784/1999, art. 50, VII) e romperia a coerência administrativa (LINDB, art. 30);
+  - (b) a IN nº 2/2018 era metodologia de cálculo para acordos de leniência, em que a pessoa jurídica admite responsabilidade e negocia valores. Transpô-la sem mediação para impor um débito a quem não o admitiu é solução menos compatível com a exigência de decisão definitiva ou admissão;
+  - (c) a obrigação de ressarcir não muda; muda apenas o critério de verificação, aplicado no momento da instrução (*tempus regit actum* procedimental);
+  - (d) a nova interpretação não agrava a situação do interessado, o que afasta a vedação do art. 2º, parágrafo único, XIII, da Lei nº 9.784/1999.
+- **Convergência das duas leituras.** Mesmo sob a Interpretação 2, o precedente mantém a propina como possível dano incontroverso "quando o tipo específico de ilícito praticado assim indicar" [D15, itens 4.16-4.17]. As duas leituras convergem, portanto, para a mesma questão de fato: houve ou não repasse do custo da propina à Petrobras? Essa questão é examinada na Seção 8.4. A escolha deve ser confirmada pela CONJUR, por ser controvertida.
 
 6.4. **Portaria Normativa SE/CGU nº 226/2025.**
 - Segundo o precedente, disciplina a metodologia de avaliação de programas de integridade, inclusive em reabilitação (art. 1º, III e parágrafo único) [D15, item 4.50]. Segundo a própria DECAL, seus arts. 20 e 21 se referem às infrações e aos requisitos do art. 163 da Lei nº 14.133/2021 [D11, §§ 36-37].
@@ -247,6 +265,23 @@ Esta Nota examina **apenas o inciso II**. As teses da DECAL sobre a contagem do 
 - **Conclusão intertemporal.** A PN nº 226/2025 não cria, não modifica e não substitui o requisito do inciso II para sanções aplicadas com base na Lei nº 8.666/1993. Sua eventual aplicação ao inciso III não é examinada aqui. O texto oficial não pôde ser conferido neste ambiente (Anexo C).
 
 6.5. **Decretos regulamentares.** A Decisão nº 9 fundou-se no Decreto nº 8.420/2015 e a Decisão nº 347, no Decreto nº 11.129/2022 [D2; D3]. A escolha do decreto não interfere no inciso II. O art. 37, § 2º, do Decreto nº 11.129/2022 é usado apenas como parâmetro conceitual de "dano incontroverso", como no precedente, e não como fonte de obrigação nova.
+
+6.5-A. **Quadro de conferência normativa (Seção VI-A).**
+
+| Dispositivo | Redação aplicável | Fonte da conferência | Situação |
+|---|---|---|---|
+| Portaria CGU 1.214/2020, arts. 1º a 8º (redação original) | 2020 | DOU de 09/06/2020 [D18] | **Conferido em fonte oficial** |
+| Portaria 1.214, arts. 2º, II, 3º a 6º (com a PN 54/2023) | Desde 2023 | Transcrição em ato oficial da CGU [D15] | **Conferido em transcrição oficial** |
+| PN 54/2023 — alterações dos arts. 1º e 2º, III | Desde 2023 | Fontes secundárias | **Pendente** |
+| PNI CGU/AGU 1/2025, arts. 4º, 33, 34, 59, 60 e 61 | Desde 23/12/2025 | DOU [D19] | **Conferido em fonte oficial** |
+| Decreto 11.129/2022, arts. 26 e 37, § 2º | Desde 2022 | Transcrição em ato oficial da CGU [D15] | **Conferido em transcrição oficial** |
+| Lei 8.666/1993, art. 87, IV e § 3º | 1993-2023 (ultrativo) | Transcrição da requerente [D11]; texto notório | **Pendente de conferência oficial** (redação convergente em D11 e D15) |
+| Lei 12.846/2013, arts. 6º, § 3º, 13, 16, § 3º, 19 e 21 | Redação original | Não conferido | **Pendente** |
+| Lei 9.784/1999; LINDB; CC, art. 935; CPP, arts. 63, 66, 67 e 387, IV; CPC, art. 506; CP, art. 91 | Vigentes | Art. 935 do CC transcrito em D11; demais não conferidos | **Pendente** |
+| Lei 14.133/2021, arts. 163 e 193 | Vigentes | Fontes secundárias | **Pendente** (uso apenas delimitador) |
+| PN SE/CGU 226/2025 | Desde 09-11/09/2025 | Fontes secundárias; transcrição do art. 20 em D11 | **Pendente** |
+
+A conferência pendente não altera, em princípio, o raciocínio: as redações empregadas são estáveis e os pontos centrais estão conferidos em fonte oficial ou em transcrição oficial. A conferência deve, porém, preceder a assinatura.
 
 6.6. **Hierarquia e conflito aparente.** Não há antinomia relevante para o inciso II: lei (art. 87, IV), regulamento (Portaria nº 1.214/2020, art. 2º, II e § 1º) e norma conceitual vigente (PNI nº 1/2025, art. 33) convergem. Prevalece, em qualquer hipótese, a exigência legal de ressarcimento, nos limites dados pela expressão regulamentar "quando apontados".
 
@@ -324,7 +359,9 @@ Essas respostas estão em documentos da própria CGU (art. 37 da Lei nº 9.784/1
   - a "lógica econômica" reconhecida pelo próprio MPF de que a propina normalmente se reflete no preço [D7];
   - o fato de a propina ter sido custeada, segundo o MPF, com a comissão paga pela DECAL a Mariano Marcondes Ferraz [D7], o que demonstra benefício, mas não prejuízo patrimonial à Petrobras.
 
-8.6. **Risco de duplicidade.** A sentença decretou o confisco da fiança até o valor da propina, com reversão à Petrobras, e determinou que o confisco "compensará o valor da indenização" [D6, §§ 222-226]. O TRF4 manteve o confisco [D8]. Se executado em favor da Petrobras, valor idêntico ao "dano mínimo" de O2 pode já ter sido recebido pelo ente lesado. Exigi-lo também da DECAL importaria risco de recomposição em duplicidade, ressalvada a distinta natureza jurídica do confisco. A destinação final é controvertida e não comprovada (O4). **[DILIGÊNCIA D6]**
+8.6. **Risco de duplicidade.** A sentença decretou o confisco da fiança até o valor da propina, com reversão à Petrobras, e determinou que o confisco "compensará o valor da indenização" [D6, §§ 222-226]. O TRF4 manteve o confisco [D8]. Se executado em favor da Petrobras, valor idêntico ao "dano mínimo" de O2 pode já ter sido recebido pelo ente lesado. Exigi-lo também da DECAL importaria risco de recomposição em duplicidade. A destinação final é controvertida e não comprovada (O4). **[DILIGÊNCIA D6]**
+
+Ressalva jurídica: o confisco é efeito da condenação penal (perda do produto ou proveito do crime, "ressalvado o direito do lesado ou de terceiro de boa-fé" — art. 91, II, do CP), imposto a pessoa diversa da DECAL. Não é, em si, pagamento de indenização. Saber se valores confiscados e revertidos à vítima podem ser imputados ao prejuízo eventualmente exigível da DECAL depende de juízo jurídico ainda não feito, que deve ser submetido à CONJUR. Esse juízo envolve a eventual corresponsabilidade civil entre a pessoa física e a pessoa jurídica pelo mesmo dano e a vedação ao enriquecimento sem causa do credor. Por isso, a dedução não é tratada nesta Nota como certa.
 
 8.7. **Universo das obrigações.** Os documentos não permitem fechar o universo das obrigações de ressarcimento. Não há informação sobre:
 - auditorias internas da Petrobras;
@@ -346,8 +383,14 @@ A ausência de informação não equivale à inexistência do fato (Seção 13, 
 **9.1. "Os únicos requisitos são os do art. 87, IV; a reabilitação é ato vinculado" [D11, §§ 21, 27-29] (E6).**
 - *Premissa fática:* não há.
 - *Premissa jurídica:* a lei esgota os requisitos e a palavra "sempre" torna o ato vinculado.
-- *Análise:* o debate sobre o inciso III não pertence a esta Nota. Para o inciso II, a premissa é **incontroversa e não favorece a DECAL**: a própria lei exige o ressarcimento. A DECAL cita o RMS nº 33.526/DF (STF, Rel. Min. Gilmar Mendes). Busca em fonte secundária indica que o agravo regimental foi desprovido pela 2ª Turma em 29/09/2017, com ementa sobre o art. 87, IV, da Lei nº 8.666/1993 e a impossibilidade de restrição de direitos por prazo indeterminado. O inteiro teor não pôde ser conferido (Anexo C).
+- *Análise:* o debate sobre o inciso III não pertence a esta Nota. Para o inciso II, a premissa é **incontroversa e não favorece a DECAL**: a própria lei exige o ressarcimento. A DECAL cita o RMS nº 33.526/DF (STF, Rel. Min. Gilmar Mendes) como "decisão monocrática transitada em julgado". Segundo fontes secundárias:
+- a decisão monocrática foi impugnada pela União por agravo regimental;
+- a 2ª Turma negou provimento ao agravo, por unanimidade, em sessão virtual de 22 a 28/09/2017 (DJe de 09/10/2017);
+- a ementa trata da sanção do art. 87, IV, da Lei nº 8.666/1993, da impossibilidade de restrição de direitos por prazo indeterminado, da temporariedade da pena (CF, art. 5º, XLVI e XLVII) e da prescritibilidade da pretensão de ressarcimento por ilícito civil.
+
+A caracterização feita pela DECAL omite a confirmação colegiada, o que não reduz, antes reforça, o peso do julgado. O inteiro teor não pôde ser conferido (Anexo C).
 - No trecho transcrito pela DECAL, a *ratio* é que não se pode negar a reabilitação com fundamento em suposta dívida **não líquida**, quando não instaurado procedimento para apurar e quantificar o dano. Trata-se de precedente *inter partes*, sem efeito vinculante, mas persuasivo. Converge com a expressão "quando apontados" e com o critério do dano incontroverso do precedente da CGU.
+- Segundo fonte secundária, o Parecer nº 00241/2023/CONJUR-CGU/CGU/AGU (caso Mendes Júnior), não lido nesta análise, registra que a reabilitação não extingue a responsabilidade pelo dano, que pode ser cobrado quando calculado em definitivo pelas autoridades competentes. A orientação coincide com a ressalva da NT nº 676/2026 [D15, itens 4.47-4.48].
 - *Conclusão parcial:* o argumento confirma o método (só se exige dano apontado e determinado), mas não demonstra, por si, a inexistência de apontamento no caso.
 
 **9.2. "Não há prejuízo a ressarcir porque o ato não gerou dano à Petrobras" [D11, § 57] (E1).**
@@ -362,7 +405,7 @@ A ausência de informação não equivale à inexistência do fato (Seção 13, 
 - *Análise:*
   - (i) **Extensão do julgado.** O acórdão afastou o *valor mínimo* do art. 387, IV, do CPP porque "não comprovado a transferência de custo". É juízo de insuficiência probatória num instituto que, por definição, fixa apenas um mínimo "sem prejuízo da liquidação para a apuração do dano efetivamente sofrido" (art. 63, parágrafo único, do CPP). Não é reconhecimento categórico da "inexistência material do fato" (art. 66 do CPP).
   - (ii) **Alcance do art. 935 do CC.** O dispositivo impede rediscutir no cível "a existência do fato, ou [...] quem seja o seu autor". O fato (pagamento de vantagem indevida) e a autoria foram **confirmados**, não negados. A quantificação do dano não se inclui nessas matérias.
-  - (iii) **Limites subjetivos.** A DECAL não foi parte na ação penal. A coisa julgada vincula as partes (art. 506 do CPC). A Petrobras participou como assistente da acusação e apelante [D8, cabeçalho], o que reforça o valor do julgado perante ela, mas não converte a decisão em declaração vinculante de inexistência de dano em favor de terceiro.
+  - (iii) **Limites subjetivos.** A DECAL não foi parte na ação penal. A coisa julgada vincula as partes (art. 506 do CPC). A Petrobras figurou no polo ativo como apelante [D8, cabeçalho e relatório]. Isso reforça o valor do julgado perante ela quanto ao valor mínimo do art. 387, IV, mas não converte a decisão em declaração vinculante de inexistência de dano em favor de terceiro, nem impede a apuração do dano efetivo na esfera cível (art. 63, parágrafo único, do CPP).
   - (iv) **Valor probatório.** Ainda assim, o acórdão é prova relevante e qualificada, formada com contraditório e com a participação do ente lesado, e é exatamente a instância cuja decisão anterior (a sentença) sustentou o apontamento da Comissão.
 - *Conclusão parcial:* a tese é **improcedente** como regra de preclusão ou vinculação. É **procedente** como elemento de prova que enfraquece a presunção de repasse do custo e, com ela, a *proxy* da propina. Seu peso final depende do teor do Relatório Final (D1) e das informações da Petrobras (D2).
 
@@ -371,7 +414,8 @@ A ausência de informação não equivale à inexistência do fato (Seção 13, 
 - *Análise:* a premissa não pôde ser verificada (D1). O acórdão do TRF4 é de 10/04/2019, **anterior** à instauração do PAR (2020) e às Decisões nº 9 e 347 (2023). Foi expressamente invocado no pedido de reconsideração [D13, nota 2], indeferido por "não haver nenhum fato novo" [D3]. **Não se trata, portanto, de fato novo.** Duas leituras são possíveis:
   - (a) **Leitura restritiva (desfavorável à DECAL).** Se a Decisão nº 9 adotou o apontamento de dano conhecendo o acórdão, há apontamento administrativo definitivo na esfera administrativa (após a Decisão nº 347). Reabri-lo no pedido de reabilitação exigiria fundamento de invalidade (art. 53 da Lei nº 9.784/1999) ou fato novo.
   - (b) **Leitura ampliativa (favorável à DECAL).** Se a Decisão nº 9 não incorporou o apontamento, ou se este se apoiou apenas em premissa judicial já reformada (motivo inexistente), não há prejuízo validamente apontado. Exigir seu pagamento afrontaria a teoria dos motivos determinantes e a necessidade de que o dano decorra de "decisão definitiva" (Decreto nº 11.129/2022, art. 37, § 2º).
-- **Leitura que deve prevalecer.** Entre (a) e (b), a escolha depende do conteúdo dos documentos ausentes. Nenhuma das duas pode ser adotada com segurança antes de D1. Em qualquer hipótese, deixar de seguir o Relatório Final exige motivação expressa (art. 50, VII, da Lei nº 9.784/1999). A questão deverá ser submetida à CONJUR.
+- **Questão prévia às duas leituras.** Ainda que adotado pela Decisão nº 9, um apontamento feito em PAR sancionador não constitui, por si, crédito de ressarcimento líquido. A Lei nº 12.846/2013 prevê processo administrativo específico para a reparação integral do dano, ao fim do qual o crédito é inscrito em dívida ativa (art. 13 e parágrafo único). O precedente da CGU exige "decisão administrativa ou judicial definitiva que tenha identificado e quantificado o dano, bem como estabelecido o nexo de causalidade" [D15, item 4.48]. A leitura (a) só se sustenta se a decisão sancionadora tiver efetivamente identificado e quantificado o dano, com nexo causal e contraditório sobre o *quantum*. Uma mera estimativa mínima por *proxy* pode não bastar.
+- **Leitura que deve prevalecer.** Entre (a) e (b), a escolha depende do conteúdo dos documentos ausentes. Nenhuma das duas pode ser adotada com segurança antes de D1. Em qualquer hipótese, deixar de seguir o Relatório Final exige motivação expressa (art. 50, VII, da Lei nº 9.784/1999). A questão, incluída a questão prévia, deverá ser submetida à CONJUR.
 - *Conclusão parcial:* questão aberta e determinante → D1.
 
 **9.5. "A Portaria nº 1.214/2020 é ilegal e irretroativa; a PN nº 226/2025 é inaplicável" [D11, §§ 23-42] (E7).**
@@ -383,7 +427,7 @@ A ausência de informação não equivale à inexistência do fato (Seção 13, 
 - *Conclusão parcial:* o depósito não comprova ressarcimento de prejuízo algum. Também não o pressupõe.
 
 **9.7. "Interesse público, LINDB e liberdade econômica recomendam a pronta reabilitação" [D11, §§ 4-18] (E9).**
-- *Análise:* o art. 20 da LINDB impõe considerar as consequências práticas da decisão, mas não autoriza dispensar requisito legal expresso. As consequências invocadas (logística de QAV em Suape; consulta de mercado da Petrobras de 04/09/2026, Doc. 1 não disponível) recomendam **celeridade e objetividade nas diligências** (CF, art. 5º, LXXVIII; Lei nº 9.784/1999, arts. 2º, parágrafo único, IX, e 49), e não a presunção de cumprimento.
+- *Análise:* o art. 20 da LINDB impõe considerar as consequências práticas da decisão, mas não autoriza dispensar requisito legal expresso. As consequências invocadas (logística de QAV em Suape; consulta de mercado da Petrobras de 04/09/2026, Doc. 1 não disponível) recomendam **celeridade e objetividade nas diligências** (CF, art. 5º, LXXVIII; Lei nº 9.784/1999, art. 2º, caput — eficiência —, e art. 49), e não a presunção de cumprimento.
 - *Conclusão parcial:* argumento insuscetível de comprovar o inciso II, mas relevante para a forma da instrução.
 
 **9.8. Hipóteses não alegadas.** Não foram alegados acordo de leniência, quitação, reparação direta, parcelamento, compensação, novação, impossibilidade de apuração ou prescrição. Esses temas não são examinados.
@@ -392,7 +436,7 @@ A ausência de informação não equivale à inexistência do fato (Seção 13, 
 
 | Órgão | Identificação | Data | Dispositivo | Questão | Fundamento determinante | Relação com o caso / distinção | Natureza |
 |---|---|---|---|---|---|---|---|
-| STF, 2ª Turma | AgR no RMS nº 33.526/DF, Rel. Min. Gilmar Mendes | j. 29/09/2017 (dado de fonte secundária) | Lei 8.666/93, art. 87, IV | Reabilitação sem dano apurado | Não se mantém inidoneidade por prazo indeterminado para cobrar dívida não líquida (trecho transcrito pela DECAL) | Converge com "quando apontados". Distinção: lá não havia apuração do dano; aqui houve apontamento pela CPAR, de alcance a verificar | Persuasivo, *inter partes*. Inteiro teor não conferido |
+| STF, 2ª Turma | AgR no RMS nº 33.526/DF, Rel. Min. Gilmar Mendes | Sessão virtual de 22 a 28/09/2017; DJe de 09/10/2017 (fonte secundária) | Lei 8.666/93, art. 87, IV; CF, art. 5º, XLVI e XLVII | Reabilitação sem dano apurado | Não se mantém inidoneidade por prazo indeterminado para cobrar dívida não líquida (trecho transcrito pela DECAL) | Converge com "quando apontados". Distinção: lá não havia procedimento de apuração do dano; aqui houve apontamento pela CPAR, de alcance a verificar | Persuasivo, *inter partes*. Inteiro teor não conferido |
 | CGU/SIPRI | NT nº 676/2026/SIPRI (SEI 3980745), Proc. 00190.110692/2025-70 | 23/02/2026 | Portaria 1.214/20, art. 2º, II; Decreto 11.129/22, art. 37, § 2º; PNI 1/2025, art. 33 | Ressarcimento em reabilitação | Exige dano incontroverso com nexo causal; propina como *proxy* quando o ilícito indicar; circularização prévia | Mesmo método. Distinção: lá a propina não era imputada à empresa no Relatório Final; aqui a propina é o próprio ato lesivo sancionado | Precedente administrativo orientador |
 | TRF4, 8ª Turma | ACR nº 5000553-66.2017.4.04.7000 | 10/04/2019 | CPP, art. 387, IV | Indenização mínima | Ausência de prova de transferência do custo à Petrobras | Decisão do próprio caso; prova relevante, não vinculante para a DECAL | Decisão judicial do caso |
 | TRF5, 6ª Turma | AI nº 0809667-58.2024.4.05.0000 | 05/02/2025 | Lei 12.846/13, arts. 2º e 6º | Tutela de urgência | Depósito da multa apenas para suspender a exigibilidade | Decisão do próprio caso, de natureza precária | Decisão judicial do caso |
@@ -408,7 +452,14 @@ Não foram localizados, nas fontes acessíveis, precedentes do STJ, do TCU ou do
 
 A solução tecnicamente adequada é diligenciar antes de concluir.
 
-10.2. As diligências específicas, com dúvida, fundamento, destinatário, finalidade e repercussão, estão no **Produto 5**. São elas: D1 (documentos internos do PAR), D2 (Petrobras), D3 (AGU), D4 (TCU), D5 (SFC/CGU), D6 (juízo criminal: confisco e trânsito em julgado) e D7 (complementação pela DECAL).
+10.2. As diligências específicas, com dúvida, fundamento, destinatário, finalidade e repercussão, estão no **Produto 5**. São elas: D1 (documentos internos do PAR), D2 (Petrobras), D3 (AGU), D3-A (MPF), D4 (TCU), D5 (SFC/CGU), D6 (juízo criminal: confisco e trânsito em julgado), D7 (complementação pela DECAL) e D8 (vista ao interessado).
+
+10.3. **Indispensabilidade.**
+- D1 é **indispensável**: trata do próprio "apontamento" a que alude a norma.
+- D2 é **indispensável**: a Petrobras é a titular do eventual crédito, e a CGU não pode declarar sua inexistência ou quitação sem ouvi-la.
+- D8 é **indispensável** se as diligências trouxerem elementos desfavoráveis.
+- D3, D3-A, D4 e D5 são **recomendáveis**, conforme a prática do precedente.
+- D6 e D7 são **complementares**.
 
 ## XI — CONCLUSÃO
 
@@ -428,7 +479,7 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
 
 11.2. **Conclusão.** Com base no art. 87, IV, da Lei nº 8.666/1993, no art. 2º, II e § 1º, e no art. 4º, § 2º, da Portaria CGU nº 1.214/2020, e no art. 33 da PNI CGU/AGU nº 1/2025, conclui-se que **a instrução ainda não permite afirmar, com segurança, se o requisito do art. 2º, inciso II, foi atendido (Alternativa C)**, porque:
 - (a) o instrumento que conteria o apontamento de prejuízo pela Administração — Relatório Final, SEI 1843086, adotado "em parte" pela Decisão nº 9 — não foi examinado, nem os pareceres da CONJUR que delimitaram essa adoção;
-- (b) o ente potencialmente lesado (Petrobras) e os órgãos competentes (AGU, TCU, SFC/CGU) não foram consultados sobre prejuízos identificados ou quantificados;
+- (b) o ente potencialmente lesado (Petrobras) e os órgãos competentes (AGU, MPF, TCU, SFC/CGU) não foram consultados sobre prejuízos identificados ou quantificados;
 - (c) não se sabe se valor equivalente ao dano apontado já foi recebido pela Petrobras por meio do confisco penal.
 
 11.3. **Juízo preliminar, sujeito às diligências:**
@@ -437,19 +488,23 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
 - (iii) A tese de vinculação pelo art. 935 do Código Civil não procede.
 - (iv) A multa e seu depósito judicial são estranhos ao requisito.
 
-11.4. **Prognóstico condicionado:**
-- **Cenário 1.** As diligências D1 a D6 não revelam prejuízo apontado em decisão definitiva e exigível, ou revelam apontamento sem adoção pela decisão sancionadora. O requisito deverá ser considerado **atendido por inexistência de prejuízo apontado a ressarcir**, na linha da NT nº 676/2026/SIPRI. Deve-se consignar que isso não equivale a reconhecer a inexistência de prejuízo e não impede apurações futuras.
-- **Cenário 2.** A Decisão nº 9 adotou o dano de USD 868.450,00 como prejuízo apontado. A CONJUR deverá se manifestar sobre sua subsistência diante do acórdão do TRF4, que é anterior ao apontamento. Mantido o apontamento, o requisito **não estará atendido** até o pagamento do valor, atualizado segundo critério definido pela Administração e descontado o montante que a Petrobras comprovadamente já tiver recebido por meio do confisco (D6).
-- **Cenário 3.** A Petrobras, a AGU ou o TCU informam prejuízo definitivamente constituído, com nexo com o ato sancionado. O requisito **não estará atendido** até a comprovação de sua satisfação, atestada pelo credor.
+11.4. **Prognóstico condicionado** (sempre após vista ao interessado — art. 44 da Lei nº 9.784/1999):
+- **Cenário 1.** As diligências D1 a D6 não revelam prejuízo identificado e quantificado em decisão administrativa ou judicial definitiva, com nexo causal (Seção 5.2-A, camada ii). Também se enquadra aqui o caso em que revelem apontamento não adotado pela decisão sancionadora, ou adotado apenas como estimativa por *proxy* cuja premissa foi infirmada judicialmente. O requisito deverá ser considerado **atendido (superado) por inexistência de prejuízo exigível a ressarcir**, na linha da NT nº 676/2026/SIPRI. Deve-se consignar que isso não equivale a reconhecer a inexistência de prejuízo e não impede apurações e cobranças futuras.
+- **Cenário 2.** A Decisão nº 9 adotou o dano de USD 868.450,00 com identificação, quantificação e nexo causal. A CONJUR deverá se manifestar sobre (i) sua aptidão para caracterizar prejuízo definitivamente constituído, considerando o art. 13 da Lei nº 12.846/2013 (questão prévia do item 9.4), e (ii) sua subsistência diante do acórdão do TRF4, anterior ao apontamento. Superadas ambas as questões em desfavor da requerente, o requisito **não estará atendido** até o pagamento do valor, atualizado por critério a definir. A imputação de valores eventualmente recebidos pela Petrobras por meio do confisco penal depende de juízo jurídico específico (Seção 8.6).
+- **Cenário 3.** A Petrobras, a AGU, o MPF ou o TCU informam prejuízo definitivamente constituído contra a DECAL, com nexo com o ato sancionado. O requisito **não estará atendido** até a comprovação de sua satisfação, atestada pelo credor.
 
 ## XII — ENCAMINHAMENTO
 
 12.1. Propõe-se que a Secretaria de Integridade Privada, por intermédio da DPI (art. 4º, §§ 1º e 2º, da Portaria nº 1.214/2020, com redação da PN nº 54/2023):
 - (a) junte e examine os documentos internos indicados em D1;
-- (b) expeça ofícios à Petrobras, à AGU, ao TCU e à SFC/CGU (D2 a D5) e obtenha informações sobre o confisco e o trânsito em julgado da ação penal (D6), fixando prazo compatível com a celeridade exigida;
-- (c) intime a DECAL para complementação documental (D7), observado o prazo que ela própria requereu [D11, § 45].
+- (b) expeça ofícios à Petrobras, à AGU, ao MPF, ao TCU e à SFC/CGU (D2 a D5) e obtenha informações sobre o confisco e o trânsito em julgado da ação penal (D6), fixando prazo compatível com a celeridade exigida;
+- (c) intime a DECAL para complementação documental (D7), observado o prazo que ela própria requereu [D11, § 45];
+- (d) concluída a instrução, dê vista à DECAL dos elementos novos, para manifestação (D8; Lei nº 9.784/1999, arts. 3º, III, e 44).
 
-12.2. Recebidas as respostas, deve ser elaborada análise técnica conclusiva sobre o inciso II (art. 5º), em conjunto com os demais requisitos examinados pelas unidades competentes, e os autos devem ser remetidos à CONJUR/CGU (art. 6º). Recomenda-se submeter expressamente à CONJUR a questão do item 9.4 (subsistência do apontamento de dano diante do acórdão do TRF4).
+12.2. Recebidas as respostas e a manifestação do interessado, deve ser elaborada análise técnica conclusiva sobre o inciso II (art. 5º), em conjunto com os demais requisitos examinados pelas unidades competentes, e os autos devem ser remetidos à CONJUR/CGU (art. 6º). Recomenda-se submeter expressamente à CONJUR três questões:
+- (i) a interpretação aplicável ao § 1º do art. 2º (item 6.3);
+- (ii) a aptidão e a subsistência do apontamento de dano diante do art. 13 da Lei nº 12.846/2013 e do acórdão do TRF4 (item 9.4);
+- (iii) a eventual imputação dos valores do confisco penal (item 8.6).
 
 12.3. Registra-se que esta Nota não examina os incisos I e III do art. 2º, cuja análise compete às unidades indicadas na Portaria nº 1.214/2020.
 
@@ -467,12 +522,14 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
 | ID | Dúvida a esclarecer | Fundamento | Documento/informação | Destinatário | Finalidade probatória | Repercussão na conclusão |
 |---|---|---|---|---|---|---|
 | **D1** | O apontamento de dano de USD 868.450,00 integrou a Decisão nº 9? Com que fundamento? A CPAR e a CONJUR consideraram o acórdão do TRF4? | Lei 9.784/99, arts. 29, 37 e 50, VII | Relatório Final (SEI 1843086); cálculo (SEI 1569432); Parecer nº 00199/2021/CONJUR e Despachos nº 00651/2022 e 00890/2022; Parecer nº 00273/2023/CONJUR e despachos | Própria CGU (SIPRI/CONJUR), juntada de ofício | Definir se há "prejuízo apontado" e seu alcance | **Determinante**: define o Cenário 1 ou 2 |
-| **D2** | A Petrobras identificou ou quantificou prejuízo decorrente dos fatos (propina a PRC; contratos de 2006 a 2012 e de 2012)? Há cobrança, ação ou crédito contra a DECAL? Recebeu valores do confisco? | Portaria 1.214, art. 4º, § 2º | Manifestação formal das áreas jurídica, de auditoria interna e de contratos, com memória de cálculo ou declaração de inexistência | Petrobras | Universo das obrigações; titularidade; quitação; duplicidade | Pode levar ao Cenário 3 ou confirmar o Cenário 1 |
-| **D3** | Há ações judiciais (ressarcimento, improbidade, art. 19 da Lei 12.846/13) que tenham identificado e mensurado definitivamente prejuízo? Qual o estado da ação anulatória e se nela se discute dano? | Portaria 1.214, art. 4º, § 2º | Nota jurídica, como no precedente [D15, item 4.23] | AGU (PGU/PNPP e PRU5) | Universo e definitividade | Idem |
+| **D2** | A Petrobras identificou ou quantificou prejuízo decorrente dos fatos (propina a PRC; contratos de 2006 a 2012 e de 2012)? Instaurou procedimento próprio em 2020, antes da avocação pela CGU, com apuração de dano? Há cobrança, ação ou crédito contra a DECAL? Recebeu valores do confisco? | Portaria 1.214, art. 4º, § 2º | Manifestação formal das áreas jurídica, de auditoria interna e de contratos, com memória de cálculo ou declaração de inexistência; cópia de eventual apuração interna | Petrobras | Universo das obrigações; titularidade; quitação; duplicidade | Pode levar ao Cenário 3 ou confirmar o Cenário 1. **Indispensável** |
+| **D3** | Há ações judiciais da União (ressarcimento, improbidade, art. 19 da Lei 12.846/13) que tenham identificado e mensurado definitivamente prejuízo? Qual o estado da ação anulatória e se nela se discute dano? | Portaria 1.214, art. 4º, § 2º | Nota jurídica, como no precedente [D15, item 4.23] | AGU (PGU/PNPP e PRU5) | Universo e definitividade | Idem |
+| **D3-A** | O MPF, também legitimado para ações de improbidade e da Lei 12.846/13 (art. 19), ajuizou ação civil contra a DECAL pelos mesmos fatos? | Portaria 1.214, art. 4º, § 2º | Informação formal | MPF (PR/PR e PRR4) | Universo | Idem |
 | **D4** | Há TCE ou processo do TCU que tenha quantificado prejuízo relativo aos contratos DECAL/Petrobras? | Idem | Informação formal | TCU | Universo | Idem |
 | **D5** | Auditorias da CGU sobre os contratos DECAL/Petrobras apontaram prejuízo? | Idem | Informação da unidade da SFC responsável pela auditoria da Petrobras | CGU/SFC | Universo | Idem |
 | **D6** | O confisco da fiança (até R$ 2.171.125,00) foi executado? Em favor de quem? Qual a data do trânsito em julgado? | Lei 9.784/99, arts. 29 e 37 | Certidão de trânsito em julgado; informação sobre a destinação dos valores confiscados | 13ª Vara Federal de Curitiba (via AGU/MPF ou consulta processual) e DECAL | Risco de duplicidade; definitividade | Ajusta o valor no Cenário 2; reforça o Cenário 1 |
-| **D7** | Complementação pela DECAL | Portaria 1.214, art. 4º, § 1º; Lei 9.784/99, art. 36 | Docs. 1, 4 e 7; certidão de trânsito em julgado; natureza dos R$ 6.170 mil de "perdas possíveis" (DFs 2025, nota 17.d); declaração sobre processos de ressarcimento em curso relativos aos fatos; peças principais da ação anulatória | DECAL | Completude e consistência | Complementar |
+| **D7** | Complementação pela DECAL | Portaria 1.214, art. 4º, § 1º; Lei 9.784/99, art. 36 | Docs. 1, 4 e 7; certidão de trânsito em julgado; natureza dos R$ 6.170 mil de "perdas possíveis" (DFs 2025, nota 17.d); certidões de distribuição de ações cíveis (Justiça Federal e Estadual) em seu nome; declaração sobre processos de ressarcimento em curso relativos aos fatos; peças principais da ação anulatória | DECAL | Completude e consistência | Complementar |
+| **D8** | Manifestação do interessado sobre os elementos obtidos nas diligências | CF, art. 5º, LV; Lei 9.784/99, arts. 3º, III, e 44 | Vista dos autos e prazo para manifestação | DECAL | Contraditório | Indispensável antes de conclusão desfavorável |
 
 ---
 
@@ -486,7 +543,9 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
 - [x] Art. 935 do CC e arts. 63, 66 e 387, IV, do CPP analisados quanto ao alcance da decisão penal.
 - [x] Limites subjetivos da coisa julgada (CPC, art. 506) considerados.
 - [x] Duas interpretações sobre a subsistência do apontamento apresentadas (item 9.4), com indicação do que é necessário para escolher entre elas.
-- [ ] Textos oficiais da PN 226/2025, do Decreto 11.129/2022 e do inteiro teor do RMS 33.526 conferidos na fonte primária (**pendente**; Anexo C).
+- [ ] Textos oficiais conferidos na fonte primária: PN 226/2025, redação consolidada da Portaria 1.214 após a PN 54/2023, Leis 8.666/93, 12.846/13 e 9.784/99, códigos e inteiro teor do RMS 33.526 (**pendente**; quadro 6.5-A e Anexo C).
+- [x] Duas interpretações sobre o § 1º do art. 2º (IN 2/2018 x PNI 1/2025) apresentadas e escolha justificada (item 6.3).
+- [x] Distinção entre prejuízo "apontado" e prejuízo exigível (item 5.2-A); questão do art. 13 da Lei 12.846/13 enfrentada (item 9.4).
 
 **Documental**
 - [x] Todos os 14 documentos da pasta `Nota_tecnica` e as DFs 2025 examinados integralmente.
@@ -502,7 +561,9 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
 
 **Competência**
 - [x] Reconhecido que a CGU não declara quitação ou inexistência de crédito da Petrobras sem manifestação do titular.
-- [x] Encaminhamento à CONJUR (art. 6º) preservado; questão do item 9.4 destacada.
+- [x] Encaminhamento à CONJUR (art. 6º) preservado; questões dos itens 6.3, 8.6 e 9.4 destacadas.
+- [x] Contraditório sobre o resultado das diligências assegurado (D8; art. 44 da Lei 9.784/99).
+- [x] MPF incluído entre os órgãos consultados (D3-A).
 
 **Revisão adversarial (Seção 17 do roteiro)**
 
@@ -590,8 +651,8 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
    - (i) os textos de leis e códigos citados (Leis nº 8.666/1993, 12.846/2013, 9.784/1999, 14.133/2021; LINDB; CC; CPP; CPC; CP) foram transcritos a partir dos documentos dos autos, quando neles reproduzidos, ou de conhecimento consolidado, e **devem ser conferidos nas versões oficiais antes da assinatura**;
    - (ii) o art. 37, § 2º, e o art. 26 do Decreto nº 11.129/2022, bem como as alterações da PN nº 54/2023, foram extraídos da transcrição oficial constante da NT nº 676/2026/SIPRI [D15];
    - (iii) o conteúdo da PN SE/CGU nº 226/2025 foi verificado apenas em fontes secundárias e na transcrição da DECAL;
-   - (iv) quanto ao RMS nº 33.526/DF, foram verificados por fonte secundária apenas a existência do agravo regimental julgado pela 2ª Turma em 29/09/2017 e sua ementa geral. O trecho da decisão monocrática é o transcrito pela DECAL.
-2. Notas técnicas de reabilitação da CGU localizadas no repositório institucional (casos IESA e Mendes Júnior) **não puderam ser lidas** e não foram utilizadas.
+   - (iv) quanto ao RMS nº 33.526/DF, foram verificados por fonte secundária apenas a existência do agravo regimental da União, desprovido por unanimidade pela 2ª Turma em sessão virtual de 22 a 28/09/2017 (DJe de 09/10/2017), e os temas gerais da ementa. O trecho da decisão monocrática é o transcrito pela DECAL. (A versão 1 desta Nota indicava, de forma imprecisa, julgamento em 29/09/2017.)
+2. Notas técnicas de reabilitação da CGU localizadas no repositório institucional (casos IESA e Mendes Júnior) e o Parecer nº 00241/2023/CONJUR-CGU/CGU/AGU **não puderam ser lidos**. Do parecer utilizou-se apenas a síntese secundária indicada no item 9.1, como reforço, não como fundamento.
 3. Fontes secundárias consultadas por busca:
    - [Demarest — Boletim de investigações corporativas, set./2025](https://www.demarest.com.br/boletim-de-investigacoes-corporativas-setembro-2025/)
    - [Schiefler Advocacia — Portaria CGU 226/2025](https://schiefler.adv.br/entenda-a-portaria-cgu-no-226-2025-que-estabelece-a-metodologia-para-avaliacao-de-programas-de-integridade-compliance/)
@@ -599,4 +660,8 @@ A solução tecnicamente adequada é diligenciar antes de concluir.
    - [ANA — texto da PN SE/CGU 226/2025](https://www.gov.br/ana/pt-br/acesso-a-informacao/integridade/normativos/arquivos/portaria-normativa-se_cgu-no-226-de-9-de-setembro-de-2025.pdf)
    - [Lex — PN CGU 54/2023](https://www.lex.com.br/portaria-normativa-cgu-no-54-de-14-de-fevereiro-de-2023/)
    - [Jusbrasil — AgR RMS 33.526](https://www.jusbrasil.com.br/jurisprudencia/stf/770050340/inteiro-teor-770050350)
+   - [Repositório CGU — PN 54/2023 (retificada)](https://repositorio.cgu.gov.br/handle/1/69865)
+   - [ANTTlegis — Portaria 1.214/2020 consolidada](https://anttlegis.antt.gov.br/action/ActionDatalegis.php?acao=detalharAto&tipo=POR&numeroAto=00001214&seqAto=000&valorAno=2020&orgao=CGU&nomeTitulo=codigos&desItem=&desItemFim=&cod_modulo=420&cod_menu=7145)
+   - [Base de Conhecimento CGU — NT 676/2026/SIPRI (publicação oficial do precedente D15)](https://basedeconhecimento.cgu.gov.br/server/api/core/bitstreams/26462021-d091-49f5-b175-37a098d65a25/content)
+   - [Repositório CGU — Parecer 00241/2023/CONJUR (Mendes Júnior)](https://repositorio.cgu.gov.br/bitstream/1/77076/2/Parecer_002412023_CONJUR_CGU_AGU_Mendes_Junior.pdf)
    - [Juruá — Lei 14.133, art. 163](https://www.juruadocs.com/legislacao/art/lei_00141332021-163)
