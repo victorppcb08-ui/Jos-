@@ -1,0 +1,1731 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TI Câmara 2027</title>
+<meta name="description" content="Estudo dirigido de Tecnologia da Informação e Dados para o concurso de Analista Legislativo da Câmara dos Deputados (Cebraspe), prova em 17/01/2027.">
+<style>
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --surface-2:#f1efe8; --ink:#1d1f24; --ink-2:#4a4f5a; --ink-3:#737985;
+  --line:#dedad0; --accent:#1f5fa8; --accent-ink:#ffffff; --accent-soft:#e3edf8;
+  --ok:#1d7a46; --ok-soft:#e2f3e8; --bad:#b3261e; --bad-soft:#fbe6e4; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --tip:#5b3fa0; --tip-soft:#efe9fb; --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+  --radius:12px; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171b; --surface:#1d2026; --surface-2:#252930; --ink:#eceef2; --ink-2:#b9bec8; --ink-3:#8b919c;
+    --line:#333842; --accent:#6aa6ec; --accent-ink:#0d1117; --accent-soft:#1d2b3d;
+    --ok:#5cc98a; --ok-soft:#173023; --bad:#f08a80; --bad-soft:#3a1d1b; --warn:#f0c060; --warn-soft:#352a12;
+    --tip:#b9a2f0; --tip-soft:#2a2340; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171b; --surface:#1d2026; --surface-2:#252930; --ink:#eceef2; --ink-2:#b9bec8; --ink-3:#8b919c;
+  --line:#333842; --accent:#6aa6ec; --accent-ink:#0d1117; --accent-soft:#1d2b3d;
+  --ok:#5cc98a; --ok-soft:#173023; --bad:#f08a80; --bad-soft:#3a1d1b; --warn:#f0c060; --warn-soft:#352a12;
+  --tip:#b9a2f0; --tip-soft:#2a2340; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:var(--accent)}
+h1,h2,h3,h4{line-height:1.25;margin:1.4em 0 .5em}
+h1{font-size:1.9rem;margin-top:.2em}
+h2{font-size:1.5rem;padding-top:.4em;border-top:1px solid var(--line)}
+h2:first-child{border-top:none;padding-top:0}
+h3{font-size:1.18rem}
+h4{font-size:1.02rem}
+p,li{color:var(--ink)}
+small,.muted{color:var(--ink-3)}
+code,.q .txt,.sim .row,.box p,.card p{overflow-wrap:anywhere}
+code,kbd{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:.08em .35em;border-radius:5px;border:1px solid var(--line)}
+kbd{border-bottom-width:2px}
+table{border-collapse:collapse;width:100%;margin:.8em 0;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}
+th{background:var(--surface-2)}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.layout{display:flex;min-height:100vh}
+nav.side{position:sticky;top:0;height:100vh;width:280px;flex:0 0 280px;overflow-y:auto;background:var(--surface);border-right:1px solid var(--line);padding:18px 14px 40px}
+nav.side .brand{font-weight:700;font-size:1.05rem;margin-bottom:2px}
+nav.side .count{font-size:.85rem;color:var(--ink-3);margin-bottom:12px}
+nav.side a{display:flex;justify-content:space-between;gap:8px;align-items:center;text-decoration:none;color:var(--ink-2);padding:6px 9px;border-radius:8px;font-size:.93rem}
+nav.side a:hover{background:var(--surface-2);color:var(--ink)}
+nav.side a.on{background:var(--accent-soft);color:var(--ink);font-weight:600}
+nav.side .grp{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin:14px 9px 4px}
+nav.side .pct{font-size:.75rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+main{flex:1;min-width:0;padding:28px 40px 120px}
+.wrap{max-width:900px;margin:0 auto}
+section.sec{scroll-margin-top:70px;margin-bottom:56px}
+.topbar{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin:14px 0;box-shadow:var(--shadow)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat b{display:block;font-size:1.6rem;font-variant-numeric:tabular-nums}
+.stat span{color:var(--ink-3);font-size:.88rem}
+.box{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0}
+.box.trap{border-color:var(--bad);background:var(--bad-soft)}
+.box.ok{border-color:var(--ok);background:var(--ok-soft)}
+.box.tip{border-color:var(--tip);background:var(--tip-soft)}
+.box.warn{border-color:var(--warn);background:var(--warn-soft)}
+.box>strong:first-child{display:block;margin-bottom:2px}
+.box p{margin:.3em 0}
+.box ul{margin:.3em 0;padding-left:1.2em}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);white-space:nowrap}
+.tag.c{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.tag.e{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.tag.x{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.stars{color:var(--warn);letter-spacing:1px;white-space:nowrap}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:9px}
+button:hover{border-color:var(--ink-3)}
+button.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:12px 0}
+.q .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px;font-size:.8rem;color:var(--ink-3)}
+.q .txt{margin:.2em 0 .7em}
+.q .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.q .acts button{min-width:92px}
+.q.right{border-color:var(--ok)}
+.q.wrong{border-color:var(--bad)}
+.q .res{margin-top:10px;padding:10px 12px;border-radius:9px;background:var(--surface-2);display:none}
+.q.done .res{display:block}
+.q .res .v{font-weight:700}
+.q.right .res .v{color:var(--ok)}
+.q.wrong .res .v{color:var(--bad)}
+.q .flag{margin-left:auto;font-size:.82rem;padding:4px 10px}
+.q .flag.on{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.qbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.qbar .sc{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:.92rem}
+.sim .row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.sim .row .n{font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.sim .opts{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.sim .opts label{display:inline-flex;gap:5px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:.9rem;background:var(--surface)}
+.sim .opts input{accent-color:var(--accent)}
+.sim .row.r{background:linear-gradient(90deg,var(--ok-soft),transparent 60%)}
+.sim .row.w{background:linear-gradient(90deg,var(--bad-soft),transparent 60%)}
+.sim .just{display:none;margin-top:8px;font-size:.93rem;background:var(--surface-2);padding:8px 10px;border-radius:8px}
+.sim.corrected .just{display:block}
+.timer{font-variant-numeric:tabular-nums;font-weight:700}
+.bar{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.plan td:first-child{white-space:nowrap}
+.plan input{transform:scale(1.15);accent-color:var(--accent)}
+.hl{background:linear-gradient(transparent 60%,var(--warn-soft) 60%)}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin:12px 0;overflow-x:auto}
+.diagram svg{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram svg text{fill:var(--ink);font-family:var(--sans)}
+.diagram svg .ln{stroke:var(--ink-2)}
+.diagram svg .fl{fill:var(--accent-soft);stroke:var(--accent)}
+.diagram svg .fl2{fill:var(--surface-2);stroke:var(--ink-3)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0}
+details summary{cursor:pointer;font-weight:600}
+.flash li{margin:.25em 0}
+.hist li{font-variant-numeric:tabular-nums}
+.themebtn{position:fixed;right:14px;bottom:14px;z-index:20;border-radius:999px;padding:8px 12px;font-size:.85rem;box-shadow:var(--shadow)}
+@media (max-width: 900px){
+  nav.side{position:fixed;left:0;top:0;z-index:30;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25)}
+  nav.side.open{transform:none}
+  main{padding:72px 16px 120px}
+  .topbar{display:flex;position:fixed;top:0;left:0;right:0;z-index:25;background:var(--surface);border-bottom:1px solid var(--line);padding:10px 16px;align-items:center;gap:12px}
+  .topbar b{font-size:.98rem}
+  .two{grid-template-columns:1fr}
+  h1{font-size:1.5rem}
+  .q .acts button{min-width:76px}
+}
+@media print{
+  nav.side,.topbar,.themebtn,.q .acts,.qbar{display:none!important}
+  main{padding:0}
+  .q .res{display:block}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><button id="menuBtn" aria-label="Abrir menu">☰</button><b>TI · Câmara 2027</b><span class="muted" id="cdTop"></span></div>
+<div class="layout">
+<nav class="side" id="side">
+  <div class="brand">TI e Dados · Câmara 2027</div>
+  <div class="count" id="cdSide"></div>
+  <div class="grp">Comece aqui</div>
+  <a href="#inicio">Painel e estratégia</a>
+  <a href="#raiox">Raio-X da prova 2025</a>
+  <a href="#examinador">A cabeça do examinador</a>
+  <a href="#plano">Plano até 17/01</a>
+  <div class="grp">Módulos do edital</div>
+  <a href="#m-off" data-mod="off">1 · Microsoft 365 <span class="pct"></span></a>
+  <a href="#m-red" data-mod="red">2 · Redes, Internet e intranet <span class="pct"></span></a>
+  <a href="#m-com" data-mod="com">3 · E-mail, Teams e Meet <span class="pct"></span></a>
+  <a href="#m-seg" data-mod="seg">4 · Segurança e governança <span class="pct"></span></a>
+  <a href="#m-ia" data-mod="ia">5 · Inteligência artificial <span class="pct"></span></a>
+  <a href="#m-eti" data-mod="eti">6 · Ética e responsabilidade digital <span class="pct"></span></a>
+  <a href="#m-dad" data-mod="dad">7 · Dados <span class="pct"></span></a>
+  <a href="#m-vis" data-mod="vis">8 · Visualização de dados <span class="pct"></span></a>
+  <div class="grp">Treino</div>
+  <a href="#simulados">Simulados (3 × 20)</a>
+  <a href="#erros">Caderno de erros <span class="pct" id="errCount"></span></a>
+  <a href="#vespera">Revisão de véspera</a>
+  <a href="#desempenho">Meu desempenho</a>
+</nav>
+<main><div class="wrap">
+<section class="sec" id="inicio">
+<h1>Tecnologia da Informação e Dados: estudo dirigido para gabaritar</h1>
+<p class="muted">Câmara dos Deputados · Analista Legislativo (Engenharia Civil) · Cebraspe · Edital nº 1, de 2/10/2026 · Prova objetiva em <b>17/01/2027</b> (manhã)</p>
+
+<div class="grid">
+  <div class="stat"><b id="cdBig">–</b><span>dias até a prova</span></div>
+  <div class="stat"><b>~18</b><span>itens de TI esperados (em 2025 foram 18: itens 163 a 180)</span></div>
+  <div class="stat"><b>+1 / −1</b><span>cada erro anula um acerto; item em branco vale 0</span></div>
+  <div class="stat"><b id="globalPct">0%</b><span>dos itens de treino já respondidos</span></div>
+</div>
+
+<h3>Onde a TI entra na sua prova</h3>
+<p>No edital de 2026, <b>Tecnologia da Informação e Dados</b> faz parte dos <b>Conhecimentos Básicos (P1, 90 itens)</b>, junto com Português, Inglês, Direito Administrativo/Administração Pública e Direito Constitucional/Regimento Interno. Para não ser eliminado é preciso ter pelo menos <b>18 pontos na P1</b>, <b>27 na P2</b> e <b>54 na soma</b>. Como o cargo não é de TI, o nível esperado é o da prova de 2025 para Analista Legislativo (Processo Legislativo e Gestão): itens conceituais, longos e bem redigidos, mas sem cálculo pesado nem configuração técnica.</p>
+
+<div class="box tip"><strong>Meta realista</strong>
+<p>Com cerca de 18 itens, mire em <b>15 ou mais pontos líquidos</b> (por exemplo, 16 acertos, 1 erro e 1 em branco). Esse placar é alcançável porque a banca repete <b>os mesmos núcleos conceituais</b> com redações diferentes, e este material treina exatamente esses núcleos.</p></div>
+
+<h3>Como usar este material</h3>
+<ol>
+  <li><b>Faça o Simulado 1 "a frio"</b>, antes de estudar. Ele mostra onde você está e quais módulos precisam de mais tempo.</li>
+  <li>Leia o <a href="#raiox">Raio-X 2025</a> e <a href="#examinador">A cabeça do examinador</a>. São as duas seções que mais mudam a sua forma de julgar itens.</li>
+  <li>Siga o <a href="#plano">Plano até 17/01</a>. Em cada módulo, leia a teoria e depois <b>responda todos os itens</b>. Os que você errar vão sozinhos para o <a href="#erros">Caderno de erros</a>.</li>
+  <li>Faça os Simulados 2 e 3 nas datas indicadas, compare as notas em <a href="#desempenho">Meu desempenho</a> e reforce os módulos mais fracos.</li>
+  <li>Na véspera, leia apenas a <a href="#vespera">Revisão de véspera</a>.</li>
+</ol>
+<p class="muted">Seu progresso (respostas, simulados, erros e plano) fica salvo apenas neste navegador. Se abrir o arquivo em outro aparelho, o progresso começa do zero.</p>
+
+<h3>A matemática do chute no Cebraspe</h3>
+<p>Se a sua chance de acertar um item é <i>p</i>, o ganho esperado ao marcar é <i>p</i> − (1 − <i>p</i>) = 2<i>p</i> − 1. Só compensa marcar quando <i>p</i> &gt; 50%. Regra prática: <b>marque se tiver um motivo concreto</b> (reconheceu a troca de conceito, a palavra absoluta ou a definição correta); <b>deixe em branco</b> se for cara ou coroa. Em TI, depois deste treino, você deve deixar no máximo 1 ou 2 itens em branco.</p>
+
+<h3>O que mais cai: probabilidade por tópico</h3>
+<div class="tbl"><table>
+<tr><th>Item do edital</th><th>Chance de cair</th><th>Itens esperados</th><th>O que a banca adora</th></tr>
+<tr><td>4 Segurança (backup, malware, antivírus/firewall/antispyware, phishing/pharming)</td><td class="stars">★★★★★</td><td>4–5</td><td>vírus × worm; pharming × phishing; backup offline contra ransomware; antivírus por assinatura × heurística</td></tr>
+<tr><td>5 Inteligência artificial (prompts, tipos de aprendizado, IA generativa)</td><td class="stars">★★★★★</td><td>3–4</td><td>supervisionado × não supervisionado × reforço; alucinação; LLM/foundation model; few-shot; métricas</td></tr>
+<tr><td>1 Microsoft 365 (Word, Excel, PowerPoint, OneDrive)</td><td class="stars">★★★★☆</td><td>2–4</td><td>fórmula de Excel (SOMASE, PROCV, referência $); coautoria; OneDrive (sincronização, compartilhamento, versões)</td></tr>
+<tr><td>8 Visualização de dados (novo no edital)</td><td class="stars">★★★★☆</td><td>2–3</td><td>histograma × barras; box plot (mediana, quartis, outliers); dispersão; Power BI/Tableau/Looker Studio; storytelling</td></tr>
+<tr><td>2 Redes, Internet e intranet</td><td class="stars">★★★★☆</td><td>2–3</td><td>intranet usa os protocolos da Internet; nuvem; navegação anônima; perfis; DNS; HTTPS</td></tr>
+<tr><td>7 Dados (conceitos, atributos, métricas, transformação)</td><td class="stars">★★★☆☆</td><td>1–2</td><td>dado × informação; tipos de atributo; ETL; qualidade; correlação × causalidade</td></tr>
+<tr><td>6 Ética e responsabilidade digital no serviço público</td><td class="stars">★★★☆☆</td><td>1–2</td><td>rastreabilidade, transparência, viés, revisão humana, ferramentas aprovadas, LGPD</td></tr>
+<tr><td>3 Comunicação (e-mail, Teams, Meet)</td><td class="stars">★★★☆☆</td><td>1–2</td><td>SMTP/POP/IMAP; Cc × Cco; coedição no Teams; canais; recursos de reunião</td></tr>
+</table></div>
+</section>
+
+<section class="sec" id="raiox">
+<h2>Raio-X da prova de 2025 (itens 163 a 180)</h2>
+<p>Esta é a prova mais importante do material: <b>mesma banca, mesmo órgão, mesmo nível de cargo</b> (Analista Legislativo, aplicada em 08/03/2026). Veja como cada item foi construído. Os itens marcados com E foram montados com uma das "armadilhas-padrão" do Cebraspe.</p>
+<div class="tbl"><table>
+<tr><th>Item</th><th>Tema</th><th>Gab.</th><th>Como o examinador construiu o item</th></tr>
+<tr><td>163</td><td>SSD não volátil</td><td><span class="tag c">C</span></td><td>Definição correta e simples: SSD guarda os dados sem energia.</td></tr>
+<tr><td>164</td><td>Concorrência em um núcleo</td><td><span class="tag e">E</span></td><td><b>Troca de conceitos vizinhos</b>: com um único núcleo, as threads se <i>alternam</i> (concorrência); "simultaneamente" seria paralelismo.</td></tr>
+<tr><td>165</td><td>Operações de E/S</td><td><span class="tag e">E</span></td><td><b>Troca</b>: tarefas limitadas por E/S (I/O-bound) dependem do disco e da rede, não da CPU. Ainda tem o absoluto "sem impacto".</td></tr>
+<tr><td>166</td><td>Teams + Office</td><td><span class="tag c">C</span></td><td>Recurso real: coedição simultânea de Word, Excel e PowerPoint dentro do Teams, sem baixar o arquivo.</td></tr>
+<tr><td>167</td><td>Renomear em lote no Windows</td><td><span class="tag c">C</span></td><td>Recurso real: selecionar vários arquivos e pressionar F2 gera Nome (1), Nome (2)…</td></tr>
+<tr><td>168</td><td>SOMASE no Excel</td><td><span class="tag x">X</span></td><td>Anulado por erro de digitação (faltou aspas). Pela matemática, as duas fórmulas dariam 403 e o item seria C.</td></tr>
+<tr><td>169</td><td>Nuvem pública</td><td><span class="tag e">E</span></td><td><b>Extrapolação</b>: a infraestrutura é compartilhada, mas os dados ficam isolados. Outras organizações não podem vê-los.</td></tr>
+<tr><td>170</td><td>Perfis no Chrome</td><td><span class="tag c">C</span></td><td>Recurso real: cada perfil tem histórico, favoritos e senhas próprios.</td></tr>
+<tr><td>171</td><td>Aba anônima</td><td><span class="tag c">C</span></td><td>Privacidade apenas local; sites, rede e provedor continuam vendo o acesso.</td></tr>
+<tr><td>172</td><td>Pharming</td><td><span class="tag e">E</span></td><td><b>Definição trocada</b>: descreveu a injeção de código na página (man-in-the-browser). Pharming é redirecionar para site falso por DNS ou arquivo hosts.</td></tr>
+<tr><td>173</td><td>Anti-spyware</td><td><span class="tag e">E</span></td><td><b>Absolutização e restrição</b>: "camada única", "reativa", só "assinaturas". As soluções atuais usam várias camadas (assinatura, heurística, comportamento, nuvem).</td></tr>
+<tr><td>174</td><td>Vírus × worm</td><td><span class="tag c">C</span></td><td>Distinção clássica, com modalizadores ("usualmente", "em geral").</td></tr>
+<tr><td>175</td><td>Backup e ransomware</td><td><span class="tag e">E</span></td><td><b>"É dispensável"</b>: cópias offline ou imutáveis continuam essenciais, porque o ransomware ataca o que está conectado.</td></tr>
+<tr><td>176</td><td>Ética digital</td><td><span class="tag c">C</span></td><td>Rastreabilidade, registro e justificativa permitem controle e responsabilização ("quando couber").</td></tr>
+<tr><td>177</td><td>Foundation model</td><td><span class="tag e">E</span></td><td><b>Troca de paradigma</b>: descreveu a IA simbólica (regras explícitas). Foundation model é um modelo grande, pré-treinado com dados em massa.</td></tr>
+<tr><td>178</td><td>Acurácia com classes desbalanceadas</td><td><span class="tag e">E</span></td><td><b>Conceito certo no contexto errado</b>: com 99% de casos legítimos, a acurácia engana. Use precisão, recall e F1.</td></tr>
+<tr><td>179</td><td>Governança da informação</td><td><span class="tag c">C</span></td><td>Definição ampla e correta: políticas, papéis e processos ao longo do ciclo de vida.</td></tr>
+<tr><td>180</td><td>Ciência de dados</td><td><span class="tag c">C</span></td><td>Definição ampla e correta, com exemplos de tarefas.</td></tr>
+</table></div>
+<div class="box"><strong>Leitura estratégica</strong>
+<p>Foram 9 C, 8 E e 1 anulado. <b>Todos os 8 itens errados</b> tinham uma de três marcas: troca de conceito vizinho (164, 165, 172, 177), absolutização ou restrição indevida (165, 173, 175) ou extrapolação de contexto (169, 178). <b>Todos os certos</b> eram definições amplas ou recursos reais descritos com modalizadores. O edital de 2026 trocou hardware e Windows por <b>Visualização de dados</b>, <b>Engenharia de prompts</b> e <b>tipos de aprendizado</b>. Esses são os temas novos com maior chance de estrear na sua prova.</p></div>
+<h3>Refaça os itens de 2025</h3>
+<div class="quiz" data-set="rx"></div>
+</section>
+
+<section class="sec" id="examinador">
+<h2>A cabeça do examinador do Cebraspe</h2>
+<p>O examinador parte de uma <b>frase verdadeira de livro ou de documentação</b> e, para fazer um item errado, aplica uma <b>mutação</b>. Se você souber quais são as mutações, passa a "desmontar" o item em vez de adivinhar.</p>
+
+<h3>As 6 mutações que tornam um item ERRADO</h3>
+<div class="tbl"><table>
+<tr><th>Mutação</th><th>Como aparece</th><th>Exemplo real</th></tr>
+<tr><td><b>1. Troca de vizinhos</b></td><td>Atribui a A a definição de B, um conceito parecido.</td><td>Pharming descrito como injeção de código (172); vírus descrito como worm (questões do banco).</td></tr>
+<tr><td><b>2. Absolutização</b></td><td>"sempre", "nunca", "apenas", "exclusivamente", "garante", "dispensável", "imune", "totalmente", "camada única", "por definição".</td><td>"É dispensável a cópia offline" (175); "camada única… reativa" (173).</td></tr>
+<tr><td><b>3. Inversão de causa ou de papel</b></td><td>Troca quem faz o quê, ou a ordem dos argumentos.</td><td>SOMASE somando o intervalo de critério; SMTP para receber e-mail.</td></tr>
+<tr><td><b>4. Extrapolação</b></td><td>Leva uma característica verdadeira a uma consequência que não decorre dela.</td><td>Nuvem compartilhada, então outros veem os dados (169); muitos dados, então IA imparcial.</td></tr>
+<tr><td><b>5. Contexto errado</b></td><td>Conceito correto aplicado onde ele não vale.</td><td>Acurácia com classes desbalanceadas (178).</td></tr>
+<tr><td><b>6. Garantia falsa</b></td><td>Promete que a ferramenta resolve tudo.</td><td>"Antivírus instalado garante proteção mesmo sem atualizar" (banco).</td></tr>
+</table></div>
+
+<h3>Sinais típicos de item CERTO</h3>
+<ul>
+<li>Modalizadores: <i>em geral, usualmente, pode, podem, tende a, entre outros, quando couber</i>.</li>
+<li>Definição ampla e completa que coincide com a de manuais (Cert.br, Microsoft, Google, literatura de IA).</li>
+<li>Descrição de um recurso real e popular de software (perfis no Chrome, coedição no Teams, histórico de versões no OneDrive).</li>
+</ul>
+<div class="box warn"><strong>Cuidado: são tendências, não leis</strong>
+<p>A banca também faz itens certos com "sempre" (por exemplo, "o IPv6 sempre usa 128 bits") e errados cheios de "pode". Use as palavras como <b>alerta para reler</b>, nunca como gabarito automático. O que decide o item é o conceito.</p></div>
+
+<h3>Método dos 3 passos (≈ 40 segundos por item)</h3>
+<ol>
+<li><b>Ache o núcleo</b>: qual conceito está sendo definido ou atribuído? ("O pharming <u>caracteriza-se por</u>…").</li>
+<li><b>Confira a definição</b>: ela é a do próprio conceito ou a de um vizinho? (pharming = redirecionamento, não injeção).</li>
+<li><b>Teste cada qualificador</b>: para cada "apenas", "sem", "dispensa", "garante", procure um contraexemplo. Se encontrar um, o item está errado.</li>
+</ol>
+
+<h3>Os pares de vizinhos que mais caem</h3>
+<div class="tbl"><table>
+<tr><th>Conceito A</th><th>Conceito B</th><th>Diferença que decide</th></tr>
+<tr><td>Vírus</td><td>Worm</td><td>Vírus precisa de hospedeiro e de execução; worm se propaga sozinho pela rede.</td></tr>
+<tr><td>Phishing</td><td>Pharming</td><td>Phishing engana com uma mensagem ou link; pharming redireciona mesmo quando a URL é digitada corretamente.</td></tr>
+<tr><td>Backup incremental</td><td>Diferencial</td><td>Incremental copia o que mudou desde o último backup de qualquer tipo; diferencial, desde o último completo.</td></tr>
+<tr><td>Antivírus</td><td>Firewall</td><td>Antivírus detecta e remove código malicioso; firewall filtra o tráfego de rede por regras.</td></tr>
+<tr><td>Supervisionado</td><td>Não supervisionado</td><td>Com rótulos (classificação, regressão) × sem rótulos (agrupamento, associação).</td></tr>
+<tr><td>Reforço</td><td>Supervisionado</td><td>No reforço há recompensa ou punição por ações, sem "resposta certa" rotulada.</td></tr>
+<tr><td>IA simbólica</td><td>IA conexionista</td><td>Regras explícitas (sistemas especialistas) × aprendizado a partir de dados (redes neurais, LLM).</td></tr>
+<tr><td>Histograma</td><td>Gráfico de barras</td><td>Distribuição de variável numérica, com barras coladas × comparação de categorias, com barras separadas.</td></tr>
+<tr><td>Intranet</td><td>Internet</td><td>Mesma tecnologia (TCP/IP, HTTP), mas com acesso restrito à organização.</td></tr>
+<tr><td>POP3</td><td>IMAP</td><td>POP3 baixa as mensagens; IMAP sincroniza e as mantém no servidor.</td></tr>
+<tr><td>Cc</td><td>Cco</td><td>Destinatários em Cco ficam ocultos dos demais.</td></tr>
+<tr><td>Média</td><td>Mediana</td><td>A média é sensível a outliers; a mediana é robusta (é a linha do box plot).</td></tr>
+</table></div>
+</section>
+
+<section class="sec" id="plano">
+<h2>Plano de estudo: 29/10/2026 → 17/01/2027</h2>
+<p>A TI é uma matéria entre muitas. O plano usa <b>cerca de 3 a 4 horas por semana</b>, em 2 ou 3 sessões curtas, e começa pelo que mais rende (Segurança e IA). Cada sessão segue a mesma ordem: teoria (40%), itens do módulo (40%) e caderno de erros (20%). Marque as tarefas concluídas.</p>
+<div class="tbl"><table class="plan" id="planTbl">
+<tr><th>Semana</th><th>Tarefas</th><th>Feito</th></tr>
+</table></div>
+<div class="box tip"><strong>Revisão espaçada</strong>
+<p>Revise cada módulo <b>1 dia</b>, <b>7 dias</b> e <b>21 dias</b> depois do estudo inicial, refazendo apenas os itens do Caderno de erros e relendo os quadros "Pegadinhas". Esse retorno em intervalos é o que fixa o conteúdo até janeiro.</p></div>
+</section>
+<section class="sec" id="m-off">
+<h2>Módulo 1 · Microsoft 365: Word, Excel, PowerPoint e OneDrive</h2>
+<p class="muted">Edital: item 1. Chance de cair: ★★★★☆. A banca tende a cobrar <b>um item de fórmula do Excel</b> e um ou dois de recursos de colaboração (coautoria, OneDrive, versões).</p>
+
+<h3>O que é o Microsoft 365</h3>
+<p>É o pacote do Office vendido por <b>assinatura</b> e integrado à nuvem. Os aplicativos existem em três formas: <b>desktop</b> (instalado no computador), <b>web</b> (no navegador, sem instalar) e <b>móvel</b>. Quando os arquivos ficam no <b>OneDrive</b> ou no <b>SharePoint</b>, ganham três recursos que caem muito em prova:</p>
+<ul>
+<li><b>Salvamento Automático (AutoSalvamento)</b>: grava as alterações a cada poucos segundos. Só funciona com arquivos na nuvem (OneDrive ou SharePoint).</li>
+<li><b>Coautoria</b>: várias pessoas editam o mesmo arquivo <i>ao mesmo tempo</i>, pelo desktop, pela web ou dentro do Teams, e veem os cursores umas das outras.</li>
+<li><b>Histórico de versões</b>: permite ver e restaurar versões anteriores do arquivo.</li>
+</ul>
+<p>O <b>Copilot</b> é o assistente de IA generativa integrado aos aplicativos: resume documentos, redige rascunhos, cria slides e analisa planilhas. Ele faz a ponte com o item 5 do edital.</p>
+
+<h3>Excel: o que você precisa dominar</h3>
+<h4>1. Referências: o tema que mais cai</h4>
+<p>Quando você copia uma fórmula, o Excel "desloca" as referências de acordo com o movimento. O cifrão (<code>$</code>) <b>trava</b> a parte que vem logo depois dele.</p>
+<div class="tbl"><table>
+<tr><th>Tipo</th><th>Escrita</th><th>Ao copiar a fórmula…</th></tr>
+<tr><td>Relativa</td><td><code>A1</code></td><td>coluna e linha mudam</td></tr>
+<tr><td>Absoluta</td><td><code>$A$1</code></td><td>nada muda</td></tr>
+<tr><td>Mista (coluna travada)</td><td><code>$A1</code></td><td>só a linha muda</td></tr>
+<tr><td>Mista (linha travada)</td><td><code>A$1</code></td><td>só a coluna muda</td></tr>
+</table></div>
+<div class="box"><strong>Exemplo resolvido</strong>
+<p>Em C1 está <code>=A1*$B$1</code>. Copiando para C2 (uma linha abaixo), o resultado é <code>=A2*$B$1</code>. Copiando para D5 (uma coluna à direita e quatro linhas abaixo), o resultado é <code>=B5*$B$1</code>. A tecla <kbd>F4</kbd> alterna entre A1 → $A$1 → A$1 → $A1.</p></div>
+
+<h4>2. Operadores e ordem de cálculo</h4>
+<p>No Excel em português o separador de argumentos é o <b>ponto e vírgula</b> (<code>;</code>) e o intervalo usa <b>dois-pontos</b> (<code>A1:A5</code> significa de A1 até A5). Já <code>A1;A5</code> são só as duas células.</p>
+<p>A ordem de cálculo é: <b>parênteses → potência (^) → multiplicação e divisão → soma e subtração → concatenação (&amp;) → comparação (=, &gt;, &lt;, &lt;&gt;)</b>.</p>
+<p>Exemplo: <code>=2+3*2^2</code> = 2 + 3×4 = <b>14</b> (e não 100). Já <code>="Câmara"&amp;" "&amp;2027</code> resulta no texto "Câmara 2027".</p>
+
+<h4>3. Funções que mais caem</h4>
+<div class="tbl"><table>
+<tr><th>Função</th><th>Sintaxe</th><th>O que faz</th></tr>
+<tr><td>SOMA, MÉDIA, MÁXIMO, MÍNIMO</td><td><code>=SOMA(B2:B7)</code></td><td>Básicas. MÉDIA ignora células vazias e com texto.</td></tr>
+<tr><td>MED</td><td><code>=MED(B2:B7)</code></td><td>Mediana (valor central).</td></tr>
+<tr><td>CONT.NÚM</td><td><code>=CONT.NÚM(A1:A10)</code></td><td>Conta só as células com <b>números</b>.</td></tr>
+<tr><td>CONT.VALORES</td><td><code>=CONT.VALORES(A1:A10)</code></td><td>Conta as células <b>não vazias</b> (número, texto, erro…).</td></tr>
+<tr><td>CONTAR.VAZIO</td><td><code>=CONTAR.VAZIO(A1:A10)</code></td><td>Conta as células vazias.</td></tr>
+<tr><td>CONT.SE</td><td><code>=CONT.SE(B2:B7;"&gt;500")</code></td><td>Conta as células que atendem a <b>um</b> critério.</td></tr>
+<tr><td>SOMASE</td><td><code>=SOMASE(intervalo;critério;[intervalo_soma])</code></td><td>Soma o que atende ao critério. Sem o 3º argumento, soma o próprio intervalo.</td></tr>
+<tr><td>SOMASES</td><td><code>=SOMASES(intervalo_soma;int_crit1;crit1;…)</code></td><td>Vários critérios. <b>O intervalo de soma vem PRIMEIRO</b>, o inverso do SOMASE.</td></tr>
+<tr><td>SE</td><td><code>=SE(B2&gt;=7;"Aprovado";"Reprovado")</code></td><td>Teste lógico com dois resultados.</td></tr>
+<tr><td>E / OU</td><td><code>=SE(E(B2&gt;=7;C2&gt;=75%);…)</code></td><td>E: todas as condições verdadeiras. OU: pelo menos uma.</td></tr>
+<tr><td>PROCV</td><td><code>=PROCV(valor;tabela;nº_coluna;FALSO)</code></td><td>Procura o valor na <b>1ª coluna</b> da tabela e devolve a coluna indicada, na mesma linha. FALSO = correspondência exata. Só "olha para a direita".</td></tr>
+<tr><td>PROCX</td><td><code>=PROCX(valor;col_busca;col_retorno)</code></td><td>Versão moderna: busca em qualquer coluna e devolve qualquer coluna, inclusive à esquerda. Exata por padrão.</td></tr>
+<tr><td>SEERRO</td><td><code>=SEERRO(fórmula;"—")</code></td><td>Mostra um valor alternativo quando a fórmula dá erro.</td></tr>
+<tr><td>HOJE / AGORA</td><td><code>=HOJE()</code></td><td>Data atual / data e hora atuais (são recalculadas).</td></tr>
+<tr><td>CONCAT / &amp;</td><td><code>=CONCAT(A2;" ";B2)</code></td><td>Junta textos.</td></tr>
+<tr><td>ARRED</td><td><code>=ARRED(3,14159;2)</code></td><td>Arredonda (resultado: 3,14).</td></tr>
+</table></div>
+
+<div class="box"><strong>A planilha da prova de 2025, resolvida</strong>
+<div class="tbl"><table style="max-width:340px">
+<tr><th></th><th>A</th><th>B</th></tr>
+<tr><td>1</td><td>cliente</td><td>saldo</td></tr>
+<tr><td>2</td><td>André</td><td>250</td></tr><tr><td>3</td><td>Carla</td><td>537</td></tr><tr><td>4</td><td>Eduardo</td><td>721</td></tr>
+<tr><td>5</td><td>Leonardo</td><td>136</td></tr><tr><td>6</td><td>Mariana</td><td>17</td></tr><tr><td>7</td><td>Patrícia</td><td>1.406</td></tr>
+</table></div>
+<p><code>=SOMASE(B2:B7;"&lt;500";B2:B7)</code> = 250 + 136 + 17 = <b>403</b>.<br>
+<code>=SOMA(B2:B7)−SOMASE(B2:B7;"&gt;=500";B2:B7)</code> = 3.067 − (537 + 721 + 1.406) = 3.067 − 2.664 = <b>403</b>.</p>
+<p>As duas dão o mesmo resultado porque "&lt;500" e "&gt;=500" são complementares. O item foi anulado só por um erro de aspas. <b>Lição: a banca gosta de fórmulas equivalentes escritas de jeitos diferentes.</b> Teste com os números, sempre.</p></div>
+
+<h4>4. Erros do Excel</h4>
+<div class="tbl"><table>
+<tr><th>Erro</th><th>Causa típica</th></tr>
+<tr><td><code>#DIV/0!</code></td><td>Divisão por zero ou por célula vazia.</td></tr>
+<tr><td><code>#N/D</code></td><td>Valor não encontrado (comum em PROCV e PROCX).</td></tr>
+<tr><td><code>#NOME?</code></td><td>Nome de função digitado errado ou texto sem aspas.</td></tr>
+<tr><td><code>#REF!</code></td><td>Referência inválida, por exemplo depois de excluir a célula referenciada.</td></tr>
+<tr><td><code>#VALOR!</code></td><td>Tipo de dado errado (somar texto com número).</td></tr>
+<tr><td><code>#####</code></td><td>Coluna estreita demais para mostrar o valor (não é erro de fórmula).</td></tr>
+</table></div>
+
+<h4>5. Recursos de análise</h4>
+<ul>
+<li><b>Classificar</b>: reordena as linhas. <b>Filtrar</b>: apenas <i>oculta</i> as linhas que não atendem ao critério. Nada é excluído.</li>
+<li><b>Formatação condicional</b>: muda a cor ou o ícone conforme o valor (por exemplo, saldo negativo em vermelho).</li>
+<li><b>Validação de dados</b>: restringe o que pode ser digitado (lista suspensa, intervalo numérico).</li>
+<li><b>Tabela dinâmica</b>: resume, agrupa e cruza grandes volumes de dados <b>sem alterar a origem</b> (por exemplo, total de medições por obra e por mês).</li>
+<li><b>Congelar painéis</b>: mantém cabeçalhos visíveis durante a rolagem.</li>
+<li><b>Alça de preenchimento</b>: arrastar 1 e 2 continua a série (3, 4…); "jan" vira "fev", "mar"…</li>
+<li><b>Preenchimento Relâmpago</b>: reconhece um padrão (por exemplo, extrair o primeiro nome) e completa a coluna.</li>
+<li><b>Remover duplicatas</b> e <b>Texto para colunas</b>: limpeza de dados, que conecta com o Módulo 7.</li>
+</ul>
+
+<h3>Word</h3>
+<ul>
+<li><b>Estilos</b> (Título 1, Título 2…): padronizam a formatação e são a base do <b>sumário automático</b>, que é atualizável.</li>
+<li><b>Quebra de página</b> (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>) × <b>quebra de seção</b>: a seção permite ter, no mesmo documento, orientações (retrato e paisagem), margens, colunas, cabeçalhos e numeração diferentes.</li>
+<li><b>Controlar Alterações</b> (guia Revisão): registra inserções, exclusões e formatação, que depois podem ser <b>aceitas ou rejeitadas</b>. <b>Comentários</b> são anotações à margem. <b>Comparar</b> mostra as diferenças entre duas versões.</li>
+<li><b>Mala direta</b>: combina um documento-modelo com uma lista de dados (Excel, contatos) para gerar cartas ou etiquetas personalizadas.</li>
+<li><b>Referências</b>: notas de rodapé, citações, legendas, índice.</li>
+<li><b>Exportar como PDF</b>, salvar como modelo (<code>.dotx</code>). Arquivos com macro usam <code>.docm</code>.</li>
+<li><b>Editor</b> (ortografia e gramática, <kbd>F7</kbd>), <b>Ditar</b> (voz para texto) e <b>Ler em Voz Alta</b>.</li>
+</ul>
+<div class="box warn"><strong>Atalhos do Word em português (a banca já cobrou)</strong>
+<p><kbd>Ctrl</kbd>+<kbd>N</kbd> negrito · <kbd>Ctrl</kbd>+<kbd>I</kbd> itálico · <kbd>Ctrl</kbd>+<kbd>S</kbd> <b>sublinhado</b> · <kbd>Ctrl</kbd>+<kbd>B</kbd> <b>salvar</b> · <kbd>Ctrl</kbd>+<kbd>O</kbd> novo · <kbd>Ctrl</kbd>+<kbd>A</kbd> abrir · <kbd>Ctrl</kbd>+<kbd>P</kbd> imprimir · <kbd>Ctrl</kbd>+<kbd>L</kbd> localizar · <kbd>Ctrl</kbd>+<kbd>U</kbd> substituir · <kbd>Ctrl</kbd>+<kbd>T</kbd> selecionar tudo · <kbd>Ctrl</kbd>+<kbd>E</kbd> centralizar · <kbd>Ctrl</kbd>+<kbd>J</kbd> justificar · <kbd>F12</kbd> salvar como. Os atalhos universais continuam: <kbd>Ctrl</kbd>+<kbd>C</kbd>/<kbd>X</kbd>/<kbd>V</kbd>/<kbd>Z</kbd>/<kbd>Y</kbd>.</p></div>
+
+<h3>PowerPoint</h3>
+<ul>
+<li><b>Slide Mestre</b>: define o padrão visual (fontes, cores, logotipo, posições). Uma alteração nele <b>se reflete em todos os slides</b> baseados naquele mestre e layout.</li>
+<li><b>Transição</b> = efeito na <i>passagem</i> de um slide para outro. <b>Animação</b> = efeito em um <i>objeto</i> dentro do slide (entrada, ênfase, saída, trajetória).</li>
+<li><b>Modo de Exibição do Apresentador</b>: no seu monitor aparecem as anotações, o próximo slide e o cronômetro; o público vê só o slide.</li>
+<li><kbd>F5</kbd> inicia a apresentação do primeiro slide; <kbd>Shift</kbd>+<kbd>F5</kbd>, do slide atual; <kbd>Esc</kbd> encerra.</li>
+<li><b>Ocultar slide</b>: o slide continua no arquivo mas não aparece na apresentação. <b>Seções</b> organizam slides em grupos.</li>
+<li><b>Designer</b>: sugere layouts automaticamente. Também é possível exportar como PDF ou vídeo. O formato <code>.ppsx</code> abre direto em modo de apresentação.</li>
+</ul>
+
+<h3>OneDrive</h3>
+<ul>
+<li>Armazenamento em nuvem da Microsoft, acessível pelo navegador, pelo aplicativo de sincronização do Windows ou pelo celular.</li>
+<li><b>Sincronização</b>: o que você altera ou <b>exclui</b> numa pasta sincronizada é replicado na nuvem e nos outros dispositivos. Por isso <b>sincronizar não é o mesmo que fazer backup</b>.</li>
+<li><b>Arquivos sob Demanda</b>: os arquivos aparecem no Explorador, mas só são baixados quando abertos. Ícone de nuvem = só online; marca verde = disponível no dispositivo. Economiza disco.</li>
+<li><b>Backup de pastas do PC</b>: protege Área de Trabalho, Documentos e Imagens enviando-os ao OneDrive.</li>
+<li><b>Compartilhamento por link</b>: você escolhe quem acessa (qualquer pessoa com o link, pessoas da organização ou pessoas específicas) e se o destinatário pode <b>exibir ou editar</b>. Conforme o plano, dá para definir data de expiração e senha.</li>
+<li><b>Histórico de versões</b> e <b>Lixeira</b>: permitem recuperar versões e arquivos excluídos por um prazo limitado. Em contas pessoais com assinatura há também o recurso <b>Restaurar seu OneDrive</b>, útil depois de um ataque de ransomware.</li>
+<li>No Teams, arquivos enviados em <b>chat</b> ficam no OneDrive de quem enviou; arquivos de <b>canal</b> ficam no SharePoint da equipe.</li>
+</ul>
+
+<div class="box trap"><strong>Pegadinhas do Módulo 1</strong>
+<ul>
+<li>SOMASES começa pelo intervalo de <b>soma</b>; SOMASE termina nele.</li>
+<li>PROCV não busca à esquerda; PROCX busca.</li>
+<li>CONT.NÚM conta só números; CONT.VALORES conta qualquer célula não vazia.</li>
+<li>Filtro oculta, não exclui.</li>
+<li>Coautoria funciona também no navegador e no Teams, não só no desktop.</li>
+<li>OneDrive sincronizado não é backup: a exclusão se propaga.</li>
+<li>Slide Mestre altera todos os slides; transição ≠ animação.</li>
+<li>No Word em português, <kbd>Ctrl</kbd>+<kbd>S</kbd> é sublinhado e <kbd>Ctrl</kbd>+<kbd>B</kbd> é salvar.</li>
+</ul></div>
+<h3>Treine o Módulo 1</h3>
+<div class="quiz" data-mod="off"></div>
+</section>
+<section class="sec" id="m-red">
+<h2>Módulo 2 · Redes de computadores, Internet e intranet</h2>
+<p class="muted">Edital: item 2 e 2.1. Chance de cair: ★★★★☆. Em 2025 foram 3 itens: nuvem pública, perfis do Chrome e aba anônima. A banca prefere <b>situações de uso</b> a detalhes técnicos.</p>
+
+<h3>Conceitos básicos em linguagem simples</h3>
+<p>Uma <b>rede</b> é um conjunto de dispositivos interligados para compartilhar dados e recursos. Pense numa obra: cada equipe é um dispositivo, o canteiro é a rede local e as estradas entre canteiros são a Internet.</p>
+<div class="tbl"><table>
+<tr><th>Por abrangência</th><th>Exemplo</th></tr>
+<tr><td>PAN (pessoal)</td><td>Celular e fone Bluetooth</td></tr>
+<tr><td>LAN (local)</td><td>Rede de um andar ou de um prédio da Câmara</td></tr>
+<tr><td>MAN (metropolitana)</td><td>Rede que interliga prédios numa cidade</td></tr>
+<tr><td>WAN (longa distância)</td><td>Ligação entre estados; a Internet é a maior WAN</td></tr>
+</table></div>
+
+<h4>Equipamentos</h4>
+<ul>
+<li><b>Switch</b>: interliga dispositivos <i>dentro</i> da mesma rede local e entrega cada pacote ao destino certo.</li>
+<li><b>Roteador</b>: interliga <i>redes diferentes</i> (por exemplo, a LAN e a Internet) e escolhe o caminho dos pacotes. Em casa, o roteador Wi-Fi costuma acumular roteador, switch e ponto de acesso.</li>
+<li><b>Ponto de acesso (access point)</b>: conecta dispositivos sem fio (Wi-Fi) à rede.</li>
+<li><b>Modem</b>: converte o sinal da operadora (fibra, cabo) para a rede.</li>
+</ul>
+
+<h4>Endereços e nomes</h4>
+<ul>
+<li><b>Endereço IP</b>: identifica cada dispositivo na rede. O <b>IPv4</b> tem 32 bits (por exemplo, 192.168.0.10) e os endereços se esgotaram; o <b>IPv6</b> tem <b>128 bits</b>.</li>
+<li><b>DNS</b>: o "catálogo telefônico" da Internet. Traduz nomes (<code>camara.leg.br</code>) em endereços IP. Se o DNS for adulterado, você cai num site falso: é o <b>pharming</b> (Módulo 4).</li>
+<li><b>DHCP</b>: entrega automaticamente IP e configurações aos dispositivos que entram na rede.</li>
+<li><b>NAT</b>: permite que vários dispositivos da rede interna saiam para a Internet usando um único IP público.</li>
+</ul>
+
+<h4>Protocolos: as "regras de conversa"</h4>
+<div class="tbl"><table>
+<tr><th>Protocolo</th><th>Para quê</th><th>Porta padrão</th></tr>
+<tr><td>HTTP / <b>HTTPS</b></td><td>Páginas web; o HTTPS é criptografado com TLS (cadeado)</td><td>80 / 443</td></tr>
+<tr><td>DNS</td><td>Resolver nomes em IP</td><td>53</td></tr>
+<tr><td><b>SMTP</b></td><td><b>Enviar</b> e-mail</td><td>25 / 587</td></tr>
+<tr><td><b>POP3</b> / <b>IMAP</b></td><td><b>Receber</b> e-mail (baixar ou sincronizar)</td><td>110 / 143</td></tr>
+<tr><td>FTP</td><td>Transferir arquivos</td><td>20-21</td></tr>
+<tr><td>SSH</td><td>Acesso remoto seguro</td><td>22</td></tr>
+<tr><td><b>TCP</b></td><td>Transporte <b>confiável</b>: estabelece conexão, garante entrega e ordem (web, e-mail)</td><td>–</td></tr>
+<tr><td><b>UDP</b></td><td>Transporte <b>rápido, sem garantia</b> (voz, vídeo ao vivo, DNS)</td><td>–</td></tr>
+</table></div>
+<p>O conjunto <b>TCP/IP</b> é a base da Internet. Não é preciso decorar camadas; basta saber que IP endereça, TCP/UDP transportam e HTTP, SMTP e similares são aplicações.</p>
+
+<h3>Internet, intranet e extranet</h3>
+<div class="diagram"><svg viewBox="0 0 640 210" role="img" aria-label="Internet, intranet e extranet">
+<rect x="10" y="20" width="620" height="180" rx="14" class="fl2" stroke-width="1.5"/>
+<text x="24" y="44" font-size="15" font-weight="700">Internet: rede pública mundial (TCP/IP, HTTP, DNS…)</text>
+<rect x="40" y="62" width="330" height="120" rx="12" class="fl" stroke-width="1.5"/>
+<text x="56" y="86" font-size="14" font-weight="700">Intranet da organização</text>
+<text x="56" y="108" font-size="12.5">Mesmas tecnologias da Internet</text>
+<text x="56" y="126" font-size="12.5">Acesso restrito aos servidores</text>
+<text x="56" y="144" font-size="12.5">De fora, pode ser acessada por VPN</text>
+<rect x="390" y="62" width="220" height="120" rx="12" class="fl" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="406" y="86" font-size="14" font-weight="700">Extranet</text>
+<text x="406" y="108" font-size="12.5">Parte da intranet aberta</text>
+<text x="406" y="126" font-size="12.5">a parceiros autorizados</text>
+<text x="406" y="144" font-size="12.5">(fornecedores, órgãos)</text>
+</svg></div>
+<ul>
+<li><b>Intranet</b>: rede <b>privada</b> que usa <b>os mesmos protocolos e ferramentas da Internet</b> (TCP/IP, HTTP, navegador, e-mail). Pode estar ligada à Internet e pode ser acessada de fora por <b>VPN</b>. O que a define é o <b>acesso restrito</b>, não a ausência de Internet.</li>
+<li><b>Extranet</b>: extensão da intranet para usuários externos autorizados.</li>
+<li><b>VPN</b>: cria um "túnel" criptografado sobre uma rede pública, como se o usuário estivesse na rede interna.</li>
+</ul>
+
+<h3>Computação em nuvem</h3>
+<div class="tbl"><table>
+<tr><th>Modelo de serviço</th><th>Você recebe…</th><th>Exemplo</th></tr>
+<tr><td><b>SaaS</b> (software como serviço)</td><td>O programa pronto, usado pelo navegador ou aplicativo</td><td>Microsoft 365, Gmail, Google Meet</td></tr>
+<tr><td><b>PaaS</b> (plataforma)</td><td>Ambiente para desenvolver e hospedar sistemas</td><td>Plataformas de desenvolvimento em nuvem</td></tr>
+<tr><td><b>IaaS</b> (infraestrutura)</td><td>Servidores, armazenamento e rede virtuais</td><td>Máquinas virtuais alugadas</td></tr>
+</table></div>
+<p><b>Modelos de implantação</b>: <b>pública</b> (infraestrutura do provedor <i>compartilhada</i> por vários clientes, mas com os dados de cada um <b>isolados logicamente</b>), <b>privada</b> (exclusiva de uma organização), <b>híbrida</b> (combina pública e privada) e <b>comunitária</b> (compartilhada por organizações com interesses comuns).</p>
+<div class="box trap"><strong>Lição do item 169 (2025)</strong><p>"Infraestrutura compartilhada" <b>não</b> significa "dados visíveis aos outros". A nuvem pública é multi-inquilino com isolamento e controle de acesso.</p></div>
+
+<h3>Navegadores, busca e privacidade</h3>
+<ul>
+<li><b>Navegação anônima ou privada</b> (Chrome: Janela anônima; Edge: InPrivate; Firefox: Janela privada): <b>não grava localmente</b> histórico, cookies, dados de formulário e cache depois que você fecha a janela. <b>Não esconde</b> a navegação dos sites visitados, da rede da empresa nem do provedor. Downloads e favoritos criados continuam salvos.</li>
+<li><b>Perfis</b>: cada perfil tem histórico, favoritos, senhas e extensões próprios, o que permite separar contas pessoais e de trabalho.</li>
+<li><b>Sincronização</b>: ao entrar com a conta (Google ou Microsoft), favoritos e senhas são levados aos outros dispositivos.</li>
+<li><b>Cookies</b>: pequenos arquivos de texto gravados pelo site no navegador (sessão, preferências, rastreamento). Não são vírus.</li>
+<li><b>Cache</b>: cópias locais de partes das páginas para carregá-las mais rápido.</li>
+<li><b>Extensões</b>: complementos que ampliam o navegador. Instale só de fontes confiáveis.</li>
+<li><b>Cadeado / HTTPS</b>: indica que a conexão é criptografada. <b>Não prova</b> que o site é legítimo, porque golpistas também usam HTTPS.</li>
+</ul>
+<div class="tbl"><table>
+<tr><th>Operador de busca (Google)</th><th>Efeito</th></tr>
+<tr><td><code>"processo legislativo"</code></td><td>Frase exata</td></tr>
+<tr><td><code>licitação -municipal</code></td><td>Exclui o termo</td></tr>
+<tr><td><code>site:camara.leg.br</code></td><td>Só resultados desse domínio</td></tr>
+<tr><td><code>filetype:pdf</code></td><td>Só arquivos desse tipo</td></tr>
+<tr><td><code>OR</code></td><td>Um termo ou outro</td></tr>
+</table></div>
+<p><b>URL</b>: em <code>https://www.camara.leg.br/deputados</code>, <code>https</code> é o protocolo, <code>www.camara.leg.br</code> é o nome do host e domínio (<code>.leg.br</code> é usado pelo Poder Legislativo) e <code>/deputados</code> é o caminho. <b>Download</b> = trazer do servidor para o seu computador; <b>upload</b> = enviar do seu computador ao servidor.</p>
+
+<div class="box trap"><strong>Pegadinhas do Módulo 2</strong>
+<ul>
+<li>Intranet usa TCP/IP e HTTP; pode ter acesso remoto via VPN.</li>
+<li>Anônima ≠ invisível: só não guarda dados localmente.</li>
+<li>HTTPS ≠ site confiável.</li>
+<li>IPv6 tem 128 bits (o IPv4 tem 32).</li>
+<li>SMTP envia; POP3 e IMAP recebem.</li>
+<li>Switch atua dentro da rede; roteador liga redes.</li>
+<li>Nuvem pública: recursos compartilhados, dados isolados.</li>
+</ul></div>
+<h3>Treine o Módulo 2</h3>
+<div class="quiz" data-mod="red"></div>
+</section>
+<section class="sec" id="m-com">
+<h2>Módulo 3 · Comunicação e colaboração: e-mail, Microsoft Teams e Google Meet</h2>
+<p class="muted">Edital: item 3. Chance de cair: ★★★☆☆. Em 2025 caiu a coedição de arquivos do Office dentro do Teams (item 166, gabarito C).</p>
+
+<h3>Correio eletrônico</h3>
+<p>Um endereço tem o formato <code>usuario@dominio</code> (por exemplo, <code>fulano@camara.leg.br</code>). A mensagem sai do seu programa, passa pelos servidores de e-mail e chega à caixa do destinatário.</p>
+<div class="two">
+<div class="card"><b>Webmail</b><p>Acesso pelo <b>navegador</b> (Outlook na Web, Gmail). Não exige instalação, funciona em qualquer computador e as mensagens ficam no servidor.</p></div>
+<div class="card"><b>Cliente de e-mail</b><p>Programa <b>instalado</b> (Outlook desktop, Thunderbird, app Mail). Configura contas por IMAP/POP3 e SMTP, permite ler mensagens já baixadas <b>offline</b>, integra calendário e contatos.</p></div>
+</div>
+<div class="tbl"><table>
+<tr><th>Protocolo</th><th>Função</th><th>Detalhe que cai</th></tr>
+<tr><td><b>SMTP</b></td><td>Envio</td><td>Do cliente para o servidor e entre servidores.</td></tr>
+<tr><td><b>POP3</b></td><td>Recebimento</td><td>Baixa as mensagens para o dispositivo e, na configuração típica, as remove do servidor. Ruim para quem usa vários aparelhos.</td></tr>
+<tr><td><b>IMAP</b></td><td>Recebimento</td><td>Mantém as mensagens no servidor e <b>sincroniza</b> pastas e status (lida/não lida) entre todos os dispositivos.</td></tr>
+</table></div>
+<h4>Campos e ações</h4>
+<ul>
+<li><b>Para</b>: destinatário principal. <b>Cc</b> (com cópia): recebe uma cópia, e todos veem quem está em Cc. <b>Cco</b> (com cópia oculta): recebe, mas <b>ninguém vê</b> os endereços em Cco. Útil para mandar a muitas pessoas sem expor os e-mails.</li>
+<li><b>Responder</b>: só ao remetente. <b>Responder a todos</b>: ao remetente e aos que estavam em Para e Cc (quem estava em Cco não recebe). <b>Ao responder, os anexos originais não são reenviados</b>.</li>
+<li><b>Encaminhar</b>: envia a mensagem a outra pessoa <b>com os anexos</b>.</li>
+<li><b>Regras</b>: ações automáticas (mover para uma pasta, sinalizar). <b>Filtro antispam</b>: separa lixo eletrônico. <b>Resposta automática</b>: aviso de ausência.</li>
+<li><b>Assinatura de e-mail</b> (nome, cargo, telefone) é só texto. <b>Assinatura digital</b> usa certificado digital e garante autenticidade e integridade. São coisas diferentes.</li>
+</ul>
+
+<h3>Microsoft Teams</h3>
+<ul>
+<li><b>Equipes</b> agrupam pessoas; cada equipe tem <b>canais</b> por assunto. O canal <b>padrão</b> é visível a todos os membros; o <b>privado</b> só a membros escolhidos; o <b>compartilhado</b> pode incluir pessoas de fora da equipe.</li>
+<li><b>Chats</b>: conversas 1:1 ou em grupo, fora dos canais.</li>
+<li><b>Arquivos</b>: os de canal ficam no <b>SharePoint</b> da equipe; os enviados em chat, no <b>OneDrive</b> de quem enviou. Word, Excel e PowerPoint podem ser abertos e <b>editados simultaneamente dentro do Teams</b>, sem baixar.</li>
+<li><b>Reuniões</b>: agendamento integrado ao Outlook, compartilhamento de tela, gravação, <b>transcrição</b>, legendas ao vivo, salas simultâneas (grupos menores), quadro branco (Whiteboard), enquetes, levantar a mão, fundo desfocado. O Copilot pode resumir a reunião.</li>
+<li><b>@menção</b>: notifica uma pessoa, um canal ou a equipe inteira.</li>
+<li><b>Presença</b>: status (disponível, ocupado, ausente, não incomodar).</li>
+<li>Integra aplicativos como Planner (tarefas), Forms e componentes Loop.</li>
+</ul>
+
+<h3>Google Meet</h3>
+<ul>
+<li>Videoconferência do Google, integrada ao <b>Google Agenda</b> e ao Gmail. Abre <b>direto no navegador</b>, sem instalar nada, por um link (meet.google.com/xxx-xxxx-xxx). No celular, pelo aplicativo.</li>
+<li>Recursos: compartilhar tela, chat, legendas, levantar a mão, plano de fundo, layouts. Dependendo do plano do Google Workspace: <b>gravação</b>, <b>transcrição</b>, <b>salas temáticas</b> (breakout rooms), enquetes, perguntas e respostas e lista de presença.</li>
+<li>Contas gratuitas têm limitações de duração e de recursos em relação às contas institucionais.</li>
+</ul>
+<div class="box"><strong>Como a banca pensa aqui</strong><p>Os itens descrevem um <b>cenário de trabalho</b> ("em uma reunião, o servidor deseja…") e perguntam se a ferramenta permite. A regra prática: <b>recursos populares de colaboração existem nas duas ferramentas</b>. O que costuma estar errado é a restrição inventada ("só no aplicativo desktop", "apenas o organizador pode…", "impossível sem baixar").</p></div>
+
+<div class="box trap"><strong>Pegadinhas do Módulo 3</strong>
+<ul>
+<li>Cco é oculto para todos; os de Cc são visíveis.</li>
+<li>Responder não leva anexos; encaminhar leva.</li>
+<li>POP3 baixa; IMAP sincroniza.</li>
+<li>Webmail dispensa instalação; cliente de e-mail permite trabalhar offline.</li>
+<li>Canal privado não é visto por todos os membros da equipe.</li>
+<li>Meet funciona no navegador sem instalação.</li>
+<li>Assinatura de texto ≠ assinatura digital.</li>
+</ul></div>
+<h3>Treine o Módulo 3</h3>
+<div class="quiz" data-mod="com"></div>
+</section>
+<section class="sec" id="m-seg">
+<h2>Módulo 4 · Segurança da informação e governança digital</h2>
+<p class="muted">Edital: itens 4, 4.1, 4.2 e 4.3. Chance de cair: ★★★★★. Em 2025 foram 4 itens (172 a 175), com 3 errados. É o módulo que <b>mais pontua</b> e o que tem mais questões no banco do Cebraspe.</p>
+
+<h3>Os pilares (e o vocabulário de risco)</h3>
+<div class="tbl"><table>
+<tr><th>Princípio</th><th>Significa</th><th>Ameaça típica</th></tr>
+<tr><td><b>Confidencialidade</b></td><td>Só quem tem autorização acessa</td><td>Spyware, phishing, vazamento</td></tr>
+<tr><td><b>Integridade</b></td><td>A informação não é alterada indevidamente</td><td>Adulteração de dados, vírus</td></tr>
+<tr><td><b>Disponibilidade</b></td><td>Está acessível quando se precisa</td><td>Ransomware, ataque de negação de serviço (DDoS)</td></tr>
+<tr><td>Autenticidade</td><td>Garantia de quem é o autor ou a origem</td><td>Falsificação de remetente</td></tr>
+<tr><td>Irretratabilidade (não repúdio)</td><td>O autor não pode negar a autoria</td><td>(garantida por assinatura digital)</td></tr>
+</table></div>
+<p><b>Vulnerabilidade</b> = fraqueza (sistema desatualizado, senha fraca). <b>Ameaça</b> = o que pode explorar a fraqueza (malware, golpista). <b>Risco</b> = probabilidade × impacto. <b>Incidente</b> = o evento que de fato ocorreu. Ransomware e spyware são <b>ameaças</b>, não vulnerabilidades: a banca já trocou um pelo outro.</p>
+
+<h3>4.1 · Backup (cópia de segurança)</h3>
+<div class="diagram"><svg viewBox="0 0 660 230" role="img" aria-label="Backup completo, incremental e diferencial ao longo da semana">
+<text x="10" y="22" font-size="13" font-weight="700">Arquivos alterados: seg = A · ter = B · qua = C</text>
+<text x="10" y="64" font-size="13" font-weight="700">Incremental</text>
+<text x="10" y="134" font-size="13" font-weight="700">Diferencial</text>
+<g font-size="12">
+<rect x="116" y="44" width="124" height="34" rx="8" class="fl"/><text x="126" y="66">Dom: COMPLETO</text>
+<rect x="254" y="44" width="110" height="34" rx="8" class="fl2"/><text x="262" y="66">Seg: A</text>
+<rect x="380" y="44" width="110" height="34" rx="8" class="fl2"/><text x="392" y="66">Ter: B</text>
+<rect x="510" y="44" width="130" height="34" rx="8" class="fl2"/><text x="522" y="66">Qua: C</text>
+<rect x="116" y="114" width="124" height="34" rx="8" class="fl"/><text x="126" y="136">Dom: COMPLETO</text>
+<rect x="254" y="114" width="110" height="34" rx="8" class="fl2"/><text x="262" y="136">Seg: A</text>
+<rect x="380" y="114" width="110" height="34" rx="8" class="fl2"/><text x="392" y="136">Ter: A + B</text>
+<rect x="510" y="114" width="130" height="34" rx="8" class="fl2"/><text x="522" y="136">Qua: A + B + C</text>
+</g>
+<text x="10" y="184" font-size="12.5">Restaurar na quinta · Incremental: completo + seg + ter + qua (todos, em ordem)</text>
+<text x="10" y="206" font-size="12.5">Restaurar na quinta · Diferencial: completo + apenas o diferencial de quarta</text>
+</svg></div>
+<div class="tbl"><table>
+<tr><th>Tipo</th><th>Copia</th><th>Tempo do backup</th><th>Para restaurar</th></tr>
+<tr><td><b>Completo (full)</b></td><td>Tudo</td><td>Maior</td><td>Só ele (mais simples)</td></tr>
+<tr><td><b>Incremental</b></td><td>O que mudou desde o <b>último backup de qualquer tipo</b></td><td>Menor (cada um é pequeno)</td><td>Último completo + <b>todos</b> os incrementais seguintes</td></tr>
+<tr><td><b>Diferencial</b></td><td>O que mudou desde o <b>último completo</b></td><td>Cresce a cada dia</td><td>Último completo + <b>último</b> diferencial</td></tr>
+</table></div>
+<ul>
+<li><b>Regra 3-2-1</b>: 3 cópias dos dados, em 2 tipos de mídia diferentes, sendo 1 fora do local. A versão moderna (<b>3-2-1-1-0</b>) acrescenta 1 cópia <b>offline ou imutável</b> e 0 erros nos testes de restauração.</li>
+<li><b>Contra ransomware</b>: o ataque criptografa ou apaga tudo o que alcança, inclusive backups online conectados e, com credenciais roubadas, até repositórios na nuvem. Por isso <b>cópias offline ou imutáveis continuam indispensáveis</b> (item 175 de 2025: E).</li>
+<li><b>Teste de restauração</b>: backup que nunca foi restaurado é uma esperança, não uma garantia.</li>
+<li><b>Sincronização ≠ backup</b>: o OneDrive sincronizado replica também exclusões e arquivos criptografados.</li>
+<li>Guarde o backup em local seguro e, se tiver dados sensíveis, criptografado.</li>
+</ul>
+
+<h3>4.1 · Pragas virtuais (malware)</h3>
+<p><b>Malware</b> é o nome genérico de qualquer software malicioso. A banca cobra principalmente <b>como cada um se propaga</b> e <b>o que faz</b>.</p>
+<div class="tbl"><table>
+<tr><th>Praga</th><th>Como se propaga ou age</th><th>Palavra-chave</th></tr>
+<tr><td><b>Vírus</b></td><td>Insere cópias de si em arquivos ou programas (<b>hospedeiro</b>) e <b>depende da execução</b> do arquivo infectado</td><td>hospedeiro + execução</td></tr>
+<tr><td>Vírus de macro</td><td>Escondido em macros de documentos (Word, Excel)</td><td>documento do Office</td></tr>
+<tr><td>Vírus polimórfico / metamórfico</td><td>Muda sua "assinatura" a cada infecção para fugir do antivírus; o metamórfico reescreve o próprio código</td><td>muda de aparência</td></tr>
+<tr><td><b>Worm</b></td><td><b>Autopropagação pela rede</b>, explorando vulnerabilidades, <b>sem hospedeiro e sem ação do usuário</b>; consome muitos recursos</td><td>se espalha sozinho</td></tr>
+<tr><td><b>Cavalo de Troia (trojan)</b></td><td>Programa que parece útil mas executa ações maliciosas escondidas; não se replica sozinho</td><td>disfarce</td></tr>
+<tr><td><b>Backdoor</b></td><td>Abre uma "porta dos fundos" para o invasor voltar ao equipamento</td><td>retorno do invasor</td></tr>
+<tr><td>RAT (trojan de acesso remoto)</td><td>Trojan + backdoor: controle remoto com os poderes do usuário</td><td>controle remoto</td></tr>
+<tr><td><b>Bot / botnet</b></td><td>Bot = máquina "zumbi" controlada remotamente; pode se propagar como worm. Botnet = rede de bots usada em DDoS e spam</td><td>zumbi, comando e controle</td></tr>
+<tr><td><b>Spyware</b></td><td>Monitora e coleta informações sem consentimento</td><td>espionagem</td></tr>
+<tr><td>Keylogger</td><td>Spyware que registra o que é <b>digitado no teclado</b></td><td>teclas</td></tr>
+<tr><td>Screenlogger</td><td>Captura a tela e a posição do clique, burlando <b>teclados virtuais</b></td><td>tela</td></tr>
+<tr><td>Adware</td><td>Exibe propagandas; também é considerado malware ou PUP (programa potencialmente indesejado)</td><td>anúncios</td></tr>
+<tr><td><b>Ransomware</b></td><td><b>Criptografa</b> os dados ou bloqueia o acesso e exige <b>resgate</b>; versões modernas também <b>roubam e ameaçam vazar</b> os dados (dupla extorsão). Ataca sobretudo a <b>disponibilidade</b></td><td>sequestro</td></tr>
+<tr><td><b>Rootkit</b></td><td>Conjunto de técnicas para <b>esconder</b> o invasor e outros malwares, alterando chamadas do sistema operacional; pode persistir após reinicialização</td><td>ocultação</td></tr>
+<tr><td>Fileless</td><td>Atua só na memória, usando ferramentas nativas do sistema; dificulta a detecção por arquivo</td><td>sem arquivo</td></tr>
+<tr><td>Hijacker</td><td>Sequestra o navegador (página inicial, buscador)</td><td>navegador</td></tr>
+</table></div>
+<div class="box trap"><strong>A confusão favorita da banca: vírus × worm</strong>
+<p>"Vírus se propaga sozinho pela rede sem ação humana" = <b>E</b> (isso é worm). "Worm precisa se anexar a arquivos executáveis" = <b>E</b> (isso é vírus). "Vírus usualmente depende da execução de um hospedeiro; worm explora a rede para se autopropagar" = <b>C</b> (item 174 de 2025).</p></div>
+
+<h3>4.2 · Programas de proteção</h3>
+<div class="tbl"><table>
+<tr><th>Ferramenta</th><th>O que faz</th><th>O que NÃO faz</th></tr>
+<tr><td><b>Antivírus / antimalware</b></td><td>Detecta, bloqueia, coloca em <b>quarentena</b> e remove código malicioso em arquivos, memória e downloads</td><td>Não garante proteção total; não substitui atualizações nem o cuidado do usuário</td></tr>
+<tr><td><b>Firewall</b></td><td><b>Filtra o tráfego de rede</b> (entrada e saída) segundo regras: bloqueia portas, conexões e programas não autorizados. Pode ser pessoal (Windows Defender Firewall) ou de rede</td><td>Não remove vírus de arquivos; não impede que o usuário entregue a senha num site falso</td></tr>
+<tr><td><b>Antispyware</b></td><td>Detecta e remove programas espiões. Hoje costuma estar <b>integrado</b> às suítes antimalware (Microsoft Defender)</td><td>Não é uma "camada única de assinaturas"</td></tr>
+<tr><td>Antispam</td><td>Filtra e-mails indesejados e pode aprender com a marcação do usuário</td><td>–</td></tr>
+<tr><td>EDR / XDR</td><td>Monitora o comportamento dos computadores, detecta e <b>responde automaticamente</b> (isola a máquina, encerra o processo)</td><td>Não depende só de ação manual</td></tr>
+<tr><td>IDS / IPS</td><td>Detecta (IDS) ou detecta e bloqueia (IPS) intrusões na rede</td><td>–</td></tr>
+<tr><td>DLP</td><td>Previne vazamento de dados</td><td>–</td></tr>
+</table></div>
+<h4>Como o antivírus detecta</h4>
+<ul>
+<li><b>Assinatura</b>: compara com um banco de "impressões digitais" de malwares <b>conhecidos</b>. É rápido e preciso, mas <b>reativo</b> e exige atualização constante. Não pega ameaças novas.</li>
+<li><b>Heurística</b>: analisa estruturas e instruções suspeitas e pode pegar variantes <b>desconhecidas</b>. Gera mais <b>falsos positivos</b> (não é imune a eles).</li>
+<li><b>Comportamental</b>: observa o que o programa <b>faz</b> em tempo real (injeção em processos, criptografia em massa, persistência).</li>
+<li><b>Sandbox</b>: executa o arquivo suspeito em ambiente isolado. <b>Nuvem / aprendizado de máquina</b>: reputação e modelos atualizados continuamente.</li>
+</ul>
+<p>Soluções modernas são <b>em camadas</b> e <b>proativas</b>, combinando tudo isso (item 173 de 2025). Ter dois antivírus residentes ao mesmo tempo é contraindicado, porque eles conflitam. Contra rootkit ativo, a recomendação mais segura é <b>formatar e reinstalar</b> o sistema.</p>
+
+<h3>4.3 · Ameaças digitais: phishing, pharming e companhia</h3>
+<p><b>Engenharia social</b> é a manipulação psicológica (urgência, medo, autoridade, recompensa) para levar a vítima a agir: clicar, digitar a senha, transferir dinheiro. Não exige conhecimento técnico.</p>
+<div class="tbl"><table>
+<tr><th>Golpe</th><th>Como funciona</th></tr>
+<tr><td><b>Phishing</b></td><td>Mensagem falsa (e-mail, SMS, rede social, telefone) que imita uma instituição legítima para obter dados pessoais ou financeiros, credenciais ou instalar malware. Afeta sobretudo a confidencialidade, mas não apenas ela.</td></tr>
+<tr><td>Spear phishing</td><td>Phishing <b>direcionado</b> a pessoa ou grupo específico, com mensagem <b>personalizada</b>. A personalização aumenta a chance de sucesso.</td></tr>
+<tr><td>Whaling</td><td>Spear phishing contra "peixes grandes" (dirigentes, diretores).</td></tr>
+<tr><td>Smishing / vishing / quishing</td><td>Por SMS / por voz (ligação) / por QR Code. QR Code <b>não</b> impede páginas falsas.</td></tr>
+<tr><td><b>Pharming</b></td><td><b>Redirecionamento</b> para site falso por <b>adulteração da resolução de nomes</b>: envenenamento do cache DNS, alteração do arquivo <i>hosts</i> ou do roteador. A vítima <b>digita o endereço correto</b> e mesmo assim cai na página falsa.</td></tr>
+<tr><td>Spoofing</td><td>Falsificação de identidade técnica (remetente de e-mail, IP, número de telefone).</td></tr>
+<tr><td>Man-in-the-middle</td><td>O atacante se coloca <b>entre</b> as duas partes, intercepta e pode alterar a comunicação. Phishing ≠ MITM.</td></tr>
+<tr><td>Man-in-the-browser / injeção web</td><td>Código malicioso no navegador que altera as páginas durante a sessão. Foi o que o item 172 chamou, erradamente, de pharming.</td></tr>
+<tr><td>DoS / DDoS</td><td>Sobrecarrega um serviço para derrubá-lo (disponibilidade). DDoS usa muitas máquinas (botnet).</td></tr>
+<tr><td>Hoax</td><td>Boato ou corrente falsa.</td></tr>
+</table></div>
+<div class="two">
+<div class="card"><b>Phishing: a vítima é atraída</b><p>Um link ou mensagem enganosa leva a pessoa ao site falso. Defesa: desconfiar, conferir o endereço, não clicar e usar autenticação multifator (MFA).</p></div>
+<div class="card"><b>Pharming: o caminho é desviado</b><p>A infraestrutura de nomes é adulterada; mesmo digitando a URL certa, a pessoa vai ao site falso. Defesa: DNS confiável, roteador e sistema atualizados, atenção a alertas de certificado.</p></div>
+</div>
+<p><b>Boas práticas</b>: autenticação multifator; senhas fortes e únicas (gerenciador de senhas); atualizações do sistema e dos programas; desconfiar de urgência; verificar o remetente e o domínio; não abrir anexos inesperados; contas de usuário sem privilégio de administrador; criptografia e backup. Criptografar o e-mail <b>não</b> resolve phishing, porque o problema é o usuário entregar a senha.</p>
+
+<h3>4 · Governança digital (visão de prova)</h3>
+<ul>
+<li><b>Governança digital</b>: conjunto de políticas, papéis, processos e controles para que o uso da tecnologia e dos dados gere valor público com segurança, transparência e conformidade legal.</li>
+<li><b>Governança da informação</b> (item 179 de 2025, C): políticas, papéis e processos para o uso adequado das informações ao longo de todo o <b>ciclo de vida</b> (criação ou coleta, armazenamento, uso, compartilhamento, arquivamento e descarte), alinhando a gestão às exigências regulatórias (LGPD, LAI).</li>
+<li><b>Lei do Governo Digital (Lei 14.129/2021)</b>: princípios como desburocratização, prestação digital de serviços, transparência, dados abertos, interoperabilidade, segurança e privacidade, linguagem clara e acessibilidade.</li>
+<li><b>Política Nacional de Segurança da Informação</b> (Decreto 9.637/2018) e normas internas de segurança.</li>
+<li><b>Privacidade desde a concepção e por padrão</b> (LGPD): o sistema já nasce protegendo os dados pessoais.</li>
+<li><b>Classificação da informação</b> (LAI): ultrassecreta (25 anos), secreta (15 anos), reservada (5 anos).</li>
+</ul>
+
+<div class="box trap"><strong>Pegadinhas do Módulo 4</strong>
+<ul>
+<li>Incremental = desde o último backup; diferencial = desde o último <b>completo</b>.</li>
+<li>Backup offline continua indispensável, mesmo com versionamento online.</li>
+<li>Vírus precisa de hospedeiro; worm se propaga sozinho.</li>
+<li>Rootkit esconde; não é worm nem botnet.</li>
+<li>Assinatura = conhecidos e reativa; heurística = desconhecidos, com falsos positivos.</li>
+<li>Firewall filtra tráfego e não remove vírus.</li>
+<li>Pharming funciona mesmo com a URL digitada certa.</li>
+<li>Spear phishing depende de personalização.</li>
+<li>Nenhuma ferramenta "garante" proteção total.</li>
+</ul></div>
+<h3>Treine o Módulo 4</h3>
+<div class="quiz" data-mod="seg"></div>
+</section>
+<section class="sec" id="m-ia">
+<h2>Módulo 5 · Inteligência artificial: conceitos, prompts, aprendizado e IA generativa</h2>
+<p class="muted">Edital: itens 5, 5.1, 5.2 e 5.3. Chance de cair: ★★★★★. É o tema da moda nas provas do Cebraspe de 2025 e 2026 (cerca de 80 questões no seu banco). Em 2025 caíram foundation model (E), acurácia em classes desbalanceadas (E) e ciência de dados (C).</p>
+
+<h3>O mapa geral</h3>
+<div class="diagram"><svg viewBox="0 0 560 250" role="img" aria-label="IA contém aprendizado de máquina, que contém aprendizado profundo, que contém a IA generativa e os LLMs">
+<rect x="10" y="10" width="540" height="230" rx="16" class="fl2" stroke-width="1.5"/>
+<rect x="60" y="66" width="480" height="164" rx="14" class="fl" stroke-width="1.5"/>
+<rect x="110" y="104" width="420" height="116" rx="12" class="fl2" stroke-width="1.5"/>
+<rect x="160" y="142" width="360" height="68" rx="10" class="fl" stroke-width="1.5"/>
+<text x="24" y="34" font-size="14" font-weight="700">Inteligência artificial</text>
+<text x="24" y="52" font-size="11.5">inclui também a IA simbólica (regras explícitas)</text>
+<text x="74" y="90" font-size="14" font-weight="700">Aprendizado de máquina (ML): aprende com dados</text>
+<text x="124" y="128" font-size="13.5" font-weight="700">Aprendizado profundo (redes neurais)</text>
+<text x="174" y="172" font-size="13" font-weight="700">IA generativa · LLMs · foundation models</text>
+<text x="174" y="192" font-size="11.5">ChatGPT, Claude, Gemini, Copilot…</text>
+</svg></div>
+<ul>
+<li><b>Inteligência artificial</b>: campo que cria sistemas capazes de executar tarefas que exigiriam inteligência humana (reconhecer padrões, entender linguagem, decidir, gerar conteúdo). <b>Aprendizado de máquina é uma subárea da IA</b>, e não o contrário.</li>
+<li><b>IA simbólica</b>: conhecimento representado por <b>regras explícitas</b> escritas por especialistas (por exemplo, "se o recalque for maior que X, alerte"). São os sistemas especialistas.</li>
+<li><b>IA conexionista ou estatística</b>: aprende padrões <b>a partir de dados</b> (redes neurais). É a base dos LLMs.</li>
+<li><b>IA fraca (estreita)</b>: faz tarefas específicas (reconhecimento de voz, recomendação, ChatGPT). É toda a IA que existe hoje. <b>IA forte ou AGI</b>: inteligência geral humana; ainda é hipotética.</li>
+<li><b>Agente inteligente</b>: percebe o ambiente por sensores, age por atuadores e escolhe ações para atingir seus objetivos. Coletar informações não é seu único objetivo.</li>
+<li>Áreas: visão computacional (interpretar imagens), processamento de linguagem natural (PLN), reconhecimento de voz, sistemas de recomendação, robótica.</li>
+</ul>
+
+<h3>5.2 · Os três tipos de aprendizado</h3>
+<div class="tbl"><table>
+<tr><th></th><th>Supervisionado</th><th>Não supervisionado</th><th>Por reforço</th></tr>
+<tr><td><b>Dados</b></td><td><b>Rotulados</b> (entrada + resposta certa)</td><td><b>Sem rótulo</b></td><td>Sem rótulo; o agente recebe <b>recompensas ou punições</b></td></tr>
+<tr><td><b>Ideia</b></td><td>Aprender a prever a resposta a partir de exemplos</td><td>Descobrir estruturas e padrões escondidos</td><td>Aprender por <b>tentativa e erro</b> a política que maximiza a recompensa acumulada</td></tr>
+<tr><td><b>Tarefas</b></td><td><b>Classificação</b> (categoria: fraude/não fraude, spam) e <b>regressão</b> (valor numérico: custo de uma obra)</td><td><b>Agrupamento</b> (clustering), <b>associação</b> ("quem compra X compra Y"), redução de dimensionalidade, detecção de anomalias</td><td>Jogos, robótica, veículos autônomos, controle de tráfego, ajuste de chatbots com feedback humano (RLHF)</td></tr>
+<tr><td><b>Exemplo na Câmara</b></td><td>Classificar automaticamente o tema de uma proposição a partir de proposições já classificadas</td><td>Agrupar manifestações de cidadãos por semelhança, sem categorias prévias</td><td>Um sistema que aprende a programar a climatização do prédio recebendo "recompensa" por economizar energia mantendo o conforto</td></tr>
+</table></div>
+<p>Há também o <b>semissupervisionado</b> (poucos dados rotulados e muitos não rotulados) e o <b>autossupervisionado</b> (o próprio dado gera o rótulo, como prever a próxima palavra de um texto, que é como os LLMs são pré-treinados).</p>
+
+<h4>Treino, teste e os dois "males"</h4>
+<ul>
+<li>Os dados são divididos em <b>treino</b> (o modelo aprende), <b>validação</b> (ajuste) e <b>teste</b> (avaliação final com dados nunca vistos).</li>
+<li><b>Overfitting (sobreajuste)</b>: o modelo "decora" o treino. Vai muito bem nele e mal em dados novos.</li>
+<li><b>Underfitting (subajuste)</b>: modelo simples demais. Vai mal até no treino.</li>
+</ul>
+
+<h4>Métricas de classificação: a lição do item 178</h4>
+<p>Imagine 1.000 transações, das quais 10 são fraudes. Um modelo "preguiçoso" que diz sempre "não é fraude" acerta 990: <b>acurácia de 99%</b>, mas <b>não detecta nenhuma fraude</b>. Com classes desbalanceadas, a acurácia engana.</p>
+<div class="tbl"><table>
+<tr><th>Métrica</th><th>Pergunta que responde</th></tr>
+<tr><td><b>Acurácia</b></td><td>Do total, quantos acertei? (enganosa quando há desbalanceamento)</td></tr>
+<tr><td><b>Precisão</b></td><td>Dos que eu disse "fraude", quantos eram fraude mesmo?</td></tr>
+<tr><td><b>Recall (sensibilidade)</b></td><td>Das fraudes reais, quantas eu encontrei?</td></tr>
+<tr><td><b>F1</b></td><td>Equilíbrio (média harmônica) entre precisão e recall</td></tr>
+</table></div>
+<p>A <b>matriz de confusão</b> organiza os verdadeiros e falsos positivos e negativos, que são a base dessas métricas.</p>
+
+<h3>5.3 · IA generativa</h3>
+<p><b>IA generativa</b> cria <b>conteúdo novo</b> (texto, imagem, áudio, vídeo, código) a partir de padrões aprendidos em grandes volumes de dados. A IA <b>discriminativa</b> classifica ou prevê (é spam?), enquanto a generativa produz (escreva a resposta).</p>
+<ul>
+<li><b>LLM (modelo de linguagem de grande escala)</b>: rede neural treinada com enormes volumes de texto para <b>prever o próximo token</b> (pedaço de palavra), com bilhões de parâmetros. Não usa regras gramaticais escritas à mão.</li>
+<li><b>Transformer</b>: arquitetura de rede neural com o mecanismo de <b>atenção</b>, base dos LLMs. <b>GPT = Generative Pre-trained Transformer</b> (transformador generativo pré-treinado).</li>
+<li><b>Foundation model (modelo de base ou fundacional)</b>: modelo grande, <b>pré-treinado com dados massivos</b> (em geral de forma autossupervisionada), de uso geral, adaptável a muitas tarefas por prompt, ajuste fino (fine-tuning) ou RAG. <b>Não</b> é baseado em regras explícitas (item 177 de 2025: E).</li>
+<li><b>Multimodal</b>: entende ou gera mais de um tipo de dado (texto + imagem + áudio).</li>
+<li><b>GAN (rede adversária generativa)</b>: duas redes que <b>competem</b>: o gerador cria dados falsos e o discriminador tenta identificá-los. Usada em deepfakes. Não "cooperam para minimizar a mesma perda".</li>
+<li><b>Modelos de difusão</b>: geram imagens partindo de ruído e removendo-o passo a passo (Stable Diffusion, DALL·E, Midjourney).</li>
+<li><b>RAG (geração aumentada por recuperação)</b>: antes de responder, o sistema <b>busca documentos relevantes</b> (por exemplo, o Regimento Interno ou normas técnicas) e os insere no prompt. Reduz alucinações e permite usar fontes atualizadas e internas.</li>
+<li><b>Ajuste fino (fine-tuning)</b>: treinamento adicional do modelo com dados específicos. Altera os parâmetros, ao contrário do prompt.</li>
+<li><b>Temperatura</b>: parâmetro de aleatoriedade. Baixa = respostas mais previsíveis; alta = mais criativas e variadas.</li>
+<li><b>Janela de contexto</b>: quanto texto o modelo consegue considerar de uma vez.</li>
+</ul>
+<p><b>Exemplos</b>: ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Microsoft Copilot, Llama (Meta, de pesos abertos); para imagens, DALL·E, Midjourney e Stable Diffusion. A própria Câmara desenvolve soluções de IA para o processo legislativo (conjunto conhecido como Ulysses).</p>
+<h4>Casos de uso no serviço público (e na engenharia)</h4>
+<ul>
+<li>Resumir proposições, pareceres e normas; comparar versões de textos; redigir minutas e ofícios.</li>
+<li>Chatbots de atendimento ao cidadão; transcrição e resumo de reuniões e sessões; tradução.</li>
+<li>Classificação e triagem de documentos e demandas; extração de dados de PDFs.</li>
+<li>Engenharia: resumir normas, montar checklists de fiscalização, rascunhar memoriais descritivos, gerar código para planilhas. <b>Sempre com revisão técnica humana.</b></li>
+</ul>
+<h4>Riscos e limitações</h4>
+<ul>
+<li><b>Alucinação</b>: resposta fluente, coerente e <b>falsa</b> (por exemplo, uma jurisprudência ou norma inventada). Decorre de o modelo gerar texto provável, não verificado.</li>
+<li><b>Viés</b>: o modelo reproduz desigualdades presentes nos dados de treino. Muitos dados não garantem imparcialidade.</li>
+<li><b>Conhecimento com data de corte</b>, <b>privacidade</b> (dados inseridos podem ser armazenados), propriedade intelectual, <b>deepfakes</b> e desinformação, <b>prompt injection</b>.</li>
+</ul>
+
+<h3>5.1 · Engenharia de prompts</h3>
+<p><b>Prompt</b> é a instrução, em linguagem natural, que você dá ao modelo. <b>Engenharia de prompts</b> é a prática de formular e refinar essas instruções para obter respostas mais úteis, precisas e no formato desejado, <b>sem alterar o modelo</b>.</p>
+<h4>Os elementos de um bom prompt</h4>
+<div class="tbl"><table>
+<tr><th>Elemento</th><th>Exemplo</th></tr>
+<tr><td><b>Papel (persona)</b></td><td>"Atue como engenheiro fiscal de contratos de obras públicas."</td></tr>
+<tr><td><b>Tarefa clara</b></td><td>"Elabore um checklist de fiscalização da etapa de impermeabilização."</td></tr>
+<tr><td><b>Contexto</b></td><td>"Obra de reforma da cobertura de um edifício público; contrato pela Lei 14.133/2021."</td></tr>
+<tr><td><b>Formato de saída</b></td><td>"Em tabela com colunas: item, critério de aceitação, norma de referência."</td></tr>
+<tr><td><b>Restrições e tom</b></td><td>"No máximo 15 itens; linguagem técnica; diga quando não tiver certeza."</td></tr>
+<tr><td><b>Exemplos</b></td><td>"Siga o modelo: Item: … | Critério: … | Norma: …"</td></tr>
+</table></div>
+<h4>Técnicas que a banca pode cobrar</h4>
+<ul>
+<li><b>Zero-shot</b>: pede a tarefa sem dar exemplos.</li>
+<li><b>One-shot / few-shot</b>: inclui <b>um ou alguns exemplos</b> de entrada e saída no próprio prompt. O modelo aprende "em contexto", <b>sem retreinamento e sem alterar parâmetros</b>.</li>
+<li><b>Cadeia de pensamento (chain-of-thought)</b>: pedir o raciocínio passo a passo melhora tarefas de várias etapas (cálculos, análises).</li>
+<li><b>Decomposição e encadeamento (prompt chaining)</b>: dividir uma tarefa grande em etapas, usando a saída de uma como entrada da próxima.</li>
+<li><b>Delimitadores</b>: separar o texto a ser analisado com marcações (aspas triplas, tags) para evitar confusão com as instruções.</li>
+<li><b>Iteração</b>: refinar o prompt a partir das respostas. Raramente o primeiro é o melhor.</li>
+<li><b>Prompt de sistema</b>: instrução de fundo que define o comportamento geral do assistente.</li>
+<li><b>Ancoragem em fontes</b>: fornecer o documento e pedir que a resposta se baseie apenas nele, citando os trechos.</li>
+</ul>
+<div class="two">
+<div class="card"><b>Prompt fraco</b><p><i>"Fale sobre a reforma do telhado."</i></p><p class="muted">Vago, sem papel, contexto, formato ou objetivo.</p></div>
+<div class="card"><b>Prompt forte</b><p><i>"Você é engenheiro civil fiscal. Com base no memorial abaixo (entre ###), liste em tabela os 10 principais riscos da reforma da cobertura, com a medida de controle de cada um. Se faltar informação, indique."</i></p></div>
+</div>
+<div class="box warn"><strong>Prompt injection</strong><p>É um ataque em que instruções maliciosas escondidas no conteúdo processado (uma página, um e-mail, um PDF) tentam fazer o modelo desobedecer às instruções originais ou vazar dados. É um risco de segurança dos sistemas de IA generativa.</p></div>
+
+<div class="box trap"><strong>Pegadinhas do Módulo 5</strong>
+<ul>
+<li>ML é subárea da IA, e não o contrário.</li>
+<li>IA generativa <b>não</b> é "prioritariamente supervisionada"; os LLMs são pré-treinados de forma autossupervisionada.</li>
+<li>Foundation model ≠ regras explícitas.</li>
+<li>Clustering é <b>não supervisionado</b>; classificação e regressão são <b>supervisionadas</b>.</li>
+<li>Reforço = recompensa, não rótulos.</li>
+<li>Few-shot não retreina o modelo.</li>
+<li>Acurácia engana quando as classes são desbalanceadas.</li>
+<li>GAN = competição, não cooperação.</li>
+<li>Muitos dados ≠ imparcialidade; LLMs alucinam.</li>
+<li>GPT = Generative Pre-trained Transformer.</li>
+<li>Prompts vagos pioram a resposta.</li>
+</ul></div>
+<h3>Treine o Módulo 5</h3>
+<div class="quiz" data-mod="ia"></div>
+</section>
+<section class="sec" id="m-eti">
+<h2>Módulo 6 · Ética e responsabilidade digital no serviço público</h2>
+<p class="muted">Edital: item 6. Chance de cair: ★★★☆☆. Em 2025, item 176 (C). A banca cobra o tema "por bom senso qualificado": quase sempre o certo é o que reforça <b>transparência, controle, proteção de dados e revisão humana</b>.</p>
+
+<h3>O que é</h3>
+<p>É o dever do agente público e da instituição de usar tecnologia, dados e IA de forma <b>legal, transparente, segura, justa e voltada ao interesse público</b>, respondendo pelos resultados. Na prática, combina princípios da Administração (legalidade, impessoalidade, moralidade, publicidade, eficiência) com a LGPD, a LAI e as boas práticas de IA.</p>
+<div class="tbl"><table>
+<tr><th>Princípio</th><th>Como aparece em prova</th></tr>
+<tr><td><b>Transparência e explicabilidade</b></td><td>Sistemas que apoiam decisões devem permitir entender como se chegou ao resultado. Opacidade <b>não</b> é boa prática.</td></tr>
+<tr><td><b>Rastreabilidade e prestação de contas (accountability)</b></td><td>Registros (logs), histórico decisório e justificativa técnica viabilizam auditoria, controle e responsabilização (item 176).</td></tr>
+<tr><td><b>Supervisão humana</b></td><td>Humano no circuito, especialmente em decisões que afetam direitos. A IA <b>apoia</b>; quem decide e assina é o agente público.</td></tr>
+<tr><td><b>Não discriminação</b></td><td>Evitar viés algorítmico, inclusive por variáveis substitutas (<i>proxies</i>), como o CEP no lugar da renda ou da raça.</td></tr>
+<tr><td><b>Privacidade e proteção de dados</b></td><td>LGPD: finalidade, necessidade, segurança, transparência, não discriminação, responsabilização. O art. 20 garante pedir <b>revisão de decisões automatizadas</b>.</td></tr>
+<tr><td><b>Segurança</b></td><td>Proteger as informações sob guarda do órgão; usar só ferramentas e canais autorizados.</td></tr>
+<tr><td><b>Acessibilidade e inclusão digital</b></td><td>Serviços digitais acessíveis a pessoas com deficiência (Lei 13.146/2015, padrão eMAG) e alternativas para quem tem pouca familiaridade digital.</td></tr>
+<tr><td><b>Integridade da informação</b></td><td>Combate à desinformação; checar fontes antes de divulgar.</td></tr>
+</table></div>
+
+<h3>Uso de IA generativa pelo servidor: o que é certo e o que é errado</h3>
+<div class="two">
+<div class="card"><b>✔ Correto</b><ul>
+<li>Usar <b>ferramentas aprovadas</b> pelo órgão, sobretudo com informação sensível.</li>
+<li><b>Revisar sempre</b> o resultado: o servidor mantém a responsabilidade integral pelo conteúdo.</li>
+<li>Conferir fatos, normas e citações (risco de alucinação).</li>
+<li>Avaliar viés, por exemplo grupos sub-representados nos dados (viés de exclusão).</li>
+<li>Dar transparência ao uso quando for relevante.</li>
+</ul></div>
+<div class="card"><b>✘ Errado</b><ul>
+<li>Inserir <b>dados pessoais ou sigilosos</b> em ferramentas públicas não autorizadas.</li>
+<li>"A responsabilidade passa para o fornecedor da IA."</li>
+<li>"Com muitos dados, a IA é imparcial."</li>
+<li>"Decisão automatizada dispensa motivação."</li>
+<li>"Ética digital se resume a cumprir a LGPD."</li>
+</ul></div>
+</div>
+<p><b>Referências de política pública</b>: Estratégia Brasileira de Inteligência Artificial (EBIA, 2021), que tem entre seus objetivos estabelecer princípios éticos para a IA; Plano Brasileiro de IA (PBIA 2024-2028); Lei do Governo Digital (14.129/2021); LGPD (13.709/2018); LAI (12.527/2011); Código de Ética do Servidor (Decreto 1.171/1994): zelo, sigilo, uso dos recursos públicos só para o serviço. Senhas e credenciais são pessoais e intransferíveis.</p>
+<div class="box trap"><strong>Pegadinhas do Módulo 6</strong>
+<ul>
+<li>Opacidade de algoritmos não é boa prática.</li>
+<li>A responsabilidade continua sendo do agente público.</li>
+<li>O viés pode existir mesmo sem usar a variável sensível (proxies).</li>
+<li>Revisão humana é obrigatória mesmo com a ferramenta aprovada.</li>
+<li>A ética digital vai além da LGPD: inclui acessibilidade, transparência e segurança.</li>
+</ul></div>
+<h3>Treine o Módulo 6</h3>
+<div class="quiz" data-mod="eti"></div>
+</section>
+
+<section class="sec" id="m-dad">
+<h2>Módulo 7 · Dados: conceitos, atributos, métricas e transformação</h2>
+<p class="muted">Edital: itens 7 e 7.1. Chance de cair: ★★★☆☆. Em 2025, item 180 (ciência de dados, C). Este módulo é a base dos Módulos 5 e 8; o raciocínio quantitativo da engenharia ajuda muito aqui.</p>
+
+<h3>Dado, informação, conhecimento</h3>
+<div class="tbl"><table>
+<tr><th>Nível</th><th>Definição</th><th>Exemplo (obra)</th></tr>
+<tr><td><b>Dado</b></td><td>Fato bruto, sem contexto</td><td>"28"</td></tr>
+<tr><td><b>Informação</b></td><td>Dado processado, organizado, com significado e contexto</td><td>"O fck medido aos 28 dias no pilar P3 foi 28 MPa"</td></tr>
+<tr><td><b>Conhecimento</b></td><td>Informação interpretada e aplicada, que orienta a decisão</td><td>"Está abaixo dos 30 MPa de projeto; é preciso extrair testemunhos"</td></tr>
+<tr><td>Sabedoria</td><td>Julgamento sobre o que fazer, com base na experiência</td><td>Decidir o reforço mais adequado</td></tr>
+</table></div>
+<p>A passagem de informação para conhecimento <b>exige interpretação humana</b>, ou um modelo analítico; não acontece "automaticamente" pelo simples armazenamento.</p>
+
+<h3>Estrutura dos dados</h3>
+<ul>
+<li><b>Estruturados</b>: organizados em linhas e colunas com esquema fixo (planilhas, bancos relacionais).</li>
+<li><b>Semiestruturados</b>: têm marcações ou tags, mas sem esquema rígido (JSON, XML, logs, e-mails com cabeçalhos).</li>
+<li><b>Não estruturados</b>: texto livre, imagens, áudio, vídeo, PDFs digitalizados. São a maior parte dos dados do mundo.</li>
+<li><b>Metadados</b>: <b>dados sobre os dados</b> (autor, data de criação, tamanho, formato; o EXIF de uma foto guarda câmera, data e GPS). Podem ser lidos e também editados. Não são os registros em si.</li>
+</ul>
+
+<h3>Atributos (variáveis)</h3>
+<p>Numa tabela, cada <b>linha</b> é um registro (uma obra) e cada <b>coluna</b> é um atributo (UF, área, custo).</p>
+<div class="tbl"><table>
+<tr><th>Tipo</th><th>Subtipo</th><th>Característica</th><th>Exemplos</th></tr>
+<tr><td rowspan="2"><b>Qualitativo (categórico)</b></td><td>Nominal</td><td>Categorias <b>sem ordem</b></td><td>UF, partido, tipo de estrutura, CPF, matrícula</td></tr>
+<tr><td>Ordinal</td><td>Categorias <b>com ordem</b></td><td>Escolaridade, classe de agressividade ambiental (I a IV), grau de satisfação</td></tr>
+<tr><td rowspan="2"><b>Quantitativo (numérico)</b></td><td>Discreto</td><td>Contagem, valores inteiros</td><td>Nº de pavimentos, nº de deputados presentes</td></tr>
+<tr><td>Contínuo</td><td>Medida, qualquer valor num intervalo</td><td>Área (m²), custo, resistência (MPa), altura</td></tr>
+</table></div>
+<div class="box tip"><strong>Atenção</strong><p>CPF, CEP e matrícula são números, mas são atributos <b>nominais</b> (identificadores): não faz sentido somá-los ou tirar média. Uma escala de <b>razão</b> tem zero absoluto (massa, comprimento: 10 m é o dobro de 5 m); uma escala <b>intervalar</b> tem zero arbitrário (temperatura em °C).</p></div>
+
+<h3>Métricas</h3>
+<div class="tbl"><table>
+<tr><th>Grupo</th><th>Medidas</th><th>Observação de prova</th></tr>
+<tr><td>Tendência central</td><td>Média, <b>mediana</b> (valor do meio), moda (mais frequente)</td><td>A média é puxada por outliers; a mediana é <b>robusta</b>.</td></tr>
+<tr><td>Dispersão</td><td>Amplitude, variância, <b>desvio-padrão</b> (raiz da variância), amplitude interquartil (IQR = Q3 − Q1), coeficiente de variação</td><td>Quanto os dados se espalham.</td></tr>
+<tr><td>Posição</td><td>Quartis (Q1 = 25%, Q2 = mediana, Q3 = 75%), percentis</td><td><b>Outlier</b>: abaixo de Q1 − 1,5·IQR ou acima de Q3 + 1,5·IQR.</td></tr>
+<tr><td>Indicadores</td><td>KPI (indicador-chave de desempenho): métrica ligada a um <b>objetivo</b> e a uma meta</td><td>Toda KPI é métrica; nem toda métrica é KPI.</td></tr>
+</table></div>
+<p>Em ferramentas de BI, <b>medida</b> é o valor numérico agregável (soma do custo) e <b>dimensão</b> é o atributo pelo qual se "fatia" a análise (por UF, por mês).</p>
+<p><b>Qualidade dos dados</b>: exatidão (acurácia), <b>completude</b> (sem faltantes), <b>consistência</b> (sem contradições entre fontes), <b>atualidade</b> ou tempestividade, validade (formato e regras) e <b>unicidade</b> (sem duplicidade).</p>
+
+<h3>Transformação de dados</h3>
+<p>Dados reais chegam "sujos". Antes de analisar ou visualizar, é preciso transformá-los. O processo clássico é o <b>ETL</b>: <b>E</b>xtrair (das fontes) → <b>T</b>ransformar → <b>C</b>arregar (load) no destino, como um data warehouse. No <b>ELT</b>, carrega-se primeiro e transforma-se no destino (comum em nuvem e data lakes).</p>
+<div class="tbl"><table>
+<tr><th>Transformação</th><th>Exemplo</th></tr>
+<tr><td>Limpeza</td><td>Remover duplicatas; corrigir erros de digitação; tratar ausentes (excluir ou <b>imputar</b> pela média ou mediana)</td></tr>
+<tr><td>Padronização de formato</td><td>Datas no mesmo padrão; unidades iguais (kN e tf → kN); "SP", "S. Paulo" → "SP"</td></tr>
+<tr><td>Conversão de tipo</td><td>Texto "1.250,00" → número 1250</td></tr>
+<tr><td><b>Normalização</b> (min-máx)</td><td>Reescalar para o intervalo 0 a 1</td></tr>
+<tr><td><b>Padronização</b> (z-score)</td><td>Transformar para média 0 e desvio-padrão 1</td></tr>
+<tr><td>Agregação</td><td>Medições diárias → totais mensais (reduz a granularidade)</td></tr>
+<tr><td>Discretização</td><td>Idade → faixa etária; custo → faixas</td></tr>
+<tr><td>Codificação</td><td>Categorias → números (one-hot) para modelos de ML</td></tr>
+<tr><td>Derivação</td><td>Nova coluna: custo por m² = custo ÷ área</td></tr>
+<tr><td>Junção (join / mesclar)</td><td>Unir a tabela de contratos à tabela de fornecedores pelo CNPJ</td></tr>
+<tr><td>Pivotar / despivotar, filtrar, amostrar</td><td>Reorganizar colunas em linhas e vice-versa; selecionar registros</td></tr>
+</table></div>
+<p>Ferramentas: <b>Power Query</b> (no Excel e no Power BI), SQL, Python (pandas), Tableau Prep.</p>
+
+<h3>Análise, Big Data e ciência de dados</h3>
+<ul>
+<li><b>Tipos de análise</b>: descritiva (o que aconteceu?), diagnóstica (por que aconteceu?), preditiva (o que deve acontecer?), prescritiva (o que fazer?).</li>
+<li><b>Correlação não é causalidade</b>: duas variáveis podem andar juntas por coincidência ou por causa de um terceiro fator.</li>
+<li><b>Big Data</b>: os 5 Vs, volume, velocidade, variedade, veracidade e valor.</li>
+<li><b>Data warehouse</b>: dados estruturados, integrados, históricos e orientados a assunto, para BI. <b>Data lake</b>: dados brutos em formato nativo (inclusive não estruturados).</li>
+<li><b>Ciência de dados</b>: aplica estatística, aprendizado de máquina e conhecimento do negócio para extrair padrões, construir modelos preditivos e apoiar decisões (item 180 de 2025: C).</li>
+<li><b>Dados abertos</b>: dados públicos em formato aberto e legível por máquina (CSV, JSON), livres para reutilização. A Câmara mantém um portal de dados abertos.</li>
+</ul>
+<div class="box trap"><strong>Pegadinhas do Módulo 7</strong>
+<ul>
+<li>Metadados ≠ os próprios registros.</li>
+<li>Informação ≠ dado bruto; conhecimento exige interpretação.</li>
+<li>CPF é nominal, não quantitativo.</li>
+<li>A mediana resiste a outliers; a média não.</li>
+<li>Normalização (0 a 1) ≠ padronização (z-score).</li>
+<li>Correlação ≠ causalidade.</li>
+<li>JSON e XML são semiestruturados.</li>
+</ul></div>
+<h3>Treine o Módulo 7</h3>
+<div class="quiz" data-mod="dad"></div>
+</section>
+
+<section class="sec" id="m-vis">
+<h2>Módulo 8 · Visualização de dados</h2>
+<p class="muted">Edital: itens 8, 8.1, 8.2, 8.3 e 8.4. Chance de cair: ★★★★☆. <b>Tema novo no edital</b> e com 4 subitens, por isso é forte candidato a 2 ou 3 itens. Não estava na prova de 2025, então o examinador vai escrevê-los do zero: espere definições de gráficos e princípios clássicos.</p>
+
+<h3>8.1 · Princípios de visualização</h3>
+<ol>
+<li><b>Comece pela pergunta e pelo público</b>: o que a pessoa precisa entender ou decidir?</li>
+<li><b>Escolha o gráfico pela relação</b> que quer mostrar: comparação, tendência, distribuição, relação ou composição.</li>
+<li><b>Simplicidade</b>: maximize a razão <b>dados-tinta</b> (Edward Tufte) e elimine o <b>chartjunk</b> (3D, sombras, texturas, grades pesadas, decoração).</li>
+<li><b>Integridade</b>: não distorça. Em gráficos de <b>barras</b>, o eixo deve começar no <b>zero</b>, porque o comprimento da barra é o que se compara. Use escalas consistentes e não exagere proporções (o "fator de mentira" de Tufte).</li>
+<li><b>Atenção dirigida</b>: use atributos pré-atentivos (cor, tamanho, posição, negrito) para destacar o essencial. Uma cor de destaque e o restante em cinza.</li>
+<li><b>Cor com propósito e acessível</b>: poucas cores, significado consistente; não dependa só de vermelho × verde (daltonismo).</li>
+<li><b>Rótulos e títulos</b>: rotule diretamente; o título pode dizer a conclusão ("Aditivos dobraram em 2026"). Ordene as barras quando a ordem não for natural.</li>
+<li><b>Gestalt</b>: o cérebro agrupa por proximidade, similaridade, cercamento e conexão. Use isso para organizar.</li>
+</ol>
+
+<h3>8.2 · Tipos de gráficos</h3>
+<div class="tbl"><table>
+<tr><th>Gráfico</th><th>Use para</th><th>Detalhe que cai</th></tr>
+<tr><td><b>Histograma</b></td><td><b>Distribuição</b> de uma variável <b>numérica contínua</b></td><td>Barras <b>adjacentes</b> (sem espaço); cada barra é uma <b>faixa (classe ou bin)</b> e a altura é a frequência. Mostra forma, assimetria, picos.</td></tr>
+<tr><td><b>Barras / colunas</b></td><td><b>Comparar categorias</b></td><td>Barras <b>separadas</b>; eixo a partir do zero; horizontais são boas para rótulos longos; existem as versões agrupada e empilhada.</td></tr>
+<tr><td><b>Linha</b></td><td><b>Tendência</b> ao longo do tempo (série temporal)</td><td>Eixo X ordenado (tempo); várias séries comparáveis; o eixo Y não precisa começar no zero.</td></tr>
+<tr><td><b>Dispersão</b></td><td><b>Relação</b> entre <b>duas variáveis numéricas</b></td><td>Cada ponto é um registro; revela correlação (positiva, negativa, nenhuma), agrupamentos e outliers. Correlação ≠ causalidade.</td></tr>
+<tr><td><b>Box plot</b></td><td><b>Resumo da distribuição</b> e comparação entre grupos</td><td>Caixa de Q1 a Q3 (50% centrais); linha interna = <b>mediana</b>; bigodes até os valores dentro de 1,5·IQR; pontos isolados = outliers.</td></tr>
+<tr><td>Pizza / rosca</td><td>Partes de um todo (100%)</td><td>Só com <b>poucas</b> categorias e bem diferentes; é ruim para comparar valores próximos.</td></tr>
+<tr><td>Área, mapa de calor, mapa, cartão (KPI), tabela</td><td>Acumulado no tempo; intensidade em matriz; dados geográficos; número de destaque; valores exatos</td><td>–</td></tr>
+</table></div>
+<div class="diagram"><svg viewBox="0 0 620 200" role="img" aria-label="Anatomia do box plot">
+<line x1="40" y1="100" x2="150" y2="100" class="ln" stroke-width="2"/>
+<line x1="40" y1="80" x2="40" y2="120" class="ln" stroke-width="2"/>
+<rect x="150" y="70" width="240" height="60" class="fl" stroke-width="2"/>
+<line x1="250" y1="70" x2="250" y2="130" stroke="currentColor" class="ln" stroke-width="3"/>
+<line x1="390" y1="100" x2="500" y2="100" class="ln" stroke-width="2"/>
+<line x1="500" y1="80" x2="500" y2="120" class="ln" stroke-width="2"/>
+<circle cx="575" cy="100" r="6" class="fl2" stroke-width="2"/>
+<g font-size="12.5">
+<text x="18" y="150">mínimo*</text>
+<text x="136" y="58">Q1 (25%)</text>
+<text x="222" y="150" font-weight="700">mediana</text>
+<text x="362" y="58">Q3 (75%)</text>
+<text x="476" y="150">máximo*</text>
+<text x="552" y="80">outlier</text>
+<text x="196" y="190">caixa = IQR (50% centrais dos dados)</text>
+</g>
+<text x="18" y="22" font-size="11.5">* extremos dos bigodes: últimos valores dentro de 1,5 × IQR a partir da caixa</text>
+</svg></div>
+<div class="two">
+<div class="card"><b>Histograma</b><p>"Distribuição do custo por m² de 200 obras": barras coladas, faixas de R$ 500 em R$ 500.</p></div>
+<div class="card"><b>Barras</b><p>"Custo total por unidade da Federação": categorias separadas, ordenadas do maior para o menor.</p></div>
+</div>
+
+<h3>8.3 · Ferramentas</h3>
+<div class="tbl"><table>
+<tr><th></th><th>Power BI</th><th>Tableau</th><th>Looker Studio (ex-Google Data Studio)</th></tr>
+<tr><td>Fabricante</td><td>Microsoft</td><td>Salesforce</td><td>Google</td></tr>
+<tr><td>Componentes</td><td><b>Desktop</b> (cria relatórios; gratuito), <b>Service</b> (nuvem: publica, compartilha, cria dashboards), Mobile</td><td>Desktop, Prep (preparação), Server/Cloud, <b>Public</b> (gratuito; o que se publica fica público)</td><td><b>Web</b>, <b>gratuito</b>, edição colaborativa no estilo Google Docs</td></tr>
+<tr><td>Preparar dados</td><td><b>Power Query</b> (ETL, linguagem M)</td><td>Tableau Prep</td><td>Conectores e campos calculados</td></tr>
+<tr><td>Cálculos</td><td><b>DAX</b> (medidas e colunas calculadas)</td><td>Campos calculados; dimensões × medidas</td><td>Campos calculados</td></tr>
+<tr><td>Destaques</td><td>Relatório (várias páginas, interativo) × <b>dashboard</b> (uma tela no Service com visuais fixados de vários relatórios); atualização agendada</td><td>Planilhas (sheets), dashboards e <b>Stories</b> (sequência narrativa de visualizações)</td><td>Conectores nativos com Google Sheets, BigQuery, Google Analytics e Google Ads; relatórios compartilháveis por link</td></tr>
+</table></div>
+<p>As três permitem conectar planilhas, CSV e bancos de dados, montar visuais por <b>arrastar e soltar</b> (sem precisar programar), usar filtros e segmentações interativos e fazer drill-down (detalhar ao clicar).</p>
+
+<h3>8.4 · Storytelling com dados</h3>
+<p>É comunicar uma <b>mensagem</b> com dados, combinando três elementos: <b>dados + visual + narrativa</b>. O foco é levar o público a <b>entender e agir</b>. Distingue-se a análise <b>exploratória</b> (você procura o que é interessante) da <b>explanatória</b> (você comunica a conclusão encontrada); storytelling é explanatória.</p>
+<p>As lições de Cole Nussbaumer Knaflic (<i>Storytelling com dados</i>):</p>
+<ol>
+<li><b>Entenda o contexto</b>: quem é o público, o que ele deve saber ou fazer, qual é a "grande ideia" (uma frase).</li>
+<li><b>Escolha o visual adequado</b>.</li>
+<li><b>Elimine a saturação</b> (o que não ajuda, atrapalha).</li>
+<li><b>Foque a atenção</b> onde importa (cor, tamanho, posição).</li>
+<li><b>Pense como um designer</b> (alinhamento, hierarquia, acessibilidade).</li>
+<li><b>Conte uma história</b>: começo (contexto), meio (tensão ou problema mostrado pelos dados) e fim (solução ou chamada à ação).</li>
+</ol>
+<div class="box"><strong>Exemplo</strong><p>Para a Diretoria: "<b>Os aditivos de prazo concentram-se em obras sem projeto executivo completo.</b>" Mostre um gráfico de barras com duas categorias (com e sem projeto executivo), destaque a barra crítica em cor e as demais em cinza, e termine com a recomendação: exigir projeto executivo antes da licitação. Mostrar todas as 40 tabelas da base <b>não</b> é storytelling.</p></div>
+<div class="box trap"><strong>Pegadinhas do Módulo 8</strong>
+<ul>
+<li>Histograma (distribuição numérica, barras coladas) ≠ barras (categorias, barras separadas).</li>
+<li>Linha interna do box plot = mediana, não média.</li>
+<li>Barras com eixo truncado distorcem a comparação.</li>
+<li>3D e decoração atrapalham.</li>
+<li>Pizza só para poucas partes de um todo.</li>
+<li>Dispersão = duas variáveis numéricas.</li>
+<li>Data Studio agora se chama Looker Studio e é gratuito.</li>
+<li>Power Query transforma; DAX calcula.</li>
+<li>Storytelling seleciona e foca; não despeja tudo.</li>
+</ul></div>
+<h3>Treine o Módulo 8</h3>
+<div class="quiz" data-mod="vis"></div>
+</section>
+<section class="sec" id="simulados">
+<h2>Simulados: 3 blocos de 20 itens, no formato Cebraspe</h2>
+<p>Cada simulado reproduz o tamanho e a distribuição esperados do bloco de TI (Office 3 · Redes 2 · Comunicação 2 · Segurança 4 · IA 3 · Ética 1 · Dados 2 · Visualização 3). A correção usa a regra do edital: <b>+1 por acerto, −1 por erro, 0 em branco</b>. Os itens que você errar vão para o Caderno de erros.</p>
+<div class="tbl"><table>
+<tr><th>Simulado</th><th>Quando fazer</th><th>Nível</th></tr>
+<tr><td>1 · Diagnóstico</td><td>Antes de estudar (semana 1)</td><td>Médio: mede seu ponto de partida</td></tr>
+<tr><td>2 · Intermediário</td><td>Semana 9, depois de todos os módulos</td><td>Médio-alto</td></tr>
+<tr><td>3 · Nível Câmara 2025</td><td>Semana 10, cronometrado (40 min)</td><td>Alto: itens longos, com as mutações da prova real</td></tr>
+</table></div>
+<div class="qbar" id="simPick">
+  <button data-sim="s1">Simulado 1</button>
+  <button data-sim="s2">Simulado 2</button>
+  <button data-sim="s3">Simulado 3</button>
+</div>
+<div id="simArea"><p class="muted">Escolha um simulado acima.</p></div>
+</section>
+
+<section class="sec" id="erros">
+<h2>Caderno de erros</h2>
+<p>Aqui aparecem automaticamente todos os itens que você <b>errou</b> (nos módulos, no Raio-X ou nos simulados) e os que você <b>marcou para revisão</b>. Um item sai do caderno quando você o acerta aqui e desmarca a revisão. Refaça este caderno nas revisões de 1, 7 e 21 dias.</p>
+<div class="qbar"><button id="errRefresh">Atualizar caderno</button><span class="sc" id="errInfo"></span></div>
+<div id="errArea"></div>
+</section>
+
+<section class="sec" id="vespera">
+<h2>Revisão de véspera: 45 frases que valem pontos</h2>
+<p class="muted">Leitura de 20 minutos para 15 e 16/01. Nada de conteúdo novo.</p>
+<div class="two">
+<div class="card flash"><b>Microsoft 365</b><ol>
+<li>$ trava o que vem depois: $A$1 fixo; A$1 trava a linha; $A1 trava a coluna.</li>
+<li>SOMASE(critério; condição; soma). SOMASES(soma; critério; condição…).</li>
+<li>Precedência: ( ) → ^ → * / → + − → &amp; → comparações.</li>
+<li>PROCV: 1ª coluna, só à direita, FALSO = exata. PROCX: qualquer direção.</li>
+<li>CONT.NÚM = números; CONT.VALORES = não vazias.</li>
+<li>Filtro oculta; não exclui.</li>
+<li>Seção no Word = orientação, margem e cabeçalho diferentes.</li>
+<li>Slide Mestre muda todos; transição (entre slides) ≠ animação (objetos).</li>
+<li>Coautoria: desktop, web e Teams. AutoSalvamento: só na nuvem.</li>
+<li>OneDrive sincronizado ≠ backup; histórico de versões recupera.</li>
+</ol></div>
+<div class="card flash"><b>Redes e comunicação</b><ol start="11">
+<li>Intranet = tecnologia da Internet + acesso restrito; VPN para acesso remoto.</li>
+<li>DNS: nome → IP. DHCP: IP automático. IPv6: 128 bits.</li>
+<li>HTTPS: conexão cifrada; cadeado ≠ site legítimo.</li>
+<li>Anônima: não grava localmente; sites, rede e provedor veem.</li>
+<li>Nuvem pública: infraestrutura compartilhada, dados isolados.</li>
+<li>SMTP envia; POP3 baixa; IMAP sincroniza.</li>
+<li>Cco oculto; responder não leva anexo; encaminhar leva.</li>
+<li>Teams: canal → SharePoint; chat → OneDrive; coedição sem baixar.</li>
+<li>Meet: abre no navegador, sem instalar.</li>
+</ol></div>
+<div class="card flash"><b>Segurança</b><ol start="20">
+<li>Vírus: hospedeiro + execução. Worm: sozinho pela rede.</li>
+<li>Trojan disfarça; backdoor reabre; rootkit esconde; bot = zumbi.</li>
+<li>Keylogger = teclado; screenlogger = tela.</li>
+<li>Ransomware: criptografa e pede resgate (disponibilidade); pode vazar dados.</li>
+<li>Incremental: desde o último backup. Diferencial: desde o último completo.</li>
+<li>Restaurar incremental: completo + todos. Diferencial: completo + último.</li>
+<li>3-2-1 (+1 offline/imutável); testar a restauração.</li>
+<li>Assinatura = conhecidos (reativa). Heurística = desconhecidos (falsos positivos).</li>
+<li>Firewall filtra tráfego; não remove vírus.</li>
+<li>Phishing atrai com mensagem; pharming desvia o DNS (URL certa, site falso).</li>
+<li>Spear = personalizado; whaling = alto escalão.</li>
+</ol></div>
+<div class="card flash"><b>IA, ética, dados e visualização</b><ol start="31">
+<li>IA ⊃ ML ⊃ deep learning ⊃ LLM.</li>
+<li>Supervisionado = rótulo (classificação, regressão). Não supervisionado = agrupamento. Reforço = recompensa.</li>
+<li>Foundation model = pré-treinado com dados massivos; não são regras.</li>
+<li>LLM prevê o próximo token; alucina; reproduz vieses.</li>
+<li>GPT = Generative Pre-trained Transformer. GAN = gerador × discriminador (competem).</li>
+<li>Few-shot = exemplos no prompt, sem retreinar. RAG = documentos no prompt.</li>
+<li>Bom prompt: papel, tarefa, contexto, formato, restrições, exemplos.</li>
+<li>Classes desbalanceadas: acurácia engana; use precisão, recall e F1.</li>
+<li>Ética: rastreabilidade, transparência, revisão humana, ferramenta aprovada; a responsabilidade é do servidor.</li>
+<li>Dado → informação (contexto) → conhecimento (interpretação).</li>
+<li>Nominal (sem ordem) · ordinal (com ordem) · discreto (contagem) · contínuo (medida). CPF é nominal.</li>
+<li>Mediana resiste a outliers; outlier = fora de 1,5·IQR.</li>
+<li>Histograma: distribuição numérica, barras coladas. Barras: categorias.</li>
+<li>Box plot: caixa Q1–Q3, linha = mediana. Linha = tempo. Dispersão = 2 variáveis numéricas.</li>
+<li>Power Query transforma, DAX calcula; Tableau Story; Looker Studio = ex-Data Studio, gratuito. Storytelling = contexto, foco e narrativa.</li>
+</ol></div>
+</div>
+<div class="box ok"><strong>No dia da prova</strong>
+<ul>
+<li>Leia o comando do bloco ("julgue os itens… relativos a…"): ele delimita o assunto.</li>
+<li>Aplique o método dos 3 passos: núcleo → definição → qualificadores.</li>
+<li>Palavra absoluta = alerta para reler, não gabarito automático.</li>
+<li>Marque só com motivo concreto; na dúvida real, deixe em branco.</li>
+<li>Não volte para trocar uma resposta sem um motivo novo.</li>
+</ul></div>
+</section>
+
+<section class="sec" id="desempenho">
+<h2>Meu desempenho</h2>
+<div class="grid" id="perfStats"></div>
+<h3>Acertos por módulo (itens de treino e Raio-X)</h3>
+<div class="tbl"><table id="perfTbl"></table></div>
+<h3>Histórico de simulados</h3>
+<div id="simHist"></div>
+<div class="box tip" id="perfAdvice"><strong>Recomendação</strong><p>Responda alguns itens para receber uma recomendação.</p></div>
+<div class="qbar"><button id="resetAll">Apagar todo o progresso</button></div>
+</section>
+
+<p class="muted" style="margin-top:40px">Material de estudo elaborado a partir do Edital nº 1/2026 da Câmara dos Deputados (Analista Legislativo), da prova e do gabarito definitivo de 2025 (itens 163 a 180) e do caderno de 200 questões do Cebraspe fornecido. Os itens marcados como "Autoral" foram escritos no estilo da banca para cobrir tópicos sem questões no banco. Os itens do Cebraspe estão identificados por órgão e ano.</p>
+</div></main>
+</div>
+<button class="themebtn" id="themeBtn" aria-label="Alternar tema">Tema</button>
+<script>
+const MODS={off:'Microsoft 365',red:'Redes e Internet',com:'E-mail, Teams e Meet',seg:'Segurança e governança',ia:'Inteligência artificial',eti:'Ética digital',dad:'Dados',vis:'Visualização',hw:'Hardware/Windows (2025)'};
+const Q=[];
+function q(id,m,s,g,f,t,j){Q.push({id,m,s,g,f,t,j});}
+const C='C',E='E',AU='Autoral (estilo Cebraspe)';
+const CD='Cebraspe · Câmara dos Deputados 2025 (aplicada em 2026)';
+
+/* ===================== RAIO-X 2025 ===================== */
+q('rx163','hw','rx',C,CD+' · item 163',`SSD é um exemplo de memória não volátil, que mantém os dados armazenados no processo de reinicialização do computador.`,
+`O SSD (unidade de estado sólido, memória flash) é armazenamento <b>não volátil</b>: conserva os dados sem energia. Volátil é a memória RAM, que perde o conteúdo ao desligar.`);
+q('rx164','hw','rx',E,CD+' · item 164',`No processamento mononuclear em concorrência, diversas threads são executadas simultaneamente, dividindo-se o fluxo em frações menores de tempo.`,
+`Com um único núcleo, as threads <b>se alternam</b> em fatias de tempo: é concorrência, que dá a <i>ilusão</i> de simultaneidade. Execução realmente simultânea exige vários núcleos (paralelismo). Mutação: <b>troca de vizinhos</b>.`);
+q('rx165','hw','rx',E,CD+' · item 165',`Operações do tipo IO intensivas são limitadas pela velocidade de processamento da CPU, sem impacto dos periféricos a ela associados.`,
+`Operações intensivas em E/S (I/O-bound) são limitadas pela velocidade de <b>entrada e saída</b> (disco, rede, periféricos); a CPU fica esperando. As limitadas pela CPU são as CPU-bound. Troca de vizinhos e absoluto ("sem impacto").`);
+q('rx166','off','rx',C,CD+' · item 166',`Em uma mesma conversa no Microsoft Teams, é possível incluir links de itens dos aplicativos Excel, PowerPoint e Word, os quais poderão ser editados, de forma simultânea, por diferentes usuários, diretamente no Teams, sem necessidade de download do arquivo.`,
+`Recurso real: arquivos do Office compartilhados no Teams abrem dentro do próprio Teams (Office para a Web) e permitem <b>coautoria simultânea</b>, sem baixar.`);
+q('rx167','hw','rx',C,CD+' · item 167',`O Windows 10 tem uma função nativa para renomear arquivos em lote que permite que o usuário defina novo padrão de nomes.`,
+`Selecionando vários arquivos no Explorador e pressionando <kbd>F2</kbd>, o nome digitado é aplicado a todos com numeração: Relatório (1), Relatório (2)… É nativo.`);
+q('rx168','off','rx',C,CD+' · item 168 (ANULADO)',`Considerando-se que a tabela a seguir represente trecho de uma planilha no Excel (A1: cliente; B1: saldo; B2 a B7: 250; 537; 721; 136; 17; 1.406), é correto afirmar que a execução das funções =SOMASE(B2:B7;"&lt;500";B2:B7) e =SOMA(B2:B7)−SOMASE(B2:B7;"&gt;=500";B2:B7) retornará o mesmo resultado.`,
+`<b>Item anulado</b> por erro de digitação na prova (faltava uma aspa). Pela matemática seria <b>CERTO</b>: 250+136+17 = 403; e 3.067 − (537+721+1.406) = 3.067 − 2.664 = 403. Os critérios "&lt;500" e "&gt;=500" são complementares.`);
+q('rx169','red','rx',E,CD+' · item 169',`Os dados de uma organização armazenados em nuvem pública podem ser visualizados por outras organizações, sem que estas, contudo, possam alterá-los.`,
+`Na nuvem pública a <b>infraestrutura</b> é compartilhada (multi-inquilino), mas os dados de cada cliente ficam <b>isolados logicamente</b> e protegidos por controle de acesso e criptografia. Mutação: <b>extrapolação</b>.`);
+q('rx170','red','rx',C,CD+' · item 170',`O Google Chrome admite a utilização de múltiplos perfis em um mesmo computador, bem como permite a separação de contas pessoais e de trabalho, cada qual com seus respectivos históricos, favoritos e senhas.`,
+`Recurso real: cada perfil do Chrome tem histórico, favoritos, senhas, extensões e configurações próprios.`);
+q('rx171','red','rx',C,CD+' · item 171',`As abas anônimas, também chamadas de privadas, oferecem privacidade local, sem ocultar as atividades de sites e provedores de Internet.`,
+`Correto: a aba anônima não grava histórico, cookies e formulários no computador, mas sites, rede corporativa e provedor continuam vendo o acesso.`);
+q('rx172','seg','rx',E,CD+' · item 172',`O pharming caracteriza-se pela manipulação direta do conteúdo apresentado ao usuário no navegador por meio de código malicioso, com atuação associada à modificação dinâmica de páginas durante a sessão.`,
+`Isso é <i>man-in-the-browser</i> / injeção web. <b>Pharming</b> é o <b>redirecionamento</b> a site falso por adulteração da resolução de nomes (DNS, arquivo hosts, roteador): a vítima digita a URL certa e cai na página falsa. Mutação: <b>definição trocada</b>.`);
+q('rx173','seg','rx',E,CD+' · item 173',`Soluções anti-spyware contemporâneas estruturam a detecção de atividades de espionagem em uma camada única de correlação de assinaturas de código previamente classificadas que realiza a identificação reativa de artefatos conhecidos.`,
+`As soluções atuais são <b>em camadas</b> e <b>proativas</b>: assinatura + heurística + análise comportamental + reputação em nuvem e aprendizado de máquina. "Camada única", "reativa" e "só assinaturas" restringem indevidamente.`);
+q('rx174','seg','rx',C,CD+' · item 174',`Vírus e worms distinguem-se, entre outros aspectos, pelos mecanismos de propagação: vírus usualmente dependem da execução de código por um hospedeiro para se disseminar, ao passo que worms, em geral, exploram serviços ou vulnerabilidades de rede para autopropagação, sem interação direta do usuário.`,
+`Distinção clássica e correta, com modalizadores ("usualmente", "em geral").`);
+q('rx175','seg','rx',E,CD+' · item 175',`Em ambientes corporativos com sistemas de backup com versionamento online e verificação periódica de integridade, é dispensável a manutenção de cópias de segurança offline para mitigação de riscos associados a ransomware, uma vez que a recuperação íntegra pode ser assegurada a partir de repositórios online integrados.`,
+`O ransomware atinge o que está conectado, inclusive repositórios online e, com credenciais roubadas, até as versões. Cópias <b>offline/imutáveis (air-gapped)</b> continuam indispensáveis (regra 3-2-1-1-0). "É dispensável" é a mutação.`);
+q('rx176','eti','rx',C,CD+' · item 176',`No serviço público, a ética e a responsabilidade digital incluem a obrigação institucional de assegurar rastreabilidade, registro decisório e justificativa técnica nos sistemas informatizados que apoiam atos administrativos, de modo a viabilizar auditoria, controle e responsabilização, quando couber.`,
+`Correto: rastreabilidade e motivação viabilizam controle e accountability. Note o modalizador "quando couber".`);
+q('rx177','ia','rx',E,CD+' · item 177',`O foundation model de inteligência artificial fundamenta-se na representação explícita do conhecimento por meio de regras formais previamente definidas, sendo o desempenho dos modelos associado, por definição, à completude e à consistência dessas regras.`,
+`Isso descreve a <b>IA simbólica</b> (sistemas especialistas). O foundation model é um modelo grande, <b>pré-treinado com dados massivos</b> (aprendizado autossupervisionado), de uso geral e adaptável a várias tarefas. Mutação: <b>troca de paradigma</b>.`);
+q('rx178','ia','rx',E,CD+' · item 178',`Em um modelo de classificação aplicado à detecção de fraudes, ainda que as classes sejam desbalanceadas, a acurácia obtida no conjunto de teste constitui métrica adequada de avaliação do desempenho do modelo, ao refletir a proporção global de previsões corretas em relação ao total de registros avaliados.`,
+`Com classes desbalanceadas (poucas fraudes), um modelo que sempre diz "não fraude" tem acurácia altíssima e não detecta nada. Use <b>precisão, recall, F1</b> e matriz de confusão. Mutação: <b>conceito certo no contexto errado</b>.`);
+q('rx179','seg','rx',C,CD+' · item 179',`A governança da informação estabelece políticas, papéis e processos para assegurar o uso adequado das informações ao longo de seu ciclo de vida, contribuindo para o alinhamento da gestão informacional às exigências regulatórias.`,
+`Definição ampla e correta.`);
+q('rx180','dad','rx',C,CD+' · item 180',`Aplicações de ciência de dados empregam métodos estatísticos e de aprendizado de máquina para extração de padrões, construção de modelos preditivos e suporte analítico a decisões, em tarefas como classificação, detecção de anomalias e análise de grandes volumes de dados.`,
+`Definição ampla e correta, com exemplos de tarefas.`);
+
+/* ===================== MÓDULO 1 · OFFICE ===================== */
+q('off01','off','pr',C,AU,`No Excel, considere que a célula C1 contenha a fórmula =A1*$B$1. Nesse caso, ao se copiar C1 e colá-la em D5, a fórmula resultante em D5 será =B5*$B$1.`,
+`Deslocamento de +1 coluna e +4 linhas: A1 vira B5. $B$1 é absoluta e não muda.`);
+q('off02','off','pr',E,AU,`No Excel, a fórmula =SOMASE(A2:A10;"Obras";C2:C10) soma os valores do intervalo A2:A10 cujas células correspondentes no intervalo C2:C10 contenham o texto Obras.`,
+`É o inverso: o critério é testado em A2:A10 (1º argumento) e somam-se os valores correspondentes de C2:C10 (3º argumento). Mutação: <b>inversão de papéis</b>.`);
+q('off03','off','pr',E,AU,`As funções SOMASE e SOMASES do Excel adotam a mesma ordem de argumentos, de modo que, em ambas, o intervalo a ser somado corresponde ao último argumento informado.`,
+`Em SOMASES o intervalo de soma é o <b>primeiro</b> argumento: =SOMASES(intervalo_soma; intervalo_critério1; critério1; …). Em SOMASE ele é o último (opcional).`);
+q('off04','off','pr',E,AU,`No Excel, a fórmula =2+3*2^2 retorna o valor 100, uma vez que as operações são executadas sequencialmente, da esquerda para a direita.`,
+`Há precedência: potência, depois multiplicação, depois soma. 2^2 = 4; 3×4 = 12; 2 + 12 = <b>14</b>.`);
+q('off05','off','pr',C,AU,`A função PROCV pesquisa um valor na primeira coluna de um intervalo e retorna o conteúdo de outra coluna desse intervalo, na mesma linha; quando o último argumento é FALSO, exige-se correspondência exata.`,
+`Definição correta. Com VERDADEIRO ou omitido, a correspondência é aproximada (exige a primeira coluna ordenada).`);
+q('off06','off','pr',C,AU,`No Excel do Microsoft 365, a função PROCX permite retornar valores de colunas situadas à esquerda da coluna pesquisada, o que não é possível diretamente com a função PROCV.`,
+`PROCX recebe separadamente a matriz de pesquisa e a de retorno, em qualquer posição. PROCV só devolve colunas à direita da primeira.`);
+q('off07','off','pr',E,AU,`No Excel, a função CONT.NÚM conta todas as células não vazias de um intervalo, inclusive aquelas que contenham texto.`,
+`Isso é CONT.VALORES. CONT.NÚM conta apenas células com números.`);
+q('off08','off','pr',E,AU,`Ao se aplicar filtro a uma coluna de uma planilha do Excel, as linhas que não atendem ao critério estabelecido são excluídas definitivamente da planilha.`,
+`O filtro apenas <b>oculta</b> as linhas; ao limpar o filtro, elas reaparecem.`);
+q('off09','off','pr',C,AU,`A tabela dinâmica do Excel permite resumir, agrupar e reorganizar grandes volumes de dados, como o total de medições por obra e por mês, sem alterar os dados de origem.`,
+`Correto: é uma ferramenta de resumo e análise; a base original permanece intacta.`);
+q('off10','off','pr',E,AU,`Considere que, em uma planilha do Excel, B2 = 6,5 e C2 = 80%. Nesse caso, a fórmula =SE(E(B2>=7;C2>=75%);"Aprovado";"Reprovado") retornará Aprovado.`,
+`A função E exige que <b>todas</b> as condições sejam verdadeiras. B2 &gt;= 7 é falso, logo o resultado é "Reprovado". Com OU, seria "Aprovado".`);
+q('off11','off','pr',C,AU,`No Word, o recurso Controlar Alterações registra inserções, exclusões e alterações de formatação realizadas no documento, as quais podem ser posteriormente aceitas ou rejeitadas.`,
+`Correto (guia Revisão).`);
+q('off12','off','pr',C,AU,`No Word, a inserção de quebras de seção permite que partes de um mesmo documento tenham configurações distintas, como orientação retrato em algumas páginas e paisagem em outras.`,
+`Correto: a seção é a unidade de configuração de página (orientação, margens, colunas, cabeçalho e rodapé, numeração).`);
+q('off13','off','pr',E,AU,`No Microsoft 365, a coautoria em tempo real de documentos do Word exige que todos os participantes utilizem o aplicativo instalado no computador, de modo que usuários do Word para a Web podem apenas visualizar o arquivo.`,
+`A coautoria funciona no desktop, na web, no celular e dentro do Teams. Restrição inventada.`);
+q('off14','off','pr',C,AU,`O Salvamento Automático do Microsoft 365 aplica-se a arquivos armazenados no OneDrive ou no SharePoint, gravando as alterações automaticamente a cada poucos segundos.`,
+`Correto: o AutoSalvamento depende do armazenamento em nuvem (OneDrive ou SharePoint).`);
+q('off15','off','pr',C,AU,`No PowerPoint, transições são efeitos aplicados à passagem de um slide para outro, enquanto animações são efeitos aplicados a objetos dentro de um slide.`,
+`Distinção correta.`);
+q('off16','off','pr',E,AU,`No PowerPoint, as alterações realizadas no Slide Mestre refletem-se apenas no slide que estiver selecionado no momento da edição.`,
+`O Slide Mestre define o padrão de <b>todos</b> os slides baseados nele e em seus layouts.`);
+q('off17','off','pr',C,AU,`Considere que a pasta Documentos de um computador esteja sincronizada com o OneDrive. Nesse caso, a exclusão de um arquivo nessa pasta será replicada na nuvem, razão pela qual a sincronização, isoladamente, não substitui uma política de backup.`,
+`Correto: sincronizar replica inclusive exclusões e corrupções. A recuperação depende da Lixeira e do histórico de versões, por prazo limitado.`);
+q('off18','off','pr',E,AU,`Com o recurso Arquivos sob Demanda do OneDrive, todos os arquivos armazenados na nuvem são obrigatoriamente baixados para o disco local, de modo a garantir acesso offline integral.`,
+`É o contrário: os arquivos aparecem no Explorador, mas só são baixados quando abertos (ou quando marcados como "sempre manter neste dispositivo"). O objetivo é economizar espaço.`);
+q('off19','off','pr',C,AU,`Ao compartilhar um arquivo por link no OneDrive, o usuário pode definir se o destinatário poderá apenas visualizar ou também editar o arquivo e, conforme as configurações da conta, restringir o acesso a pessoas específicas.`,
+`Correto: as opções de link incluem a permissão (exibir ou editar) e o público (qualquer pessoa, pessoas da organização, pessoas específicas).`);
+q('off20','off','pr',E,AU,`No Word em português, o atalho Ctrl+S salva o documento em edição.`,
+`No Word em português, <kbd>Ctrl</kbd>+<kbd>S</kbd> aplica <b>sublinhado</b>; salvar é <kbd>Ctrl</kbd>+<kbd>B</kbd>.`);
+
+/* ===================== MÓDULO 2 · REDES ===================== */
+q('red01','red','pr',C,AU,`Intranet é uma rede privada, de acesso restrito aos membros de uma organização, que utiliza os mesmos protocolos e tecnologias da Internet, como TCP/IP e HTTP, podendo ser acessada remotamente por meio de VPN.`,
+`Definição correta e completa.`);
+q('red02','red','pr',E,AU,`Por ser uma rede interna, a intranet dispensa o uso de navegadores e de servidores web, já que seus serviços são acessados exclusivamente por aplicativos proprietários.`,
+`A intranet usa justamente as tecnologias da Internet: portais acessados por navegador, servidores web, e-mail.`);
+q('red03','red','pr',C,AU,`Extranet corresponde à extensão da intranet de uma organização disponibilizada a usuários externos autorizados, como fornecedores e parceiros.`,
+`Correto.`);
+q('red04','red','pr',C,AU,`O DNS é o serviço responsável por traduzir nomes de domínio, como camara.leg.br, em endereços IP.`,
+`Correto. Se o DNS for adulterado, ocorre o pharming.`);
+q('red05','red','pr',C,AU,`O HTTPS utiliza criptografia para proteger os dados trafegados entre o navegador e o servidor; contudo, a exibição do cadeado no navegador não garante, por si só, que o sítio acessado seja legítimo.`,
+`Correto: golpistas também obtêm certificados. O cadeado indica conexão cifrada, não idoneidade.`);
+q('red06','red','pr',E,AU,`O IPv6 utiliza endereços de 32 bits, o que ampliou significativamente a quantidade de endereços disponíveis em relação ao IPv4.`,
+`O IPv6 usa <b>128 bits</b>; o IPv4 é que tem 32 bits.`);
+q('red07','red','pr',C,AU,`O DHCP atribui automaticamente configurações de rede, como o endereço IP, aos dispositivos que se conectam a uma rede.`,
+`Correto.`);
+q('red08','red','pr',C,AU,`O TCP é um protocolo orientado à conexão que garante a entrega ordenada dos dados, ao passo que o UDP não estabelece conexão nem garante a entrega, sendo empregado, por exemplo, em transmissões de áudio e vídeo em tempo real.`,
+`Distinção correta.`);
+q('red09','red','pr',E,AU,`A navegação em janela anônima impede que o provedor de Internet e o administrador da rede corporativa identifiquem os sítios acessados pelo usuário.`,
+`A janela anônima só evita o registro <b>local</b> (histórico, cookies). Provedor, rede e sites continuam vendo o tráfego.`);
+q('red10','red','pr',E,AU,`Em uma janela anônima do Google Chrome, os arquivos baixados e os favoritos criados durante a sessão são automaticamente apagados quando a janela é fechada.`,
+`Downloads e favoritos <b>permanecem</b>. São apagados histórico, cookies, dados de sites e de formulários.`);
+q('red11','red','pr',C,AU,`Cookies são pequenos arquivos de texto armazenados pelo navegador a pedido dos sítios visitados, que podem guardar informações como preferências do usuário e dados de sessão de login.`,
+`Correto. Cookies de rastreamento afetam a privacidade, mas não são vírus nem programas.`);
+q('red12','red','pr',C,AU,`Na pesquisa do Google, o termo site:camara.leg.br restringe os resultados a páginas desse domínio, e o uso de aspas em uma expressão faz que se busque a expressão exata.`,
+`Operadores corretos.`);
+q('red13','red','pr',C,AU,`No modelo SaaS de computação em nuvem, o usuário utiliza um software pronto, acessado pela Internet, sem gerenciar a infraestrutura subjacente; o Microsoft 365 é exemplo desse modelo.`,
+`Correto.`);
+q('red14','red','pr',C,AU,`O roteador interliga redes distintas e encaminha pacotes entre elas, como entre a rede local de um órgão e a Internet, ao passo que o switch interconecta dispositivos de uma mesma rede local.`,
+`Correto.`);
+q('red15','red','pr',E,AU,`Denomina-se download a transferência de um arquivo do computador do usuário para um servidor remoto, como ocorre no envio de um documento ao OneDrive.`,
+`Isso é <b>upload</b>. Download é trazer do servidor para o computador do usuário.`);
+q('red16','red','pr',C,AU,`Ao entrar com sua conta Google no Chrome e ativar a sincronização, o usuário pode ter seus favoritos, senhas e histórico disponíveis em outros dispositivos em que use a mesma conta.`,
+`Correto.`);
+
+/* ===================== MÓDULO 3 · COMUNICAÇÃO ===================== */
+q('com01','com','pr',C,AU,`O protocolo SMTP é utilizado para o envio de mensagens de correio eletrônico, ao passo que os protocolos POP3 e IMAP são utilizados para o acesso às mensagens recebidas.`,
+`Correto.`);
+q('com02','com','pr',C,AU,`No protocolo IMAP, as mensagens permanecem no servidor e seu estado, como lida ou não lida e a organização em pastas, é sincronizado entre os diversos dispositivos do usuário; no POP3, em sua configuração típica, as mensagens são baixadas para o dispositivo local.`,
+`Correto.`);
+q('com03','com','pr',E,AU,`Os destinatários incluídos no campo Cco recebem a mensagem, e seus endereços ficam visíveis para os destinatários incluídos nos campos Para e Cc.`,
+`Cco = cópia <b>oculta</b>: ninguém vê os endereços que estão nesse campo.`);
+q('com04','com','pr',E,AU,`Ao se utilizar a opção Responder a todos em mensagem recebida com anexo, o anexo original é automaticamente reenviado a todos os destinatários.`,
+`Responder (a um ou a todos) <b>não</b> reenvia os anexos; encaminhar, sim.`);
+q('com05','com','pr',C,AU,`O webmail permite o acesso à caixa postal por meio de navegador, sem necessidade de instalação de cliente de e-mail, como o Outlook ou o Thunderbird.`,
+`Correto.`);
+q('com06','com','pr',E,AU,`Clientes de e-mail, como o Outlook, funcionam apenas com conexão ativa à Internet, não permitindo a leitura de mensagens previamente sincronizadas quando o computador está offline.`,
+`Uma das vantagens do cliente de e-mail é justamente permitir ler e redigir offline as mensagens já baixadas.`);
+q('com07','com','pr',C,AU,`No Microsoft Teams, os arquivos compartilhados em um canal padrão ficam armazenados no SharePoint da equipe, enquanto os arquivos compartilhados em chat ficam armazenados no OneDrive de quem os compartilhou.`,
+`Correto.`);
+q('com08','com','pr',E,AU,`No Microsoft Teams, um canal privado é visível e acessível a todos os membros da equipe na qual foi criado.`,
+`Canal privado: só membros escolhidos. O canal padrão é que é aberto a todos os membros.`);
+q('com09','com','pr',C,AU,`O Google Meet pode ser acessado diretamente pelo navegador, a partir do link da reunião, sem necessidade de instalação de aplicativo no computador.`,
+`Correto.`);
+q('com10','com','pr',C,AU,`O Microsoft Teams permite, conforme as políticas e o licenciamento da organização, gravar reuniões e gerar sua transcrição, que pode ser consultada posteriormente pelos participantes.`,
+`Correto.`);
+q('com11','com','pr',E,AU,`A assinatura configurada no cliente de e-mail, contendo nome, cargo e telefone do remetente, garante a autenticidade e o não repúdio das mensagens enviadas.`,
+`Esse bloco de texto é só formatação. Autenticidade e não repúdio exigem <b>assinatura digital</b> com certificado.`);
+q('com12','com','pr',C,AU,`Ao encaminhar uma mensagem recebida com anexo, o cliente de e-mail, por padrão, inclui o anexo original na nova mensagem, o que não ocorre, por padrão, ao respondê-la.`,
+`Correto.`);
+q('com13','com','pr',E,AU,`No Microsoft Teams, a edição de uma planilha do Excel compartilhada em um canal exige que cada participante baixe uma cópia local, edite-a e a reenvie, pois a ferramenta não admite edição simultânea.`,
+`O Teams permite coedição simultânea sem download (item 166 de 2025).`);
+
+/* ===================== MÓDULO 4 · SEGURANÇA ===================== */
+q('seg01','seg','pr',C,AU,`O backup incremental copia apenas os dados alterados desde o último backup de qualquer tipo, completo ou incremental, ao passo que o backup diferencial copia os dados alterados desde o último backup completo.`,
+`Definições corretas.`);
+q('seg02','seg','pr',C,AU,`Na restauração de dados, a estratégia com backups diferenciais exige o último backup completo e o último diferencial, enquanto a estratégia com backups incrementais exige o último completo e todos os incrementais realizados depois dele.`,
+`Correto: o incremental é mais rápido de fazer e mais trabalhoso de restaurar.`);
+q('seg03','seg','pr',E,AU,`Em rotina com backup completo semanal e backups diferenciais diários, cada backup diferencial tende a ser menor que o anterior, já que copia apenas as alterações do dia.`,
+`O diferencial <b>cresce</b> ao longo da semana, porque acumula tudo o que mudou desde o último completo.`);
+q('seg04','seg','pr',C,AU,`A regra 3-2-1 de backup recomenda manter três cópias dos dados, em dois tipos diferentes de mídia, sendo uma delas armazenada fora do local principal.`,
+`Correto. A versão moderna acrescenta uma cópia offline ou imutável e testes sem erro (3-2-1-1-0).`);
+q('seg05','seg','pr',E,AU,`Quando o software de backup informa que a cópia foi concluída com sucesso, tornam-se dispensáveis os testes periódicos de restauração.`,
+`Só o teste de restauração comprova que o backup é recuperável (mídia, integridade, procedimento).`);
+q('seg06','seg','pr',E,AU,`O firewall é capaz de remover vírus de arquivos infectados já armazenados no disco do computador.`,
+`O firewall filtra tráfego de rede por regras. Detectar e remover malware é função do antivírus.`);
+q('seg07','seg','pr',C,AU,`No pharming, mesmo digitando corretamente o endereço do sítio no navegador, o usuário pode ser direcionado a página falsa, em razão de manipulação na resolução de nomes, como no envenenamento de cache DNS ou na alteração do arquivo hosts.`,
+`Definição correta de pharming.`);
+q('seg08','seg','pr',E,AU,`O pharming depende necessariamente de que o usuário clique em link fraudulento recebido por e-mail ou mensagem instantânea.`,
+`Isso é característica do phishing. O pharming atua no redirecionamento e dispensa o clique em link.`);
+q('seg09','seg','pr',C,AU,`Além de criptografar os dados da vítima, ataques de ransomware podem exfiltrá-los e ameaçar divulgá-los caso o resgate não seja pago, prática conhecida como dupla extorsão.`,
+`Correto.`);
+q('seg10','seg','pr',C,AU,`A autenticação multifator reduz o risco de uso indevido de credenciais capturadas por phishing, pois exige, além da senha, outro fator de verificação.`,
+`Correto: reduz o risco, embora não o elimine.`);
+q('seg11','seg','pr',C,AU,`A Lei do Governo Digital (Lei nº 14.129/2021) estabelece, entre seus princípios, a desburocratização, a prestação digital dos serviços públicos, a transparência e o uso de dados abertos.`,
+`Correto.`);
+q('seg12','seg','pr',E,AU,`A ativação do firewall pessoal do sistema operacional dispensa o uso de antivírus, uma vez que o firewall bloqueia todo código malicioso antes que ele alcance o computador.`,
+`São proteções complementares. Malware chega por anexos, pendrives e downloads autorizados, que o firewall não inspeciona dessa forma.`);
+q('seg90','seg','pr',C,'Cebraspe · AudCE TCE-RN 2026',`Um worm é um tipo de malware capaz de se propagar pela rede explorando vulnerabilidades em serviços ou em sistemas, sem depender da execução de um arquivo hospedeiro por um usuário.`,`Definição clássica de worm.`);
+q('seg91','seg','pr',E,'Cebraspe · Técnico TCE-RN 2026',`Vírus é um software autoexecutável e autoduplicável que, alojado em arquivo hospedeiro, prescinde da intervenção humana para se propagar e pode causar perda de desempenho do computador, exclusão de arquivos e alteração de dados.`,`O vírus <b>depende</b> da execução do hospedeiro, ou seja, de intervenção. Quem prescinde dela é o worm.`);
+q('seg94','seg','pr',E,'Cebraspe · UNEAL 2026',`Os ransomwares atuam principalmente capturando credenciais de acesso do usuário e transmitindo essas informações para atacantes externos, sem afetar a disponibilidade dos dados.`,`O ransomware sequestra (criptografa ou bloqueia) os dados, atingindo justamente a <b>disponibilidade</b>. Capturar credenciais é típico de spyware e phishing.`);
+q('seg95','seg','pr',E,'Cebraspe · UNEAL 2026',`Rootkits são malwares projetados para se propagarem automaticamente pela rede, explorando vulnerabilidades, sem necessidade de interação do usuário.`,`Essa é a definição de worm. Rootkit serve para <b>ocultar</b> a presença do invasor e de outros malwares.`);
+q('seg96','seg','pr',C,'Cebraspe · PM-MA 2026',`Um rootkit pode se alojar em camadas profundas do sistema operacional ou no firmware da placa-mãe com o propósito de ocultar a presença de outros softwares maliciosos da listagem de processos exibida pelo gerenciador de tarefas.`,`Correto: ocultação é a função do rootkit.`);
+q('seg97','seg','pr',E,'Cebraspe · PM-MA 2026',`O worm é uma praga virtual cuja propagação pela rede local depende da inclusão de seu código malicioso no interior de arquivos executáveis preexistentes.`,`Inserir código em arquivos hospedeiros é característica do vírus.`);
+q('seg98','seg','pr',E,'Cebraspe · PM-MA 2026',`O vírus denominado cavalo de Troia atua alterando o setor de inicialização do sistema para gerar cópias automáticas de si mesmo e transmitir tais arquivos aos contatos de correio eletrônico da vítima.`,`O cavalo de Troia se disfarça de programa útil e não se autorreplica. A descrição mistura vírus de boot e worm de e-mail.`);
+q('seg100','seg','pr',C,'Cebraspe · TRF6 2025',`Denomina-se screenlogger o código malicioso projetado para monitorar o uso de teclados virtuais, capturar as regiões de tela acionadas por esses teclados e enviar as informações coletadas para terceiros.`,`Correto. O keylogger captura o teclado físico; o screenlogger, a tela e os cliques.`);
+q('seg105','seg','pr',C,'Cebraspe · CNPq 2024',`Cavalo de Troia de acesso remoto é um programa que permite ao atacante acessar remotamente o equipamento da vítima e executar ações como se fosse o usuário legítimo, combinando, assim, as características de cavalo de Troia e backdoor.`,`Correto (RAT).`);
+q('seg112','seg','pr',E,'Cebraspe · CAU-BR 2024',`Embora exiba anúncios indesejados, muitas vezes integrando-se a programas gratuitos, o adware não é considerado um malware.`,`O adware é tratado como malware ou, no mínimo, como programa potencialmente indesejado. Também pode coletar dados.`);
+q('seg144','seg','pr',E,'Cebraspe · BANRISUL 2022',`Keylogger é um tipo de spyware que copia o que está sendo digitado na tela do usuário, como logins e senhas inseridas mediante teclados virtuais de aplicações de internet banking.`,`Capturar teclados virtuais pela tela é função do screenlogger. O keylogger registra as teclas do teclado.`);
+q('seg157','seg','pr',E,'Cebraspe · Câmara dos Deputados (Técnico) 2026',`No spear phishing, a personalização da mensagem é irrelevante para o sucesso do ataque, uma vez que a credibilidade decorre principalmente do uso de canais e identidades aparentemente legítimos.`,`O spear phishing é direcionado e <b>depende da personalização</b> (nome, cargo, assunto real) para ganhar credibilidade.`);
+q('seg159','seg','pr',E,'Cebraspe · EMBRAPA 2025',`Devido a suas características e à sua natureza de uso, QR codes impedem que usuários sejam direcionados para páginas falsas.`,`QR Codes podem levar a sites falsos (quishing). Garantia falsa.`);
+q('seg160','seg','pr',C,'Cebraspe · EMBRAPA 2025',`Denomina-se engenharia social o conjunto de técnicas de convencimento utilizadas por um atacante para tentar convencer uma pessoa a executar ação que possa levar ao comprometimento de dados, informações e(ou) do computador da vítima.`,`Definição correta.`);
+q('seg163','seg','pr',E,'Cebraspe · TCE-AC 2024',`Phishing é um ataque que compromete apenas a confidencialidade das informações.`,`O phishing pode instalar malware, levar a fraudes, alterar dados e derrubar serviços. "Apenas" restringe indevidamente.`);
+q('seg164','seg','pr',E,'Cebraspe · TCE-AC 2024 (adaptado)',`Considere que um usuário tenha preenchido formulário falso, recebido por e-mail, com seu nome de usuário e senha, em um ataque de phishing. Nessa situação, a melhor contramedida contra o phishing seria usar algoritmos de criptografia mais robustos nas comunicações de e-mail efetuadas na empresa.`,`O problema é o usuário entregar a credencial. As contramedidas são conscientização, filtros, MFA e verificação de remetente, não criptografia mais forte.`);
+q('seg167','seg','pr',C,'Cebraspe · STJ 2024',`O spear phishing tem como alvo um grupo específico ou tipo de indivíduo, como os administradores de sistema de uma empresa; já o whaling é um tipo de phishing ainda mais direcionado e geralmente tem como alvo um CEO ou CFO de um setor ou negócio específico.`,`Correto.`);
+q('seg177','seg','pr',C,'Cebraspe · TELEBRAS 2026',`Em uma estação de trabalho corporativa, um sistema antivírus que realiza inspeção em tempo real do comportamento de processos é capaz de identificar a execução de código malicioso previamente desconhecido, a partir da correlação de padrões de ações típicas de malware, como injeção de código em outros processos e persistência não autorizada no sistema.`,`Correto: a detecção comportamental pega ameaças desconhecidas.`);
+q('seg179','seg','pr',E,'Cebraspe · Câmara dos Deputados (Policial Legislativo) 2026',`Ferramentas de EDR (endpoint detection and response) identificam atividades suspeitas em computadores e servidores e sinalizam aos analistas para que estes acionem os procedimentos de segurança necessários, o que deve ser feito manualmente.`,`O EDR também <b>responde automaticamente</b> (isola a máquina, encerra processos). "Deve ser feito manualmente" está errado.`);
+q('seg182','seg','pr',E,'Cebraspe · PM-MA 2026',`O método de varredura por assinatura empregado por antivírus atua bloqueando ameaças desconhecidas no momento de sua execução mediante a análise dinâmica de comportamentos suspeitos no fluxo de memória.`,`A assinatura detecta ameaças <b>conhecidas</b> por comparação. O que se descreve é a detecção comportamental.`);
+q('seg183','seg','pr',E,'Cebraspe · TRF6 2025',`Os sistemas antimalware baseados em métodos heurísticos têm como principal característica a imunidade à sinalização de falsos positivos, o que os torna superiores em eficácia aos sistemas baseados em assinaturas.`,`A heurística gera <b>mais</b> falsos positivos. "Imunidade" é absolutização.`);
+q('seg186','seg','pr',C,'Cebraspe · Escrivão PF 2025',`Firewalls são ferramentas de segurança que monitoram e controlam o tráfego de dados entre redes, podendo bloquear acessos não autorizados, ao passo que os antivírus são projetados para detectar, remover e prevenir a ação de vírus e outras pragas virtuais.`,`Distinção correta.`);
+q('seg197','seg','pr',E,'Cebraspe · CODEVASF 2021',`A instalação e a execução de um ou mais sistemas antimalware em um computador garantem proteção contra softwares maliciosos, mesmo que o usuário execute frequentemente arquivos recebidos em mensagens e não atualize seus programas e o sistema operacional.`,`Nenhuma ferramenta "garante" proteção, ainda mais com comportamento de risco e sistema desatualizado.`);
+q('seg199','seg','pr',C,'Cebraspe · PGDF 2021',`Se um rootkit for identificado como ativo no sistema operacional de um computador, na forma de um malware, a solução técnica que deverá estar presente com alta prioridade é a de formatar e reinstalar todo o sistema operacional a partir do zero.`,`Correto: como o rootkit compromete o próprio sistema, a limpeza não é confiável; reinstala-se.`);
+
+/* ===================== MÓDULO 5 · IA ===================== */
+q('ia01','ia','pr',C,AU,`No aprendizado supervisionado, o modelo é treinado com dados rotulados, isto é, exemplos acompanhados da resposta esperada, e é empregado em tarefas de classificação e de regressão.`,`Correto.`);
+q('ia02','ia','pr',E,AU,`O agrupamento de manifestações de cidadãos por semelhança de conteúdo, sem que existam categorias previamente definidas, constitui exemplo típico de aprendizado supervisionado.`,`Sem rótulos e com agrupamento (clustering) = aprendizado <b>não supervisionado</b>.`);
+q('ia03','ia','pr',C,AU,`No aprendizado por reforço, um agente aprende por tentativa e erro, interagindo com um ambiente e recebendo recompensas ou penalidades, de modo a maximizar a recompensa acumulada ao longo do tempo.`,`Definição correta.`);
+q('ia04','ia','pr',E,AU,`O aprendizado por reforço exige um conjunto de dados previamente rotulado com a ação correta para cada situação possível.`,`No reforço não há rótulos com "a resposta certa"; há sinais de recompensa decorrentes das ações.`);
+q('ia05','ia','pr',C,AU,`Um modelo que estima o custo final de uma obra, valor numérico contínuo, a partir de dados históricos de obras semelhantes realiza tarefa de regressão.`,`Correto: prever valor numérico é regressão; prever categoria é classificação.`);
+q('ia06','ia','pr',C,AU,`Na técnica de few-shot prompting, o usuário fornece, no próprio prompt, alguns exemplos de entrada e saída desejadas, sem que haja alteração dos parâmetros do modelo.`,`Correto: é aprendizado em contexto, sem retreinamento.`);
+q('ia07','ia','pr',E,AU,`O zero-shot prompting pressupõe que o modelo tenha sido previamente submetido a ajuste fino com exemplos específicos da tarefa solicitada.`,`Zero-shot = pedir a tarefa sem exemplos, contando com o conhecimento geral do modelo. Não exige fine-tuning.`);
+q('ia08','ia','pr',C,AU,`Solicitar ao modelo de linguagem que apresente seu raciocínio passo a passo (chain-of-thought) tende a melhorar o desempenho em tarefas que envolvem várias etapas lógicas ou cálculos.`,`Correto.`);
+q('ia09','ia','pr',E,AU,`Prompts curtos e genéricos tendem a produzir respostas mais precisas que prompts detalhados, pois conferem maior liberdade ao modelo de linguagem.`,`Contexto, tarefa clara, formato e restrições <b>melhoram</b> a resposta. Prompts vagos geram respostas vagas.`);
+q('ia10','ia','pr',C,AU,`Definir um papel para o modelo, fornecer contexto, especificar a tarefa, o formato de saída e eventuais restrições são boas práticas de engenharia de prompts.`,`Correto.`);
+q('ia11','ia','pr',C,AU,`Em modelos de linguagem, valores mais altos do parâmetro temperatura tornam as respostas mais variadas e criativas, enquanto valores mais baixos as tornam mais previsíveis.`,`Correto.`);
+q('ia12','ia','pr',C,AU,`Ocorre overfitting quando o modelo se ajusta excessivamente aos dados de treinamento, apresentando bom desempenho neles, mas desempenho insatisfatório em dados novos.`,`Correto.`);
+q('ia13','ia','pr',C,AU,`Em um classificador para detecção de fraudes, a métrica recall (sensibilidade) indica a proporção das fraudes reais que foram corretamente identificadas pelo modelo.`,`Correto. A precisão indica, entre os casos apontados como fraude, quantos eram de fato fraude.`);
+q('ia14','ia','pr',C,AU,`Prompt injection é um risco de segurança em aplicações de IA generativa no qual instruções maliciosas, inseridas no conteúdo processado pelo modelo, buscam fazê-lo ignorar as instruções originais ou revelar informações indevidas.`,`Correto.`);
+q('ia15','ia','pr',E,AU,`Na técnica RAG (retrieval augmented generation), os documentos recuperados são incorporados aos pesos do modelo por meio de novo treinamento, a cada consulta do usuário.`,`O RAG insere os trechos recuperados no <b>prompt</b> (contexto). Não altera os pesos; isso seria fine-tuning.`);
+q('ia16','ia','pr',C,AU,`Modelos de IA multimodais são capazes de processar ou gerar mais de um tipo de dado, como texto, imagem e áudio.`,`Correto.`);
+q('ia14b','ia','pr',C,'Cebraspe · TCE-RN 2026',`Para a adoção de ferramentas de IA generativa no serviço público, é fundamental avaliar riscos como as alucinações, que são informações falsas ou fabricadas que, embora pareçam coerentes, resultam de limitações nos dados de treinamento ou na arquitetura do modelo.`,`Correto.`);
+q('ia15b','ia','pr',E,'Cebraspe · TRF6 2025',`A IA generativa consiste em técnicas de IA baseadas prioritariamente na utilização de aprendizado supervisionado para a criação de novas amostras de dados que se assemelham aos dados de treinamento.`,`Os modelos generativos são treinados majoritariamente de forma <b>não supervisionada ou autossupervisionada</b> (aprendem a distribuição dos dados).`);
+q('ia17b','ia','pr',C,'Cebraspe · ANM 2025',`Um prompt é um conjunto de instruções que o modelo generativo utiliza para prever a resposta desejada.`,`Correto.`);
+q('ia24b','ia','pr',E,'Cebraspe · TRT10 2025',`Como os dados usados para treinar as inteligências artificiais provêm predominantemente de fontes confiáveis, os modelos generativos produzem informações majoritariamente precisas e imparciais.`,`Os dados de treino contêm erros e vieses; os modelos alucinam e reproduzem vieses.`);
+q('ia25b','ia','pr',E,'Cebraspe · TRT10 2025',`A sigla GPT, presente no nome da ferramenta de IA ChatGPT, significa "gerador de processamento de texto", sendo o principal objetivo da referida ferramenta gerar respostas automáticas baseadas em padrões linguísticos.`,`GPT = <b>Generative Pre-trained Transformer</b>.`);
+q('ia28b','ia','pr',C,'Cebraspe · IBAMA 2025',`O conceito de inteligência artificial fraca compreende sistemas desenvolvidos para realizar tarefas específicas, por exemplo, reconhecimento de voz.`,`Correto.`);
+q('ia37b','ia','pr',E,'Cebraspe · STM 2025',`Modelos de linguagem de grande escala, como os do tipo transformer, são treinados exclusivamente com base em regras sintáticas explícitas extraídas de dados linguísticos anotados manualmente, o que assegura maior controle semântico.`,`LLMs aprendem padrões estatísticos de enormes volumes de texto, sem regras sintáticas explícitas. "Exclusivamente" reforça o erro.`);
+q('ia39b','ia','pr',C,'Cebraspe · Perito PF 2025',`Deepfakes são vídeos gerados por IA para produzir conteúdo altamente realista e podem ser criados por meio de rede adversária generativa (GAN), a qual corresponde a uma arquitetura de aprendizado profundo que treina duas redes neurais para competirem entre si.`,`Correto.`);
+q('ia63b','ia','pr',C,'Cebraspe · STJ 2024',`RAG (retrieval augmented generation) é o processo de recuperar informações contextuais relevantes de uma fonte de dados e integrá-las ao prompt do usuário em um modelo de linguagem, melhorando-se a qualidade da resposta gerada.`,`Correto.`);
+q('ia67b','ia','pr',C,'Cebraspe · DP-DF 2022',`A inteligência artificial geralmente se enquadra em duas categorias abrangentes: narrow AI, às vezes referida como weak AI, que é uma simulação da inteligência humana e opera dentro de um contexto limitado; e AGI (artificial general intelligence), que é uma máquina com inteligência geral e, assim como um ser humano, pode aplicar essa inteligência para resolver qualquer problema.`,`Correto.`);
+q('ia75b','ia','pr',E,'Cebraspe · ANP 2022',`As aplicações em inteligência artificial são definidas como uma subárea da área de aprendizagem de máquina (machine learning).`,`É o inverso: o aprendizado de máquina é subárea da IA.`);
+q('ia19b','ia','pr',C,'Cebraspe · BDMG 2025',`Os algoritmos supervisionados de ML do tipo regressão linear são capazes de prever uma variável dependente contínua usando determinado conjunto de variáveis independentes.`,`Correto.`);
+q('ia22b','ia','pr',C,'Cebraspe · TRT10 2025',`O treinamento de modelos como o ChatGPT envolve bilhões de atualizações nos parâmetros da rede neural a fim de melhorar suas previsões.`,`Correto.`);
+
+/* ===================== MÓDULO 6 · ÉTICA ===================== */
+q('eti01','eti','pr',C,AU,`Segundo a LGPD, o titular de dados pessoais tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses.`,`Correto (art. 20 da LGPD).`);
+q('eti02','eti','pr',E,AU,`Para agilizar a análise de requerimentos, é admitido que o servidor insira dados pessoais de cidadãos e informações classificadas em ferramentas gratuitas de IA generativa disponíveis na Internet, desde que revise o resultado.`,`A revisão não legitima a exposição de dados pessoais ou sigilosos em ferramentas não autorizadas. Use apenas soluções aprovadas pelo órgão.`);
+q('eti03','eti','pr',E,AU,`Quando um ato administrativo é elaborado com apoio de sistema de IA contratado, a responsabilidade por eventuais erros de conteúdo transfere-se ao fornecedor da ferramenta.`,`O agente público continua responsável pelo ato que pratica e assina.`);
+q('eti04','eti','pr',C,AU,`Um sistema de IA pode produzir discriminação mesmo sem utilizar diretamente atributos sensíveis, como raça ou gênero, quando emprega variáveis correlacionadas a eles, como o endereço de residência.`,`Correto: é a discriminação por <i>proxies</i>.`);
+q('eti05','eti','pr',E,AU,`A ética e a responsabilidade digital no serviço público limitam-se ao cumprimento da LGPD.`,`Também abrangem transparência, explicabilidade, acessibilidade, segurança, integridade da informação e supervisão humana.`);
+q('eti06','eti','pr',C,AU,`A supervisão humana sobre sistemas de IA que apoiam decisões administrativas deve ser proporcional ao risco que essas decisões representam para os direitos dos cidadãos.`,`Correto.`);
+q('eti07','eti','pr',E,AU,`Decisões administrativas apoiadas por algoritmos dispensam motivação, pois o resultado produzido pelo sistema é presumidamente técnico e impessoal.`,`O dever de motivação permanece, e a transparência dos critérios é exigência ética e legal.`);
+q('eti10b','eti','pr',C,'Cebraspe · TCU 2026',`Há discriminação algorítmica quando um sistema de IA usa, para uma tomada de decisão, sem justificativa válida, a informação de que alguém pertence a um grupo social (ou características que funcionam como proxies), de modo a gerar desvantagens sistemáticas para esse grupo em contextos em que esse critério não deveria influenciar a decisão.`,`Correto.`);
+q('eti36b','eti','pr',C,'Cebraspe · STM 2025',`Viés algorítmico pode ocorrer quando os dados utilizados no treinamento de um sistema de IA refletem desigualdades sociais, o que pode resultar em decisões discriminatórias automatizadas.`,`Correto.`);
+q('eti59b','eti','pr',E,'Cebraspe · BACEN 2024',`De acordo com os princípios de governança e ética relativos à inteligência artificial, a opacidade sobre os algoritmos é encorajada como prática padrão para garantir a eficácia dos sistemas.`,`O princípio é a <b>transparência</b> e a explicabilidade.`);
+q('eti82b','eti','pr',C,'Cebraspe · TCE-RN 2026',`No contexto de uso da IA no serviço público, para a proteção de informações sensíveis e confidenciais, são indicadas apenas soluções de IA generativa aprovadas pelo órgão, uma vez que o servidor público mantém a responsabilidade integral pelo conteúdo produzido, sendo obrigatória a revisão, independentemente da ferramenta utilizada.`,`Correto.`);
+q('eti83b','eti','pr',C,'Cebraspe · TCE-RS 2025 (adaptado)',`Ao usar IA generativa para analisar informações de um programa social destinado a comunidades quilombolas, o auditor deve atentar à possibilidade de ocorrência do viés de exclusão, que ocorrerá caso essas comunidades tenham sido sub-representadas ou excluídas do conjunto de dados utilizado no treinamento da ferramenta.`,`Correto.`);
+q('eti84b','eti','pr',E,'Cebraspe · TCE-RS 2025',`O uso de IA generativa contribui para a imparcialidade do relatório de auditoria, pois, desde que treinadas com grandes volumes de dados, as ferramentas de inteligência artificial generativa não reproduzem tendências humanas discriminatórias, como racismo.`,`Grandes volumes de dados reproduzem os vieses presentes neles.`);
+q('eti26b','eti','pr',C,'Cebraspe · ICMBio 2025',`Um dos objetivos da Estratégia Brasileira de Inteligência Artificial é contribuir para a elaboração de princípios éticos para o desenvolvimento e o uso responsáveis de IA.`,`Correto.`);
+q('eti191b','eti','pr',C,'Cebraspe · TCE-AC 2024',`Captchas apresentados para confirmar que o acesso está sendo feito por humano devem prover formas alternativas acessíveis a usuários com deficiência.`,`Correto: acessibilidade digital.`);
+
+/* ===================== MÓDULO 7 · DADOS ===================== */
+q('dad01','dad','pr',E,AU,`O CPF de um contribuinte, por ser representado por números, é um atributo quantitativo contínuo, sobre o qual é adequado calcular média e desvio-padrão.`,`CPF é um identificador: atributo qualitativo <b>nominal</b>. Operações aritméticas não fazem sentido.`);
+q('dad02','dad','pr',C,AU,`O nível de escolaridade (fundamental, médio, superior) é exemplo de atributo qualitativo ordinal.`,`Correto: categorias com ordem natural.`);
+q('dad03','dad','pr',C,AU,`O número de pavimentos de um edifício é atributo quantitativo discreto, ao passo que a área construída é atributo quantitativo contínuo.`,`Correto: contagem × medida.`);
+q('dad04','dad','pr',E,AU,`A mediana é mais sensível a valores extremos (outliers) que a média aritmética.`,`É o contrário: a média é puxada pelos extremos; a mediana é robusta.`);
+q('dad05','dad','pr',C,AU,`Arquivos nos formatos JSON e XML são exemplos de dados semiestruturados.`,`Correto: têm marcações e hierarquia, sem esquema tabular rígido.`);
+q('dad06','dad','pr',C,AU,`No processo de ETL, a etapa de transformação pode incluir limpeza de dados, padronização de formatos, remoção de registros duplicados e conversão de tipos.`,`Correto.`);
+q('dad07','dad','pr',C,AU,`A normalização min-máx reescala os valores de um atributo numérico para um intervalo definido, tipicamente entre 0 e 1.`,`Correto.`);
+q('dad08','dad','pr',E,AU,`A padronização por escore z reescala os valores de um atributo para o intervalo fechado entre 0 e 1.`,`O escore z deixa média 0 e desvio-padrão 1, e os valores podem ser negativos ou maiores que 1. A faixa 0–1 é da normalização min-máx.`);
+q('dad09','dad','pr',C,AU,`No contexto de qualidade de dados, a completude refere-se à ausência de valores faltantes em atributos obrigatórios, e a atualidade (tempestividade) refere-se ao grau em que os dados estão atualizados para o uso pretendido.`,`Correto.`);
+q('dad10','dad','pr',C,AU,`O data lake armazena grandes volumes de dados brutos em seu formato nativo, inclusive não estruturados, enquanto o data warehouse armazena dados estruturados, integrados e organizados para análise.`,`Correto.`);
+q('dad11','dad','pr',E,AU,`Toda métrica acompanhada por uma organização constitui, por definição, um indicador-chave de desempenho (KPI).`,`KPI é a métrica <b>vinculada a objetivo estratégico e meta</b>. Nem toda métrica é KPI.`);
+q('dad12','dad','pr',C,AU,`A agregação de medições diárias em totais mensais é transformação que reduz a granularidade dos dados.`,`Correto.`);
+q('dad13','dad','pr',C,AU,`A substituição de valores ausentes pela média ou pela mediana do atributo, denominada imputação, é técnica de tratamento de dados faltantes.`,`Correto.`);
+q('dad1b','dad','pr',E,'Cebraspe · TCE-RN 2026',`Metadados são os próprios dados armazenados nas tabelas do banco, ou seja, são os registros de clientes, produtos e transações que o sistema utiliza no dia a dia.`,`Metadados são <b>dados sobre dados</b> (estrutura, autor, data, formato).`);
+q('dad2b','dad','pr',C,'Cebraspe · Pref. Porto Velho 2026 (adaptado)',`A informação consiste em dados processados e dotados de significado e contexto, enquanto o conhecimento resulta da interpretação e da aplicação dessas informações para orientar decisões e ações.`,`Correto (era a alternativa certa da questão original).`);
+q('dad3b','dad','pr',C,'Cebraspe · FUB 2025',`Um banco de dados representa aspectos do mundo real, é projetado, construído e povoado por dados e atende a uma proposta específica.`,`Correto.`);
+q('dad44b','dad','pr',E,'Cebraspe · CTI 2024',`No processo de análise de dados, a identificação de correlação entre dois dados define também a causalidade entre esses dados.`,`Correlação não implica causalidade.`);
+q('dad45b','dad','pr',C,'Cebraspe · CTI 2024',`A análise descritiva tem como objetivo responder à pergunta "o que aconteceu?", ao passo que a análise diagnóstica visa responder à questão "por que isso aconteceu?".`,`Correto. Preditiva: o que vai acontecer? Prescritiva: o que fazer?`);
+q('dad54b','dad','pr',C,'Cebraspe · MPO 2024',`Para a identificação de outliers, deve-se calcular o intervalo interquartil (IQR) e identificar dados que estão a mais de 1,5 vezes o IQR abaixo do primeiro quartil ou acima do terceiro quartil.`,`Correto: é o critério do box plot.`);
+q('dad55b','dad','pr',C,'Cebraspe · MPO 2024',`Outliers podem ser resultantes de erros de medição, entrada de dados ou processamento de dados, ou amostragem não representativa.`,`Correto. Também podem ser valores reais e legítimos; por isso devem ser investigados antes de removidos.`);
+q('dad16b','dad','pr',C,'Cebraspe · TRF6 2025',`A análise preditiva utiliza algoritmos estatísticos e modelos de machine learning para identificar padrões históricos nos dados e projetar tendências futuras, de forma a guiar decisões proativas e permitir a antecipação de cenários críticos para o negócio.`,`Correto.`);
+q('dad13b','dad','pr',C,'Cebraspe · SEFAZ-RN 2026 (adaptado)',`O Big Data provê o ecossistema tecnológico e as ferramentas para lidar com a coleta, o armazenamento e o processamento distribuído de dados em larga escala (volume, velocidade e variedade), enquanto a ciência de dados utiliza esse suporte para aplicar métodos científicos e matemáticos que permitam a extração de conhecimento e de padrões úteis à tomada de decisão.`,`Correto (era a alternativa certa da questão original).`);
+
+/* ===================== MÓDULO 8 · VISUALIZAÇÃO ===================== */
+q('vis01','vis','pr',C,AU,`O histograma representa a distribuição de frequências de uma variável quantitativa contínua, por meio de barras adjacentes que correspondem a intervalos de classe.`,`Correto.`);
+q('vis02','vis','pr',E,AU,`Histograma e gráfico de barras são equivalentes, ambos adequados para comparar categorias nominais, como a quantidade de deputados por partido.`,`Para categorias nominais usa-se o gráfico de <b>barras</b> (barras separadas). O histograma mostra a distribuição de variável numérica.`);
+q('vis03','vis','pr',C,AU,`O gráfico de linhas é adequado para evidenciar a evolução de uma variável ao longo do tempo, como o número mensal de proposições apresentadas.`,`Correto.`);
+q('vis04','vis','pr',C,AU,`O gráfico de dispersão é adequado para analisar a relação entre duas variáveis quantitativas; um padrão ascendente dos pontos sugere correlação positiva, sem, por si só, comprovar relação de causa e efeito.`,`Correto.`);
+q('vis05','vis','pr',E,AU,`No box plot, a linha traçada no interior da caixa representa a média aritmética dos dados.`,`Representa a <b>mediana</b>.`);
+q('vis06','vis','pr',C,AU,`No box plot, a caixa é delimitada pelo primeiro e pelo terceiro quartis e, portanto, contém os 50% centrais dos dados.`,`Correto: a altura (ou largura) da caixa é o IQR.`);
+q('vis07','vis','pr',C,AU,`No box plot, pontos representados além das extremidades dos bigodes podem indicar valores atípicos (outliers).`,`Correto (critério de 1,5 × IQR).`);
+q('vis08','vis','pr',C,AU,`Em gráficos de barras, iniciar o eixo vertical em valor diferente de zero pode exagerar visualmente as diferenças entre as categorias.`,`Correto: o comprimento da barra deve ser proporcional ao valor.`);
+q('vis09','vis','pr',E,AU,`O uso de efeitos tridimensionais, sombras e elementos decorativos aumenta a clareza dos gráficos, pois torna a informação mais atraente para o público.`,`São <i>chartjunk</i>: reduzem a razão dados-tinta e podem distorcer a percepção.`);
+q('vis10','vis','pr',C,AU,`O uso de uma cor de destaque para o dado mais relevante, com os demais elementos em tons neutros, é técnica que dirige a atenção do público para a mensagem principal.`,`Correto: atributo pré-atentivo.`);
+q('vis11','vis','pr',C,AU,`No Power BI, o Power Query é utilizado para obter e transformar dados, enquanto a linguagem DAX é empregada para criar medidas e colunas calculadas.`,`Correto.`);
+q('vis12','vis','pr',C,AU,`No Power BI, um relatório pode conter várias páginas com visuais interativos, ao passo que o dashboard (painel), criado no Power BI Service, é uma tela única que pode reunir visuais fixados de diferentes relatórios.`,`Correto.`);
+q('vis13','vis','pr',C,AU,`No Tableau, o recurso Story (história) organiza uma sequência de planilhas ou dashboards para conduzir o público por uma narrativa baseada em dados.`,`Correto.`);
+q('vis14','vis','pr',C,AU,`O Google Data Studio, atualmente denominado Looker Studio, é ferramenta gratuita, baseada na web, que se conecta a fontes como Planilhas Google, BigQuery e Google Analytics para criar relatórios e painéis compartilháveis.`,`Correto.`);
+q('vis15','vis','pr',E,AU,`Power BI, Tableau e Looker Studio exigem que o usuário programe em linguagem de propósito geral, como Python, para criar visualizações.`,`As três trabalham com arrastar e soltar; programação é opcional.`);
+q('vis16','vis','pr',C,AU,`O storytelling com dados combina dados, elementos visuais e narrativa, devendo considerar o público e o contexto e evidenciar a mensagem principal que se deseja comunicar.`,`Correto.`);
+q('vis17','vis','pr',E,AU,`No storytelling com dados, recomenda-se apresentar todos os dados disponíveis, sem seleção prévia, para que o público tire suas próprias conclusões.`,`Storytelling é explanatório: seleciona, foca e conduz a uma conclusão.`);
+q('vis18','vis','pr',E,AU,`O gráfico de pizza é o mais indicado para comparar dezenas de categorias com valores muito próximos entre si.`,`A pizza serve para poucas partes de um todo, com diferenças claras. Para muitas categorias, use barras ordenadas.`);
+q('vis19','vis','pr',C,AU,`A visualização exploratória serve ao analista para descobrir padrões nos dados, enquanto a visualização explanatória destina-se a comunicar ao público uma conclusão já identificada.`,`Correto.`);
+q('vis20','vis','pr',E,AU,`Visualizações publicadas no Tableau Public ficam restritas ao autor e aos usuários por ele autorizados, motivo pelo qual a ferramenta é indicada para dados sigilosos.`,`O Tableau Public publica de forma <b>aberta</b> na web. Não é para dados sigilosos.`);
+
+/* ===================== SIMULADO 1 · diagnóstico ===================== */
+q('s1-01','off','s1',C,AU,`No Excel, considere que B2 = 10, B3 = 20, B4 esteja vazia e B5 = 30. Nesse caso, a fórmula =MÉDIA(B2:B5) retornará o valor 20.`,`MÉDIA ignora células vazias: (10+20+30)/3 = 20.`);
+q('s1-02','off','s1',E,AU,`No PowerPoint, o atalho Shift+F5 inicia a apresentação a partir do primeiro slide, independentemente do slide selecionado.`,`F5 inicia do primeiro slide; Shift+F5, do slide atual.`);
+q('s1-03','off','s1',C,AU,`O histórico de versões do OneDrive permite restaurar uma versão anterior de documento do Word que tenha sido alterado indevidamente.`,`Correto.`);
+q('s1-04','red','s1',C,AU,`A intranet de um órgão público é uma rede privada que utiliza tecnologias da Internet, como os protocolos TCP/IP e navegadores web, e seu acesso pode ser restrito aos servidores do órgão.`,`Correto.`);
+q('s1-05','red','s1',E,AU,`O protocolo HTTP utiliza criptografia por padrão, razão pela qual é dispensável o HTTPS em páginas de login.`,`O HTTP trafega em texto claro. O HTTPS (com TLS) é que criptografa.`);
+q('s1-06','com','s1',C,AU,`Ao enviar mensagem a vários cidadãos inserindo seus endereços no campo Cco, o servidor evita que cada destinatário veja os endereços dos demais.`,`Correto.`);
+q('s1-07','com','s1',E,AU,`O Google Meet exige a instalação de aplicativo específico no computador para que o usuário participe de uma reunião.`,`No computador, funciona direto no navegador.`);
+q('s1-08','seg','s1',C,'Cebraspe · SEPLAG-AL 2026',`Enquanto o vírus precisa ser acionado por um usuário, o worm é um malware que se autorreplica e se propaga pela rede sem nenhuma interação.`,`Correto.`);
+q('s1-09','seg','s1',C,'Cebraspe · PM-MA 2026',`Ataques baseados em ransomware realizam a criptografia indevida de repositórios de dados no equipamento afetado, condicionando a eventual restauração das chaves criptográficas à aceitação de exigências financeiras emitidas pelos fraudadores.`,`Correto.`);
+q('s1-10','seg','s1',E,AU,`O backup diferencial copia somente os arquivos modificados desde o último backup incremental realizado.`,`O diferencial toma como referência o último backup <b>completo</b>.`);
+q('s1-11','seg','s1',E,'Cebraspe · TCE-MS 2025 (adaptado)',`O pharming é um golpe baseado em correntes de e-mail que disseminam boatos ou informações falsas para enganar o usuário.`,`Isso é <b>hoax</b>. Pharming é o redirecionamento a site falso por adulteração do DNS.`);
+q('s1-12','ia','s1',C,AU,`Um sistema que aprende a classificar e-mails como spam a partir de milhares de mensagens previamente marcadas como spam ou não spam constitui exemplo de aprendizado supervisionado.`,`Dados rotulados + classificação = supervisionado.`);
+q('s1-13','ia','s1',C,'Cebraspe · TRT10 2025',`A IA já estava integrada a diversas aplicações décadas atrás, a exemplo da leitura de cheques e correspondências, mas apenas recentemente ganhou notoriedade com a ascensão dos modelos generativos.`,`Correto.`);
+q('s1-14','ia','s1',E,AU,`A engenharia de prompts consiste em reprogramar o código-fonte do modelo de linguagem para que ele passe a responder conforme as necessidades do usuário.`,`Engenharia de prompts formula as <b>instruções</b> em linguagem natural; não altera o modelo.`);
+q('s1-15','eti','s1',E,AU,`Ao utilizar ferramenta de IA generativa homologada pelo órgão para redigir a minuta de um parecer, o servidor transfere ao sistema a responsabilidade pelo conteúdo produzido.`,`A responsabilidade permanece com o servidor, que deve revisar.`);
+q('s1-16','dad','s1',C,AU,`O tipo de fundação de uma edificação (sapata, estaca ou radier) é exemplo de atributo qualitativo nominal.`,`Categorias sem ordem natural = nominal.`);
+q('s1-17','dad','s1',C,AU,`No processo de ETL, a etapa de transformação pode incluir a remoção de registros duplicados, a padronização de formatos de datas e a conversão de unidades de medida.`,`Correto.`);
+q('s1-18','vis','s1',C,AU,`Para mostrar a evolução mensal do número de proposições apresentadas ao longo de três anos, o gráfico de linhas é mais adequado que o gráfico de pizza.`,`Tendência no tempo = linha.`);
+q('s1-19','vis','s1',E,AU,`No box plot, a caixa representa o intervalo entre o valor mínimo e o valor máximo do conjunto de dados.`,`A caixa vai de Q1 a Q3. Os bigodes é que se estendem em direção aos extremos.`);
+q('s1-20','vis','s1',C,AU,`O Power BI Desktop permite conectar-se a planilhas do Excel, transformar os dados com o Power Query e criar relatórios interativos.`,`Correto.`);
+
+/* ===================== SIMULADO 2 · intermediário ===================== */
+q('s2-01','off','s2',C,AU,`Considere que, em uma planilha do Excel, as células A1, A2 e A3 contenham, respectivamente, os valores 4, 8 e o texto obra. Nesse caso, =CONT.VALORES(A1:A3) retornará 3, ao passo que =CONT.NÚM(A1:A3) retornará 2.`,`CONT.VALORES conta não vazias (3); CONT.NÚM, só números (2).`);
+q('s2-02','off','s2',C,AU,`No Word, para inserir uma página em orientação paisagem no meio de um documento em orientação retrato, sem alterar as demais páginas, utilizam-se quebras de seção antes e depois da página em questão.`,`Correto.`);
+q('s2-03','off','s2',E,AU,`O Salvamento Automático do Microsoft 365 funciona da mesma forma para arquivos salvos apenas no disco local do computador e para arquivos armazenados no OneDrive.`,`O AutoSalvamento depende de o arquivo estar no OneDrive ou no SharePoint.`);
+q('s2-04','red','s2',C,AU,`Nuvem híbrida é o modelo de implantação que combina recursos de nuvem privada e de nuvem pública, permitindo, por exemplo, manter dados sensíveis em ambiente privado e usar a nuvem pública para demandas de pico.`,`Correto.`);
+q('s2-05','red','s2',E,AU,`Ao acessar sítio com HTTPS e cadeado exibido no navegador, o usuário tem garantia de que a página pertence à instituição legítima e de que não se trata de golpe.`,`O cadeado indica conexão criptografada, não legitimidade do site.`);
+q('s2-06','com','s2',C,AU,`Considere que um usuário tenha configurado a mesma conta de e-mail, via IMAP, no computador e no celular. Nesse caso, a mensagem lida no computador aparecerá como lida também no celular.`,`O IMAP sincroniza o estado das mensagens.`);
+q('s2-07','com','s2',C,AU,`No Microsoft Teams, as conversas e os arquivos de um canal padrão de uma equipe estão disponíveis para todos os membros dessa equipe.`,`Correto.`);
+q('s2-08','seg','s2',E,'Cebraspe · STM 2025',`Rootkit é um tipo de malware que permite que um atacante mantenha controle remoto sobre o sistema infectado, salvo se ele for reiniciado.`,`O rootkit é feito para <b>persistir</b>, inclusive após reinicializações, e para ocultar o invasor.`);
+q('s2-09','seg','s2',E,'Cebraspe · DATAPREV 2023',`Denomina-se phishing a ação de o agente do ataque colocar-se entre a comunicação de dois usuários válidos, interceptar as mensagens enviadas, passando-se por uma das partes, e poder alterá-las ou bloqueá-las.`,`Isso é <b>man-in-the-middle</b>.`);
+q('s2-10','seg','s2',C,AU,`Em rotina com backup completo no domingo e backups incrementais de segunda a sexta-feira, a restauração após falha ocorrida na sexta-feira, antes do backup desse dia, exige o backup completo e todos os incrementais de segunda a quinta-feira.`,`Correto: completo + toda a cadeia de incrementais.`);
+q('s2-11','seg','s2',E,AU,`Um firewall corretamente configurado impede que o usuário seja vítima de phishing, ainda que ele digite voluntariamente sua senha em página falsa.`,`O firewall não impede que o usuário entregue dados por engenharia social.`);
+q('s2-12','ia','s2',C,AU,`Na aprendizagem não supervisionada, algoritmos de agrupamento podem identificar perfis de usuários com características semelhantes, sem que existam categorias previamente definidas.`,`Correto.`);
+q('s2-13','ia','s2',E,AU,`A técnica de few-shot prompting consiste em fornecer ao modelo, no próprio prompt, alguns exemplos da tarefa, o que demanda o retreinamento do modelo com esses exemplos.`,`Few-shot é aprendizado em contexto, sem retreinamento.`);
+q('s2-14','ia','s2',E,'Cebraspe · TCE-RN 2026',`As redes adversárias generativas (GANs) operam com duas redes neurais, o gerador e o discriminador, que colaboram cooperativamente para minimizar a mesma função de perda, produzindo dados sintéticos indistinguíveis dos reais.`,`Gerador e discriminador <b>competem</b>, com objetivos opostos.`);
+q('s2-15','eti','s2',C,AU,`Sistemas informatizados que apoiam decisões administrativas devem manter registros que permitam reconstituir quais dados e critérios embasaram cada resultado, em observância aos princípios de transparência e de responsabilização.`,`Correto (mesma linha do item 176 de 2025).`);
+q('s2-16','dad','s2',E,AU,`Em conjunto de dados de custos de obras com alguns valores extremamente altos, a média é medida de tendência central mais representativa que a mediana.`,`Com outliers, a <b>mediana</b> é mais representativa.`);
+q('s2-17','dad','s2',E,'Cebraspe · PC-DF 2021',`Embora metadados de arquivos de imagens produzidas por câmeras digitais possam ser lidos e extraídos por ferramentas especializadas, eles não podem ser editados.`,`Metadados (por exemplo, EXIF) podem ser editados e removidos.`);
+q('s2-18','vis','s2',C,AU,`Para analisar a relação entre a área construída e o custo total de 150 obras, o gráfico de dispersão é adequado, pois cada ponto representa uma obra posicionada segundo os dois valores numéricos.`,`Correto.`);
+q('s2-19','vis','s2',E,AU,`O histograma é adequado para comparar o número de deputados por partido, pois suas barras adjacentes representam categorias nominais.`,`Partido é categoria nominal: use gráfico de barras.`);
+q('s2-20','vis','s2',C,AU,`No storytelling com dados, recomenda-se destacar visualmente a informação central, por exemplo com cor de ênfase, e atenuar os elementos secundários, de modo a dirigir a atenção do público.`,`Correto.`);
+
+/* ===================== SIMULADO 3 · nível Câmara 2025 ===================== */
+q('s3-01','off','s3',C,AU,`Em planilha do Excel, considere que a coluna A contenha nomes de obras; a coluna B, a unidade da Federação; e a coluna C, o valor contratado, nas linhas de 2 a 100. Nesse caso, para somar os valores contratados das obras do DF com valor superior a R$ 1 milhão, é correto utilizar =SOMASES(C2:C100;B2:B100;"DF";C2:C100;">1000000").`,`Intervalo de soma primeiro (C), depois os pares critério: B = "DF" e C &gt; 1.000.000.`);
+q('s3-02','off','s3',C,AU,`No Microsoft 365, a coautoria em documentos do Word armazenados no OneDrive permite que diferentes usuários editem o mesmo arquivo de forma simultânea, inclusive por meio do Word para a Web, sendo as alterações de cada um exibidas aos demais quase em tempo real.`,`Correto.`);
+q('s3-03','off','s3',E,AU,`Considerando-se que a pasta Documentos de um computador esteja sincronizada com o OneDrive, eventual infecção por ransomware que criptografe os arquivos dessa pasta não repercutirá nas cópias mantidas na nuvem, dado o isolamento entre o armazenamento local e o remoto.`,`A sincronização <b>replica</b> os arquivos criptografados para a nuvem. A recuperação depende do histórico de versões ou da restauração do OneDrive, e não de um "isolamento".`);
+q('s3-04','red','s3',E,AU,`A navegação em janela anônima, ao impedir o armazenamento local de histórico, cookies e dados de formulários após o encerramento da sessão, também impede a identificação do usuário pelos sítios acessados, inclusive quando ele realiza login em sua conta pessoal durante a sessão.`,`Ao fazer login, o usuário se identifica ao site. A proteção é apenas local.`);
+q('s3-05','red','s3',C,AU,`Em uma intranet corporativa, o acesso de servidores em trabalho remoto pode ser viabilizado por VPN, que estabelece canal criptografado sobre rede pública, de modo que o dispositivo remoto se comporte, logicamente, como se estivesse conectado à rede interna.`,`Correto.`);
+q('s3-06','com','s3',E,AU,`No correio eletrônico, ao se responder a todos uma mensagem em que constavam destinatários em cópia oculta, estes também receberão a resposta, uma vez que integraram a lista original de destinatários.`,`Responder a todos alcança o remetente e os destinatários de Para e Cc. Os de Cco, por estarem ocultos, não são incluídos.`);
+q('s3-07','com','s3',C,AU,`O Microsoft Teams e o Google Meet oferecem, observado o licenciamento contratado, recursos como compartilhamento de tela, gravação de reuniões, legendas e divisão dos participantes em salas menores, o que favorece a realização de oficinas e reuniões de trabalho a distância.`,`Correto: recursos existentes nas duas ferramentas, com o modalizador do licenciamento.`);
+q('s3-08','seg','s3',C,AU,`Soluções antimalware contemporâneas combinam detecção por assinaturas, análise heurística e monitoramento comportamental, o que lhes permite identificar inclusive ameaças inéditas, ainda que com possibilidade de falsos positivos.`,`Correto: é o espelho certo do item 173 de 2025.`);
+q('s3-09','seg','s3',C,AU,`O pharming distingue-se do phishing tradicional por não depender necessariamente de o usuário clicar em link fraudulento, já que a adulteração do processo de resolução de nomes pode conduzi-lo a sítio falso mesmo quando o endereço legítimo é digitado corretamente no navegador.`,`Correto.`);
+q('s3-10','seg','s3',E,AU,`Worms, por dependerem da anexação de seu código a arquivos executáveis hospedeiros, propagam-se em ritmo mais lento que os vírus, razão pela qual raramente afetam o desempenho de redes corporativas.`,`Worms <b>não</b> precisam de hospedeiro, propagam-se rapidamente pela rede e costumam consumir muita banda.`);
+q('s3-11','seg','s3',E,AU,`A estratégia de backup que adote exclusivamente cópias incrementais diárias, sem nenhum backup completo de referência, permite a restauração integral do ambiente a partir do último incremental, o que reduz o tempo de recuperação em relação ao uso de backups diferenciais.`,`O incremental depende de um completo de base e de toda a cadeia; o último sozinho contém só as alterações do dia.`);
+q('s3-12','ia','s3',C,AU,`Modelos de linguagem de grande escala geram textos a partir de padrões estatísticos aprendidos em grandes volumes de dados, motivo pelo qual podem produzir respostas fluentes e coerentes, porém factualmente incorretas, fenômeno denominado alucinação.`,`Correto.`);
+q('s3-13','ia','s3',E,AU,`No aprendizado por reforço, o agente é treinado a partir de conjunto de dados previamente rotulado com a ação correta para cada estado, cabendo ao algoritmo apenas reproduzir as associações estabelecidas por especialistas.`,`Isso descreve o aprendizado supervisionado. No reforço, o agente aprende por recompensa, interagindo com o ambiente.`);
+q('s3-14','ia','s3',C,'Cebraspe · SEFAZ-PR 2026 (adaptado)',`Para detectar automaticamente indícios de fraude em notas fiscais a partir de exemplos históricos rotulados como regulares e irregulares, é adequado o uso de redes neurais artificiais treinadas de forma supervisionada, que ajustam seus pesos a partir dos dados rotulados.`,`Correto (era a alternativa certa da questão original).`);
+q('s3-15','eti','s3',E,AU,`A ética e a responsabilidade digital no serviço público restringem-se à observância das normas de proteção de dados pessoais, não abrangendo aspectos como a acessibilidade dos serviços digitais e a transparência dos critérios utilizados por algoritmos.`,`O conceito é amplo: também inclui acessibilidade, transparência, segurança e supervisão humana.`);
+q('s3-16','dad','s3',C,AU,`Em processo de transformação de dados para modelagem, a padronização pelo escore z converte os valores de um atributo numérico de modo que passem a ter média zero e desvio-padrão unitário, o que facilita a comparação entre atributos medidos em escalas distintas.`,`Correto.`);
+q('s3-17','dad','s3',E,AU,`A constatação de forte correlação positiva entre o número de aditivos contratuais e o valor final de obras públicas é suficiente para concluir que os aditivos são a causa do aumento de custos.`,`Correlação não prova causalidade: obras maiores e mais complexas podem ter ao mesmo tempo mais aditivos e maior custo.`);
+q('s3-18','vis','s3',C,AU,`Um gráfico de barras que represente o custo de três obras, com eixo vertical iniciado em valor próximo ao da menor barra, tende a exagerar visualmente as diferenças entre os valores, o que contraria princípios de integridade na visualização de dados.`,`Correto.`);
+q('s3-19','vis','s3',E,AU,`Por serem ferramentas voltadas a especialistas, Power BI, Tableau e Looker Studio exigem programação em linguagem de propósito geral para a criação de painéis, não oferecendo recursos de arrastar e soltar.`,`As três oferecem arrastar e soltar.`);
+q('s3-20','vis','s3',C,AU,`O box plot permite comparar a distribuição de valores entre grupos distintos, evidenciando mediana, dispersão e possíveis valores atípicos, sendo útil, por exemplo, para comparar o custo por metro quadrado de obras de diferentes regiões.`,`Correto.`);
+
+const PLAN=[
+['Semana 1','29/10–04/11',['Fazer o Simulado 1 "a frio"','Ler o Raio-X 2025 e refazer os 18 itens','Ler "A cabeça do examinador"','Módulo 4: pilares e pragas virtuais']],
+['Semana 2','05/11–11/11',['Módulo 4: backup, proteção, phishing e pharming, governança','Responder todos os itens do Módulo 4']],
+['Semana 3','12/11–18/11',['Módulo 5: conceitos, tipos de aprendizado, métricas','Revisão D+7 do Módulo 4 (caderno de erros)']],
+['Semana 4','19/11–25/11',['Módulo 5: IA generativa e engenharia de prompts + itens','Módulo 6: ética e responsabilidade digital + itens']],
+['Semana 5','26/11–02/12',['Módulo 7: dados + itens','Revisão D+21 do Módulo 4 e D+7 dos Módulos 5 e 6']],
+['Semana 6','03/12–09/12',['Módulo 8: visualização, ferramentas e storytelling + itens','Revisão D+7 do Módulo 7']],
+['Semana 7','10/12–16/12',['Módulo 1: Excel e Word','Módulo 1: PowerPoint e OneDrive + itens']],
+['Semana 8','17/12–23/12',['Módulo 2: redes, Internet, nuvem e navegadores + itens','Módulo 3: e-mail, Teams e Meet + itens']],
+['Semana 9','24/12–30/12',['Fazer o Simulado 2 e analisar os erros','Caderno de erros completo (revisão D+21 dos Módulos 5 a 8)']],
+['Semana 10','31/12–06/01',['Fazer o Simulado 3 cronometrado (40 min)','Reler as "Pegadinhas" dos módulos com menor desempenho']],
+['Semana 11','07/01–13/01',['Refazer o Caderno de erros até zerá-lo','Reler o Raio-X 2025 e "A cabeça do examinador"']],
+['Reta final','14/01–16/01',['Só a Revisão de véspera (20 min por dia)','Dormir bem; nada de conteúdo novo']]
+];
+const KEY='tiCamara2027_v1';
+let S={ans:{},flags:{},err:{},plan:{},sims:[],theme:'auto'};
+function load(){try{const r=localStorage.getItem(KEY);if(r){S=Object.assign(S,JSON.parse(r));}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+load();
+const byId={};Q.forEach(x=>byId[x.id]=x);
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
+function stableOrder(arr){return arr.slice().sort((a,b)=>hash(a.id+'x')-hash(b.id+'x'));}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ---------- countdown & theme ---------- */
+function days(){const t=new Date(2027,0,17);const n=new Date();n.setHours(0,0,0,0);return Math.round((t-n)/864e5);}
+function setCountdown(){const d=days();const txt=d>0?d+' dias para a prova':(d===0?'Hoje é o dia da prova!':'Prova realizada');$('#cdSide').textContent=txt;$('#cdTop').textContent=d>0?d+' dias':'';$('#cdBig').textContent=d>0?d:'0';}
+function applyTheme(){const r=document.documentElement;if(S.theme==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',S.theme);$('#themeBtn').textContent='Tema: '+({auto:'automático',light:'claro',dark:'escuro'}[S.theme]);}
+$('#themeBtn').onclick=()=>{S.theme={auto:'light',light:'dark',dark:'auto'}[S.theme]||'auto';save();applyTheme();};
+
+/* ---------- question card ---------- */
+function card(item,n,opts={}){
+  const d=document.createElement('div');d.className='q';d.dataset.id=item.id;
+  d.innerHTML=`<div class="meta"><span class="tag">${n}</span><span class="tag">${MODS[item.m]}</span><span>${esc(item.f)}</span></div>
+  <div class="txt">${item.t}</div>
+  <div class="acts"><button data-v="C">Certo</button><button data-v="E">Errado</button>
+  <button class="again" style="display:none">Tentar de novo</button>
+  <button class="flag" title="Marcar para revisão">☆ Revisar</button></div>
+  <div class="res"></div>`;
+  const paint=()=>{
+    const a=S.ans[item.id];d.classList.remove('done','right','wrong');
+    $$('.acts [data-v]',d).forEach(b=>b.disabled=!!a);
+    $('.again',d).style.display=a?'':'none';
+    if(a){d.classList.add('done',a===item.g?'right':'wrong');
+      $('.res',d).innerHTML=`<span class="v">${a===item.g?'✔ Acertou':'✘ Errou'}</span> · você marcou <b>${a==='C'?'Certo':'Errado'}</b> · gabarito: <span class="tag ${item.g==='C'?'c':'e'}">${item.g==='C'?'CERTO':'ERRADO'}</span><div style="margin-top:6px">${item.j}</div>`;}
+    const f=$('.flag',d);f.classList.toggle('on',!!S.flags[item.id]);f.textContent=S.flags[item.id]?'★ Em revisão':'☆ Revisar';
+  };
+  $$('.acts [data-v]',d).forEach(b=>b.onclick=()=>{const v=b.dataset.v;S.ans[item.id]=v;
+    if(v!==item.g)S.err[item.id]=1;else if(opts.inErr)delete S.err[item.id];
+    save();paint();refreshAll(opts.self);});
+  $('.again',d).onclick=()=>{delete S.ans[item.id];save();paint();refreshAll(opts.self);};
+  $('.flag',d).onclick=()=>{if(S.flags[item.id])delete S.flags[item.id];else S.flags[item.id]=1;save();paint();refreshErrCount();};
+  paint();return d;
+}
+function renderQuiz(box){
+  const mod=box.dataset.mod,set=box.dataset.set;
+  let items=set?Q.filter(x=>x.s===set):Q.filter(x=>x.s==='pr'&&x.m===mod);
+  if(!set)items=stableOrder(items);
+  box.innerHTML='';
+  const bar=document.createElement('div');bar.className='qbar';
+  bar.innerHTML=`<span class="sc"></span><button class="shuf">Embaralhar</button><button class="pend">Só os não respondidos</button><button class="zer">Zerar este bloco</button>`;
+  const list=document.createElement('div');box.append(bar,list);
+  let onlyPending=false;
+  const draw=(arr)=>{list.innerHTML='';arr.forEach((x,i)=>{if(onlyPending&&S.ans[x.id])return;list.appendChild(card(x,'#'+(i+1)+(x.s==='rx'?' · item '+x.id.slice(2):''),{self:box}));});};
+  const score=()=>{const done=items.filter(x=>S.ans[x.id]);const ok=done.filter(x=>S.ans[x.id]===x.g).length;
+    $('.sc',bar).textContent=`Respondidos ${done.length}/${items.length} · acertos ${ok} · erros ${done.length-ok}`+(done.length?` · ${Math.round(100*ok/done.length)}%`:'');};
+  box._score=score;
+  $('.shuf',bar).onclick=()=>{items=shuffle(items);draw(items);};
+  $('.pend',bar).onclick=e=>{onlyPending=!onlyPending;e.target.textContent=onlyPending?'Mostrar todos':'Só os não respondidos';draw(items);};
+  $('.zer',bar).onclick=()=>{if(!confirm('Apagar as respostas deste bloco?'))return;items.forEach(x=>delete S.ans[x.id]);save();draw(items);refreshAll();};
+  draw(items);score();
+}
+
+/* ---------- caderno de erros ---------- */
+function renderErr(){
+  const area=$('#errArea');area.innerHTML='';
+  const ids=Object.keys(Object.assign({},S.err,S.flags)).filter(id=>byId[id]);
+  $('#errInfo').textContent=ids.length?ids.length+' itens no caderno':'';
+  if(!ids.length){area.innerHTML='<p class="muted">Caderno vazio. Os itens errados e os marcados para revisão aparecerão aqui.</p>';return;}
+  const box={_score(){}};
+  ids.forEach((id,i)=>{const it=byId[id];
+    if(it.s!=='pr'&&it.s!=='rx'&&S.ans[id]===undefined){}
+    area.appendChild(card(it,'#'+(i+1),{inErr:true,self:box}));});
+}
+function refreshErrCount(){const n=Object.keys(Object.assign({},S.err,S.flags)).length;$('#errCount').textContent=n?n:'';}
+$('#errRefresh').onclick=renderErr;
+
+/* ---------- simulados ---------- */
+let simTimer=null;
+function openSim(set){
+  clearInterval(simTimer);
+  const items=Q.filter(x=>x.s===set);
+  const area=$('#simArea');const names={s1:'Simulado 1 · Diagnóstico',s2:'Simulado 2 · Intermediário',s3:'Simulado 3 · Nível Câmara 2025'};
+  area.innerHTML=`<div class="card"><div class="qbar"><b>${names[set]}</b><span class="sc">Tempo: <span class="timer" id="simClock">00:00</span> · referência: 40 min</span></div>
+  <div class="sim" id="simSheet"></div>
+  <div class="qbar"><button class="pri" id="simGo">Corrigir</button><button id="simRedo">Refazer</button></div><div id="simRes"></div></div>`;
+  const sheet=$('#simSheet');
+  items.forEach((x,i)=>{const r=document.createElement('div');r.className='row';r.dataset.id=x.id;
+    r.innerHTML=`<div class="n">${i+1}</div><div><div>${x.t}</div>
+    <div class="opts"><label><input type="radio" name="${x.id}" value="C"> Certo</label><label><input type="radio" name="${x.id}" value="E"> Errado</label><label><input type="radio" name="${x.id}" value="" checked> Em branco</label></div>
+    <div class="just"></div></div>`;sheet.appendChild(r);});
+  const t0=Date.now();simTimer=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);$('#simClock').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');},1000);
+  $('#simGo').onclick=()=>{
+    clearInterval(simTimer);let ok=0,bad=0,bl=0;const per={};
+    items.forEach(x=>{const v=($(`input[name="${x.id}"]:checked`,sheet)||{}).value||'';const row=$(`.row[data-id="${x.id}"]`,sheet);
+      per[x.m]=per[x.m]||[0,0];per[x.m][1]++;
+      row.classList.remove('r','w');
+      if(!v){bl++;}else if(v===x.g){ok++;per[x.m][0]++;row.classList.add('r');}else{bad++;row.classList.add('w');S.err[x.id]=1;}
+      $('.just',row).innerHTML=`<b>Gabarito: ${x.g==='C'?'CERTO':'ERRADO'}</b>${v?(v===x.g?' · você acertou':' · você errou'):' · em branco'} · <span class="muted">${esc(x.f)} · ${MODS[x.m]}</span><br>${x.j}`;
+      $$('input',row).forEach(i=>i.disabled=true);});
+    sheet.classList.add('corrected');
+    const net=ok-bad;const tm=$('#simClock').textContent;
+    S.sims.push({set,date:new Date().toLocaleDateString('pt-BR'),ok,bad,bl,net,tm,per});save();
+    const perRows=Object.keys(per).map(m=>`<tr><td>${MODS[m]}</td><td>${per[m][0]}/${per[m][1]}</td></tr>`).join('');
+    $('#simRes').innerHTML=`<div class="grid" style="margin-top:12px">
+      <div class="stat"><b>${net}</b><span>nota líquida (de 20)</span></div>
+      <div class="stat"><b>${ok}</b><span>acertos</span></div><div class="stat"><b>${bad}</b><span>erros</span></div>
+      <div class="stat"><b>${bl}</b><span>em branco · tempo ${tm}</span></div></div>
+      <div class="box ${net>=15?'ok':(net>=10?'warn':'trap')}"><strong>${net>=15?'Nível de gabarito: mantenha a revisão.':(net>=10?'Bom caminho: reforce os módulos com erro.':'Base a construir: siga o plano e refaça o caderno de erros.')}</strong><p>Meta para a prova: 15 ou mais líquidos em 20. As justificativas estão abaixo de cada item.</p></div>
+      <div class="tbl"><table><tr><th>Módulo</th><th>Acertos</th></tr>${perRows}</table></div>`;
+    refreshAll();$('#simRes').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  $('#simRedo').onclick=()=>openSim(set);
+  area.scrollIntoView({behavior:'smooth',block:'start'});
+}
+$$('#simPick [data-sim]').forEach(b=>b.onclick=()=>openSim(b.dataset.sim));
+
+/* ---------- plano ---------- */
+function renderPlan(){const t=$('#planTbl');
+  PLAN.forEach((w,wi)=>{const tr=document.createElement('tr');
+    tr.innerHTML=`<td><b>${w[0]}</b><br><small>${w[1]}</small></td><td>${w[2].map((x,i)=>`<label style="display:flex;gap:8px;align-items:flex-start;margin:3px 0"><input type="checkbox" data-k="${wi}-${i}"> <span>${esc(x)}</span></label>`).join('')}</td><td class="pct-w"></td>`;
+    t.appendChild(tr);});
+  $$('#planTbl input').forEach(c=>{c.checked=!!S.plan[c.dataset.k];c.onchange=()=>{if(c.checked)S.plan[c.dataset.k]=1;else delete S.plan[c.dataset.k];save();planPct();};});
+  planPct();}
+function planPct(){$$('#planTbl tr').forEach(tr=>{const cs=$$('input',tr);if(!cs.length)return;const d=cs.filter(c=>c.checked).length;$('.pct-w',tr).textContent=d===cs.length?'✔':d+'/'+cs.length;});}
+
+/* ---------- desempenho ---------- */
+function renderPerf(){
+  const pool=Q.filter(x=>x.s==='pr'||x.s==='rx');const done=pool.filter(x=>S.ans[x.id]);const ok=done.filter(x=>S.ans[x.id]===x.g).length;
+  $('#globalPct').textContent=Math.round(100*done.length/pool.length)+'%';
+  const last=S.sims[S.sims.length-1];
+  $('#perfStats').innerHTML=`<div class="stat"><b>${done.length}/${pool.length}</b><span>itens de treino respondidos</span></div>
+  <div class="stat"><b>${done.length?Math.round(100*ok/done.length)+'%':'–'}</b><span>taxa de acerto no treino</span></div>
+  <div class="stat"><b>${S.sims.length}</b><span>simulados feitos</span></div>
+  <div class="stat"><b>${last?last.net:'–'}</b><span>última nota líquida (de 20)</span></div>`;
+  const rows=['off','red','com','seg','ia','eti','dad','vis'].map(m=>{const it=pool.filter(x=>x.m===m);const d=it.filter(x=>S.ans[x.id]);const o=d.filter(x=>S.ans[x.id]===x.g).length;
+    const p=d.length?Math.round(100*o/d.length):null;return {m,n:it.length,d:d.length,o,p};});
+  $('#perfTbl').innerHTML='<tr><th>Módulo</th><th>Respondidos</th><th>Acerto</th><th style="width:35%">Progresso</th></tr>'+rows.map(r=>`<tr><td><a href="#m-${r.m}">${MODS[r.m]}</a></td><td>${r.d}/${r.n}</td><td>${r.p===null?'–':r.p+'%'}</td><td><div class="bar"><i style="width:${Math.round(100*r.d/r.n)}%"></i></div></td></tr>`).join('');
+  $('#simHist').innerHTML=S.sims.length?'<div class="tbl"><table class="hist"><tr><th>Data</th><th>Simulado</th><th>Líquida</th><th>C/E/branco</th><th>Tempo</th></tr>'+S.sims.map(s=>`<tr><td>${s.date}</td><td>${s.set.toUpperCase()}</td><td><b>${s.net}</b></td><td>${s.ok}/${s.bad}/${s.bl}</td><td>${s.tm||''}</td></tr>`).join('')+'</table></div>':'<p class="muted">Nenhum simulado feito ainda.</p>';
+  const weak=rows.filter(r=>r.d>=4&&r.p!==null).sort((a,b)=>a.p-b.p).slice(0,2);
+  const untouched=rows.filter(r=>r.d===0).map(r=>MODS[r.m]);
+  let adv='';
+  if(weak.length)adv+=`Seus módulos mais fracos até agora: <b>${weak.map(w=>MODS[w.m]+' ('+w.p+'%)').join(' e ')}</b>. Releia as "Pegadinhas" deles e refaça o Caderno de erros. `;
+  if(untouched.length)adv+=`Ainda sem itens respondidos: ${untouched.join(', ')}.`;
+  if(adv)$('#perfAdvice').innerHTML='<strong>Recomendação</strong><p>'+adv+'</p>';
+  $$('nav.side a[data-mod]').forEach(a=>{const r=rows.find(x=>x.m===a.dataset.mod);$('.pct',a).textContent=r&&r.d?Math.round(100*r.d/r.n)+'%':'';});
+}
+$('#resetAll').onclick=()=>{if(!confirm('Apagar respostas, simulados, plano e caderno de erros?'))return;S={ans:{},flags:{},err:{},plan:{},sims:[],theme:S.theme};save();location.reload();};
+
+function refreshAll(self){$$('.quiz').forEach(b=>{if(b._score)b._score();});renderPerf();refreshErrCount();}
+
+/* ---------- nav ---------- */
+$('#menuBtn').onclick=()=>$('#side').classList.toggle('open');
+$$('nav.side a').forEach(a=>a.addEventListener('click',()=>$('#side').classList.remove('open')));
+const links=$$('nav.side a[href^="#"]');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));}});},{rootMargin:'-20% 0px -70% 0px'});$$('section.sec').forEach(s=>io.observe(s));}
+$('a[href="#erros"]').addEventListener('click',renderErr);
+
+setCountdown();applyTheme();renderPlan();$$('.quiz').forEach(renderQuiz);renderErr();renderPerf();refreshErrCount();
+</script>
+</body>
+</html>
