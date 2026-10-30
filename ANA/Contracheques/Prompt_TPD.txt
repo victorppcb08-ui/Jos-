@@ -1,0 +1,40 @@
+# Acredito que estou com um problema no cálculo do valor do imposto de renda do meu contracheque. 
+# Explico, comecei a fazer Trabalho em Período Definido – TPD no Governo do Distrito federal. A remuneração por tal trabalho tinha um contracheque específico e abatia 27,5% do valor bruto que eu estava recebendo. De outro lado, eu também sou servidora efetiva do GDF e tenho o contracheque principal que também desconta o valor do imposto de renda. Portanto são dois contracheques - o principal e o do TPD (veja a lei do TDP - LEI Nº 6.137, DE 20 DE ABRIL DE 2018). Hoje o meu vencimento básico da carreira (o inicial de quem entra na minha carreira) é R$ 8.382,37. Hoje estou no padrão 16 que tem como vencimento básico R$ 13.247,18. O cálculo do TPD é sobre o valor inicial da carreira, conforme a lei. E tem um adicional de 25% para trabalhos nos fins de semana, feriados e pontos facultativos.
+# Acontece que a partir do contracheque de outubro/2026, houve a fusão dos dois contracheques (o principal devido ao meu cargo efetivo de servidor com o do TPD, veja o contracheque de outubro). Assim, notei que a forma de cálculo, juntando os dois contracheques, acabou me favorecendo, ou melhor, realizando a forma correta do cálculo do imposto de renda que até onde conheço é escalonada (principal lei que regula a forma de cálculo do Imposto de Renda da Pessoa Física (IRPF) no Brasil é a Lei nº 9.250, de 26 de dezembro de 1995, que foi atualizada pela Lei nº 15.270, de 26 de novembro de 2025 (em vigor a partir de 2026).
+# Então, acredito que estava sendo calculado o imposto de renda de forma equivocada quando os dois valores (cargo principal + TPD), isto é, o montante que recolhi está a maior. 
+# Quero que estude profundamente a legislação que rege o caso e revise o quanto deveria ser cobrado ao longo desses meses (Jan a outubro). Faça as contas mês a mês. Coloquei no github todos os meus contracheques (o principal e o do TPD) NA PASTA - https://github.com/victorppcb08-ui/Jos-/upload/claude/serene-wozniak-lw3kod/ANA/Contracheques.
+# Utilize suas habilidades como contador e expert em tributação para realizar os cálculos corretamente dos valores devidos do imposto de renda Mês a Mês.
+# Um ponto importante é que no contracheque (mês 09) do TPD não houve a cobrança do imposto de renda. Talvez seja um erro ou um abatimento, ainda não sei.
+# Como já mencionei o contracheque de outubro abarcou os dois valores – principal e TPD. E acredito que a partir de então corrigiram o cálculo do imposto de renda. 
+# Se houver uma tributação a maior em meu desfavor irei solicitar a correção junto a secretaria do GDF para reaver o recurso.
+# Dito isto, pense profundamente e estude a matéria a respeito e realize esse trabalho. Promova os cálculos necessários, realizando as memórias de cálculo no excel para apresentação dos valores mês a mês.
+
+
+
+LEI Nº 6.137, DE 20 DE ABRIL DE 2018
+(regulamentado pelo(a) Decreto 39048 de 11/05/2018)
+(Autoria do Projeto: Poder Executivo)
+Cria a remuneração por Trabalho em Período Definido - TPD e prevê outras medidas para garantir a assistência à saúde no Distrito Federal.
+O GOVERNADOR DO DISTRITO FEDERAL, FAÇO SABER QUE A CÂMARA LEGISLATIVA DO DISTRITO FEDERAL DECRETA E EU SANCIONO A SEGUINTE LEI:
+Art. 1º Esta Lei estabelece medidas sobre a completude das escalas com a finalidade de promover a integralidade dos serviços de saúde e a adequada assistência à população.
+Art. 2º Pode ser autorizado, na forma do regulamento, trabalho em período definido - TPD, realizado em unidades de saúde pública do Distrito Federal, em caráter adicional à jornada regular, mediante cadastramento específico e termo de adesão, que podem ser feitos por meio eletrônico.
+§ 1º O TPD deve ser remunerado por valor fixo para qualquer servidor de mesmo cargo, calculado em função do número de horas realizadas.
+§ 2º O valor do TPD é calculado sobre o vencimento básico do último padrão vigente do respectivo cargo, com adicional de 25% em fins de semana, feriados e pontos facultativos e adicional noturno previsto em lei quando for o caso.
+§ 3º O pagamento é devido mediante comprovação da efetiva execução do serviço, podendo ser estabelecidos requisitos de produtividade como condição para o recebimento.
+§ 4º O trabalho pode ser realizado na unidade de lotação do servidor ou em outra unidade que necessite.
+§ 5º O valor do TPD não se incorpora aos vencimentos nem aos proventos da aposentadoria ou pensão, como também não serve de base de cálculo de qualquer benefício, adicional ou vantagem.
+§ 6º É considerada infração disciplinar a ausência injustificada no horário em que o servidor houver se comprometido a comparecer para o TPD, sem prejuízo da responsabilização civil, ética e criminal pelos danos causados.
+§ 7º Cabe ao regulamento estabelecer as regras de adesão e credenciamento, os limites do TPD por servidor e por unidade e os mecanismos de controle de frequência e de produtividade, tendo em vista a proteção da saúde laboral e a qualidade dos serviços prestados.
+§ 8º O TPD não é devido no caso de pagamento de adicional pela prestação de serviço extraordinário e a ele não se aplica o limite para a jornada extraordinária.
+§ 9º A remuneração por TPD deve ser paga ao servidor em até 60 dias, contados a partir do primeiro dia útil do mês subsequente ao da prestação dos serviços.
+Art. 3º Nas unidades de saúde com funcionamento ininterrupto, admite-se jornada de 18 horas consecutivas, desde que, entre um período de trabalho e outro, seja garantido descanso não inferior a 6 horas.
+§ 1º Faz parte do limite de 18 horas previsto no caput eventual realização de TPD ou de jornada extraordinária.
+§ 2º Admitem-se jornadas de plantão de 4, 5, 6, 8, 10, 11, 12, e 18 horas, dependendo da lotação do servidor e da necessidade da Administração Pública.
+Art. 4º O disposto nesta Lei pode ser aplicado:
+I - ao servidor efetivo ocupante de cargo em comissão ou função de confiança na Secretaria de Estado da Saúde;
+II - ao servidor efetivo da Fundação Hemocentro de Brasília;
+III - ao servidor efetivo da Secretaria de Saúde cedido ou à disposição de outro órgão ou entidade, desde que remunerado pelo órgão de origem;
+IV - ao pessoal contratado por tempo determinado.
+Parágrafo único. A autorização para realização de TPD é condicionada à compatibilidade de horário, sem prejuízo da respectiva remuneração.
+Art. 5º As despesas decorrentes desta Lei correm à conta do orçamento do Distrito Federal.
+Art. 6º Esta Lei entra em vigor na data de sua publicação.
